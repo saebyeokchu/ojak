@@ -1,0 +1,16 @@
+<svg width="128" height="128" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle -->
+  <circle cx="64" cy="64" r="60" fill="#e3c06a" opacity="0.3"/>
+
+  <!-- Animated number "1" -->
+  <text x="50%" y="50%" text-anchor="middle" fill="#d1b3b3" font-size="64" font-family="Arial" dy=".3em">
+    <animate attributeName="opacity" from="0" to="1" dur="1.5s" repeatCount="0" />
+    1
+  </text>
+
+  <!-- Geometric circles inspired by your logo -->
+  <!-- <circle cx="64" cy="88" r="8" fill="#e3c06a" />
+  <circle cx="100" cy="68" r="8" fill="#96b7d9" />
+  <circle cx="44" cy="68" r="8" fill="#d1b3b3" />
+  <circle cx="64" cy="48" r="8" fill="#bab07d" /> -->
+</svg>

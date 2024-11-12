@@ -1,0 +1,20 @@
+
+@media (max-width: 576px) { 
+    .carousel-inner-lg {
+        display : none;
+    }
+
+    .carousel-inner-sm {
+        display :block;
+    }
+}
+
+@media (min-width: 576px) { 
+    .carousel-inner-lg {
+        display : block;
+    }
+
+    .carousel-inner-sm {
+        display : none;
+    }
+}

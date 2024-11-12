@@ -1,0 +1,166 @@
+.body {
+    margin:0px;
+    font-family: "Nanum Gothic", sans-serif;
+}
+
+
+.slider-btn {
+    background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
+.page-header {
+	background-image: url('../img/hangi3.jpg');
+	background-repeat: no-repeat;
+	background-size: cover ;
+	min-height: 360px;
+
+	.title {
+		bottom:55px;
+		left:55px;
+        margin-top:150px;
+		.main-title {
+			font-size: 48px;
+			color:#ddd;
+			text-shadow: 2px 4px 3px rgba(0,0,0,0.6);
+		}
+
+		.sub-title {
+			font-size: 18px;
+			color:#ddd;
+			text-shadow: 1px 1px 1px rgba(0,0,0,0.6);
+		}
+	}
+}
+
+.gallery-detail-title {
+    font-size:48px;
+    font-weight: bold;
+}
+
+.gallery-detail-content {
+
+}
+
+.hover-underline:hover {
+    text-decoration: underline;
+}
+
+
+/* Pagination */
+.page-item {
+    color : #686868;
+}
+/* .pagination-outer{ text-align: center; }
+.pagination{
+    font-family: 'Poppins', sans-serif;
+    display: inline-flex;
+    position: relative;
+}
+.pagination li a.page-link{
+    color: #666;
+    background: #ddd;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 35px;
+    height: 35px;
+    width: 35px;
+    padding: 0;
+    margin: 0 5px;
+    border: none;
+    border-radius: 5px;
+    position: relative;
+    z-index: 1;
+    transition: all 0.4s ease 0s;
+}
+.pagination li:first-child a.page-link,
+.pagination li:last-child a.page-link{
+    font-size: 30px;
+    line-height: 32px;
+    font-weight: 400;
+}
+.pagination li a.page-link:hover,
+.pagination li a.page-link:focus,
+.pagination li.active a.page-link:hover,
+.pagination li.active a.page-link{
+    color: #fff;
+    background: #9a8478;
+    box-shadow: 8px 0 15px rgba(0,0,0,0.7) inset;
+}
+.pagination li a.page-link:before{
+    content: '';
+    background-color: #ddd;
+    height: 4px;
+    width: 100%;
+    border-radius: 10px;
+    transform: scaleX(0);
+    position: absolute;
+    left: 0;
+    bottom: -7px;
+    transition: all 0.3s ease 0s;
+}
+.pagination li a.page-link:hover:before,
+.pagination li a.page-link:focus:before,
+.pagination li.active a.page-link:hover:before,
+.pagination li.active a.page-link:before{
+    background-color: #9a8478;
+    transform: scaleX(1);
+}
+@media only screen and (max-width: 480px){
+    .pagination{
+        font-size: 0;
+        display: inline-block;
+    }
+    .pagination li{
+        display: inline-block;
+        vertical-align: top;
+        margin: 10px 0;
+    }
+} */
+
+
+/* Spacing */
+.pt-15 {
+	padding-top: 15px;
+}
+
+.pt-30 {
+	padding-top: 30px;
+}
+
+.pt-70 {
+	padding-top: 70px;
+}
+
+.pt-100 {
+	padding-top: 100px;
+}
+
+.pb-30 {
+	padding-bottom: 30px;
+}
+
+.pb-100 {
+	padding-bottom: 100px;
+}
+
+/* Button */ 
+.long-black-btn {
+    background-color : black;
+    padding-top:20px;
+    padding-bottom:20px;
+    border: 1px solid gray;
+    color:white;
+    width:100%;
+}
+
+.long-black-btn:hover {
+    background : rgb(164, 164, 164);   
+    color:black; 
+    transition: all 1s ease-out;
+}
