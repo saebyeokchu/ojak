@@ -50,15 +50,9 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-<<<<<<< HEAD
                 <a class="nav-link active" aria-current="page" href="/brand">브랜드</a>
                 <a class="nav-link" href="/gallery">작품</a>
                 <a class="nav-link" href="/community">커뮤니티</a>
-=======
-                <a class="nav-link active" aria-current="page" href="/public/brand">브랜드</a>
-                <a class="nav-link" href="/public/gallery">작품</a>
-                <a class="nav-link" href="/public/community">커뮤니티</a>
->>>>>>> 89245cb64764c0e193cd02077b7b39eed607c13d
             </div>
             </div>
         </div>
