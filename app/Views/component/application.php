@@ -12,9 +12,9 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="/public/css/global.css">
-    <link rel="stylesheet" href="/public/css/image.css">
-    <link rel="stylesheet" href="/public/css/responsive.css">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/image.css">
+    <link rel="stylesheet" href="css/responsive.css">
     <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700,800" rel="stylesheet">
    
 

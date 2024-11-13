@@ -6,9 +6,7 @@ class Home extends BaseController
 {
     public function index(): string
     {
-        return "hi";
-        
-        $data['yield']       = '/home/test';
+        $data['yield']       = '/home/index';
         return view('/component/application', $data);
     }
 }

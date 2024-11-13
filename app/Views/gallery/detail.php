@@ -1,7 +1,7 @@
 <div class="container" style="padding-top:70px;padding-bottom:70px;">
     <div class="row">
         <div class="col-lg-6 col-sm-12">
-            <img src="/public/img/carousel3.jpg" class="img-fluid" />
+            <img src="img/carousel3.jpg" class="img-fluid" />
         </div>
         <div class="col-lg-6 col-sm-12 position-relative">
             <div class="position-absolute top-0">
@@ -14,7 +14,7 @@
 
 
             <div class="position-absolute bottom-0 w-100" >
-                <a href="/public/gallery" ><button class="long-black-btn">
+                <a href=" /gallery" ><button class="long-black-btn">
                     목록으로 돌아가기
                 </button></a>
             </div>
