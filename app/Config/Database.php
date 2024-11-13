@@ -28,7 +28,7 @@ class Database extends Config
         'DSN'          => '',
         'hostname'     => 'localhost',
         'username'     => 'root',
-        'password'     => '1234',
+        'password'     => 'ho@/54vat8ZG',
         'database'     => 'ojak',
         'DBDriver'     => 'MySQLi',
         'DBPrefix'     => '',
