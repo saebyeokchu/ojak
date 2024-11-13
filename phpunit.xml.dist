@@ -49,7 +49,11 @@
         <!-- Directory containing the Paths config file -->
         <const name="CONFIGPATH" value="./app/Config/"/>
         <!-- Directory containing the front controller (index.php) -->
+<<<<<<< HEAD
         <const name="PUBLICPATH" value=". /"/>
+=======
+        <const name="PUBLICPATH" value="./public/"/>
+>>>>>>> 89245cb64764c0e193cd02077b7b39eed607c13d
         <!-- Database configuration -->
         <!-- Uncomment to provide your own database for testing
             <env name="database.tests.hostname" value="localhost"/>

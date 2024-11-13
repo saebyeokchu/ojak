@@ -34,4 +34,8 @@
             </div>
         </div>
     </div>
+<<<<<<< HEAD
 </footer>
+=======
+</footer>
+>>>>>>> 89245cb64764c0e193cd02077b7b39eed607c13d

@@ -34,7 +34,11 @@ class SiteURI extends URI
      * The path part of baseURL.
      *
      * The baseURL "http://example.com/" → '/'
+<<<<<<< HEAD
      * The baseURL "http://localhost:8888/ci431 /" → '/ci431 /'
+=======
+     * The baseURL "http://localhost:8888/ci431/public/" → '/ci431/public/'
+>>>>>>> 89245cb64764c0e193cd02077b7b39eed607c13d
      */
     private string $basePathWithoutIndexPage;
 
@@ -46,8 +50,13 @@ class SiteURI extends URI
     /**
      * List of URI segments in baseURL and indexPage.
      *
+<<<<<<< HEAD
      * If the URI is "http://localhost:8888/ci431 /index.php/test?a=b",
      * and the baseURL is "http://localhost:8888/ci431 /", then:
+=======
+     * If the URI is "http://localhost:8888/ci431/public/index.php/test?a=b",
+     * and the baseURL is "http://localhost:8888/ci431/public/", then:
+>>>>>>> 89245cb64764c0e193cd02077b7b39eed607c13d
      *   $baseSegments = [
      *       0 => 'ci431',
      *       1 => 'public',
@@ -62,8 +71,13 @@ class SiteURI extends URI
      * The word "URI Segments" originally means only the URI path part relative
      * to the baseURL.
      *
+<<<<<<< HEAD
      * If the URI is "http://localhost:8888/ci431 /index.php/test?a=b",
      * and the baseURL is "http://localhost:8888/ci431 /", then:
+=======
+     * If the URI is "http://localhost:8888/ci431/public/index.php/test?a=b",
+     * and the baseURL is "http://localhost:8888/ci431/public/", then:
+>>>>>>> 89245cb64764c0e193cd02077b7b39eed607c13d
      *   $segments = [
      *       0 => 'test',
      *   ];
