@@ -19,13 +19,6 @@
 
             }
         ?>
-        
-        <!-- <div class="carousel-item">
-            <img src="img/logo.png" class="d-block" width="100%" style="max-height:800px; min-height: 400px; object-fit: cover;">
-        </div>
-        <div class="carousel-item">
-            <img src="img/logo.png" class="d-block" width="100%" style="max-height:800px; min-height: 400px; object-fit: cover;">
-        </div> -->
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
