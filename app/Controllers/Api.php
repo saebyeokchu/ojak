@@ -6,6 +6,13 @@ use CodeIgniter\Controller;
 
 class Api extends Controller
 {
+    public function getRowCount() {
+        $model = new \App\Models\CommunityModel();
+
+        return $model->countAll();
+    }
+
+
     public function getAll($pageIndex) {
         $model = new \App\Models\CommunityModel();
         $start_row = (int)($pageIndex)-1;
