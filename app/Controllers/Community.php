@@ -9,15 +9,19 @@ class Community extends BaseController
     public function index($num): string
     {
         $api = new \App\Controllers\Api();
-        $result = $api -> getAll($num);
+        $rowCount = $api -> getRowCount();
+        $data['contents']['rowCount'] = $rowCount;
+        $data['contents']['pageIndex'] = $num;
 
-        if($result['status'] == 'success') {
-            $data['contents']['posts'] = $result['posts'];
-            $data['contents']['pageIndex'] = $num;
-            $data['contents']['rowCount'] = $result['rowCount'];
-
-            if($result['rowCount'] > 5){
-                $data['contents']['pageIndex'] = 1;
+        if($rowCount > 0){
+            $result = $api -> getAll($num);
+            
+            if($result['status'] == 'success') {
+                $data['contents']['posts'] = $result['posts'];
+    
+                if($rowCount > 5){
+                    $data['contents']['pageIndex'] = 1;
+                }
             }
         }
         
