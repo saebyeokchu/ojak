@@ -1,7 +1,22 @@
-<div class="hovereffect">
-    <img class="img-responsive w-100" height="200" src="<?= $imgUrl ?>" alt="" style="object-fit: cover">
+<div id="hide-content-<?=$item['id']?>" style="visibility:hidden;height:0px;">
+    <?= $item["content"] ?>
+</div>
+
+<div class="hovereffect cursor-pointer">
+    <img class="img-responsive w-100" height="200" src="/img/<?= $item['img_url'] ?>" alt="" style="object-fit: cover">
     <div class="overlay">
     <!-- <h2>Hover effect 1</h2> -->
-    <a class="info" href="gallery/1">자세히 보기</a>
+        <a class="info " onclick="moveToDetail('<?=$item['id']?>','<?=$item['title']?>','<?=$item['img_url']?>')">자세히 보기</a>
     </div>
 </div>
+
+<script>
+    function moveToDetail(id,title,img_url){
+        let passData = 'title='+title;
+        passData += '&content='+ encodeURIComponent(document.getElementById('hide-content-'+id).innerHTML.trim());
+        passData += '&img_url='+img_url;
+
+        location.href="/gallery/"+id+"?"+passData;
+        // console.log("/community/edit/"+pageIndex+"?"+passData)
+    }
+</script>

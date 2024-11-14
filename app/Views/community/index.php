@@ -42,7 +42,7 @@
         <table class="table align-middle mb-0 bg-white mt-2">
             <tbody>
                 <?php foreach($posts as $post) { ?>
-                <div id="hidden-content" style="visibility: hidden;">
+                <div id="hidden-content" style="visibility: hidden; height:0px;">
                     <?=$post['content']?>
                 </div>
                 <tr>
@@ -51,16 +51,28 @@
                             <a href="/community/detail/<?= $post['id'] ?>/<?= $pageIndex ?>" class="text-secondary no-text-decoration"><?= $post['title'] ?></a>
                         </p>
                     </td>
-                    <td class="d-flex justify-content-end pt-3 ps-2">
-                        <span class="sm-black-btn cursor-pointer me-3" onclick="moveToEditor('<?=$post['id']?>','<?=$post['title']?>')">
-                            수정
-                        </span>
-                        <span class="sm-black-btn cursor-pointer" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                            삭제
-                        </span>
+                    <td class="d-flex justify-content-end">
+                        <div class="for-lg  pt-3 pb-3">
+                            <span class="sm-black-btn cursor-pointer me-3" onclick="moveToEditor('<?=$post['id']?>','<?=$post['title']?>')">
+                                수정
+                            </span>
+                            <span class="sm-black-btn cursor-pointer" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                삭제
+                            </span>
+                        </div>
 
-                        <!-- Modal -->
-                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="for-sm  pt-3 pb-3">
+                            <button class="btn btn-light" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                :
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li onclick="moveToEditor('<?=$post['id']?>','<?=$post['title']?>')"><a class="dropdown-item" >수정</a></li>
+                                <li data-bs-toggle="modal" data-bs-target="#exampleModal"><a class="dropdown-item">삭제</a></li>
+                            </ul>
+                        </div>
+
+                         <!-- Modal -->
+                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                 <!-- <div class="modal-header">
@@ -130,7 +142,7 @@
                 axios.post('/api/deletePost', postData).then(function(response){
                     console.log("success:", response);
                     window.alert(response.data.message)
-                    location.reload();
+                    history.back();
                     return;
                 }).catch(function(error){
                     console.log("error:", error);

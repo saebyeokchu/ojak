@@ -40,9 +40,7 @@
     <!-- SCRIPTS -->
     <script>
         AOS.init();
-    </script>
-    
-
+        </script>
     <!-- -->
 
 </body>

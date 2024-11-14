@@ -6,6 +6,43 @@ use CodeIgniter\Controller;
 
 class Api extends Controller
 {
+    //Gallery
+    public function getAllGallery() {
+        $model = new \App\Models\GalleryModel();
+        $items = $model->findAll(); 
+
+        if ($items) {
+            return [
+                'status' => 'success',
+                'items' => $items
+            ];
+        } else {
+            return [
+                'status' => 'error',
+                'message' => 'No data',
+            ];
+        }
+    }
+
+    public function getGalleryById($id) {
+        $model = new \App\Models\GalleryModel();
+
+        $item = $model->find($id);
+
+        if ($item) {
+            return [
+                'status' => 'success',
+                'item' => $item
+            ];
+        } else {
+            return [
+                'status' => 'error',
+                'message' => 'No data',
+            ];
+        }
+    }
+
+    // Post
     public function getRowCount() {
         $model = new \App\Models\CommunityModel();
 
@@ -100,7 +137,7 @@ class Api extends Controller
         if($result){
             return $this->response->setJSON([
                 'status' => 'success',
-                'message' => '성공적으로 삭제되었습니다.'.$id,
+                'message' => '성공적으로 삭제되었습니다.',
             ]);
         } else {
             return $this->response->setJSON([

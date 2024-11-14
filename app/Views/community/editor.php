@@ -24,17 +24,17 @@
 
     <div class = "for-sm ">
         <div class="d-flex justify-content-between pt-4 pb-2 " >
-            <div class="ps-3 w-75">
-                <input type="text" class="form-control community-title" aria-describedby="communityTitleSM" placeholder="제목" />
-            </div>
-            <div class="dropdown pe-3">
-                <button class="btn btn-light" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    :
-                </button>
-                <ul class="dropdown-menu">
-                    <li  onclick="savedata(event)"><a class="dropdown-item" >저장</a></li>
-                    <li onclick="goBack(event)" ><a class="dropdown-item"  >취소</a></li>
-                </ul>
+                <div class="ps-3 w-75">
+                    <input type="text" class="form-control community-title" aria-describedby="communityTitleSM" placeholder="제목" />
+                </div>
+                <div class="dropdown pe-3">
+                    <button class="btn btn-light" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        :
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li  onclick="savedata(event)"><a class="dropdown-item" >저장</a></li>
+                        <li onclick="goBack(event)" ><a class="dropdown-item"  >취소</a></li>
+                    </ul>
                 </div>
             </div>
         </div>

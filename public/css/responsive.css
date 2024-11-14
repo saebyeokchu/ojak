@@ -33,6 +33,7 @@
     }
 
 
+
 }
 
 @media (min-width: 576px) { 
@@ -68,4 +69,24 @@
         display :none;
     }
 
+}
+
+@media (min-width: 1200px) { 
+    .for-md-show {
+        display : block;
+    }
+
+    .for-md-hide {
+        display : none;
+    }
+}
+
+@media (max-width: 1200px) { 
+    .for-md-show {
+        display : none;
+    }
+
+    .for-md-hide {
+        display : block;
+    }
 }
