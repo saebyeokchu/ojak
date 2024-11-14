@@ -1,3 +1,12 @@
+<?php
+    $count = 0;
+
+    if(isset($contents)){
+        $items = $contents['items'];
+        $count = count($items);
+    }
+?>
+
 <!-- Gallery -->
 <div class="page-header d-flex justify-content-center text-center">
     <div class="title" data-aos="fade-up" data-aos-duration="1500">
@@ -10,64 +19,28 @@
 
 
 <!-- Gallery Contents -->
+<?php if($count == 0){ ?>
+    <div class="page-wrap d-flex flex-row align-items-center" style="min-height: 60vh;">
+        <div class="container my-3">
+            <div class="row justify-content-center text-center">
+                <span class="h3">등록된 작품이 없습니다.</span>
+            </div>
+        </div>
+    </div>
+<?php }else{ ?>
 <div class="container pt-100 pb-100">
-    <div class="row pt-15 gy-4" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="700">
-        <div class="col-lg-3 col-sm-6 col-xs-12"> 
-            <?= view('gallery/component/frame', array('imgUrl' => 'img/hangi2.gif')); ?>
+    <?php for($i=0;$i<$count;$i=$i+4) { ?>
+        <div class="row pt-15 gy-4" data-aos="fade-up" data-aos-duration="1500" >
+            <?php foreach($items as $item) { ?>
+                    <div class="col-lg-3 col-sm-6 col-xs-12"> 
+                        <?= view('gallery/component/frame', array('item' => $item)); ?>
+                    </div>
+            <?php } ?>
         </div>
-        <div class="col-lg-3 col-sm-6 col-xs-12">
-            <?= view('gallery/component/frame', array('imgUrl' => 'img/hangi2.gif')); ?>
-        </div>
-        <div class="col-lg-3 col-sm-6 col-xs-12">
-            <?= view('gallery/component/frame', array('imgUrl' => 'img/hangi2.gif')); ?>
-        </div>
-        <div class="col-lg-3 col-sm-6 col-xs-12">
-            <?= view('gallery/component/frame', array('imgUrl' => 'img/hangi2.gif')); ?>
-        </div>
-    </div>
-    <div class="row pt-30 gy-4" data-aos="fade-up" data-aos-duration="1500" >
-        <div class="col-lg-3 col-sm-6 col-xs-12"> 
-            <?= view('gallery/component/frame', array('imgUrl' => 'img/hangi2.gif')); ?>
-        </div>
-        <div class="col-lg-3 col-sm-6 col-xs-12">
-            <?= view('gallery/component/frame', array('imgUrl' => 'img/hangi2.gif')); ?>
-        </div>
-        <div class="col-lg-3 col-sm-6 col-xs-12">
-            <?= view('gallery/component/frame', array('imgUrl' => 'img/hangi2.gif')); ?>
-        </div>
-        <div class="col-lg-3 col-sm-6 col-xs-12">
-            <?= view('gallery/component/frame', array('imgUrl' => 'img/hangi2.gif')); ?>
-        </div>
-    </div>
-    <div class="row pt-30 gy-4" data-aos="fade-up" data-aos-duration="1500">
-        <div class="col-lg-3 col-sm-6 col-xs-12"> 
-            <?= view('gallery/component/frame', array('imgUrl' => 'img/hangi2.gif')); ?>
-        </div>
-        <div class="col-lg-3 col-sm-6 col-xs-12">
-            <?= view('gallery/component/frame', array('imgUrl' => 'img/hangi2.gif')); ?>
-        </div>
-        <div class="col-lg-3 col-sm-6 col-xs-12">
-            <?= view('gallery/component/frame', array('imgUrl' => 'img/hangi2.gif')); ?>
-        </div>
-        <div class="col-lg-3 col-sm-6 col-xs-12">
-            <?= view('gallery/component/frame', array('imgUrl' => 'img/hangi2.gif')); ?>
-        </div>
-    </div>
-    <div class="row pt-30 gy-4" data-aos="fade-up" data-aos-duration="1500">
-        <div class="col-lg-3 col-sm-6 col-xs-12"> 
-            <?= view('gallery/component/frame', array('imgUrl' => 'img/hangi2.gif')); ?>
-        </div>
-        <div class="col-lg-3 col-sm-6 col-xs-12">
-            <?= view('gallery/component/frame', array('imgUrl' => 'img/hangi2.gif')); ?>
-        </div>
-        <div class="col-lg-3 col-sm-6 col-xs-12">
-            <?= view('gallery/component/frame', array('imgUrl' => 'img/hangi2.gif')); ?>
-        </div>
-        <div class="col-lg-3 col-sm-6 col-xs-12">
-            <?= view('gallery/component/frame', array('imgUrl' => 'img/hangi2.gif')); ?>
-        </div>
-    </div>
+    <?php } ?>
+   
 </div>
+<?php } ?>
 
 <!-- Pagination -->
 <!-- <div class="d-flex justify-content-center pt-30 pb-30">

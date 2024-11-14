@@ -47,6 +47,12 @@
 
 }
 
+.gallery-detail-title-sm {
+    font-size:36px;
+    font-weight: bold;
+}
+
+
 .hover-underline:hover {
     text-decoration: underline;
 }
