@@ -1,122 +1,123 @@
+<?php
+    $posts = $contents['posts'];
+    $rowCount = (int)$contents['rowCount'];
+    $pageIndex = $contents['pageIndex'];
+    $pageStartIndex = floor((int)$contents['pageIndex'] / 5);
+    $pageLastIndex = $pageStartIndex + floor( $rowCount / 5 ) ;
+?>
+
 <!-- Community -->
 <div class="page-header d-flex justify-content-center text-center">
     <div class="title" data-aos="fade-up" data-aos-duration="1500">
         <p class="main-title">커뮤니티</p>
-        <p class="sub-title">오작의 멤버들이 자유롭게 의견을 주고 받는 공간입니다.</p>
+        <p class="sub-title sub-title-lg">오작의 멤버들이 자유롭게 의견을 주고 받는 공간입니다.</p>
+        <p class="sub-title sub-title-sm">오작의 멤버들이 자유롭게 <br/>의견을 주고 받는 공간입니다.</p>
     </div>
 </div>
 
 <div class="bg-light" style="padding:100px 25px 100px 25px">
-    <div class="d-flex justify-content-end hover-underline" style="cursor: pointer;">
-        새로운 글 작성하기
-    </div>
+    <a href="/community/new" class="text-secondary no-text-decoration">
+        <div class="d-flex justify-content-end hover-underline" style="cursor: pointer;">
+            새로운 글 작성하기
+        </div>
+    </a>
     <table class="table align-middle mb-0 bg-white mt-2">
         <tbody>
+            <?php foreach($posts as $post) { ?>
             <tr>
-                <td>
-                    <p class="pt-3 ps-2">게시판 글 제목입니다</p>
-                <td>
-                    <button type="button" class="btn btn-sm btn-rounded btn-secondary">
-                    수정
-                    </button>
+                <td class="pt-3 ps-2">
+                    <p class="hover-underline cursor-pointer">
+                        <a href="/community/detail/<?= $post['id'] ?>/<?= $pageIndex ?>" class="text-secondary no-text-decoration"><?= $post['title'] ?></a>
+                    </p>
+                </td>
+                <td class="d-flex justify-content-end pt-3 ps-2">
+                    <span class="sm-black-btn cursor-pointer me-3" onclick="moveToEditor('<?=$post['id']?>','<?=$post['title']?>','<?=$post['content']?>')">
+                        수정
+                    </span>
+                    <span class="sm-black-btn cursor-pointer" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        삭제
+                    </span>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                            <!-- <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div> -->
+                            <div class="modal-body">
+                                게시글을 영구히 삭제하시겠습니까?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="sm-black-btn" data-bs-dismiss="modal">닫기</button>
+                                <button type="button" class="sm-black-btn" onclick="deletePost('<?=$post['id']?>')">삭제하기</button>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
                 </td>
             </tr>
-            <tr>
-                <td >
-                    <p class="pt-3  ps-2">게시판 글 제목입니다</p>
-                <td>
-                    <button type="button" class="btn btn-sm btn-rounded btn-secondary">
-                    수정
-                    </button>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <p class="pt-3  ps-2">게시판 글 제목입니다</p>
-                <td>
-                    <button type="button" class="btn btn-sm btn-rounded btn-secondary">
-                    수정
-                    </button>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <p class="pt-3  ps-2">게시판 글 제목입니다</p>
-                <td>
-                    <button type="button" class="btn btn-sm btn-rounded btn-secondary">
-                    수정
-                    </button>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <p class="pt-3  ps-2">게시판 글 제목입니다</p>
-                <td>
-                    <button type="button" class="btn btn-sm btn-rounded btn-secondary">
-                    수정
-                    </button>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <p class="pt-3  ps-2">게시판 글 제목입니다</p>
-                <td>
-                    <button type="button" class="btn btn-sm btn-rounded btn-secondary">
-                    수정
-                    </button>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <p class="pt-3  ps-2">게시판 글 제목입니다</p>
-                <td>
-                    <button type="button" class="btn btn-sm btn-rounded btn-secondary">
-                    수정
-                    </button>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <p class="pt-3  ps-2">게시판 글 제목입니다</p>
-                <td>
-                    <button type="button" class="btn btn-sm btn-rounded btn-secondary">
-                    수정
-                    </button>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <p class="pt-3  ps-2">게시판 글 제목입니다</p>
-                <td>
-                    <button type="button" class="btn btn-sm btn-rounded btn-secondary">
-                    수정
-                    </button>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <p class="pt-3  ps-2">게시판 글 제목입니다</p>
-                <td>
-                    <button type="button" class="btn btn-sm btn-rounded btn-secondary">
-                    수정
-                    </button>
-                </td>
-            </tr>
+            <?php } ?>
         </tbody>
     </table>
 
     
+
     <nav aria-label="Page navigation example" class="pt-30">
         <ul class="pagination justify-content-center" >
-            <li class="page-item">
-                <a class="page-link" href="#" tabindex="-1"><span class="text-secondary">Previous</span></a>
-            </li>
-            <li class="page-item"><a class="page-link" href="#"><span class="text-secondary">1</span></a></li>
-            <li class="page-item"><a class="page-link" href="#"><span class="text-secondary">2</span></a></li>
-            <li class="page-item"><a class="page-link" href="#"><span class="text-secondary">3</span></a></li>
-            <li class="page-item">
-                <a class="page-link" href="#"><span class="text-secondary">Next</span></a>
-            </li>
+            <?php if($pageIndex != $pageStartIndex + 1) { ?>
+                <li class="page-item">
+                    <a class="page-link" href="/community/<?=$pageStartIndex + 1?>" tabindex="-1"><span class="text-secondary"><</span></a>
+                </li>
+            <?php } ?>
+            <?php for($i = $pageStartIndex + 1 ; $i <= $pageLastIndex + 1 ; $i++) { ?>
+                <li class="page-item"><a class="page-link" href="/community/<?=$i?>"><span class="text-secondary">
+                    <?= $i ?>
+                </span></a></li>
+            <?php } ?>
+            <?php if($pageIndex != $pageLastIndex + 1 ) { ?>
+                <li class="page-item">
+                    <a class="page-link" href="/community/<?=$pageLastIndex + 1?>"><span class="text-secondary">></span></a>
+                </li>
+            <?php } ?>
         </ul>
     </nav>
 </div>
+
+<script>
+    function moveToEditor(id,title,content){
+        let passData = 'title='+title;
+        passData += '&content='+content;
+        passData += '&id='+id;
+
+        const pageIndex = <?= $pageIndex ?>;
+
+        location.href="/community/edit/"+pageIndex+"?"+passData;
+    }
+
+    function deletePost(id){
+        if(id){
+            try {
+                var postData = new FormData();
+                postData.append('id',id);
+
+                axios.post('/api/deletePost', postData).then(function(response){
+                    console.log("success:", response);
+                    window.alert(response.data.message)
+                    location.reload();
+                    return;
+                }).catch(function(error){
+                    console.log("error:", error);
+                });
+                
+                return;
+            } catch (error) {
+                console.error('Error deleting data:', error);
+            }
+        }
+
+        window.alert("게시물을 삭제할 수 없습니다. 잠시 후 다시 시도하여 주세요.")
+        
+    }
+</script>

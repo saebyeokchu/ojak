@@ -52,7 +52,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="col-sm" data-aos="fade-left" data-aos-duration="1500">
+                <div class="col-sm" data-aos="fade-up" data-aos-duration="1500">
                     <img src="img/hangi1.png" width="100%" height="auto" />
                 </div>
             </div>
@@ -80,7 +80,7 @@
         <h6>Brand Logo / Slogan </h6>
 
         <div style="padding-top: 70px;">
-            <img src="img/logo.png" width="600px" height="auto"  data-aos="fade-up" data-aos-duration="1500" />
+            <img src="img/logo.png" width="80%" height="auto"  data-aos="fade-up" data-aos-duration="1500" />
         </div>
     </div>
 
@@ -108,7 +108,7 @@
         <div class="d-flex justify-content-center pt-70">
             <!-- * 카카오맵 - 큰 화면 -->
             <!-- 1. 지도 노드 -->
-            <div id="daumRoughmapContainer1731324282394" class="root_daum_roughmap root_daum_roughmap_landing"></div>
+            <div id="daumRoughmapContainer1731324282394" class="root_daum_roughmap root_daum_roughmap_landing w-75 h-auto"></div>
         </div>
 
 

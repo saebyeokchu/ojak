@@ -2,7 +2,9 @@
 <div class="page-header d-flex justify-content-center text-center">
     <div class="title" data-aos="fade-up" data-aos-duration="1500">
         <p class="main-title">작품</p>
-        <p class="sub-title">오작의 커뮤니티 작가들이 제작한 작품을 한곳에서 만나보세요.</p>
+        <p class="sub-title sub-title-lg">오작의 커뮤니티 작가들이 제작한 작품을 한곳에서 만나보세요.</p>
+        <p class="sub-title sub-title-sm">오작의 커뮤니티 작가들이 <br />제작한 작품을 한곳에서 만나보세요.</p>
+
     </div>
 </div>
 

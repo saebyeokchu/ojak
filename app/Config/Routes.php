@@ -10,6 +10,15 @@ $routes->get('/home', 'Home::index');
 $routes->get('/brand', 'Brand::index');
 $routes->get('/gallery', 'Gallery::index');
 $routes->get('/gallery/:num', 'Gallery::detail/$1');
-$routes->get('/community', 'Community::index');
 
+// Coummunity
+$routes->get('/community/(:num)', 'Community::index/$1');
+$routes->get('/community/new', 'Community::new');
+$routes->get('/community/edit/(:num)', 'Community::edit/$1');
+$routes->get('/community/detail/(:num)/(:num)', 'Community::detail/$1/$2');
+
+// Api
+$routes->post('/api/insertPost', 'Api::insertPost');
+$routes->post('/api/deletePost', 'Api::deletePost');
+$routes->post('/api/getById/(:id)', 'Api::getById/$1');
 
