@@ -26,12 +26,14 @@ class Community extends BaseController
         }
         
         $data['yield']       = 'community/index';
+        
         return view('component/application', $data);
     }
 
     public function new(): string {
         $data['yield']       = 'community/editor';
         $data['view_footer'] = false;
+        $data['contents']['pageIndex'] = 1;
         return view('component/application', $data);
     }
 
