@@ -1,9 +1,9 @@
 <!-- HEADER: MENU + HEROE SECTION -->
 <header class="fixed-top bg-white">
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-            <a class="navbar-brand ps-5" href="/">
-                <svg id="_레이어_2" data-name="레이어 2" xmlns="http://www.w3.org/2000/svg" width="auto" height="50" viewBox="0 0 113.4 196.35">
+        <div class="container-fluid ">
+            <a class="navbar-brand ms-3" href="/">
+                <svg id="logo-img" data-name="logo-img" xmlns="http://www.w3.org/2000/svg" width="auto" height="50" viewBox="0 0 113.4 196.35">
                     <defs>
                         <style>
                         .cls-1 {
@@ -31,7 +31,7 @@
                         }
                         </style>
                     </defs>
-                    <g id="_레이어_1-2" data-name="레이어 1">
+                    <g id="logo-img" data-name="logo-img">
                         <path class="cls-6" d="M65.97,53.39c-1.21-2.45-2.38-4.82-3.6-7.28,5.24-2.75,8.8-6.88,10.41-12.58,1.17-4.15.98-8.28-.53-12.32-3.14-8.39-11.23-13.38-19.56-12.98-9.47.45-16.62,7.12-18.52,15.26-2.22,9.47,2.34,18.85,11.51,23.08-1.05,2.45-2.1,4.9-3.15,7.34-7.81-2.67-17.76-12.63-17.1-27.04C26.04,13.25,36.18,2.17,49.45.3c15.33-2.16,28.05,7.66,31.4,20.94,3.46,13.69-3.55,26.79-14.89,32.16Z"/>
                         <path class="cls-1" d="M5.76,143.28c-2.07-2.07-3.94-3.95-5.76-5.76,10.62-10.6,21.32-21.28,31.93-31.87,10.7,10.7,21.53,21.51,32.28,32.26-1.8,1.81-3.67,3.69-5.56,5.58-8.79-8.79-17.67-17.67-26.56-26.56-8.88,8.89-17.61,17.62-26.33,26.35Z"/>
                         <path class="cls-4" d="M73.67,196.35h-8.01v-36.63H28.11v-8.16h45.55v44.79Z"/>
@@ -44,16 +44,16 @@
                         <path class="cls-2" d="M85.24,62.69c.03.94-.65,1.66-1.61,1.67-.95.02-1.7-.66-1.74-1.57-.03-.87.73-1.67,1.63-1.7.92-.03,1.68.68,1.71,1.6Z"/>
                     </g>
                     </svg>
-                                </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            </a>
+            <button class="navbar-toggler me-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-                <a class="nav-link active" aria-current="page" href="/brand">브랜드</a>
-                <a class="nav-link" href="/gallery">작품</a>
-                <a class="nav-link" href="/community">커뮤니티</a>
-            </div>
+                <div class="navbar-nav">
+                    <a class="nav-link" aria-current="page" href="/brand">브랜드</a>
+                    <a class="nav-link" href="/gallery">작품</a>
+                    <a class="nav-link" href="/community/1">커뮤니티</a>
+                </div>
             </div>
         </div>
     </nav>

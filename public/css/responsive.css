@@ -7,6 +7,32 @@
     .carousel-inner-sm {
         display :block;
     }
+
+    .home-intro2-text-lg {
+        display : none;
+    }
+
+    .home-intro2-text-sm {
+        display :block;
+    }
+
+    .sub-title-lg {
+        display : none;
+    }
+
+    .sub-title-sm {
+        display :block;
+    }
+
+    .for-lg {
+        display : none;
+    }
+
+    .for-sm {
+        display :block;
+    }
+
+
 }
 
 @media (min-width: 576px) { 
@@ -17,4 +43,29 @@
     .carousel-inner-sm {
         display : none;
     }
+
+    .home-intro2-text-lg {
+        display : block;
+    }
+
+    .home-intro2-text-sm {
+        display :none;
+    }
+    
+    .sub-title-lg {
+        display : block;
+    }
+
+    .sub-title-sm {
+        display :none;
+    }
+
+    .for-lg {
+        display : block;
+    }
+
+    .for-sm {
+        display :none;
+    }
+
 }
