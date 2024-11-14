@@ -21,11 +21,11 @@
 
 <?php if($rowCount == 0) { ?>
     <div class="page-wrap d-flex flex-row align-items-center" style="min-height: 60vh;">
-        <div class="container">
+        <div class="container my-3">
             <div class="row justify-content-center text-center">
                 <span class="h3">등록된 게시글이 없습니다.</span>
             </div>
-            <div class="row justify-content-center text-center mt-3">
+            <div class="row justify-content-center text-center">
                 <a href="/community/new" class="text-secondary no-text-decoration">
                     <button style="width:300px;" class="black-btn">새로운 글 작성하기</button>
                 </a>
@@ -42,6 +42,9 @@
         <table class="table align-middle mb-0 bg-white mt-2">
             <tbody>
                 <?php foreach($posts as $post) { ?>
+                <div id="hidden-content" style="visibility: hidden;">
+                    <?=$post['content']?>
+                </div>
                 <tr>
                     <td class="pt-3 ps-2">
                         <p class="hover-underline cursor-pointer">
@@ -49,7 +52,7 @@
                         </p>
                     </td>
                     <td class="d-flex justify-content-end pt-3 ps-2">
-                        <span class="sm-black-btn cursor-pointer me-3" onclick="moveToEditor('<?=$post['id']?>','<?=$post['title']?>','<?=$post['content']?>')">
+                        <span class="sm-black-btn cursor-pointer me-3" onclick="moveToEditor('<?=$post['id']?>','<?=$post['title']?>')">
                             수정
                         </span>
                         <span class="sm-black-btn cursor-pointer" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -79,7 +82,7 @@
                 <?php } ?>
             </tbody>
         </table>
-    </div>
+    
 <?php }?>
     
 <?php if($rowCount > 0) { ?>
@@ -103,16 +106,19 @@
         </ul>
     </nav>
 <?php }?>
+</div>
 
 <script>
-    function moveToEditor(id,title,content){
+    function moveToEditor(id,title){
         let passData = 'title='+title;
-        passData += '&content='+content;
+        passData += '&content='+ encodeURIComponent(document.getElementById('hidden-content').innerHTML.trim());
         passData += '&id='+id;
+    
 
         const pageIndex = <?= $pageIndex ?>;
-
         location.href="/community/edit/"+pageIndex+"?"+passData;
+        console.log("/community/edit/"+pageIndex+"?"+passData)
+
     }
 
     function deletePost(id){

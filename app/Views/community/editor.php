@@ -60,8 +60,19 @@
             }
         })
 
-        const pellContent = document.querySelector('.pell-content');
-        pellContent.innerHTML = '<?= ( isset($post) && isset($post['content']) ) ? $post['content'] : '' ?>';
+        const isPost = <?= ( isset($post)) && ( isset($post['content'])) ? 1 : 0 ?>;
+
+        console.log(isPost > 0);
+
+        if(isPost > 0){
+            const pellContent = document.querySelector('.pell-content');
+
+            const encodedHtml = '<?php if(isset($post['content'])) echo urldecode(addslashes($post['content'])); ?>';
+            const decodedHtml = decodeURIComponent(encodedHtml);
+
+            pellContent.innerHTML = decodedHtml;
+        }
+        
     }
     
 
