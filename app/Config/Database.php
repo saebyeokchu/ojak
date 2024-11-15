@@ -4,11 +4,22 @@ namespace Config;
 
 use CodeIgniter\Database\Config;
 
+switch($_SERVER["HTTP_HOST"]){
+    case "localhost":
+       define('DB_ENV', 'development');
+        break;
+    default:
+       define('DB_ENV', 'production');
+       break;
+}
+
+
 /**
  * Database Configuration
  */
 class Database extends Config
 {
+
     /**
      * The directory that holds the Migrations and Seeds directories.
      */
@@ -28,7 +39,7 @@ class Database extends Config
         'DSN'          => '',
         'hostname'     => 'localhost',
         'username'     => 'root',
-        'password'     => 'ho@/54vat8ZG',
+        'password'     => (DB_ENV === 'production') ? 'ho@/54vat8ZG' : '', 
         'database'     => 'ojak',
         'DBDriver'     => 'MySQLi',
         'DBPrefix'     => '',

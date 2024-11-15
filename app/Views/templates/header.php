@@ -53,8 +53,10 @@
                     <a class="nav-link" aria-current="page" href="/brand">브랜드</a>
                     <a class="nav-link" href="/gallery">작품</a>
                     <a class="nav-link" href="/community/1">커뮤니티</a>
+                    <a class="nav-link logged-in hide-item" id="headerLogoutBtn" href="" onclick="logout(event)">로그아웃</a>
                 </div>
             </div>
         </div>
-    </nav>
+    </nav> 
 </header>
+

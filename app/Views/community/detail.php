@@ -16,13 +16,13 @@
     </div>
 
     <div class="d-flex justify-content-center gap-3">
-        <button class="sm-black-btn mt-5" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <button id="post-detail-delete-btn" class="sm-black-btn mt-5 hide-item" data-bs-toggle="modal" data-bs-target="#exampleModal">
             삭제
         </button>
         <a href="/community/<?=$pageIndex?>" ><button class="sm-black-btn mt-5">
             목록
         </button></a>
-        <button class="sm-black-btn mt-5" onclick="moveToEditor('<?=$post['id']?>','<?=$post['title']?>')">
+        <button id="post-detail-edit-btn"  class="sm-black-btn mt-5 hide-item" onclick="moveToEditor('<?=$post['id']?>','<?=$post['title']?>')">
             수정
         </button>
 
@@ -50,6 +50,29 @@
 </div>
 
 <script>
+    window.onload = function() {
+        //show post-edit-buttons depends on login state
+        const deleteBtn = document.getElementById('post-detail-delete-btn');
+        const editBtn = document.getElementById('post-detail-edit-btn');
+        const user_id = localStorage.getItem('user_id');
+        
+        const userId = <?= $post["user_id"]; ?>;
+
+        if(userId == user_id){
+            deleteBtn.classList.remove('hide-item');
+            deleteBtn.classList.add('show-item');
+
+            editBtn.classList.remove('hide-item');
+            editBtn.classList.add('show-item');
+        }else{
+            deleteBtn.classList.add('hide-item');
+            deleteBtn.classList.remove('show-item');
+
+            editBtn.classList.add('hide-item');
+            editBtn.classList.remove('show-item');
+        }
+    }
+    
     function moveToEditor(id,title){
         let passData = 'title='+title;
         passData += '&content='+ encodeURIComponent(document.getElementById('detail-content').innerHTML.trim());

@@ -25,16 +25,17 @@
             <div class="row justify-content-center text-center">
                 <span class="h3">등록된 게시글이 없습니다.</span>
             </div>
-            <div class="row justify-content-center text-center">
-                <a href="/community/new" class="text-secondary no-text-decoration">
+            <div class="row justify-content-center text-center mt-3">
+                <a href="/community/new" class="logged-in text-secondary no-text-decoration">
                     <button style="width:300px;" class="black-btn">새로운 글 작성하기</button>
                 </a>
+                <button style="width:300px;" class="logged-out black-btn" data-bs-toggle="modal" data-bs-target="#loginModal">새로운 글 작성하기</button>
             </div>
         </div>
     </div>
 <?php }else{ ?>
     <div class="bg-light" style="padding:100px 25px 100px 25px">
-        <a href="/community/new" class="text-secondary no-text-decoration">
+        <a href="/community/new" class="logged-in text-secondary no-text-decoration">
             <div class="d-flex justify-content-end hover-underline" style="cursor: pointer;">
                 새로운 글 작성하기
             </div>
@@ -51,7 +52,7 @@
                             <a href="/community/detail/<?= $post['id'] ?>/<?= $pageIndex ?>" class="text-secondary no-text-decoration"><?= $post['title'] ?></a>
                         </p>
                     </td>
-                    <td class="d-flex justify-content-end">
+                    <td class="d-flex justify-content-end hide-item post-edit-buttons item-<?=$post['user_id']?>" >
                         <div class="for-lg  pt-3 pb-3">
                             <span class="sm-black-btn cursor-pointer me-3" onclick="moveToEditor('<?=$post['id']?>','<?=$post['title']?>')">
                                 수정
@@ -120,7 +121,28 @@
 <?php }?>
 </div>
 
+<?= view('/auth/loginModal',array('return_url' => '/community/new' )) ?>
+
 <script>
+    window.onload = function() {
+        //show post-edit-buttons depends on login state
+        const buttons = document.getElementsByClassName('post-edit-buttons');
+        const user_id = localStorage.getItem('user_id');
+        
+        Array.from(buttons).forEach( btn => {
+            const userId = btn.classList[btn.classList.length - 1].split("-")[1];
+
+            if(userId == user_id){
+                btn.classList.remove('hide-item');
+                btn.classList.add('show-item');
+            }else{
+                btn.classList.add('hide-item');
+                btn.classList.remove('show-item');
+            }
+  
+        });
+    }
+
     function moveToEditor(id,title){
         let passData = 'title='+title;
         passData += '&content='+ encodeURIComponent(document.getElementById('hidden-content').innerHTML.trim());
