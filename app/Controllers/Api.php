@@ -6,6 +6,54 @@ use CodeIgniter\Controller;
 
 class Api extends Controller
 {
+    //Auth
+    public function getUserByIdPw($id,$pw){
+        $model = new \App\Models\UserModel();
+
+        $result = $model->where('user_id', $id)->where('user_pw', $pw)->findAll();
+
+        if($result) {
+            return [
+                'status' => 'success',
+                'user' => $result
+            ];
+        } else {
+            return [
+                'status' => 'error',
+                'message' => 'No data',
+            ];
+        }
+    }
+
+    public function insertUser($id,$pw,$name)
+    {
+        // Get the incoming data from the POST request
+        $model = new \App\Models\UserModel();
+
+        //['title', 'content', 'user_id', 'created_at'];
+        $data = [
+            'name' => $name,
+            'user_id' => $id,
+            'user_pw' => sha1($pw)
+        ];
+
+        $result = $model->insert($data);
+
+        // Return the result as a JSON response
+        if ($result) {
+            return [
+                'status' => 'success',
+                'message' => 'Data inserted successfully!',
+                'insertedId' => $model->insertID
+            ];
+        } else {
+            return [
+                'status' => 'error',
+                'message' => 'Failed to insert data.'
+            ];
+        }
+    }
+
     //Gallery
     public function getAllGallery() {
         $model = new \App\Models\GalleryModel();
@@ -38,6 +86,36 @@ class Api extends Controller
             return [
                 'status' => 'error',
                 'message' => 'No data',
+            ];
+        }
+    }
+
+    public function insertGallery($title,$content,$img_url,$user_id)
+    {
+        // Get the incoming data from the POST request
+        $model = new \App\Models\GalleryModel();
+
+        //['title', 'content', 'user_id', 'created_at'];
+        $data = [
+            'title' => $title,
+            'content' => $content,
+            'img_url' => $img_url,
+            'user_id' => $user_id
+        ];
+
+        $result = $model->insert($data);
+
+        // Return the result as a JSON response
+        if ($result) {
+            return [
+                'status' => 'success',
+                'message' => 'Data inserted successfully!',
+                'insertedId' => $model->insertID
+            ];
+        } else {
+            return [
+                'status' => 'error',
+                'message' => 'Failed to insert data.'
             ];
         }
     }
@@ -94,6 +172,7 @@ class Api extends Controller
         $content = $this->request->getPost('content');
         $title = $this->request->getPost('title');
         $id = $this->request->getPost('id');
+        $user_id = $this->request->getPost('user_id');
 
         $model = new \App\Models\CommunityModel();
 
@@ -101,7 +180,7 @@ class Api extends Controller
         $data = [
             'title' => $title,
             'content' => $content,
-            'user_id' => 1
+            'user_id' => $user_id
         ];
 
         if($id){

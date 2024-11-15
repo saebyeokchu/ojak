@@ -35,3 +35,53 @@
         </div>
     </div>
 </footer>
+
+<script>
+
+window.onload = function() {
+        const user_id = parseInt(localStorage.getItem('user_id'));
+        const elements = document.getElementsByClassName('logged-in');
+        const out_elements = document.getElementsByClassName('logged-out');
+
+        console.log(elements)
+
+        if(user_id > 0){
+            //showing item
+            Array.from(elements).forEach( el => {
+                el.classList.remove('hide-item');
+                el.classList.add('show-item');
+            });
+
+            //hide item
+            Array.from(out_elements).forEach( el => {
+                el.classList.remove('show-item');
+                el.classList.add('hide-item');
+            });
+        }else{
+            //hide item
+            Array.from(elements).forEach( el => {
+                el.classList.remove('show-item');
+                el.classList.add('hide-item');
+            });
+
+            //showing item
+            Array.from(out_elements).forEach( el => {
+                el.classList.remove('hide-item');
+                el.classList.add('show-item');
+            });
+        }
+    }
+
+    function logout(event) {
+        event.preventDefault();
+
+        localStorage.removeItem("user_id");
+        localStorage.removeItem("user_name");
+        const headerLogoutBtn = document.getElementById('headerLogoutBtn');
+
+        headerLogoutBtn.classList.remove('show-item');
+        headerLogoutBtn.classList.add('hide-item');
+        
+        location.reload();
+    }
+</script>

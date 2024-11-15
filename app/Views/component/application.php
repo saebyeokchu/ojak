@@ -34,7 +34,6 @@
     </div>  
 
     
-    
     <?= (isset($view_footer) ? ( $view_footer == true && view('/templates/footer') ) : view('/templates/footer') ) ?? '' ?>
 
     <!-- SCRIPTS -->

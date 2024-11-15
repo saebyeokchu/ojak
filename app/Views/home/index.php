@@ -1,4 +1,3 @@
-
 <!-- Carousel -->
 <?= view('/home/carousel') ?? '' ?>
 
