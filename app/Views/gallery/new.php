@@ -1,3 +1,4 @@
+
 <?php
     if(isset($contents)){
         if(isset($contents['item'])){
@@ -5,6 +6,107 @@
         }
     }
 ?>
+
+<script>
+    //auth check
+    const login_user_id = localStorage.getItem('user_id');
+
+    console.log(login_user_id);
+
+    if(!login_user_id || (login_user_id && parseInt(login_user_id) < 1)){
+        window.alert("유효하지 않은 접근입니다. 로그인 후 다시 시도하여 주세요.");
+        location.href="/";
+    }else{
+        const loginUserName = localStorage.getItem('user_name');
+        const inputAuthor = document.getElementById('input-author');
+
+        console.log(loginUserName);
+        if(loginUserName != 'null'){
+            inputAuthor.innerText = loginUserName;
+        }
+    }
+
+    function onnamechange(event){
+        document.getElementById('input-name-display').innerText = event.target.value;
+
+        if(event.target.value.trim() == ''){
+            document.getElementById('input-name-display').innerText = '제목';
+        }
+    }
+
+    function onContentChange(event){
+        document.getElementById('input-content-display').innerText = event.target.value;
+
+        if(event.target.value.trim() == ''){
+            document.getElementById('input-content-display').innerText = '내용';
+        }
+    }
+
+    function onFileChange(event){
+        const [file] = event.target.files;
+        const previewImg = document.getElementById('input-file-display');
+        const previewImgText = document.getElementById('input-file-display-text');
+
+        if (file) {
+            previewImg.src = URL.createObjectURL(file);
+            previewImgText.innerText = '';
+
+            previewImg.classList.remove('hide-item');
+            previewImg.classList.add('show-item');
+        }else{
+            previewImgText.innerText = '작품사진';
+            previewImg.src = '';
+
+            previewImg.classList.add('hide-item');
+            previewImg.classList.remove('show-item');
+        }
+    }
+
+    async function update(event){
+        event.preventDefault();
+
+        const title = event.target[0].value;
+        const content = event.target[1].value;
+        const file = document.getElementById('input-file');
+        const id = '<?php
+            if(isset($item)){
+                if(isset($item -> id)){
+                    echo $item -> id;
+                }
+            }
+        ?>' || undefined;
+
+        try {
+            var postData = new FormData();
+            postData.append('title', title);
+            postData.append('content', content);
+            postData.append('image', file.files[0]);
+            postData.append('user_id',localStorage.getItem('user_id'));
+            postData.append('id',id);
+
+            axios.post('/gallery/insert', postData, { headers: {
+                        'Content-Type': 'multipart/form-data', // Ensure correct headers
+            }}).then(function(response){
+                const data =  response.data;
+                console.log(response)
+
+                if(data['status'] == 'success'){
+                    location.href="/gallery/" + response.data.insertedId
+                    console.log("success:", response);
+                }
+                
+            }).catch(function(error){
+                console.log("error:", error);
+            });
+            
+            return;
+        } catch (error) {
+            console.error('Error inserting data:', error);
+            window.alert('등록에 실패하였습니다. 잠시후 다시 시도하여 주세요');
+        }
+    }
+</script>
+
 <!-- Add new gallery item -->
 <div class="page-header d-flex justify-content-center text-center">
     <div class="title" data-aos="fade-up" data-aos-duration="1500">
@@ -79,96 +181,3 @@
 
 </div>
 
-<script>
-    //auth check
-    const login_user_id = localStorage.getItem('user_id');
-
-    console.log(login_user_id);
-
-    if(!login_user_id || (login_user_id && parseInt(login_user_id) < 1)){
-        window.alert("유효하지 않은 접근입니다. 로그인 후 다시 시도하여 주세요.");
-        location.href="/";
-    }else{
-        const loginUserName = localStorage.getItem('user_name');
-        const inputAuthor = document.getElementById('input-author');
-
-        console.log(loginUserName);
-        if(loginUserName != 'null'){
-            inputAuthor.innerText = loginUserName;
-        }
-    }
-
-    function onnamechange(event){
-        document.getElementById('input-name-display').innerText = event.target.value;
-
-        if(event.target.value.trim() == ''){
-            document.getElementById('input-name-display').innerText = '제목';
-        }
-    }
-
-    function onContentChange(event){
-        document.getElementById('input-content-display').innerText = event.target.value;
-
-        if(event.target.value.trim() == ''){
-            document.getElementById('input-content-display').innerText = '내용';
-        }
-    }
-
-    function onFileChange(event){
-        const [file] = event.target.files;
-        const previewImg = document.getElementById('input-file-display');
-        const previewImgText = document.getElementById('input-file-display-text');
-
-        if (file) {
-            previewImg.src = URL.createObjectURL(file);
-            previewImgText.innerText = '';
-
-            previewImg.classList.remove('hide-item');
-            previewImg.classList.add('show-item');
-        }else{
-            previewImgText.innerText = '작품사진';
-            previewImg.src = '';
-
-            previewImg.classList.add('hide-item');
-            previewImg.classList.remove('show-item');
-        }
-    }
-
-    async function update(event){
-        event.preventDefault();
-
-        const title = event.target[0].value;
-        const content = event.target[1].value;
-        const file = document.getElementById('input-file');
-        const id = <?= isset($item) ? $item -> id : null ?>;
-
-        try {
-            var postData = new FormData();
-            postData.append('title', title);
-            postData.append('content', content);
-            postData.append('image', file.files[0]);
-            postData.append('user_id',localStorage.getItem('user_id'));
-            postData.append('id',id);
-
-            axios.post('/gallery/insert', postData, { headers: {
-                        'Content-Type': 'multipart/form-data', // Ensure correct headers
-            }}).then(function(response){
-                const data =  response.data;
-                console.log(response)
-
-                if(data['status'] == 'success'){
-                    location.href="/gallery/" + response.data.insertedId
-                    console.log("success:", response);
-                }
-                
-            }).catch(function(error){
-                console.log("error:", error);
-            });
-            
-            return;
-        } catch (error) {
-            console.error('Error inserting data:', error);
-            window.alert('등록에 실패하였습니다. 잠시후 다시 시도하여 주세요');
-        }
-    }
-</script>
