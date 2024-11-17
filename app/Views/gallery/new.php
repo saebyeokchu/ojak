@@ -74,7 +74,7 @@
                     echo $item -> id;
                 }
             }
-        ?>' || undefined;
+        ?>' || '';
 
         try {
             var postData = new FormData();

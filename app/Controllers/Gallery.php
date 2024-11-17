@@ -71,6 +71,12 @@ class Gallery extends BaseController
         $file_name = null;
         $file_upload = true;
 
+        log_message('error',"id:".$id);
+        log_message('error',"user_id:".$user_id);
+        log_message('error',"content:".$content);
+        log_message('error',"title:".$title);
+
+
         if(isset($_FILES['image'])){
             $file = new \App\Controllers\File();
             $file_result = $file->upload($_FILES['image']);

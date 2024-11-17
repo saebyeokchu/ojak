@@ -144,14 +144,16 @@ class Api extends Controller
             $result = $model->update($id, $data);
         }else{
             $result = $model->insert($data);
+            $id = $model->insertID;
         }
+        log_message('error','id-after'.$id);
 
         // Return the result as a JSON response
         if ($result) {
             return [
                 'status' => 'success',
                 'message' => 'Data inserted successfully!',
-                'insertedId' => isset($id) ? $id : $model->insertID
+                'insertedId' => $id
             ];
         } else {
             return [
