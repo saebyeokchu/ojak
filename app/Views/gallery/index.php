@@ -6,6 +6,7 @@
         $count = count($items);
     }
 
+    $count = 0 ;
 ?>
 
 <!-- Gallery -->
@@ -25,8 +26,8 @@
             <div class="row justify-content-center text-center">
                 <span class="h3">등록된 작품이 없습니다.</span>
             </div>
-            <div class="row justify-content-center text-center mt-3 logged-out" >
-                <button id="createNewItemBtn" style="width:300px;" class="black-btn" data-bs-toggle="modal" data-bs-target="#loginModal">새로운 작품 등록하기</button>
+            <div class="row justify-content-center text-center mt-3 " >
+                <button style="width:300px;" class="black-btn logged-out" data-bs-toggle="modal" data-bs-target="#loginModal">새로운 작품 등록하기</button>
                 <a href="/gallery/new" class="logged-in">
                     <button id="createNewItemBtnLoggined" style="width:300px;" class="black-btn" >새로운 작품 등록하기</button>
                 </a>
