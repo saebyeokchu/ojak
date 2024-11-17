@@ -1,3 +1,12 @@
+
+<?php
+    if(isset($contents)){
+        if(isset($contents['item'])){
+            $item = $contents['item'][0];
+        }
+    }
+?>
+
 <script>
     //auth check
     const login_user_id = localStorage.getItem('user_id');
@@ -59,7 +68,13 @@
         const title = event.target[0].value;
         const content = event.target[1].value;
         const file = document.getElementById('input-file');
-        const id = <?= isset($item) ? $item -> id : null ?>;
+        const id = '<?php
+            if(isset($item)){
+                if(isset($item -> id)){
+                    echo $item -> id;
+                }
+            }
+        ?>' || undefined;
 
         try {
             var postData = new FormData();
@@ -92,13 +107,6 @@
     }
 </script>
 
-<?php
-    if(isset($contents)){
-        if(isset($contents['item'])){
-            $item = $contents['item'][0];
-        }
-    }
-?>
 <!-- Add new gallery item -->
 <div class="page-header d-flex justify-content-center text-center">
     <div class="title" data-aos="fade-up" data-aos-duration="1500">
