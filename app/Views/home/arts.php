@@ -8,12 +8,15 @@
 ?>
 
 <?php if($count == 0){ ?>
-    <div class="page-wrap d-flex flex-row align-items-center bg-light " style="min-height: 40vh; border:1px solid gray;" data-aos="fade-up" data-aos-duration="1500">
+    <!-- <div class="page-wrap d-flex flex-row align-items-center bg-light mt-5" style="min-height: 70vh;" data-aos="fade-up" data-aos-duration="1500">
         <div class="container my-3">
             <div class="row justify-content-center text-center">
-                <span class="h3">현재 전시중인 작품이 없습니다.</span>
+                <span class=" display-6">현재 전시된 오작 커뮤니티의 작품이 없습니다.</span>
             </div>
         </div>
+    </div> -->
+    <div class="position-fixed text-white bg-black d-flex justify-content-center p-5 rounded" style="top:300px; right:1px; width:50px; height:250px;">
+        작품 전시 준비중 
     </div>
 <?php }else{ ?>
 <!-- Carousel Button -->
@@ -34,7 +37,7 @@
                 <div class="row">
                     <?php foreach($items as $item) { ?>
                         <div class="col">
-                            <?= view('/home/component/gallery-card') ?>
+                            <?= view('/home/component/gallery-card',array('item' => $item )) ?>
                         </div>
                     <?php } ?>
                 </div>

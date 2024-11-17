@@ -4,7 +4,7 @@
 <div class="container">
     <!-- Introduction1 -->
     <div class="d-flex justify-content-center text-center"  style="height:500px; " >
-        <div class="for-sm" style="margin-top:200px;">
+        <div class="for-sm" style="margin-top:150px;margin-bottom:150px;">
             <!-- <p style="font-size: 56px">한지로 빚은</p> -->
             <img src="img/home-text-1.png" class="img-fluid" data-aos="fade-up" data-aos-duration="1500"/>
             <img src="img/home-text-2.png" class="img-fluid" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="400"/>
@@ -15,7 +15,7 @@
                 <span>공예품을 선사합니다</span>
             </div></small> -->
         </div>
-        <div class="for-lg" style="margin-top:150px; ">
+        <div class="for-lg" style="margin-top:150px; margin-bottom:150px;">
             <!-- <p style="font-size: 56px">한지로 빚은</p> -->
             <div class=" row">
                 <img src="img/home-text-1.png" class="img-fluid" data-aos="fade-up" data-aos-duration="1500"/>
@@ -33,8 +33,8 @@
     </div>
 </div>
 
-    <!-- Arts -->
-    <?= view('/home/arts') ?? '' ?>
+<!-- Arts -->
+<?= view('/home/arts') ?? '' ?>
 
 
 <div class="container">

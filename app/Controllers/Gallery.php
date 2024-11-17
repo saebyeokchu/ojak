@@ -44,19 +44,44 @@ class Gallery extends BaseController
         return view('component/application', $data);
     }
 
+    public function edit($num): string
+    {
+        $api = new \App\Controllers\Api();
+        $result = $api -> getGalleryById($num);
+
+        if($result['status'] == "success"){
+            $item = $result['item'];
+
+            $data['yield']       = 'gallery/new';
+            $data['contents']['item'] = $item;
+        }else{
+            $data['yield']       = 'errors/html/error_404_custom';
+        }
+        
+        return view('component/application', $data);
+    }
+
     public function insert()
     {
         $title = $this->request->getPost('title');
         $content = $this->request->getPost('content');
         $user_id = $this->request->getPost('user_id');
+        $id = $this->request->getPost('id');
 
-        $file = new \App\Controllers\File();
+        $file_name = null;
+        $file_upload = true;
 
-        $file_result = $file->upload($_FILES['image']);
+        if(isset($_FILES['image'])){
+            $file = new \App\Controllers\File();
+            $file_result = $file->upload($_FILES['image']);
+            $file_name = $file_result['file_name'];
 
-        if($file_result['success']){
+            $file_upload = $file_result['success'];
+        }
+
+        if($file_upload){
             $api = new \App\Controllers\Api();
-            $result = $api -> insertGallery($title,$content,$file_result['file_name'],$user_id);
+            $result = $api -> insertGallery($title,$content,$file_name,$user_id,$id);
 
             if($result['status'] == 'success'){
                 //check pw

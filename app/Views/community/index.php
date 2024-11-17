@@ -36,10 +36,13 @@
 <?php }else{ ?>
     <div class="bg-light" style="padding:100px 25px 100px 25px">
         <a href="/community/new" class="logged-in text-secondary no-text-decoration">
-            <div class="d-flex justify-content-end hover-underline" style="cursor: pointer;">
+            <div class=" d-flex justify-content-end hover-underline" style="cursor: pointer;">
                 새로운 글 작성하기
             </div>
         </a>
+        <div class="logged-out d-flex justify-content-end hover-underline" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#loginModal">
+            새로운 글 작성하기
+        </div>
         <table class="table align-middle mb-0 bg-white mt-2">
             <tbody>
                 <?php foreach($posts as $post) { ?>
@@ -143,17 +146,6 @@
         });
     }
 
-    function moveToEditor(id,title){
-        let passData = 'title='+title;
-        passData += '&content='+ encodeURIComponent(document.getElementById('hidden-content').innerHTML.trim());
-        passData += '&id='+id;
-    
-
-        const pageIndex = <?= $pageIndex ?>;
-        location.href="/community/edit/"+pageIndex+"?"+passData;
-        console.log("/community/edit/"+pageIndex+"?"+passData)
-
-    }
 
     function deletePost(id){
         if(id){

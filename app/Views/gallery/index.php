@@ -36,23 +36,18 @@
 <?php }else{ ?>
 
 
-
-<div class="container pt-100 pb-100">
-    <div class="row w-100 text-right justify-cotent-end logged-in">
-        <a class="text-secondary no-text-decoration hover-underline" href="/gallery/new" style="z-index: 999999;"  data-aos="fade-up" data-aos-duration="1500">
+<div class="container pt-100" >
+    <div class="d-flex justify-content-end">
+        <span class="logged-out text-secondary no-text-decoration hover-underline cursor-pointer" data-bs-toggle="modal" data-bs-target="#loginModal">
+            작품 등록하기
+        </span>
+        <a class="logged-in text-secondary no-text-decoration hover-underline" href="/gallery/new" >
             작품 등록하기
         </a>
     </div>
+</div>
 
-    <div class="row w-100  logged-out" data-bs-toggle="modal" data-bs-target="#loginModal">
-        <div class="d-flex text-right justify-cotent-end">
-        <span class="text-secondary no-text-decoration hover-underline cursor-pointer"  style="z-index: 999999;"  data-aos="fade-up" data-aos-duration="1500">
-            작품 등록하기
-        </span>
-        </div>
-    </div>
-
-
+<div class="container pb-100" style="margin-top:15px;">
     <?php for($i=0;$i<$count;$i=$i+4) { ?>
         <div class="row pt-15 gy-4" data-aos="fade-up" data-aos-duration="1500" >
             <?php for($j=$i;$j<$i+4 && $j < $count;$j=$j+1) { ?>
@@ -62,7 +57,6 @@
             <?php } ?>
         </div>
     <?php } ?>
-   
 </div>
 <?php } ?>
 
@@ -91,45 +85,3 @@
 
 
 <?= view('/auth/loginModal',array('return_url' => '/gallery/new' )) ?>
-
-<script>
-    window.onload = function() {
-        const user_id = parseInt(localStorage.getItem('user_id'));
-        const createBtn = document.getElementById('createNewItemBtn');
-        const loginBtn = document.getElementById('createNewItemBtnLoggined');
-
-        const elements = document.getElementsByClassName('logged-in');
-
-        console.log(elements)
-
-        if(user_id > 0){
-            createBtn.classList.remove('show-item');
-            createBtn.classList.add('hide-item');
-
-            loginBtn.classList.remove('hide-item');
-            loginBtn.classList.add('show-item');
-
-            //showing item
-            Array.from(elements).forEach( el => {
-                el.classList.remove('hide-item');
-                el.classList.add('show-item');
-            });
-        }else{
-            createBtn.classList.remove('hide-item');
-            createBtn.classList.add('show-item');
-
-            loginBtn.classList.remove('show-item');
-            loginBtn.classList.add('hide-item');
-
-            //hide item
-            Array.from(elements).forEach( el => {
-                el.classList.remove('show-item');
-                el.classList.add('hide-item');
-            });
-        }
-    }
-
-    function test() {
-        clicked();
-    }
-</script>
