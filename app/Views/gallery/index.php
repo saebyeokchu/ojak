@@ -6,7 +6,6 @@
         $count = count($items);
     }
 
-    $count = 0 ;
 ?>
 
 <!-- Gallery -->

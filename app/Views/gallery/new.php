@@ -140,7 +140,7 @@
         const title = event.target[0].value;
         const content = event.target[1].value;
         const file = document.getElementById('input-file');
-        const id = <?= $item -> id ?>;
+        const id = <?= isset($item) ? $item -> id : null ?>;
 
         try {
             var postData = new FormData();
