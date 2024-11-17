@@ -7,7 +7,7 @@ class Home extends BaseController
     public function index(): string
     {
         $api = new \App\Controllers\Api();
-        $result = $api -> getAllGallery();
+        $result = $api -> getLatestGallery();
             
         if($result['status'] == 'success') {
             $data['contents']['items'] = $result['items'];

@@ -77,10 +77,9 @@ window.onload = function() {
 
         localStorage.removeItem("user_id");
         localStorage.removeItem("user_name");
-        const headerLogoutBtn = document.getElementById('headerLogoutBtn');
 
-        headerLogoutBtn.classList.remove('show-item');
-        headerLogoutBtn.classList.add('hide-item');
+        document.cookie = "user_id=;expires=" + new Date(0).toUTCString();
+        document.cookie = "user_name=;expires=" + new Date(0).toUTCString();
         
         location.reload();
     }

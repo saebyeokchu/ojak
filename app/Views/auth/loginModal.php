@@ -41,6 +41,9 @@
                     localStorage.setItem('user_id', userData.id);
                     localStorage.setItem('user_name', userData.user_name);
 
+                    document.cookie = "user_id=" + userData.id;
+                    document.cookie = "user_name=" + userData.user_name;
+
                     location.href='<?=$return_url?>';
                     return;
                 }

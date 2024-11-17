@@ -73,14 +73,22 @@ class Api extends Controller
     }
 
     public function getGalleryById($id) {
-        $model = new \App\Models\GalleryModel();
+        $db      = \Config\Database::connect();
+        $builder = $db->table('gallery'); 
 
-        $item = $model->find($id);
+        $builder->select('gallery.*,auth.user_name');
+        $builder->join('auth', 'gallery.user_id = auth.id');
+        $builder->where('gallery.id',$id);
+        $builder->orderBy('gallery.created_at', 'DESC');
+        $query = $builder->get();
 
-        if ($item) {
+        // $model = new \App\Models\GalleryModel();
+        // $item = $model->find($id);
+
+        if ($query) {
             return [
                 'status' => 'success',
-                'item' => $item
+                'item' => $query->getResult()
             ];
         } else {
             return [
@@ -90,7 +98,33 @@ class Api extends Controller
         }
     }
 
-    public function insertGallery($title,$content,$img_url,$user_id)
+    public function getLatestGallery() {
+        // $model = new \App\Models\GalleryModel();
+        // $items = $model-> orderBy('created_at', 'desc')->findAll(6,0); 
+
+        $db      = \Config\Database::connect();
+        $builder = $db->table('gallery');
+
+        $builder->select('gallery.*,auth.user_name');
+        $builder->join('auth', 'gallery.user_id = auth.id');
+        $builder->orderBy('gallery.created_at', 'DESC');
+        $builder->limit(6);
+        $query = $builder->get();
+
+        if ($query) { 
+            return [
+                'status' => 'success',
+                'items' => $query->getResult()
+            ];
+        } else {
+            return [
+                'status' => 'error',
+                'message' => 'No data',
+            ];
+        }
+    }
+
+    public function insertGallery($title,$content,$img_url,$user_id,$id)
     {
         // Get the incoming data from the POST request
         $model = new \App\Models\GalleryModel();
@@ -99,24 +133,51 @@ class Api extends Controller
         $data = [
             'title' => $title,
             'content' => $content,
-            'img_url' => $img_url,
             'user_id' => $user_id
         ];
 
-        $result = $model->insert($data);
+        if($img_url != null){
+            $data['img_url'] = $img_url;
+        }
+
+        if($id){
+            $result = $model->update($id, $data);
+        }else{
+            $result = $model->insert($data);
+        }
 
         // Return the result as a JSON response
         if ($result) {
             return [
                 'status' => 'success',
                 'message' => 'Data inserted successfully!',
-                'insertedId' => $model->insertID
+                'insertedId' => isset($id) ? $id : $model->insertID
             ];
         } else {
             return [
                 'status' => 'error',
                 'message' => 'Failed to insert data.'
             ];
+        }
+    }
+
+    public function deleteGallery(){
+        $id = $this->request->getPost('id');
+
+        $model = new \App\Models\GalleryModel();
+
+        $result = $model->delete($id);
+
+        if($result){
+            return $this->response->setJSON([
+                'status' => 'success',
+                'message' => '성공적으로 삭제되었습니다.',
+            ]);
+        } else {
+            return $this->response->setJSON([
+                'status' => 'error',
+                'message' => '삭제에 실패하였습니다. 잠시 후 다시 시도하여 주세요.'
+            ]);
         }
     }
 

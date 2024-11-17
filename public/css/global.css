@@ -230,8 +230,12 @@
 .hide-item {
     display: none;
     visibility: hidden;
+    height: 0px;
+    width: 0px;
 }
 
 .show-item {
     visibility:visible;
+    height: auto;
+    width : auto;
 }
