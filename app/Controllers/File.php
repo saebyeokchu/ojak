@@ -45,7 +45,7 @@ class File extends ResourceController
             return [
                 'success' => true,
                 'message' => 'File uploaded successfully',
-                'file_url' => '/public/img/' . $newFileName,
+                'file_url' => 'img/' . $newFileName,
                 'file_name' => $newFileName
             ];
         } else {
