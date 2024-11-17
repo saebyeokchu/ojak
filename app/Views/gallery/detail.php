@@ -25,6 +25,11 @@
         <div class="col-lg-6 col-sm-12 position-relative" style="min-height:300px;">
             <div class="position-absolute top-0">
                 <p class="gallery-detail-title"><?=$item -> title?></p>
+                <p >
+                    <span><?=$item -> user_name?></spane>
+                    /
+                    <span><?=$item -> created_at?></spane>
+                </p>
                 <p class="gallery-detail-content">
                     <?=$item -> content?>
                 </p>
