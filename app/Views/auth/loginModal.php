@@ -38,13 +38,11 @@
                 if(response.data.status == 'success'){
                     const userData = response.data.user[0];
 
-                    localStorage.setItem('user_id', userData.id);
-                    localStorage.setItem('user_name', userData.user_name);
-
                     document.cookie = "user_id=" + userData.id;
                     document.cookie = "user_name=" + userData.user_name;
 
-                    location.href='<?=$return_url?>';
+                    // location.href='<?=$return_url?>';
+                    location.reload();
                     return;
                 }
             }).catch(function(error){

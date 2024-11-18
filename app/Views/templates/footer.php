@@ -38,7 +38,7 @@
 
 <script>
 
-window.onload = function() {
+    window.onload = function() {
         const user_id = parseInt(localStorage.getItem('user_id'));
         const elements = document.getElementsByClassName('logged-in');
         const out_elements = document.getElementsByClassName('logged-out');
@@ -83,4 +83,14 @@ window.onload = function() {
         
         location.reload();
     }
+
+    function characterCheck(value){
+        // var regExp = /[ \{\}\[\]\/?.,;:|\)*~`!^\_+┼<>@\#$%&\'\"\\\(\=]/gi; // 지금은 띄어쓰기도 특수문자 처리됨 참고하셈
+        var regExp = /[ \{\}\[\]\/?.!,;:|\)*~`^\+┼<>@\#$%&\'\"\\\(\=]/gi; // 지금은 띄어쓰기도 특수문자 처리됨 참고하셈
+        return regExp.test(value);
+    }
+
+    function onready(){
+    alert("변경기능을 준비중입니다.");
+  }
 </script>

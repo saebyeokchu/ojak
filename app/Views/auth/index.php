@@ -11,11 +11,13 @@
         <form action="javascript:;" onsubmit=" register( event ) ">
             <div class="mb-3">
                 <label for="register-name" class="form-label">이름</label>
-                <input type="text" name="register-name" class="form-control" id="register-name" aria-describedby="emailHelp">
+                <input type="text" name="register-name" class="form-control" id="register-name" >
+                <small class="text-secondary">이름을 작성하지 않으시면 아이디로 자동 지정됩니다.</small>
             </div>
             <div class="mb-3">
                 <label for="register-id" class="form-label">아이디</label>
-                <input type="text" name="register-id" class="form-control" id="register-id" aria-describedby="emailHelp" required>
+                <span class="badge text-bg-secondary cursor-pointer" onclick="checkId()" >아이디 중복확인</span>
+                <input type="text" name="register-id" class="form-control" id="register-id" onkeydown="resetIdChecked()" required>
             </div>
             <div class="mb-3">
                 <label for="register-pw" class="form-label">비밀번호</label>
@@ -31,12 +33,77 @@
 </div>
 
 <script>
+    let idChecked = false;
+
+    function resetIdChecked() {
+        idChecked = false;
+    }
+
+    async function checkId(){
+        const id = document.getElementById('register-id').value;
+
+        if(!id){
+            window.alert("아이디를 입력해주세요.");
+        }else{
+            //특수문자 체크
+            if(characterCheck(id)){
+                window.alert("특수문자 [_]만 허용됩니다. 이외는 제외하여 입력해 주세요.");
+                return;
+            }
+
+            try{
+                const postData = new FormData();
+                postData.append('id',id);
+
+                await axios.post('/auth/check', postData).then(function(response){
+                    console.log(response);
+                    if(response.data.status == 'success'){
+                        const count = response.data.same_id_count;
+
+                        if(count > 0){
+                            idChecked = false;
+                            window.alert("이미 사용되고 있는 아이디입니다. 다른 아이디를 사용해주세요.");
+                            return;
+                        }else{
+                            idChecked = true;
+                            window.alert("아이디 확인이 완료되었습니다.");
+                        }
+                    }
+                }).catch(function(error){
+                    console.log("error:", error);
+                });
+            }catch(error){
+                window.alert("회원가입을 진행할 수 없습니다. 잠시 후 다시 시도하여 주세요.")
+            }
+        }
+
+
+    }
+
     async function register(event){
         event.preventDefault();
+
+        //사전확인
+        if(!idChecked){
+            window.alert("아이디 중복확인을 진행하여 주세요.");
+            return;
+        }
+
         try {
             const pw =  document.getElementById('register-pw').value;
             const pw_chk =  document.getElementById('register-pw-chk').value;
-            const name = document.getElementById('register-name').value;
+            let name = document.getElementById('register-name').value;
+            const id = document.getElementById('register-id').value;
+
+            //특수문자 체크
+            if(characterCheck(pw) || characterCheck(name)){
+                window.alert("특수문자 [_]만 허용됩니다. 이외는 제외하여 입력해 주세요.");
+                return;
+            }
+
+            if(!name){
+                name = id;
+            }
 
             if(pw.trim() != pw_chk.trim()){
                 window.alert("비밀번호가 일치하지 않습니다");
@@ -45,7 +112,7 @@
 
             var postData = new FormData();
             postData.append('name', document.getElementById('register-name').value);
-            postData.append('id', document.getElementById('register-id').value);
+            postData.append('id', id);
             postData.append('pw', pw);
 
             await axios.post('/auth/register', postData).then(function(response){
@@ -54,8 +121,8 @@
                     const insertedId = response.data.insertedId;
                     window.alert('멤버가입이 완료되었습니다');
 
-                    localStorage.setItem('user_id', insertedId);
-                    localStorage.setItem('user_name', name);
+                    document.cookie = "user_id=" + insertedId;
+                    document.cookie = "user_name=" + name;
 
                     location.href='<?=$contents['return_url']?>';
                     return;
