@@ -21,8 +21,11 @@
 
         <div class="grid" style="margin-top:70px; padding:20px;">
             <div class="row">
+                <div class="col-sm" data-aos="fade-up" data-aos-duration="1500">
+                    <img src="img/brand.jpg" width="100%" height="auto" />
+                </div>
                 <div class="col-sm grid text-start">
-                    <div style="padding-top: 70px;" data-aos="fade-up" data-aos-duration="1500">
+                    <div data-aos="fade-up" data-aos-duration="1500">
                         <p><h3><strong>한지로 빚은 한국인의 숨결</strong></h3></p>
                         <p> 전통 고유의 색과 문양을 한지를 사용하여 만드는 한지 공예품은 우리의 문화를 대변하는 뚜렷한 개성을 지닌 공예품으로 실용성, 장식성이 뛰어나 세계적으로 좋은 문화 상품으로 호평받고 있습니다.</p>
                         
@@ -39,7 +42,7 @@
                         개발하기 위해 노력하고 있습니다.
                         </p>
                     </div>
-                    <div  style="padding-top: 70px;" data-aos="fade-up" data-aos-duration="1500">
+                    <div  style="padding-top: 30px;" data-aos="fade-up" data-aos-duration="1500">
                         <p><h3><strong>The breath of Koreans made with Hanji (Korean paper)</strong></h3></p>
                         <p> Hanji crafts, which are made using traditional Korean paper with unique colors and patterns, are crafts with a distinct personality that represents our culture, and are well-received internationally as a good cultural product with excellent practicality and decorative properties.</p>
 
@@ -52,9 +55,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="col-sm" data-aos="fade-up" data-aos-duration="1500">
-                    <img src="img/hangi1.png" width="100%" height="auto" />
-                </div>
+
             </div>
             
         </div>
