@@ -11,6 +11,8 @@ class Auth extends BaseController
         return view('component/application', $data);
     }
 
+
+    //logic
     public function login()
     {
         $id = $this->request->getPost('id');
@@ -49,6 +51,27 @@ class Auth extends BaseController
         }else{
             return $this->response->setJSON([
                 'status' => 'error'
+            ]);
+        }
+    }
+
+    public function check()
+    {
+        $id = $this->request->getPost('id');
+
+        $api = new \App\Controllers\Api();
+        $result = $api -> getUserByUserId($id);
+
+        if($result['status'] == 'success'){
+            //check pw
+            return $this->response->setJSON([
+                'status' => 'success',
+                'same_id_count' => count($result['user'])
+            ]);
+        }else{
+            return $this->response->setJSON([
+                'status' => 'success',
+                'same_id_count' => 0
             ]);
         }
     }

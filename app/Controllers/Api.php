@@ -7,6 +7,24 @@ use CodeIgniter\Controller;
 class Api extends Controller
 {
     //Auth
+    public function getUserByUserId($id){
+        $model = new \App\Models\UserModel();
+
+        $result = $model->where('id', $id)->findAll();
+
+        if($result) {
+            return [
+                'status' => 'success',
+                'user' => $result
+            ];
+        } else {
+            return [
+                'status' => 'error',
+                'message' => 'No data',
+            ];
+        }
+    }
+
     public function getUserByIdPw($id,$pw){
         $model = new \App\Models\UserModel();
 
@@ -58,6 +76,23 @@ class Api extends Controller
     public function getAllGallery() {
         $model = new \App\Models\GalleryModel();
         $items = $model->findAll(); 
+
+        if ($items) {
+            return [
+                'status' => 'success',
+                'items' => $items
+            ];
+        } else {
+            return [
+                'status' => 'error',
+                'message' => 'No data',
+            ];
+        }
+    }
+
+    public function getGalleryByUserId($user_id) {
+        $model = new \App\Models\GalleryModel();
+        $items = $model->where('user_id',$user_id)->findAll(); 
 
         if ($items) {
             return [
@@ -215,6 +250,24 @@ class Api extends Controller
         $model = new \App\Models\CommunityModel();
 
         $posts = $model->find($id);
+
+        if ($posts) {
+            return [
+                'status' => 'success',
+                'posts' => $posts
+            ];
+        } else {
+            return [
+                'status' => 'error',
+                'message' => 'No data',
+            ];
+        }
+    }
+
+    public function getPostsByUserId($user_id) {
+        $model = new \App\Models\CommunityModel();
+
+        $posts = $model->where('user_id',$user_id)->findAll();
 
         if ($posts) {
             return [

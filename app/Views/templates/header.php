@@ -4,7 +4,7 @@
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid ">
             <a class="navbar-brand ms-3" href="/">
-                <svg id="logo-img" data-name="logo-img" xmlns="http://www.w3.org/2000/svg" width="auto" height="50" viewBox="0 0 113.4 196.35">
+                <svg id="logo-img" data-name="logo-img" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 113.4 196.35">
                     <defs>
                         <style>
                         .cls-1 {
@@ -55,7 +55,7 @@
                     <a class="nav-link" href="/gallery">작품</a>
                     <a class="nav-link" href="/community/1">커뮤니티</a>
                     <?php if(isset($_COOKIE["user_id"])) { ?>
-                        <a class="nav-link" href="/my">마이페이지</a>
+                        <a class="nav-link" href="/my/home">마이페이지</a>
                         <a class="nav-link" href="" onclick="logout(event)">로그아웃</a>
                     <?php }else{ ?>
                         <a class="nav-link cursor-pointer" data-bs-toggle="modal" data-bs-target="#loginModal">로그인</a>
@@ -71,7 +71,7 @@
         <div class="container-fluid d-flex justify-content-between">
             <div class="navbar-brand ms-3" >
                 <a href="/">
-                    <svg id="logo-img" data-name="logo-img" xmlns="http://www.w3.org/2000/svg" width="auto" height="50" viewBox="0 0 113.4 196.35">
+                    <svg id="logo-img" data-name="logo-img" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 113.4 196.35">
                         <defs>
                             <style>
                             .cls-1 {
@@ -115,14 +115,20 @@
                 </a>
             </div>
             <div class="d-flex gx-3 gap-3">
-                <a class="nav-link" aria-current="page" href="/brand">브랜드</a>
-                <a class="nav-link" href="/gallery">작품</a>
-                <a class="nav-link" href="/community/1">커뮤니티</a>
+                <a class="nav-link mt-2" aria-current="page" href="/brand">브랜드</a>
+                <a class="nav-link mt-2" href="/gallery">작품</a>
+                <a class="nav-link mt-2" href="/community/1">커뮤니티</a>
                 <?php if(isset($_COOKIE["user_id"])) { ?>
-                    <a class="nav-link" href="/my">마이페이지</a>
-                    <a class="nav-link " href="" onclick="logout(event)">로그아웃</a>
+                    <a class="nav-link mt-2" href="" onclick="logout(event)">로그아웃</a>
+                    <a class="nav-link " href="/my/home">
+                        <button class="btn btn-secondary">
+                            <svg xmlns="http://www.w3.org/2000/svg"  width="18" height="18" fill="currentColor" class="bi bi-person mb-1" viewBox="0 0 16 16">
+                                <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"/>
+                            </svg>
+                        </button>
+                    </a>
                 <?php }else{ ?>
-                    <a class="nav-link cursor-pointer" data-bs-toggle="modal" data-bs-target="#loginModal">로그인</a>
+                    <a class="nav-link cursor-pointer mt-2" data-bs-toggle="modal" data-bs-target="#loginModal">로그인</a>
                 <?php } ?>
             </div>
         </div>
