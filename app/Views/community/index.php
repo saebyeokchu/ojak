@@ -130,7 +130,7 @@
     window.onload = function() {
         //show post-edit-buttons depends on login state
         const buttons = document.getElementsByClassName('post-edit-buttons');
-        const user_id = localStorage.getItem('user_id');
+        const user_id = $_COOKIE['user_id'];
         
         Array.from(buttons).forEach( btn => {
             const userId = btn.classList[btn.classList.length - 1].split("-")[1];

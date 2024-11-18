@@ -1,4 +1,10 @@
 <?php
+
+    if(!isset($_COOKIE['user_id'])){
+        echo '<script>window.alert("유효하지 않은 접근입니다.")</script>';
+        echo '<script>location.href="/";</script>';
+    }
+
     if(isset($contents['post'])){
         $post = $contents['post'];
     }
@@ -47,14 +53,6 @@
 
 <script src="https://unpkg.com/pell"></script> 
 <script>
-     //auth check
-     const login_user_id = localStorage.getItem('user_id');
-
-    if(!login_user_id || (login_user_id && parseInt(login_user_id) < 1)){
-        window.alert("유효하지 않은 접근입니다. 로그인 후 다시 시도하여 주세요.");
-        location.href="/";
-    }
-
     window.onload = function(){
         const pell = window.pell;
         const editor = document.getElementById("pell-editor");
