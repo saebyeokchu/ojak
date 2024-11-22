@@ -26,31 +26,3 @@
   </div>
 </div>
 
-<script>
-    async function login(event){
-        event.preventDefault();
-        try {
-            var postData = new FormData();
-            postData.append('id', document.getElementById('loginId').value);
-            postData.append('pw', document.getElementById('loginPw').value);
-
-            await axios.post('/auth/login', postData).then(function(response){
-                if(response.data.status == 'success'){
-                    const userData = response.data.user[0];
-
-                    document.cookie = "user_id=" + userData.id;
-                    document.cookie = "user_name=" + userData.user_name;
-
-                    // location.href='<?=$return_url?>';
-                    location.reload();
-                    return;
-                }
-            }).catch(function(error){
-                console.log("error:", error);
-            });
-        } catch (error) {
-            console.error('Error authenticiation user:', error);
-            window.alert("로그인에 실패하였습니다.");
-        }
-    }
-</script>

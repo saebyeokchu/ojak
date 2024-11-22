@@ -46,18 +46,21 @@ class Gallery extends BaseController
 
     public function edit($num): string
     {
-        $api = new \App\Controllers\Api();
-        $result = $api -> getGalleryById($num);
-
-        if($result['status'] == "success"){
-            $item = $result['item'];
-
-            $data['yield']       = 'gallery/new';
-            $data['contents']['item'] = $item;
+        if(!isset($_COOKIE['user_id'])){
+            $data['yield']       = 'errors/html/error_auth';
         }else{
-            $data['yield']       = 'errors/html/error_404_custom';
+            $api = new \App\Controllers\Api();
+            $result = $api -> getGalleryById($num);
+    
+            if($result['status'] == "success"){
+                $item = $result['item'];
+    
+                $data['yield']       = 'gallery/new';
+                $data['contents']['item'] = $item;
+            }else{
+                $data['yield']       = 'errors/html/error_404_custom';
+            }
         }
-        
         return view('component/application', $data);
     }
 

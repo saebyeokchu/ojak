@@ -136,3 +136,41 @@
 </header>
 
 <?= view('/auth/loginModal',array('return_url' => $_SERVER['REQUEST_URI'] )) ?>
+
+<script>
+    async function login(event){
+        event.preventDefault();
+        try {
+            var postData = new FormData();
+            postData.append('id', document.getElementById('loginId').value);
+            postData.append('pw', document.getElementById('loginPw').value);
+
+            await axios.post('/auth/login', postData).then(function(response){
+                if(response.data.status == 'success'){
+                    const userData = response.data.user[0];
+
+                    addCookie('user_id',userData.id);
+                    addCookie('user_name',userData.user_name);
+
+                    location.reload();
+                    return;
+                }
+            }).catch(function(error){
+                console.log("error:", error);
+            });
+        } catch (error) {
+            console.error('Error authenticiation user:', error);
+            window.alert("로그인에 실패하였습니다.");
+        }
+    }
+
+    function logout(event) {
+        event.preventDefault();
+
+        eraseCookie('user_id');
+        eraseCookie('user_name');
+
+        location.reload();
+    }
+
+</script>

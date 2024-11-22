@@ -18,40 +18,77 @@
         </div>
     </div>
 <?php }else{ ?>
-<div class="container pb-100" style="margin-top:15px;">
-    <div class="row p-3 gap-5 gx-5 gy-3">
-        <?php foreach($items as $item) { ?>
-            <div class="card col-lg-4 col-sm-12" >
-                <img 
-                    src="/img/<?=$item['img_url']?>"
-                    class="card-img-top"
-                    alt="Waterfall"
-                    width="400"
-                    height="300"
-                    style="object-fit: cover;"
-                />
-                <div class="card-body">
-                    <div class="d-grid">
-                        <h5 class="card-title pt-2">
-                            <?=$item['title']?>
-                        </h5>
-                        <p > <?= $item['content']?></p>
-                        <!-- <div>
-                            <span class="badge rounded-pill text-bg-secondary">이작가</span>
-                            <span class="badge rounded-pill text-bg-secondary">전시작품</span>
-                        </div> -->
-                    </div>
-                    <div class="d-flex text-center justify-content-center pt-4 gap-3 gx-3 gy-3">
-                        <button type="button " class="sm-black-btn" >수정</button>
-                        <button type="button " class="sm-black-btn" data-bs-toggle="modal" data-bs-target="#deleteModal">삭제</button>
-                    </div> 
-                    <?= view('/gallery/deleteModal',array('id'=>$item['id'],'return_url'=>'/my/gallery')) ?>
-                </div>
-            </div>
-        <?php } ?>
-    </div>
-</div>
+
+    <table class="table align-middle mb-0 bg-white mt-2">
+        <tbody>
+            <?php
+                $index = 1;
+                foreach($items as $item) { ?>
+                    <tr>
+                        <td >
+                            <strong><?= $index ?></strong>
+                        </td>
+                        <td>
+                            <?= $item['created_at'] ?>
+                        </td>
+                        <td >
+                            <p class="hover-underline cursor-pointer">
+                                <a href="/gallery/detail/<?= $item['id'] ?>" class="text-secondary no-text-decoration"><?= $item['title'] ?></a>
+                            </p>
+                        </td>
+                        <td class="d-flex justify-content-end post-edit-buttons item-<?=$item['user_id']?>" >
+                            <div class="for-lg  pt-3 pb-3">
+                                <a href="/gallery/edit/<?= $item['id'] ?>" class="no-text-decoration">
+                                    <span class="sm-black-btn cursor-pointer me-3" >
+                                        수정
+                                    </span>
+                                </a>
+                                <span class="sm-black-btn cursor-pointer" onclick="deleteItem(<?= $item['id'] ?>)">
+                                    삭제
+                                </span>
+                            </div>
+
+                            <div class="for-sm  pt-3 pb-3">
+                                <button class="btn btn-light" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    :
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li ><a class="dropdown-item" ref="/gallery/edit/<?= $item['id'] ?>">수정</a></li>
+                                    <li  onclick="deleteItem(<?= $item['id'] ?>)"><a class="dropdown-item">삭제</a></li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+            <?php $index++; } ?>
+        </tbody>
+    </table>
 <?php } ?>
+
+<script>
+    function deleteItem(id){
+        if(id){
+            if(window.confirm('작품을 삭제하시겠습니까?')){
+                try {
+                    var postData = new FormData();
+                    postData.append('id',id);
+
+                    axios.post('/api/deleteGallery', postData).then(function(response){
+                        console.log("success:", response);
+                        window.alert(response.data.message);
+                        location.reload();
+                        return;
+                    }).catch(function(error){
+                        console.log("error:", error);
+                    });
+                    
+                } catch (error) {
+                    console.error('Error deleting data:', error);
+                    window.alert("게시물을 삭제할 수 없습니다. 잠시 후 다시 시도하여 주세요.")
+                }
+            }
+        }
+    }
+</script>
 
 
 

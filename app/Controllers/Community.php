@@ -31,9 +31,15 @@ class Community extends BaseController
     }
 
     public function new(): string {
-        $data['yield']       = 'community/editor';
-        $data['view_footer'] = false;
-        $data['contents']['pageIndex'] = 1;
+        //login check
+        if(!isset($_COOKIE['user_id'])){
+            $data['yield']       = 'errors/html/error_auth';
+        }else{
+            $data['yield']       = 'community/editor';
+            $data['view_footer'] = false;
+            $data['contents']['pageIndex'] = 1;
+        }
+        
         return view('component/application', $data);
     }
 

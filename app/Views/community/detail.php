@@ -54,7 +54,7 @@
         //show post-edit-buttons depends on login state
         const deleteBtn = document.getElementById('post-detail-delete-btn');
         const editBtn = document.getElementById('post-detail-edit-btn');
-        const user_id = localStorage.getItem('user_id');
+        const user_id = getCookieByName('user_id');
         
         const userId = <?= $post["user_id"]; ?>;
 

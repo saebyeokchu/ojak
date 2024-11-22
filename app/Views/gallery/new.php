@@ -157,7 +157,7 @@
             postData.append('title', title);
             postData.append('content', content);
             postData.append('image', file.files[0]);
-            postData.append('user_id',localStorage.getItem('user_id'));
+            postData.append('user_id',getCookieByName('user_id'));
             postData.append('id',id);
 
             axios.post('/gallery/insert', postData, { headers: {
