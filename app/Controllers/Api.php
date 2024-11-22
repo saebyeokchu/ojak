@@ -6,6 +6,48 @@ use CodeIgniter\Controller;
 
 class Api extends Controller
 {
+    //Setting
+    public function getBusniessInfo(){
+        $returnType = 'php';
+        $model = new \App\Models\SettingModel();
+
+        $result = $model->where('category', 1)->findAll();
+
+        if(isset($_GET['return_type'])){
+            $returnType = 'json';
+        }
+
+        if($result) {
+            if($returnType=="json"){
+                return $this->response->setJSON(
+                    [
+                        'status' => 'success',
+                        'data' => $result
+                    ]
+                );
+            }else{
+                return [
+                    'status' => 'success',
+                    'data' => $result
+                ];
+            }
+        } else {
+            if($returnType=="json"){
+                return $this->response->setJSON(
+                    [
+                        'status' => 'error',
+                        'message' => 'No data',
+                    ]
+                );
+            }else{
+                return [
+                    'status' => 'error',
+                    'message' => 'No data',
+                ];
+            }
+        }
+    }
+
     //Auth
     public function getUserByUserId($id){
         $model = new \App\Models\UserModel();

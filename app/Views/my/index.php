@@ -1,10 +1,6 @@
 <?php
-    if(!isset($_COOKIE['user_id'])){
-        echo '<script>window.alert("유효하지 않은 접근입니다.")</script>';
-        echo '<script>location.href="/";</script>';
-    }
-
     $data = $contents['target_data'];
+    $userName = $_COOKIE['user_name'];
 ?>
 
 <div class="container-fluid">
@@ -74,6 +70,24 @@
                             <?php } ?>
                         </a>
                     </li>
+                    <?php if($userName == 'admin') { ?>
+                    <li>
+                        <a href="/my/busniess" class="nav-link px-0 align-middle text-secondary">
+                            <span class="fs-4 bi-people">
+                                <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 17.75C12.4142 17.75 12.75 17.4142 12.75 17V11C12.75 10.5858 12.4142 10.25 12 10.25C11.5858 10.25 11.25 10.5858 11.25 11V17C11.25 17.4142 11.5858 17.75 12 17.75Z" fill="#1C274C"/>
+                                    <path d="M12 7C12.5523 7 13 7.44772 13 8C13 8.55228 12.5523 9 12 9C11.4477 9 11 8.55228 11 8C11 7.44772 11.4477 7 12 7Z" fill="#1C274C"/>
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M1.25 12C1.25 6.06294 6.06294 1.25 12 1.25C17.9371 1.25 22.75 6.06294 22.75 12C22.75 17.9371 17.9371 22.75 12 22.75C6.06294 22.75 1.25 17.9371 1.25 12ZM12 2.75C6.89137 2.75 2.75 6.89137 2.75 12C2.75 17.1086 6.89137 21.25 12 21.25C17.1086 21.25 21.25 17.1086 21.25 12C21.25 6.89137 17.1086 2.75 12 2.75Z" fill="#1C274C"/>
+                                </svg>
+                            </span> 
+                            <?php if($contents['sub'] == 'busniess') { ?>
+                                <span class="ms-1 d-none d-sm-inline "><strong>사업자 정보 변경</strong></span> 
+                            <?php }else{ ?>
+                                <span class="ms-1 d-none d-sm-inline ">사업자 정보 변경</span> 
+                            <?php } ?>
+                        </a>
+                    </li>
+                    <?php } ?>
                 </ul>
             </div>
         </div>
@@ -84,6 +98,8 @@
                 echo view('/my/community',array('data' => $data));
             }else if($contents['sub'] == 'info'){
                 echo view('/my/info',array('data' => $data));
+            }else if($contents['sub'] == 'busniess'){
+                echo view('/my/busniess',array('data' => $data));
             } ?>
         </div>
     </div>

@@ -36,5 +36,7 @@ $routes->post('/api/insertPost', 'Api::insertPost');
 $routes->post('/api/deletePost', 'Api::deletePost');
 $routes->post('/api/getById/(:id)', 'Api::getById/$1');
 $routes->post('/api/deleteGallery', 'Api::deleteGallery');
+$routes->get('/api/getBusniessInfo', 'Api::getBusniessInfo');
+
 
 

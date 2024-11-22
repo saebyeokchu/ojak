@@ -114,7 +114,7 @@
                     postData.append('title', title);
                     postData.append('content', markup.textContent);
                     postData.append('id','<?= ( isset($post) && isset($post['id']) ) ? $post['id'] : '' ?>');
-                    postData.append('user_id',localStorage.getItem('user_id'));
+                    postData.append('user_id', getCookieByName('user_id'));
 
                     axios.post('/api/insertPost', postData).then(function(response){
                         console.log("success:", response);

@@ -26,13 +26,13 @@
         margin-top:150px;
 		.main-title {
 			font-size: 48px;
-			color:#ddd;
+			color:#fff;
 			text-shadow: 2px 4px 3px rgba(0,0,0,0.6);
 		}
 
 		.sub-title {
 			font-size: 18px;
-			color:#ddd;
+			color:#fff;
 			text-shadow: 1px 1px 1px rgba(0,0,0,0.6);
 		}
 	}

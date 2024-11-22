@@ -11,13 +11,11 @@
 ?>
 
 <!-- Community -->
-<div class="page-header d-flex justify-content-center text-center">
-    <div class="title" data-aos="fade-up" data-aos-duration="1500">
-        <p class="main-title">커뮤니티</p>
-        <p class="sub-title sub-title-lg">오작의 멤버들이 자유롭게 의견을 주고 받는 공간입니다.</p>
-        <p class="sub-title sub-title-sm">오작의 멤버들이 자유롭게 <br/>의견을 주고 받는 공간입니다.</p>
-    </div>
-</div>
+<?= view('component/page_header',
+        array('page_header_title'=>'커뮤니티',
+                'page_header_lg_sub_title'=>'오작의 멤버들이 자유롭게 의견을 주고 받는 공간입니다.',
+                'page_header_sm_sub_title1'=>'오작의 멤버들이 자유롭게',
+                'page_header_sm_sub_title2'=>'의견을 주고 받는 공간입니다.')) ?>
 
 <?php if($rowCount == 0) { ?>
     <div class="page-wrap d-flex flex-row align-items-center" style="min-height: 60vh;">

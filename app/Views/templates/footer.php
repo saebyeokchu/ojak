@@ -1,5 +1,4 @@
 <!-- FOOTER: DEBUG INFO + COPYRIGHTS -->
-
 <footer class="bg-black text-light">
     <div class="container p-5 ">
         <div class="row gy-5">
@@ -22,15 +21,15 @@
                 </g>
                 </svg>
             </div>
-            <div class="col-lg-8 col-sm-12 d-flex flex-column gy-5" >
-                <div class="pt-2">상호명 : 한지세상</div>
+            <div class="col-lg-8 col-sm-12 d-flex flex-column gy-5" id="footer-busniess">
+                <!-- <div class="pt-2">상호명 : 경북공예문화협동조합</div>
                 <div class="pt-2">대표자 : 고정숙</div>
                 <div class="pt-2">사업자등록번호 : 506-18-72685</div>
                 <div class="pt-2">통신판매업신고번호 : 제2013-경북포항-0195호 [사업자정보확인]</div>
                 <div class="pt-2">고객센터 : 1661-1574</div>
                 <div class="pt-2">팩스 : 0504-084-2789</div>
                 <div class="pt-2">주소 : 37911 경상북도 포항시 남구 오천읍 장기로1479번길 2-4</div>
-                <div class="pt-2">개인정보보호책임자 : 고보빈(jung755@naver.com)</div>
+                <div class="pt-2">개인정보보호책임자 : 고보빈(jung755@naver.com)</div> -->
             </div>
         </div>
         <div class="d-flex justify-content-end">
@@ -42,11 +41,9 @@
 <script>
 
     window.onload = function() {
-        const user_id = parseInt(localStorage.getItem('user_id'));
+        const user_id = getCookieByName('user_id');
         const elements = document.getElementsByClassName('logged-in');
         const out_elements = document.getElementsByClassName('logged-out');
-
-        console.log(elements)
 
         if(user_id > 0){
             //showing item
@@ -73,18 +70,30 @@
                 el.classList.add('show-item');
             });
         }
-    }
 
-    function logout(event) {
-        event.preventDefault();
+        //call footer info
+        try {
+                axios.get('/api/getBusniessInfo?return_type=json').then(function(response){
+                    if(response['data']['status']=='success'){
+                        const data = response['data']['data'];
+                        const footerDiv = document.getElementById('footer-busniess');
 
-        localStorage.removeItem("user_id");
-        localStorage.removeItem("user_name");
-
-        document.cookie = "user_id=;expires=" + new Date(0).toUTCString();
-        document.cookie = "user_name=;expires=" + new Date(0).toUTCString();
-        
-        location.reload();
+                        data.forEach(function(d){
+                            // document.cookie = d['name'] + " = " + d['value'];
+                            const newDiv = document.createElement("div");
+                            newDiv.classList.add('pt-2');
+                            newDiv.innerText = d['name'] + " : " + d['value'];
+                            footerDiv.appendChild(newDiv);
+                        })
+                    }
+                }).catch(function(error){
+                    console.log("error:", error);
+                });
+                
+                return;
+        } catch (error) {
+            console.error('Error inserting data:', error);
+        }
     }
 
     function characterCheck(value){
@@ -94,6 +103,25 @@
     }
 
     function onready(){
-    alert("변경기능을 준비중입니다.");
-  }
+        alert("변경기능을 준비중입니다.");
+    }
+
+    function addCookie(name, value){
+        document.cookie = name +"=" + value + "; path=/";
+    }
+
+    function getCookieByName(name) {
+        const cookies = document.cookie.split(';');
+        for (let cookie of cookies) {
+            cookie = cookie.trim();
+            if (cookie.startsWith(name + '=')) {
+                return cookie.substring(name.length + 1);
+            }
+        }
+        return null;
+    }
+
+    function eraseCookie(name) {   
+        document.cookie = name+'=; path=/; Max-Age=-99999999;';  
+    }
 </script>

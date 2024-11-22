@@ -111,7 +111,7 @@
     //show post-edit-buttons depends on login state
     const btns = document.getElementsByClassName('gallery-action-btn');
 
-    const user_id = localStorage.getItem('user_id');
+    const user_id = getCookieByName('user_id');
     const userId = <?= $item -> user_id; ?>;
 
     console.log(user_id, userId);
