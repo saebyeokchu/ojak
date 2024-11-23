@@ -3,7 +3,6 @@
 namespace Config;
 
 use CodeIgniter\Database\Config;
-use AWS\Ssm\SsmClient;
 
 switch($_SERVER["HTTP_HOST"]){
     case "localhost":
@@ -15,7 +14,7 @@ switch($_SERVER["HTTP_HOST"]){
 }
 
 
-/**e
+/**
  * Database Configuration
  */
 class Database extends Config
@@ -40,7 +39,7 @@ class Database extends Config
         'DSN'          => '',
         'hostname'     => 'localhost',
         'username'     => 'root',
-        'password'     => '', 
+        'password'     => (DB_ENV === 'production') ? 'ho@/54vat8ZG' : '', 
         'database'     => 'ojak',
         'DBDriver'     => 'MySQLi',
         'DBPrefix'     => '',
@@ -208,29 +207,6 @@ class Database extends Config
         // we don't overwrite live data on accident.
         if (ENVIRONMENT === 'testing') {
             $this->defaultGroup = 'tests';
-	    }
-
-        //Get DB Private Info
-
-        $client = new SsmClient([
-            'version' => 'latest',
-            'region' => 'us-east-1',
-            'debug'   => true,
-            'credentials' => [
-                    'key'    => 'AKIA42PHHZCAL6M5QMSF',       // Add your access key
-                    'secret' => 'qLW02CB50DdRk4X9Wfg0M3m1c7Pp' // Add your secret key
-                ],
-        ]);
-        
-        $result = $client->getParameter([
-            'Name' => 'ojakdbpw',
-            'WithDecryption' => true,
-        ]);
-
-        $dp_pw = $result['Parameter']['Value'];
-        if(isset($dp_pw)){
-            $default['password'] = $dp_pw;
         }
-		
     }
 }
