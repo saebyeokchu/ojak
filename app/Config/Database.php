@@ -2,6 +2,8 @@
 
 namespace Config;
 
+
+use Aws\Ssm\SsmClient;
 use CodeIgniter\Database\Config;
 
 switch($_SERVER["HTTP_HOST"]){
@@ -14,11 +16,32 @@ switch($_SERVER["HTTP_HOST"]){
 }
 
 
+function getSsmParam() {
+    $client = new SsmClient([
+        'version' => 'latest',
+        'region' => 'us-east-1',
+        'credentials' => [
+                'key'    => 'AKIA42PHHZCAL6M5QMSF',       // Add your access key
+                'secret' => 'cYS7jNX+qLW02CB50DdRk4X9Wfg0M3m1c7Pp/0je' // Add your secret key
+            ],
+    ]);
+    
+    $result = $client->getParameter([
+        'Name' => 'ojakdbpw',
+        'WithDecryption' => true,
+    ]);
+
+    return  $result['Parameter']['Value'];
+}
+
+
 /**
  * Database Configuration
  */
 class Database extends Config
 {
+
+    public string $test =  '';
 
     /**
      * The directory that holds the Migrations and Seeds directories.
@@ -39,7 +62,7 @@ class Database extends Config
         'DSN'          => '',
         'hostname'     => 'localhost',
         'username'     => 'root',
-        'password'     => (DB_ENV === 'production') ? 'ho@/54vat8ZG' : '', 
+        'password'     => '', 
         'database'     => 'ojak',
         'DBDriver'     => 'MySQLi',
         'DBPrefix'     => '',
@@ -208,5 +231,12 @@ class Database extends Config
         if (ENVIRONMENT === 'testing') {
             $this->defaultGroup = 'tests';
         }
+
+        $test = getSsmParam();
+        if($test){
+            $default['password'] = $test;
+        }
+
+
     }
 }
