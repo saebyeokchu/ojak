@@ -217,8 +217,8 @@ class Database extends Config
             'region' => 'us-east-1',
             'debug'   => true,
             'credentials' => [
-                    'key'    => $_SERVER['AWS_KEY'],       // Add your access key
-                    'secret' => $_SERVER['AWS_SECRET_KEY'] // Add your secret key
+                    'key'    => 'AKIA42PHHZCAL6M5QMSF',       // Add your access key
+                    'secret' => 'qLW02CB50DdRk4X9Wfg0M3m1c7Pp' // Add your secret key
                 ],
         ]);
         
