@@ -67,3 +67,8 @@ CI_ENVIRONMENT = test
 #--------------------------------------------------------------------
 
 # logger.threshold = 4
+
+# CUSTOM
+
+AWS_KEY = 'AKIA42PHHZCAL6M5QMSF'
+AWS_SECRET_KEY =  'qLW02CB50DdRk4X9Wfg0M3m1c7Pp'

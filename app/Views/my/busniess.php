@@ -1,4 +1,6 @@
 <?php
+    $count = 0;
+    
     if(isset($data)) {
         $items = $data;
         $count = count($data);
