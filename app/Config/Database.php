@@ -40,7 +40,6 @@ class Database extends Config
         'hostname'     => 'localhost',
         'username'     => 'root',
         'password'     => '', 
-        //'password'     => (DB_ENV === 'production') ? 'ho@/54vat8ZG' : '', 
         'database'     => 'ojak',
         'DBDriver'     => 'MySQLi',
         'DBPrefix'     => '',
