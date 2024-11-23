@@ -80,6 +80,7 @@ class Connection extends BaseConnection
      * @var bool
      */
     public $numberNative = false;
+    
 
     /**
      * Connect to the database.
@@ -90,6 +91,7 @@ class Connection extends BaseConnection
      */
     public function connect(bool $persistent = false)
     {
+
         // Do we have a socket path?
         if ($this->hostname[0] === '/') {
             $hostname = null;
