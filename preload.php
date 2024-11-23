@@ -1,5 +1,4 @@
 <?php
-
 /**
  * This file is part of CodeIgniter 4 framework.
  *
@@ -65,6 +64,7 @@ class preload
     public function __construct()
     {
         $this->loadAutoloader();
+
     }
 
     private function loadAutoloader(): void
