@@ -212,10 +212,10 @@ class Database extends Config
 
 $client = new SsmClient([
     'version' => 'latest',
-    'region' => 'us-east-1',
+    'region' => '',
     'credentials' => [
-            'key'    => 'AKIA42PHHZCAL6M5QMSF',       // Add your access key
-            'secret' => 'cYS7jNX+qLW02CB50DdRk4X9Wfg0M3m1c7Pp/0je' // Add your secret key
+            'key'    => '',       // Add your access key
+            'secret' => '' // Add your secret key
         ],
 ]);
 
