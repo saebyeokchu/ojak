@@ -20,6 +20,10 @@ switch($_SERVER["HTTP_HOST"]){
  */
 class Database extends Config
 {
+    public array $aws = [
+        'region' => ''
+    ];
+
     /**
      * The directory that holds the Migrations and Seeds directories.
      */
@@ -40,7 +44,6 @@ class Database extends Config
         'hostname'     => 'localhost',
         'username'     => 'root',
         'password'     => '', 
-        //'password'     => (DB_ENV === 'production') ? 'ho@/54vat8ZG' : '', 
         'database'     => 'ojak',
         'DBDriver'     => 'MySQLi',
         'DBPrefix'     => '',
@@ -210,24 +213,23 @@ class Database extends Config
             $this->defaultGroup = 'tests';
         }
 
-$client = new SsmClient([
-    'version' => 'latest',
-    'region' => '',
-    'credentials' => [
-            'key'    => '',       // Add your access key
-            'secret' => '' // Add your secret key
-        ],
-]);
+    $client = new SsmClient([
+        'version' => 'latest',
+        // 'region' => 'us-east-1',
+        'profile' => 'ojak'
+        // 'credentials' => [
+        //         'key'    => 'AKIA42PHHZCAL6M5QMSF',       // Add your access key
+        //         'secret' => 'cYS7jNX+qLW02CB50DdRk4X9Wfg0M3m1c7Pp/0je' // Add your secret key
+        //     ],
+    ]);
 
-$result = $client->getParameter([
-    'Name' => 'ojakdbpw',
-    'WithDecryption' => true,
-]);
+    $result = $client->getParameter([
+        'Name' => 'ojakdbpw',
+        'WithDecryption' => true,
+    ]);
         if((DB_ENV === 'production')){
             $this->default['password'] = $result['Parameter']['Value'];
         }
-
-        log_message('error',serialize($this -> default));
         
     }
 }
