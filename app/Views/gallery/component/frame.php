@@ -1,12 +1,20 @@
+<?php 
+    $height = 200;
+
+    if(isset($height_input)){
+        $height = $height_input;
+    }
+?>
+
 <div id="hide-content-<?=$item['id']?>" style="visibility:hidden;height:0px;">
     <?= $item["content"] ?>
 </div>
 
 <div class="hovereffect cursor-pointer">
-    <img class="img-responsive w-100" height="200" src="/img/<?= $item['img_url'] ?>" alt="" style="object-fit: cover">
+    <img class="img-responsive w-100" height="<?= $height ?>" src="/img/<?= $item['img_url'] ?>" alt="" style="object-fit: cover">
     <div class="overlay">
     <!-- <h2>Hover effect 1</h2> -->
-        <a class="info " onclick="moveToDetail('<?=$item['id']?>','<?=$item['title']?>','<?=$item['img_url']?>')">자세히 보기</a>
+        <a class="<?= isset($height_input) ? "info-lg" : "info"?>" onclick="moveToDetail('<?=$item['id']?>','<?=$item['title']?>','<?=$item['img_url']?>')">자세히 보기</a>
     </div>
 </div>
 

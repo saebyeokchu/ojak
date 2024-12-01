@@ -15,9 +15,9 @@
                 <small class="text-secondary">이름을 작성하지 않으시면 아이디로 자동 지정됩니다.</small>
             </div>
             <div class="mb-3">
-                <label for="register-id" class="form-label">아이디</label>
-                <span class="badge text-bg-secondary cursor-pointer" onclick="checkId()" >아이디 중복확인</span>
-                <input type="text" name="register-id" class="form-control" id="register-id" onkeydown="resetIdChecked()" required>
+                <label for="register-id" class="form-label">아이디(이메일)</label>
+                <span class="badge text-bg-secondary cursor-pointer" onclick="checkId()" >아이디(이메일) 중복확인</span>
+                <input type="email" name="register-id" class="form-control" id="register-id" onkeydown="resetIdChecked()" required>
             </div>
             <div class="mb-3">
                 <label for="register-pw" class="form-label">비밀번호</label>
@@ -27,7 +27,7 @@
                 <label for="register-pw-chk" class="form-label">비밀번호 확인</label>
                 <input type="password" class="form-control" id="register-pw-chk" required>
             </div>
-            <button type="submit" class="long-black-btn">멤버가입</button>
+            <button type="submit" class="long-black-btn">멤버가입 요청</button>
         </form>
     </div>
 </div>
@@ -47,7 +47,7 @@
         }else{
             //특수문자 체크
             if(characterCheck(id)){
-                window.alert("특수문자 [_]만 허용됩니다. 이외는 제외하여 입력해 주세요.");
+                window.alert("특수문자 [ _ , - , @ , . ]만 허용됩니다. 이외는 제외하여 입력해 주세요.");
                 return;
             }
 
@@ -119,10 +119,10 @@
                 console.log(response);
                 if(response.data.status == 'success'){
                     const insertedId = response.data.insertedId;
-                    window.alert('멤버가입이 완료되었습니다');
+                    window.alert('멤버가입 요청이 완료되었습니다. 승인메일 확인 후 로그인 해주세요.');
 
-                    document.cookie = "user_id=" + insertedId;
-                    document.cookie = "user_name=" + name;
+                    // document.cookie = "user_id=" + insertedId;
+                    // document.cookie = "user_name=" + name;
 
                     location.href='<?=$contents['return_url']?>';
                     return;
@@ -132,7 +132,7 @@
             });
         } catch (error) {
             console.error('Error authenticiation user:', error);
-            window.alert("멤버가입에 실패하였습니다. 잠시후 다시 시도해 주세요.");
+            window.alert("멤버가입 요청에 실패하였습니다. 잠시후 다시 시도해 주세요.");
         }
     }
 </script>

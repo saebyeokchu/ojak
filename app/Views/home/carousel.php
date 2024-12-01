@@ -1,3 +1,11 @@
+<?php
+    if(isset($contents)){
+        if(isset($contents['showpieces'])){
+            $data = $contents['showpieces'];
+        }
+    }
+?>
+
 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -6,17 +14,15 @@
     </div>
     <div class="carousel-inner">
         <?php
-            for($i=1;$i<=3;$i=$i+1){
-                $active = "";
-
-                if($i == 1){
-                    $active = 'active';
-                }
+            $i = 0;
+            foreach($data as $d){
+                $active = $i == 0 ? "active" : "" ;
 
                 echo "<div class='carousel-item ".$active."' data-bs-interval='2000' >";
-                echo "  <img src='img/carousel".$i.".jpg' class='d-block carousel-img' width='100%'/>";
+                echo "  <img src='img/".$d['value']."' class='d-block carousel-img' width='100%'/>";
                 echo "</div>";
 
+                $i++;
             }
         ?>
     </div>

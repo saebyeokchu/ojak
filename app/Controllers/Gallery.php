@@ -70,6 +70,7 @@ class Gallery extends BaseController
         $content = $this->request->getPost('content');
         $user_id = $this->request->getPost('user_id');
         $id = $this->request->getPost('id');
+        $exhibit = $this->request->getPost('exhibit');
 
         $file_name = null;
         $file_upload = true;
@@ -90,7 +91,7 @@ class Gallery extends BaseController
 
         if($file_upload){
             $api = new \App\Controllers\Api();
-            $result = $api -> insertGallery($title,$content,$file_name,$user_id,$id);
+            $result = $api -> insertGallery($title,$content,$file_name,$user_id,$id,$exhibit);
 
             if($result['status'] == 'success'){
                 //check pw
@@ -103,6 +104,90 @@ class Gallery extends BaseController
                     'status' => 'error'
                 ]);
             }
+        }
+    }
+
+    public function uploadRepresentItems()
+    {
+        $file = new \App\Controllers\File();
+        $img_names = ['showpiece1','showpiece2','showpiece3'];
+        $upload_result = true;
+
+        foreach($img_names as $in){
+            if(isset($_FILES[$in])){
+                $file_result = $file->upload($_FILES[$in]);
+                $file_name = $file_result['file_name'];
+    
+                if($file_result['success']){
+                    $api = new \App\Controllers\Api();
+                    $result = $api -> updateSettingByName($in,$file_name);
+        
+                    if($result['status'] != 'success'){
+                        $upload_result = false;
+                        break;
+                    }
+                }
+            }
+        }
+
+        if($upload_result){
+            return $this->response->setJSON([
+                'status' => 'success',
+            ]);
+        }else{
+            return $this->response->setJSON([
+                'status' => 'fail',
+            ]);
+        }
+        
+    }
+
+    public function updateByGalleryId(){
+        $exhibit = $this->request->getPost('exhibit');
+
+        $file = new \App\Controllers\File();
+
+        if(isset($_FILES['image'])){
+            $file_result = $file->upload($_FILES['image']);
+            $file_name = $file_result['file_name'];
+
+            if($file_result['success']){
+                $api = new \App\Controllers\Api();
+                $result = $api -> updateGalleryByExhibit($exhibit,$file_name);
+            }
+        }
+
+        if($result['status'] === 'success'){
+            return $this->response->setJSON([
+                'status' => 'success',
+            ]);
+        }else{
+            return $this->response->setJSON([
+                'status' => 'fail',
+            ]);
+        }
+
+        return $this->response->setJSON([
+            'status' => 'fail',
+        ]);
+    }
+
+    public function deleteByGalleryId(){
+        $id = $this->request->getPost('id');
+
+        $api = new \App\Controllers\Api();
+        $result = $api -> deleteByGalleryId( $id);
+
+        if($result){
+            return $this->response->setJSON([
+                'status' => 'success',
+                'message' => '성공적으로 삭제되었습니다.',
+            ]);
+        } else {
+            return $this->response->setJSON([
+                'status' => 'error',
+                'message' => '삭제에 실패하였습니다. 잠시 후 다시 시도하여 주세요.'
+            ]);
         }
     }
 

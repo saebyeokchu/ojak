@@ -44,28 +44,43 @@
     }
     
     .hovereffect a.info {
-    text-decoration:none;
-    display:inline-block;
-    text-transform:uppercase;
-    color:#fff;
-    border:1px solid #fff;
-    background-color:transparent;
-    opacity:0;
-    filter:alpha(opacity=0);
-    -webkit-transition:all .2s ease-in-out;
-    transition:all .2s ease-in-out;
-    margin:70px 0 0;
-    padding:20px 20px;
+        text-decoration:none;
+        display:inline-block;
+        text-transform:uppercase;
+        color:#fff;
+        border:1px solid #fff;
+        background-color:transparent;
+        opacity:0;
+        filter:alpha(opacity=0);
+        -webkit-transition:all .2s ease-in-out;
+        transition:all .2s ease-in-out;
+        margin:70px 0 0;
+        padding:20px 20px;
+    }
+
+    .hovereffect a.info-lg {
+        text-decoration:none;
+        display:inline-block;
+        text-transform:uppercase;
+        color:#fff;
+        border:1px solid #fff;
+        background-color:transparent;
+        opacity:0;
+        filter:alpha(opacity=0);
+        -webkit-transition:all .2s ease-in-out;
+        transition:all .2s ease-in-out;
+        margin:200px 0 0;
+        padding:20px 20px;
     }
     
-    .hovereffect a.info:hover {
-    box-shadow:0 0 5px #fff;
+    .hovereffect a.info:hover, .hovereffect a.info-lg:hover {
+        box-shadow:0 0 5px #fff;
     }
     
     .hovereffect:hover img {
-    -ms-transform:scale(1.2);
-    -webkit-transform:scale(1.2);
-    transform:scale(1.2);
+        -ms-transform:scale(1.2);
+        -webkit-transform:scale(1.2);
+        transform:scale(1.2);
     }
     
     .hovereffect:hover .overlay {
@@ -73,7 +88,7 @@
     filter:alpha(opacity=100);
     }
     
-    .hovereffect:hover h2,.hovereffect:hover a.info {
+    .hovereffect:hover h2,.hovereffect:hover a.info,.hovereffect:hover a.info-lg {
     opacity:1;
     filter:alpha(opacity=100);
     -ms-transform:translatey(0);
@@ -81,11 +96,11 @@
     transform:translatey(0);
     }
     
-    .hovereffect:hover a.info {
-    -webkit-transition-delay:.2s;
-    transition-delay:.2s;
+    .hovereffect:hover a.info, .hovereffect:hover a.info-lg {
+        -webkit-transition-delay:.2s;
+        transition-delay:.2s;
     }
 
-.carousel-img {
-    max-height:800px; min-height: 400px; object-fit: cover;
-}
+    .carousel-img {
+        max-height:800px; min-height: 400px; object-fit: cover;
+    }

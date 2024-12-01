@@ -1,91 +1,246 @@
 <?php
     $count=0;
+    $gallery1 = [null,null,null,null,null,null];
+    $gallery2 = [null,null,null,null,null,null];
 
     if(isset($contents)){
         $items = $contents['items'];
+        $items = json_decode(json_encode($items), true);
+
+        if(isset($contents['gallery1'])){
+
+            foreach($contents['gallery1'] as $work){
+                if($work != null) {
+                    $galleryOrder = explode("-",$work -> exhibit)[1];
+                    $work = json_decode(json_encode($work), true);
+                    $gallery1[$galleryOrder-1] = $work;
+                }
+            }
+        }
+
+        if(isset($contents['gallery2'])){
+
+            foreach($contents['gallery2'] as $work){
+                if($work != null) {
+                    $galleryOrder = explode("-",$work -> exhibit)[1];
+                    $work = json_decode(json_encode($work), true);
+                    $gallery2[$galleryOrder-1] = $work;
+                }
+            }
+        }
+
         $count = count($items);
+
     }
+
+
+
 ?>
 
-<?php if($count == 0){ ?>
-    <!-- <div class="page-wrap d-flex flex-row align-items-center bg-light mt-5" style="min-height: 70vh;" data-aos="fade-up" data-aos-duration="1500">
-        <div class="container my-3">
-            <div class="row justify-content-center text-center">
-                <span class=" display-6">현재 전시된 오작 커뮤니티의 작품이 없습니다.</span>
+    <div class="d-flex justify-content-center gap-3 gx-3">
+        <button class="black-btn" id="exh-btn-1" onclick="onFirstExhibitClick()">제 1전시장</button>
+        <button class="gray-btn" id="exh-btn-2" onclick="onSecondExhibitClick()"> 제 2전시장</button>
+    </div>
+
+    <div  class="home-exhibition-1 mt-30 for-md-show show-item container">
+        <div class="row pt-15 gy-4" data-aos="fade-up" data-aos-duration="1500" >
+            <div class="col-4"> 
+                <?= ( $gallery1!=null && $gallery1[0]!=null ) ? 
+                    view('gallery/component/frame', array('item' => $gallery1[0], 'height_input' => 400)) 
+                        : 
+                    view('gallery/component/empty')?>
+            </div>
+            <div class="col-4"> 
+                <?= ( $gallery1!=null && $gallery1[1]!=null ) ? 
+                    view('gallery/component/frame', array('item' => $gallery1[1], 'height_input' => 400)) 
+                        : 
+                    view('gallery/component/empty')?>
+            </div>
+            <div class="col-4"> 
+                <?= ( $gallery1!=null && $gallery1[2]!=null ) ? 
+                    view('gallery/component/frame', array('item' => $gallery1[2], 'height_input' => 400)) 
+                        : 
+                    view('gallery/component/empty')?>
             </div>
         </div>
-    </div> -->
-    <div class="position-fixed text-white bg-black d-flex justify-content-center p-5 rounded" style="top:300px; right:1px; width:50px; height:250px;">
-        작품 전시 준비중 
-    </div>
-<?php }else{ ?>
-<!-- Carousel Button -->
-<div id="carouselExampleIndicators2" class="carousel slide for-lg"  data-aos="fade-up" data-aos-duration="1500">
-    <div class="d-flex justify-content-center py-5">
-        <button class="slider-btn" type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon text-black" style="width: 64px;height: 64px;" data-bs-target="#carouselExampleIndicators2" aria-hidden="true"> </span>
-        </button>
-        <div style="width:100px;"></div>
-        <button class="slider-btn" type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide="next">
-            <span class="carousel-control-next-icon text-black" style="width: 64px;height: 64px;" data-bs-target="#carouselExampleIndicators2" aria-hidden="true" ></span>
-        </button>
-    </div>
-
-    <div class="carousel-inner p-3">
-        <?php if($count <= 3) { ?>
-            <div class="carousel-item active">
-                <div class="row">
-                    <?php foreach($items as $item) { ?>
-                        <div class="col">
-                            <?= view('/home/component/gallery-card',array('item' => $item )) ?>
-                        </div>
-                    <?php } ?>
-                </div>
+        <div class="row pt-15 gy-4" data-aos="fade-up" data-aos-duration="1500" >
+            <div class="col-4"> 
+                <?= ( $gallery1!=null && $gallery1[3]!=null ) ? 
+                    view('gallery/component/frame', array('item' => $gallery1[3], 'height_input' => 400)) 
+                        : 
+                    view('gallery/component/empty')?>
             </div>
-        <?php }else{ ?>
-            <?php for($i=0;$i < $count; $i = $i + 3){ ?>
-                <div class="carousel-item <?= ($i==0) ? 'active' : '' ?>">
-                    <div class="row gy-5">
-                        <?php for($j=$i;$j < $i + 3 && $j < $count; $j = $j + 1) { ?>
-                            <div class="col-lg-4 col-sm-12">
-                                <?= view('/home/component/gallery-card',array('item' => $items[$j] )) ?>
-                            </div>
-                        <?php } ?>
-                    </div>
-                </div>
-            <?php } ?>
-        <?php } ?>
-    </div>
-
-    
-</div>
-
-<div id="carouselExampleIndicators3" class="carousel slide for-sm"  data-aos="fade-up" data-aos-duration="1500">
-    <div class="d-flex justify-content-center py-5">
-        <button class="slider-btn" type="button" data-bs-target="#carouselExampleIndicators3" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon text-black" style="width: 64px;height: 64px;" data-bs-target="#carouselExampleIndicators3" aria-hidden="true"> </span>
-        </button>
-        <div style="width:100px;"></div>
-        <button class="slider-btn" type="button" data-bs-target="#carouselExampleIndicators3" data-bs-slide="next">
-            <span class="carousel-control-next-icon text-black" style="width: 64px;height: 64px;" data-bs-target="#carouselExampleIndicators3" aria-hidden="true" ></span>
-        </button>
-    </div>
-
-    <div class="carousel-inner p-3">
-        <?php 
-            $index = 0;
-            foreach($items as $item) { 
-        ?>
-            <div class="carousel-item <?= ($index==0) ? 'active' : '' ?>">
-                <div class="row">
-                    <div class="col">
-                        <?= view('/home/component/gallery-card',array('item' => $item )) ?>
-                    </div>
-                </div>
+            <div class="col-4"> 
+                <?= ( $gallery1!=null && $gallery1[4]!=null ) ? 
+                    view('gallery/component/frame', array('item' => $gallery1[4], 'height_input' => 400)) 
+                        : 
+                    view('gallery/component/empty')?>
             </div>
-        <?php } ?>
+            <div class="col-4"> 
+                <?= ( $gallery1!=null && $gallery1[5]!=null ) ? 
+                    view('gallery/component/frame', array('item' => $gallery1[5], 'height_input' => 400)) 
+                        : 
+                    view('gallery/component/empty')?>
+            </div>
+        </div>
     </div>
 
-    
-</div>
-<?php } ?>
+    <div  class="home-exhibition-2 mt-30 for-md-show hide-item container">
+        <div class="row pt-15 gy-4">
+            <div class="col-4"> 
+                <?= ( $gallery2!=null && $gallery2[0]!=null ) ? 
+                    view('gallery/component/frame', array('item' => $gallery2[0], 'height_input' => 400)) 
+                        : 
+                    view('gallery/component/empty')?>
+            </div>
+            <div class="col-4"> 
+                <?= ( $gallery2!=null && $gallery2[1]!=null ) ? 
+                    view('gallery/component/frame', array('item' => $gallery2[1], 'height_input' => 400)) 
+                        : 
+                    view('gallery/component/empty')?>
+            </div>
+            <div class="col-4"> 
+                <?= ( $gallery2!=null && $gallery2[2]!=null ) ? 
+                    view('gallery/component/frame', array('item' => $gallery2[2], 'height_input' => 400)) 
+                        : 
+                    view('gallery/component/empty')?>
+            </div>
+        </div>
+        <div class="row pt-15 gy-4" >
+            <div class="col-4"> 
+                <?= ( $gallery2!=null && $gallery2[3]!=null ) ? 
+                    view('gallery/component/frame', array('item' => $gallery2[3], 'height_input' => 400)) 
+                        : 
+                    view('gallery/component/empty')?>
+            </div>
+            <div class="col-4"> 
+                <?= ( $gallery2!=null && $gallery2[4]!=null ) ? 
+                    view('gallery/component/frame', array('item' => $gallery2[4], 'height_input' => 400)) 
+                        : 
+                    view('gallery/component/empty')?>
+            </div>
+            <div class="col-4"> 
+                <?= ( $gallery2!=null && $gallery2[5]!=null ) ? 
+                    view('gallery/component/frame', array('item' => $gallery2[5], 'height_input' => 400)) 
+                        : 
+                    view('gallery/component/empty')?>
+            </div>
+        </div>
+    </div>
+
+    <div id="carouselExample2" class="home-exhibition-1 carousel slide for-md-hide mt-30">
+        <div class="carousel-inner home-exhibition-1">
+            <?php 
+                 if($gallery1 != null) {
+                    $index = 0;
+                    foreach($gallery1 as $item) {
+                        if($item != null) {
+            ?>
+                <div class="carousel-item <?= $index == 0 ? 'active' : '' ?> ">
+                    <?= view('gallery/component/frame', array('item' => $item)); ?>
+                </div>
+            <?php
+                    $index++;
+                    } } }
+            ?>
+        </div>
+        
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample2" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample2" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <div id="carouselExample3" class="home-exhibition-2 carousel slide for-md-hide mt-30 hide-item">
+        <div class="carousel-inner  ">
+            <?php 
+                if($gallery2 != null) {
+                    $index2 = 0;
+                    foreach($gallery2 as $item) {
+                        if($item != null) {
+            ?>
+                <div class="carousel-item <?= $index2 == 0 ? 'active' : '' ?> ">
+                    <?= view('gallery/component/frame', array('item' => $item)); ?>
+                </div>
+            <?php
+                    $index2++;
+                    } } }
+            ?>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample3" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample3" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+
+<script>
+
+    function onFirstExhibitClick() {
+        //shwo home-exhibition-1
+        const elements1 = document.getElementsByClassName('home-exhibition-1');
+
+        //showing item
+        Array.from(elements1).forEach( el => {
+            el.classList.remove('hide-item');
+            el.classList.add('show-item');
+        });
+
+        //hide home-exhibition-2
+        const elements2 = document.getElementsByClassName('home-exhibition-2');
+
+        Array.from(elements2).forEach( el => {
+            el.classList.remove('show-item');
+            el.classList.add('hide-item');
+        });
+
+        //change button color
+        const btn1 = document.getElementById('exh-btn-1');
+        const btn2 = document.getElementById('exh-btn-2');
+
+        btn1.classList.remove('gray-btn');
+        btn1.classList.add('black-btn');
+
+        btn2.classList.remove('black-btn');
+        btn2.classList.add('gray-btn');
+        
+    }
+
+    function onSecondExhibitClick() {
+        //shwo home-exhibition-1
+        const elements2 = document.getElementsByClassName('home-exhibition-2');
+
+        //showing item
+        Array.from(elements2).forEach( el => {
+            el.classList.remove('hide-item');
+            el.classList.add('show-item');
+        });
+
+        //hide home-exhibition-2
+        const elements1 = document.getElementsByClassName('home-exhibition-1');
+        Array.from(elements1).forEach( el => {
+            el.classList.remove('show-item');
+            el.classList.add('hide-item');
+        });
+
+        //change button color
+        const btn1 = document.getElementById('exh-btn-1');
+        const btn2 = document.getElementById('exh-btn-2');
+
+        btn1.classList.remove('black-btn');
+        btn1.classList.add('gray-btn');
+
+        btn2.classList.remove('gray-btn');
+        btn2.classList.add('black-btn');
+        
+    }
+
+</script>

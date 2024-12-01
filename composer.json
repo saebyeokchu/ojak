@@ -14,7 +14,10 @@
         "ext-intl": "*",
         "ext-mbstring": "*",
         "aws/aws-sdk-php": "^3.329",
+        "google/apiclient": "^2.18",
         "laminas/laminas-escaper": "^2.13",
+        "league/oauth2-client": "^2.7",
+        "phpmailer/phpmailer": "^6.9",
         "psr/log": "^3.0"
     },
     "require-dev": {

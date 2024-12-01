@@ -33,7 +33,7 @@
                         </td>
                         <td >
                             <p class="hover-underline cursor-pointer">
-                                <a href="/gallery/detail/<?= $item['id'] ?>" class="text-secondary no-text-decoration"><?= $item['title'] ?></a>
+                                <a href="/gallery/<?= $item['id'] ?>" class="text-secondary no-text-decoration"><?= $item['title'] ?></a>
                             </p>
                         </td>
                         <td class="d-flex justify-content-end post-edit-buttons item-<?=$item['user_id']?>" >

@@ -7,6 +7,23 @@ use CodeIgniter\Controller;
 class Api extends Controller
 {
     //Setting
+    public function getNotice(){
+        $model = new \App\Models\SettingModel();
+
+        $result = $model->where('category', 3)->findAll();
+
+        if($result){
+            return  [
+                'status' => 'success',
+                'data' => $result
+            ];
+        }else{
+            return [
+                'status' => 'fail'
+            ];
+        }
+}
+
     public function getBusniessInfo(){
         $returnType = 'php';
         $model = new \App\Models\SettingModel();
@@ -48,7 +65,65 @@ class Api extends Controller
         }
     }
 
+    public function updateBusniessInfo($id, $data){
+        $model = new \App\Models\SettingModel();
+
+        $result = $model->update($id, [ 'value' => $data ] );
+
+        if($result) {
+            return [
+                'status' => 'success',
+                'data' => $result
+            ];
+        } else {
+            return [
+                'status' => 'error',
+                'message' => 'No data',
+            ];
+        }
+    }
+
+    public function updateSettingByName($name, $value){
+        $model = new \App\Models\SettingModel();
+
+        log_message("error",$name.":".$value);
+        
+        $result = $model ->where('name', $name) 
+            ->set('value', $value) // Set the column and its new value
+            ->update();
+
+        if($result) {
+            return [
+                'status' => 'success',
+                'data' => $result
+            ];
+        } else {
+            return [
+                'status' => 'error',
+                'message' => 'No data',
+            ];
+        }
+    }
+
     //Auth
+    public function getAllUser(){
+        $model = new \App\Models\UserModel();
+
+        $result = $model->findAll();
+
+        if($result) {
+            return [
+                'status' => 'success',
+                'users' => $result
+            ];
+        } else {
+            return [
+                'status' => 'error',
+                'message' => 'No data',
+            ];
+        }
+    }
+
     public function getUserByUserId($id){
         $model = new \App\Models\UserModel();
 
@@ -70,7 +145,7 @@ class Api extends Controller
     public function getUserByIdPw($id,$pw){
         $model = new \App\Models\UserModel();
 
-        $result = $model->where('user_id', $id)->where('user_pw', $pw)->findAll();
+        $result = $model->where('user_id', $id)->where('user_pw', $pw)->where('approved',1)->findAll();
 
         if($result) {
             return [
@@ -110,6 +185,54 @@ class Api extends Controller
             return [
                 'status' => 'error',
                 'message' => 'Failed to insert data.'
+            ];
+        }
+    }
+
+    public function updateUser($user)
+    {
+        // Get the incoming data from the POST request
+        $model = new \App\Models\UserModel();
+
+        //['title', 'content', 'user_id', 'created_at'];
+        $data = [
+            'user_name' => $user['user_name'],
+            'user_id' => $user['user_id'],
+            'approved' => $user['approved'],
+            'auth_code' => $user['auth_code'],
+        ];
+
+        $result = $model->update($user['id'],$data);
+        log_message('error',serialize($data));
+
+        // Return the result as a JSON response
+        if ($result) {
+            return [
+                'status' => 'success',
+                'message' => 'Data updated successfully!'
+            ];
+        } else {
+            return [
+                'status' => 'error',
+                'message' => 'Failed to update data.'
+            ];
+        }
+    }
+
+    public function deleteUser($id){
+        $model = new \App\Models\UserModel();
+        $result = $model->delete($id);
+
+        // Return the result as a JSON response
+        if ($result) {
+            return [
+                'status' => 'success',
+                'message' => 'Data deleted successfully!'
+            ];
+        } else {
+            return [
+                'status' => 'error',
+                'message' => 'Failed to delete data.'
             ];
         }
     }
@@ -201,7 +324,67 @@ class Api extends Controller
         }
     }
 
-    public function insertGallery($title,$content,$img_url,$user_id,$id)
+    public function getExhibitGallery() {
+        // $model = new \App\Models\GalleryModel();
+        // $items = $model-> orderBy('created_at', 'desc')->findAll(6,0); 
+
+        $db      = \Config\Database::connect();
+        $builder = $db->table('gallery');
+
+        $builder->select('*');
+        $builder->where('exhibit IS NOT NULL');
+        $builder->orderBy('exhibit', 'ASC');
+        $query = $builder->get();
+
+
+        if ($query) { 
+            
+            $gallery1 = [null, null, null, null ,null, null];
+            $gallery2 = [null, null, null, null ,null, null];
+
+            foreach($query->getResult() as $row){
+                $exhibit = $row->exhibit;
+                $exhibit = explode('-',$exhibit);
+
+                //gallery space check
+                if($exhibit[0] == 1){
+                    $gallery1[$exhibit[1]] = $row;
+                }else{
+                    $gallery2[$exhibit[1]] = $row;
+                }
+            }
+
+            return [
+                'status' => 'success',
+                'items' => $query->getResult(),
+                'itemByExhibit' => [$gallery1,$gallery2]
+            ];
+        } else {
+            return [
+                'status' => 'error',
+                'message' => 'No data',
+            ];
+        }
+    }
+
+    public function getRepresentGallery() { //system에 있는 작품 불러오기
+        $model = new \App\Models\SettingModel();
+        $items = $model->where('category',2)->findAll(); 
+
+        if ($items) { 
+            return [
+                'status' => 'success',
+                'data' => $items,
+            ];
+        } else {
+            return [
+                'status' => 'error',
+                'message' => 'No data',
+            ];
+        }
+    }
+
+    public function insertGallery($title,$content,$img_url,$user_id,$id, $exhibit)
     {
         // Get the incoming data from the POST request
         $model = new \App\Models\GalleryModel();
@@ -210,7 +393,8 @@ class Api extends Controller
         $data = [
             'title' => $title,
             'content' => $content,
-            'user_id' => $user_id
+            'user_id' => $user_id,
+            'exhibit' => $exhibit
         ];
 
         if($img_url != null){
@@ -223,6 +407,7 @@ class Api extends Controller
             $result = $model->insert($data);
             $id = $model->insertID;
         }
+
         log_message('error','id-after'.$id);
 
         // Return the result as a JSON response
@@ -257,6 +442,40 @@ class Api extends Controller
                 'status' => 'error',
                 'message' => '삭제에 실패하였습니다. 잠시 후 다시 시도하여 주세요.'
             ]);
+        }
+    }
+
+    public function deleteByGalleryId($id){
+
+        $model = new \App\Models\GalleryModel();
+        $result = $model->where('exhibit', $id)->delete();
+
+        if($result){
+            return [
+                'status' => 'success',
+            ];
+        } else {
+            return [
+                'status' => 'error',
+            ];
+        }
+    }
+
+    public function updateGalleryByExhibit($exhibit,$fileName){
+
+        $model = new \App\Models\GalleryModel();
+        $result = $model ->where('exhibit', $exhibit) 
+            ->set('img_url', $fileName) // Set the column and its new value
+            ->update();
+
+        if($result){
+            return [
+                'status' => 'success',
+            ];
+        } else {
+            return [
+                'status' => 'error',
+            ];
         }
     }
 

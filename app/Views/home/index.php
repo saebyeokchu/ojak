@@ -34,10 +34,12 @@
 </div>
 
 <!-- Arts -->
-<?= view('/home/arts') ?? '' ?>
+<div class="pt-70">
+    <?= view('/home/arts') ?? '' ?>
+</div>
 
 
-<div class="container">
+<div class="container pt-70 pb-70">
     <!-- Introduction2 -->
     <div style="padding-top:100px;padding-bottom:100px;" >
         <div class="row gy-5 text-center">
@@ -64,7 +66,7 @@
             <div  class="col-lg-6 col-sm-12 d-flex flex-column justify-content-center pt-30"  data-aos="fade-up" data-aos-duration="1500" >
                 <div class="home-intro2-text-lg">
                     <p class="h1"><strong>옛 기법과 현대적 감각의 조화</strong></p>
-                    <p class="h5 mt-3">오작은 한지공예의 전통성을 이어나가기 위해</p>
+                    <p class="h5 mt-3">오작은 경북공예문화협동조합 전통성을 이어나가기 위해</p>
                     <p class="h5 ">보존하고 발전시키고 대중화하고 있습니다.</p>
                 </div>
                 <div class="home-intro2-text-sm">
@@ -81,7 +83,7 @@
 
 <!-- Instagram -->
 <div class="d-flex justify-content-center bg-white"  data-aos="fade-up" data-aos-duration="1500">
-    <?= view('/home/instagram'); ?>
+    <?= view('/home/notice'); ?>
 </div> 
 
 

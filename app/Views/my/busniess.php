@@ -18,15 +18,12 @@
         </div>
     </div>
 <?php }else{ ?>
-    <form class="p-3">
-        <span class="badge rounded-pill text-bg-danger">사업자 정보 변경 기능을 준비중입니다</span>
-        <div class="d-flex justify-content-end">
-            <button type="submit" class="sm-black-btn " disabled>수정</button>
-        </div>
+    <form class="p-3" action="/business/edit" method="post">
+        <button type="submit" class="sm-black-btn">수정</button>
         <?php foreach($data as $d) { ?>
-            <div class="mb-3">
+            <div class="mt-3">
                 <label class="form-label"><?= $d['name'] ?></label>
-                <input type="text" class="form-control" value="<?= $d['value'] ?>" disabled>
+                <input type="text" name="<?= $d['id'] ?>" id="<?= $d['id'] ?>" class="form-control" value="<?= $d['value'] ?>" />
             </div>
 
         <?php } ?>

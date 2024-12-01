@@ -98,7 +98,7 @@
 
     function characterCheck(value){
         // var regExp = /[ \{\}\[\]\/?.,;:|\)*~`!^\_+┼<>@\#$%&\'\"\\\(\=]/gi; // 지금은 띄어쓰기도 특수문자 처리됨 참고하셈
-        var regExp = /[ \{\}\[\]\/?.!,;:|\)*~`^\+┼<>@\#$%&\'\"\\\(\=]/gi; // 지금은 띄어쓰기도 특수문자 처리됨 참고하셈
+        var regExp = /[ \{\}\[\]\/?!,;:|\)*~`^\+┼<>\#$%&\'\"\\\(\=]/gi; 
         return regExp.test(value);
     }
 
@@ -124,4 +124,31 @@
     function eraseCookie(name) {   
         document.cookie = name+'=; path=/; Max-Age=-99999999;';  
     }
+
+    function showLoadingSpinner() {   
+        const loadingSpinner = document.getElementsByClassName('loading-spinner');
+
+        Array.from(loadingSpinner).forEach( el => {
+            showItem(el);
+        });
+    }
+
+    function hideLoadingSpinner() {   
+        const loadingSpinner = document.getElementsByClassName('loading-spinner');
+
+        Array.from(loadingSpinner).forEach( el => {
+            hideItem(el);
+        });
+    }
+
+    function hideItem(element) {
+        element.classList.add("hide-item");
+        element.classList.remove("show-item");
+    }
+
+    function showItem(element) {
+        element.classList.remove("hide-item");
+        element.classList.add("show-item");
+    }
+
 </script>

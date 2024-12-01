@@ -140,34 +140,59 @@
 <script>
     async function login(event){
         event.preventDefault();
+
+        showItem(document.getElementById('login-loading'));
+        hideItem(document.getElementById('login-form'));
+
+        console.log("login started");
+
+        const errorTxt = document.getElementById('login-error-text');
+
         try {
+            console.log("auth started");
             var postData = new FormData();
             postData.append('id', document.getElementById('loginId').value);
             postData.append('pw', document.getElementById('loginPw').value);
 
+
             await axios.post('/auth/login', postData).then(function(response){
+                console.log("auth",response);
+
                 if(response.data.status == 'success'){
                     const userData = response.data.user[0];
 
                     addCookie('user_id',userData.id);
+                    addCookie('user_email',userData.user_id);
                     addCookie('user_name',userData.user_name);
+
+                    errorTxt.classList.remove('show-item');
+                    errorTxt.classList.add('hide-item');
 
                     location.reload();
                     return;
+                }else{
+                    errorTxt.classList.remove('hide-item');
+                    errorTxt.classList.add('show-item');
                 }
             }).catch(function(error){
-                console.log("error:", error);
+                errorTxt.classList.remove('hide-item');
+                errorTxt.classList.add('show-item');
+                
             });
         } catch (error) {
-            console.error('Error authenticiation user:', error);
-            window.alert("로그인에 실패하였습니다.");
+            errorTxt.classList.remove('hide-item');
+            errorTxt.classList.add('show-item');
         }
+
+        showItem(document.getElementById('login-form'));
+        hideItem(document.getElementById('login-loading'));
     }
 
     function logout(event) {
         event.preventDefault();
 
         eraseCookie('user_id');
+        eraseCookie('user_email');
         eraseCookie('user_name');
 
         location.reload();
