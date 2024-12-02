@@ -37,13 +37,13 @@ class Mail extends BaseController
 
             // Create a new Google API Client instance
             $client = new \Google\Client();
-            $client->setClientId('645634754500-ppd41tbicfft5mrvohq3of7p2ekmh1f5.apps.googleusercontent.com');
-            $client->setClientSecret('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');
+            $client->setClientId(env('MAIL_CLINET_ID'));
+            $client->setClientSecret(env('MAIL_CLINET_PW'));
             $client->setAccessType('offline');
             $client->addScope('https://mail.google.com/');
 
             $client->setRedirectUri('http://localhost');
-            $client->refreshToken('1//04hxXFz5XW12FCgYIARAAGAQSNwF-L9Irtfbod1g0ykMsVxMQi8eWptfrXisFZ9ft3ybS3Z2ezGpeH03XcGgK45FIeZtbxk87_bo');
+            $client->refreshToken(env('MAIL_REFRESH_TOKEN'));
 
             $accessToken = $client->getAccessToken();
 
@@ -51,16 +51,16 @@ class Mail extends BaseController
             $mail->setOAuth(
                 new \PHPMailer\PHPMailer\OAuth([
                     'provider' => new \League\OAuth2\Client\Provider\GenericProvider([
-                        'clientId' => '645634754500-ppd41tbicfft5mrvohq3of7p2ekmh1f5.apps.googleusercontent.com',
-                        'clientSecret' =>'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',
+                        'clientId' => env('MAIL_CLINET_ID'),
+                        'clientSecret' =>env('MAIL_CLINET_PW'),
                         'redirectUri' => 'http://localhost',
                         'urlAuthorize' => 'https://accounts.google.com/o/oauth2/auth',
                         'urlAccessToken' => 'https://oauth2.googleapis.com/token',
                         'urlResourceOwnerDetails' => 'https://www.googleapis.com/oauth2/v1/certs',
                     ]),
-                    'clientId' => '645634754500-ppd41tbicfft5mrvohq3of7p2ekmh1f5.apps.googleusercontent.com',
-                    'clientSecret' =>'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',
-                    'refreshToken' => '1//04hxXFz5XW12FCgYIARAAGAQSNwF-L9Irtfbod1g0ykMsVxMQi8eWptfrXisFZ9ft3ybS3Z2ezGpeH03XcGgK45FIeZtbxk87_bo',
+                    'clientId' => env('MAIL_CLINET_ID'),
+                    'clientSecret' =>env('MAIL_CLINET_PW'),
+                    'refreshToken' => env('MAIL_REFRESH_TOKEN'),
                     'userName' => 'sharezoom3@gmail.com',
                 ])
             );

@@ -1,5 +1,7 @@
 <?php
 
+
+
 /*
  |--------------------------------------------------------------------------
  | ERROR DISPLAY
@@ -23,3 +25,5 @@ ini_set('display_errors', '0');
  | release of the framework.
  */
 defined('CI_DEBUG') || define('CI_DEBUG', false);
+
+

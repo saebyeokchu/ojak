@@ -1,4 +1,6 @@
-<?php $info = $data[0]; ?>
+<?php 
+  $info = $data[0]; 
+?>
 
 <form class="p-3">
   <div class="mb-3">
