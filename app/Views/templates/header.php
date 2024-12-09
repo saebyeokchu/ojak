@@ -148,7 +148,7 @@
 
                 <a class="nav-link mt-2 cursor-hover" aria-current="page" href="/brand">브랜드</a>
                 <a class="nav-link mt-2 cursor-hover" href="/gallery">작품</a>
-                <a class="nav-link mt-2 cursor-hover" href="/community/notice/1">커뮤니티</a>
+                <a class="nav-link mt-2 cursor-hover" href="/community/l/notice/1">커뮤니티</a>
                 <?php if(isset($_COOKIE["user_id"])) { ?>
                     <a class="nav-link mt-2 cursor-hover" href="/my/home">마이페이지</a>
                 <?php } ?>
