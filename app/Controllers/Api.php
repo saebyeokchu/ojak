@@ -329,35 +329,19 @@ class Api extends Controller
         // $items = $model-> orderBy('created_at', 'desc')->findAll(6,0); 
 
         $db      = \Config\Database::connect();
-        $builder = $db->table('gallery');
+        $builder = $db->table('setting');
 
         $builder->select('*');
-        $builder->where('exhibit IS NOT NULL');
-        $builder->orderBy('exhibit', 'ASC');
+        $builder->where('category',4);
+        $builder->join('gallery', 'setting.value = gallery.id');
+        $builder->orderBy('setting.name', 'ASC');
         $query = $builder->get();
 
 
         if ($query) { 
-            
-            $gallery1 = [null, null, null, null ,null, null];
-            $gallery2 = [null, null, null, null ,null, null];
-
-            foreach($query->getResult() as $row){
-                $exhibit = $row->exhibit;
-                $exhibit = explode('-',$exhibit);
-
-                //gallery space check
-                if($exhibit[0] == 1){
-                    $gallery1[$exhibit[1]] = $row;
-                }else{
-                    $gallery2[$exhibit[1]] = $row;
-                }
-            }
-
             return [
                 'status' => 'success',
                 'items' => $query->getResult(),
-                'itemByExhibit' => [$gallery1,$gallery2]
             ];
         } else {
             return [
@@ -487,10 +471,10 @@ class Api extends Controller
     }
 
 
-    public function getAll($pageIndex) {
+    public function getAll($pageIndex, $gubun) {
         $model = new \App\Models\CommunityModel();
         $start_row = (int)($pageIndex)-1;
-        $posts = $model->orderBy('id', 'desc')->findAll(5,$start_row*5); 
+        $posts = $model->where('gubun',$gubun)->orderBy('id', 'desc')->findAll(5,$start_row*5); 
         $rowCount = $model->countAll();
 
         if ($posts) {
@@ -503,6 +487,8 @@ class Api extends Controller
             return [
                 'status' => 'error',
                 'message' => 'No data',
+                'rowCount' => 0,
+                'posts' => []
             ];
         }
     }
@@ -550,6 +536,7 @@ class Api extends Controller
         $title = $this->request->getPost('title');
         $id = $this->request->getPost('id');
         $user_id = $this->request->getPost('user_id');
+        $gubun = $this->request->getPost('gubun');
 
         $model = new \App\Models\CommunityModel();
 
@@ -557,7 +544,8 @@ class Api extends Controller
         $data = [
             'title' => $title,
             'content' => $content,
-            'user_id' => $user_id
+            'user_id' => $user_id,
+            'gubun' => $gubun
         ];
 
         if($id){

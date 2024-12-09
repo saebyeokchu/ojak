@@ -1,4 +1,10 @@
 <!-- Brand Story -->
+<?= view('component/page_header',
+        array('page_header_title'=>'브랜드 스토리',
+                'page_header_lg_sub_title'=>'Brand Story',
+                'page_header_sm_sub_title1'=>'',
+                'page_header_sm_sub_title2'=>'')) ?>
+
 <div class="d-flex flex-column">
     <div class="d-flex justify-content-center" style="height: 100px;">
         <hr style="width:100px; margin-top:70px; left:40%;"/>
@@ -16,8 +22,6 @@
                 1
             </text>
         </svg>
-        <h1>브랜드 스토리</h1>
-        <h6>Brand Story</h6>
 
         <div class="grid" style="margin-top:70px; padding:20px;">
             <div class="row">

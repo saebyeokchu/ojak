@@ -106,24 +106,7 @@
         alert("변경기능을 준비중입니다.");
     }
 
-    function addCookie(name, value){
-        document.cookie = name +"=" + value + "; path=/";
-    }
-
-    function getCookieByName(name) {
-        const cookies = document.cookie.split(';');
-        for (let cookie of cookies) {
-            cookie = cookie.trim();
-            if (cookie.startsWith(name + '=')) {
-                return cookie.substring(name.length + 1);
-            }
-        }
-        return null;
-    }
-
-    function eraseCookie(name) {   
-        document.cookie = name+'=; path=/; Max-Age=-99999999;';  
-    }
+   
 
     function showLoadingSpinner() {   
         const loadingSpinner = document.getElementsByClassName('loading-spinner');

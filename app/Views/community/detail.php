@@ -2,7 +2,7 @@
     $post = $contents["post"];
     $pageIndex = $contents["pageIndex"];
 ?>
-<div class="container" style="padding-top:70px;padding-bottom:70px;">
+<div class="container" style="padding-top:90px;padding-bottom:70px;">
 
     <div class="d-flex justify-content-between">
         <p class="title"><?= $post["title"] ?></p>
@@ -19,7 +19,7 @@
         <button id="post-detail-delete-btn" class="sm-black-btn mt-5 hide-item" data-bs-toggle="modal" data-bs-target="#exampleModal">
             삭제
         </button>
-        <a href="/community/<?=$pageIndex?>" ><button class="sm-black-btn mt-5">
+        <a href="/community/l/notice/<?=$pageIndex?>" ><button class="sm-black-btn mt-5">
             목록
         </button></a>
         <button id="post-detail-edit-btn"  class="sm-black-btn mt-5 hide-item" onclick="moveToEditor('<?=$post['id']?>','<?=$post['title']?>')">

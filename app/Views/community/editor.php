@@ -12,42 +12,59 @@
     if(isset($contents['pageIndex'])){
         $pageIndex = $contents['pageIndex'];
     }
+
 ?>
 
 <!-- New post -->
-<div class="bg-white " >
-    <div class = "for-lg">
-        <div class="d-flex justify-content-between pt-5 pb-2 " >
-            <div class="ps-3 w-50">
-                <input type="text" class="form-control community-title" aria-describedby="communityTitleLG" placeholder="제목" value="<?= ( isset($post) && isset($post['title']) ) ? $post['title'] : '' ?>" />
-            </div>
-            <div>
-                <span class="me-3 hover-underline " ><button class="sm-black-btn" onclick="goBack(event)" style="cursor: pointer;">취소</button></span>
-                <span class="me-3 hover-underline " ><button class="sm-black-btn" onclick="savedata(event)" style="cursor: pointer;">등록</button></span>
-            </div>
-        </div>
-    </div>
-
-    <div class = "for-sm ">
-        <div class="d-flex justify-content-between pt-4 pb-2 " >
-                <div class="ps-3 w-75">
-                    <input type="text" class="form-control community-title" aria-describedby="communityTitleSM" placeholder="제목" />
+<div class="bg-light pt-50">
+    <div class="container" >
+        <div class = "for-lg">
+            <div class="d-flex justify-content-between pt-5 pb-2 " >
+                <div class="ps-3 w-50">
+                    <input type="text" class="form-control community-title" aria-describedby="communityTitleLG" placeholder="제목" value="<?= ( isset($post) && isset($post['title']) ) ? $post['title'] : '' ?>" />
                 </div>
-                <div class="dropdown pe-3">
-                    <button class="btn btn-light" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        :
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li  onclick="savedata(event)"><a class="dropdown-item" >저장</a></li>
-                        <li onclick="goBack(event)" ><a class="dropdown-item"  >취소</a></li>
-                    </ul>
+                <div class="d-flex flex-row gap-3 gap-x-3 w-25">
+                    <select class="form-select w-50" id="lg-gubun-select" aria-label="Default select example">
+                        <option value="1" selected>공지사항</option>
+                        <option value="2">이벤트</option>
+                        <option value="3">Q&A</option>
+                    </select>
+                    <button class="btn btn-dark" onclick="goBack(event)">취소</button>
+                    <button class="btn btn-dark" onclick="savedata(event)">등록</button>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div id="pell-editor"></div>
-    <div id="pell-markup"></div>
+        <div class = "for-sm ">
+            <div class="d-flex justify-content-between pt-5 pb-2 " >
+                    <div class="ps-3 w-75">
+                        <input type="text" class="form-control community-title" aria-describedby="communityTitleSM" placeholder="제목" />
+                    </div>
+                    <div class="dropdown pe-3">
+                        <button class="btn btn-light" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            :
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li  onclick="savedata(event)"><a class="dropdown-item" >저장</a></li>
+                            <li onclick="goBack(event)" ><a class="dropdown-item"  >취소</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="ps-3">
+                    <select class="form-select" id="sm-gubun-select" style="width:10rem;" aria-label="Default select example">
+                        <option value="1" selected>공지사항</option>
+                        <option value="2">이벤트</option>
+                        <option value="3">Q&A</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="container mt-3">
+            <div id="pell-editor"></div>
+            <div id="pell-markup" ></div>
+        </div>
+    </div>
 </div>
 
 
@@ -110,11 +127,18 @@
                 return;
             }else{
                 try {
+                    //구분값 가지고 오기
+                    var smGubunVal = document.getElementById('sm-gubun-select');
+                    var lgGubunVal = document.getElementById('lg-gubun-select');
+
+                    const gubunVal = smGubunVal ? smGubunVal.value : lgGubunVal ;
+
                     var postData = new FormData();
                     postData.append('title', title);
                     postData.append('content', markup.textContent);
                     postData.append('id','<?= ( isset($post) && isset($post['id']) ) ? $post['id'] : '' ?>');
                     postData.append('user_id', getCookieByName('user_id'));
+                    postData.append('gubun',gubunVal);
 
                     axios.post('/api/insertPost', postData).then(function(response){
                         console.log("success:", response);
@@ -145,6 +169,7 @@
         background: white;
         border-bottom: 1px solid black;
         height: 100vh;
+        
     }
 
 </style>

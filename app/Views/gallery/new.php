@@ -13,7 +13,7 @@
 
 
 <!-- Add new gallery item -->
-<div class="page-header d-flex justify-content-center text-center">
+<div class="page-header d-flex justify-content-center text-center ">
     <div class="title" data-aos="fade-up" data-aos-duration="1500">
         <p class="main-title"><?= (isset($item)) ? "작품 수정" : "작품 추가" ?></p>
     </div>

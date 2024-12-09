@@ -6,26 +6,38 @@ use CodeIgniter\Controller;
 
 class Community extends BaseController
 {
-    public function index($num): string
+    public function index($gubun, $pageIndex): string
     {
-        $api = new \App\Controllers\Api();
-        $rowCount = $api -> getRowCount();
-        $data['contents']['rowCount'] = $rowCount;
-        $data['contents']['pageIndex'] = $num;
+        $gubunNum = 0;
 
-        if($rowCount > 0){
-            $result = $api -> getAll($num);
-            
-            if($result['status'] == 'success') {
-                $data['contents']['posts'] = $result['posts'];
-    
-                if($rowCount > 5){
-                    $data['contents']['pageIndex'] = 1;
-                }
-            }
+        switch($gubun) {
+            case "notice" :
+                $gubunNum = 1;
+                break;
+            case "event" :
+                $gubunNum = 2;
+                break;
+            case "qna" :
+                $gubunNum = 3;
+                break;
         }
-        
+
+        // 공통변수
+        $data['contents']['subIndex'] = "공지사항";
+        $data['contents']['pageIndex'] = $pageIndex;
         $data['yield']       = 'community/index';
+
+        //데이터 설정
+        $api = new \App\Controllers\Api();
+        $result = $api -> getAll($pageIndex,$gubunNum);
+
+        $rowCount = $result['rowCount'];
+        $data['contents']['posts'] = $result['posts'];
+        $data['contents']['rowCount'] = $rowCount;
+
+        if($rowCount > 5){
+            $data['contents']['pageIndex'] = 1;
+        }
         
         return view('component/application', $data);
     }

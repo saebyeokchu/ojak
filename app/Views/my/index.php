@@ -5,6 +5,8 @@
     $userEmail = $_COOKIE['user_email'];
 ?>
 
+<div style="width:100%; height: 60px;"></div>
+
 <div class="container-fluid">
     <div class="row flex-nowrap">
         <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-light">

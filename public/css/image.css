@@ -48,7 +48,7 @@
         display:inline-block;
         text-transform:uppercase;
         color:#fff;
-        border:1px solid #fff;
+        /* border:1px solid #fff; */
         background-color:transparent;
         opacity:0;
         filter:alpha(opacity=0);
@@ -63,7 +63,7 @@
         display:inline-block;
         text-transform:uppercase;
         color:#fff;
-        border:1px solid #fff;
+        /* border:1px solid #fff; */
         background-color:transparent;
         opacity:0;
         filter:alpha(opacity=0);
@@ -73,10 +73,10 @@
         padding:20px 20px;
     }
     
-    .hovereffect a.info:hover, .hovereffect a.info-lg:hover {
+    /* .hovereffect a.info:hover, .hovereffect a.info-lg:hover {
         box-shadow:0 0 5px #fff;
     }
-    
+     */
     .hovereffect:hover img {
         -ms-transform:scale(1.2);
         -webkit-transform:scale(1.2);

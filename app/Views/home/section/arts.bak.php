@@ -36,12 +36,7 @@
 
 
 ?>
-
-    <div class="d-flex justify-content-center gap-3 gx-3">
-        <button class="black-btn" id="exh-btn-1" onclick="onFirstExhibitClick()">제 1전시장</button>
-        <button class="gray-btn" id="exh-btn-2" onclick="onSecondExhibitClick()"> 제 2전시장</button>
-    </div>
-
+<div class="">
     <div  class="home-exhibition-1 mt-30 for-md-show show-item container">
         <div class="row pt-15 gy-4" data-aos="fade-up" data-aos-duration="1500" >
             <div class="col-4"> 
@@ -63,70 +58,8 @@
                     view('gallery/component/empty')?>
             </div>
         </div>
-        <div class="row pt-15 gy-4" data-aos="fade-up" data-aos-duration="1500" >
-            <div class="col-4"> 
-                <?= ( $gallery1!=null && $gallery1[3]!=null ) ? 
-                    view('gallery/component/frame', array('item' => $gallery1[3], 'height_input' => 400)) 
-                        : 
-                    view('gallery/component/empty')?>
-            </div>
-            <div class="col-4"> 
-                <?= ( $gallery1!=null && $gallery1[4]!=null ) ? 
-                    view('gallery/component/frame', array('item' => $gallery1[4], 'height_input' => 400)) 
-                        : 
-                    view('gallery/component/empty')?>
-            </div>
-            <div class="col-4"> 
-                <?= ( $gallery1!=null && $gallery1[5]!=null ) ? 
-                    view('gallery/component/frame', array('item' => $gallery1[5], 'height_input' => 400)) 
-                        : 
-                    view('gallery/component/empty')?>
-            </div>
-        </div>
     </div>
-
-    <div  class="home-exhibition-2 mt-30 for-md-show hide-item container">
-        <div class="row pt-15 gy-4">
-            <div class="col-4"> 
-                <?= ( $gallery2!=null && $gallery2[0]!=null ) ? 
-                    view('gallery/component/frame', array('item' => $gallery2[0], 'height_input' => 400)) 
-                        : 
-                    view('gallery/component/empty')?>
-            </div>
-            <div class="col-4"> 
-                <?= ( $gallery2!=null && $gallery2[1]!=null ) ? 
-                    view('gallery/component/frame', array('item' => $gallery2[1], 'height_input' => 400)) 
-                        : 
-                    view('gallery/component/empty')?>
-            </div>
-            <div class="col-4"> 
-                <?= ( $gallery2!=null && $gallery2[2]!=null ) ? 
-                    view('gallery/component/frame', array('item' => $gallery2[2], 'height_input' => 400)) 
-                        : 
-                    view('gallery/component/empty')?>
-            </div>
-        </div>
-        <div class="row pt-15 gy-4" >
-            <div class="col-4"> 
-                <?= ( $gallery2!=null && $gallery2[3]!=null ) ? 
-                    view('gallery/component/frame', array('item' => $gallery2[3], 'height_input' => 400)) 
-                        : 
-                    view('gallery/component/empty')?>
-            </div>
-            <div class="col-4"> 
-                <?= ( $gallery2!=null && $gallery2[4]!=null ) ? 
-                    view('gallery/component/frame', array('item' => $gallery2[4], 'height_input' => 400)) 
-                        : 
-                    view('gallery/component/empty')?>
-            </div>
-            <div class="col-4"> 
-                <?= ( $gallery2!=null && $gallery2[5]!=null ) ? 
-                    view('gallery/component/frame', array('item' => $gallery2[5], 'height_input' => 400)) 
-                        : 
-                    view('gallery/component/empty')?>
-            </div>
-        </div>
-    </div>
+   
 
     <div id="carouselExample2" class="home-exhibition-1 carousel slide for-md-hide mt-30">
         <div class="carousel-inner home-exhibition-1">
@@ -180,7 +113,7 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
-
+</div>
 
 <script>
 

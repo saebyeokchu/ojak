@@ -24,14 +24,22 @@
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Owl Carousel JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 </head>
 <body class="position-relative">
     <?= view('/templates/header') ?? '' ?>
 
     <!-- CONTENT -->
-    <div class="bg-body-secondary" style="padding-top:65px;">
-        <?= ( isset($contents) ? view($yield, $contents) : view($yield) ) ?? '' ?>
-    </div>  
+    <?= ( isset($contents) ? view($yield, $contents) : view($yield) ) ?? '' ?>
 
     
     <?= (isset($view_footer) ? ( $view_footer == true && view('/templates/footer') ) : view('/templates/footer') ) ?? '' ?>
@@ -44,7 +52,7 @@
     <!-- SCRIPTS -->
     <script>
         AOS.init();
-        </script>
+    </script>
     <!-- -->
 
 </body>

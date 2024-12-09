@@ -71,6 +71,20 @@
     min-height: 300px;
 }
 
+/* header */
+#lg-header.scrolled {
+    background-color: #eeeeee; /* Background color after scroll */
+    color: gray; /* Adjust text color for better contrast */
+}
+
+#sm-header.scrolled {
+    background-color: #eeeeee; /* Background color after scroll */
+    color: gray; /* Adjust text color for better contrast */
+}
+
+#lg-header.toggle-header-menu:hover{
+    color:#fff;
+}
 
 /* Pagination */
 .page-item {
@@ -159,6 +173,10 @@
 	padding-top: 30px;
 }
 
+.pt-50 {
+	padding-top: 50px;
+}
+
 .pt-70 {
 	padding-top: 70px;
 }
@@ -175,7 +193,6 @@
 	padding-bottom: 70px;
 }
 
-
 .pb-100 {
 	padding-bottom: 100px;
 }
@@ -186,6 +203,14 @@
 
 .mt-30 {
 	padding-top: 30px;
+}
+
+.mb-30 {
+	margin-bottom: 30px;
+}
+
+.mb-70 {
+	margin-bottom: 70px;
 }
 
 /* Button */ 
@@ -307,4 +332,25 @@
     visibility:visible;
     height: auto;
     width : auto;
+}
+
+/* owl-carousel */
+.owl-dots {
+position: relative;
+top: -0px; /* Adjust the distance above the carousel items */
+text-align: center; /* Center the dots */
+}
+
+.owl-dots .owl-dot {
+display: inline-block;
+margin: 0 5px;
+width: 12px;
+height: 12px;
+background-color: gray !important; 
+border-radius: 50%;
+/* transition: background-color 0.3s ease; */
+}
+
+.owl-dots .owl-dot.active {
+background-color: black !important; /* Highlight the active dot */
 }

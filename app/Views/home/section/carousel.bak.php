@@ -6,7 +6,8 @@
     }
 ?>
 
-<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+<!-- Set up your HTML -->
+<div id="carouselExampleIndicators" class="carousel slide"  data-bs-ride="true">
     <div class="carousel-indicators">
         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -18,8 +19,8 @@
             foreach($data as $d){
                 $active = $i == 0 ? "active" : "" ;
 
-                echo "<div class='carousel-item ".$active."' data-bs-interval='2000' >";
-                echo "  <img src='img/".$d['value']."' class='d-block carousel-img' width='100%'/>";
+                echo "<div class=' carousel-item ".$active."' data-bs-interval='3000' >";
+                echo "  <img style='object-fit:cover;' width='100%' src='img/resource/".$d['value']."' class='d-block carousel-img img-fluid'/>";
                 echo "</div>";
 
                 $i++;

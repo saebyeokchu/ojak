@@ -24,7 +24,7 @@ $routes->get('/gallery/(:num)', 'Gallery::detail/$1');
 $routes->get('/gallery/edit/(:num)', 'Gallery::edit/$1');
 
 // Coummunity
-$routes->get('/community/(:num)', 'Community::index/$1');
+$routes->get('/community/l/(:any)/(:num)', 'Community::index/$1/$2');
 $routes->get('/community/new', 'Community::new');
 $routes->get('/community/edit/(:num)', 'Community::edit/$1');
 $routes->get('/community/detail/(:num)/(:num)', 'Community::detail/$1/$2');
