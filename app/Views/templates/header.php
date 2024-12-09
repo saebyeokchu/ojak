@@ -54,7 +54,7 @@
                 <div class="navbar-nav ">
                     <a class="nav-link" aria-current="page" href="/brand">브랜드</a>
                     <a class="nav-link" href="/gallery">작품</a>
-                    <a class="nav-link" href="/community/1">커뮤니티</a>
+                    <a class="nav-link" href="/community/l/notice/1">커뮤니티</a>
                     <?php if(isset($_COOKIE["user_id"])) { ?>
                         <a class="nav-link" href="/my/home">마이페이지</a>
                         <a class="nav-link" href="" onclick="logout(event)">로그아웃</a>
@@ -125,7 +125,7 @@
             <div class="d-felx  gap-3 gy-3" style="list-style: none;">
                 <a class="mt-3 nav-link toggle-header-menu" href="/brand">브랜드</a>
                 <a class="mt-3 nav-link toggle-header-menu" href="/gallery">작품</a>
-                <a class="mt-3 nav-link toggle-header-menu" href="/community/1">커뮤니티</a>
+                <a class="mt-3 nav-link toggle-header-menu" href="/community/l/notice/1">커뮤니티</a>
                 <?php if(isset($_COOKIE["user_id"])) { ?>
                     <a class="mt-3 nav-link toggle-header-menu" href="/my/home">마이페이지</a>
                 <?php }else{ ?>
