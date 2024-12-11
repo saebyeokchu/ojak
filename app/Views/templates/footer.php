@@ -32,9 +32,9 @@
                 <div class="pt-2">개인정보보호책임자 : 고보빈(jung755@naver.com)</div> -->
             </div>
         </div>
-        <div class="d-flex justify-content-end">
+        <!-- <div class="d-flex justify-content-end">
             @ Powered by &nbsp;<span><a class="text-no-decoration text-light" href="http://www.uglyduckling.co.kr/">Sharelife</a></span>
-        </div>
+        </div> -->
     </div>
 </footer>
 
