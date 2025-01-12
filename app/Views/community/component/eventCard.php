@@ -4,17 +4,17 @@
     $eventCounter = 0;
 ?>
 <div class="d-flex justify-content-end text-end logged-in mb-3">
-    <!-- <svg
+    <svg
         xmlns="http://www.w3.org/2000/svg"
         class="plus-icon cursor-pointer"
         viewBox="0 0 24 24"
-        id="openAddEventModalBtn"
+        width=24 height=24
+        data-bs-toggle="modal" data-bs-target="#addEventModal"
     >
         <circle cx="12" cy="12" r="11" stroke="black" stroke-width="2" fill="black" />
         <line x1="12" y1="6" x2="12" y2="18" stroke="white" stroke-width="2" />
         <line x1="6" y1="12" x2="18" y2="12" stroke="white" stroke-width="2" />
-    </svg> -->
-    <button type="button" class="btn btn-dark" id="openAddEventModalBtn">이벤트 추가하기</button>
+    </svg>
 </div>
 
 <div id="eventCardWrapper" class="grid" >

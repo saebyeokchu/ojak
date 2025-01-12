@@ -1,6 +1,35 @@
+
+<!-- Modal Structure -->
+<div id="addEventModal" class="modal z-5">
+    <div class="modal-content">
+        <!-- Modal Header -->
+        <div class="modal-header">
+            <h5 class="modal-title">이벤트 <?= (isset($item)) ?  '수정' : '추가' ?></h5>
+            <span id="closeAddEventModalBtn" class="close-btn">&times;</span>
+        </div>
+        <!-- Modal Body -->
+        <div class="modal-body">
+            <form action="javascript:;" onsubmit=" update( event ) ">
+                <div >
+                    <input placeholder="이벤트 이름" maxlength="23" type="text" class="form-input" id="input-name" value="<?= (isset($item)) ?  $item["title"] : '' ?>" required>
+                    <textarea placeholder="이벤트 내용"  class="form-input" id="input-content" name="input-content" required ><?= (isset($item)) ?  $item["content"]  : '' ?></textarea>
+                    
+                    <span class="text-secondary" style="font-size:12px;">업로드 가능 형식 : .png, .jpg, .jpeg</span>
+                    <input  oninput="onFileChange(event)" class="form-input" type="file" id="input-file" name="input-file" accept=".png, .jpg, .jpeg"  <?= (isset($item)) ?  '' : 'required' ?>>
+                    <small><?= (isset($item)) ?  '현재 사진:'.$item["img_url"]  : '' ?></small>
+
+                    <img id="input-file-display" class="img-fluid hide-item" ></div>
+                </div>
+                <button type="submit" class="btn btn-dark w-100 mt-4"><?= (isset($item)) ?  '수정' : '등록' ?></button>
+            </form>
+        </div>
+    </div> 
+</div>
+
 <!-- Modal -->
-<div class="modal fade" id="addEventModal" tabindex="-1" aria-hidden="true" >
+<div class="modal fade" id="addEventModal" tabindex="-1" aria-labelledby="addHomeArtLabel" aria-hidden="true" >
   <div class="modal-dialog modal-dialog-centered">
+    
      <!-- Modal Body -->
     <div  class="modal-content">
         <div class="modal-header">
@@ -16,15 +45,38 @@
                 <input  oninput="onFileChange(event)" class="form-input" type="file" id="input-file" name="input-file" accept=".png, .jpg, .jpeg"  <?= (isset($item)) ?  '' : 'required' ?>>
                 <small><?= (isset($item)) ?  '현재 사진:'.$item["img_url"]  : '' ?></small>
 
-                <img id="input-file-display" class="img-fluid hide-item"  />
+                <img id="input-file-display" class="img-fluid hide-item" ></div>
             </div>
             <button type="submit" class="btn btn-dark w-100 mt-4"><?= (isset($item)) ?  '수정' : '등록' ?></button>
         </form>
     </div>
+        
   </div>
 </div>
 
 <script>
+    // Open Modal
+    const openAddEventModalBtn = document.getElementById("openAddEventModalBtn");
+    const addEventModal = document.getElementById("addEventModal");
+    const closeAddEventModalBtn = document.getElementById("closeAddEventModalBtn");
+    const openEditEventModalBtn = document.getElementById("openEditEventModalBtn");
+
+    if(openAddEventModalBtn){
+        openAddEventModalBtn.addEventListener("click", () => {
+            addEventModal.style.display = "flex"; // Show modal
+        });
+    }
+
+    if(openEditEventModalBtn){
+        openEditEventModalBtn.addEventListener("click", () => {
+            addEventModal.style.display = "flex"; // Show modal
+        });
+    }
+
+    closeAddEventModalBtn.addEventListener("click", () => {
+        addEventModal.style.display = "none"; // Hide modal
+    });
+
     function onnamechange(event){
         document.getElementById('input-name-display').innerText = event.target.value;
 
