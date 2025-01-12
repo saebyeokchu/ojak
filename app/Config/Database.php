@@ -213,20 +213,20 @@ class Database extends Config
             $this->defaultGroup = 'tests';
         }
 
-        $client = new SsmClient([
-            'version' => 'latest',
-            'region' => 'us-east-1',
-            'profile' => 'ojak'
-        ]);
+        // $client = new SsmClient([
+        //     'version' => 'latest',
+        //     'region' => 'us-east-1',
+        //     'profile' => 'ojak'
+        // ]);
 
-        $result = $client->getParameter([
-            'Name' => 'ojakdbpw',
-            'WithDecryption' => true,
-        ]);
+        // $result = $client->getParameter([
+        //     'Name' => 'ojakdbpw',
+        //     'WithDecryption' => true,
+        // ]);
 
-        if((DB_ENV === 'production')){
-            $this->default['password'] = $result['Parameter']['Value'];
-        }
+        // if((DB_ENV === 'production')){
+        //     $this->default['password'] = $result['Parameter']['Value'];
+        // }
         
     }
 }
