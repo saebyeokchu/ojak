@@ -8,14 +8,14 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <form action="javascript:;" onsubmit=" update( event ) ">
-            <div >
-                <input placeholder="작품이름" maxlength="23" type="text" class="form-input" id="input-name" value="<?= (isset($item)) ?  $item->title : '' ?>" required>
-                <input placeholder="작품 한 줄 설명(선택)" type="text" class="form-input"  id="input-sub-title" maxlength="23">
-                <textarea placeholder="작품내용"  class="form-input" id="input-content" name="input-content" required ><?= (isset($item)) ?  $item->content : '' ?></textarea>
-                <input placeholder="구매링크(선택)" type="text" class="form-input"  id="input-buy-link" >
+            <div  >
+                <input style="margin-top:5px;" placeholder="작품이름" maxlength="23" type="text" class="form-control mb-3" id="input-name" value="<?= (isset($item)) ?  $item->title : '' ?>" required>
+                <input style="margin-top:5px;" placeholder="작품 한 줄 설명(선택)" type="text" class="form-control mb-3"  id="input-sub-title" maxlength="23">
+                <textarea style="margin-top:5px;" placeholder="작품내용"  class="form-control mb-3" id="input-content " name="input-content" required ><?= (isset($item)) ?  $item->content : '' ?></textarea>
+                <input style="margin-top:5px;" placeholder="구매링크(선택)" type="text" class="form-control"  id="input-buy-link" >
                 
                 <span class="text-secondary" style="font-size:12px;">업로드 가능 형식 : .png, .jpg, .jpeg</span>
-                <input  oninput="onFileChange(event)" class="form-input" type="file" id="input-file" name="input-file" accept=".png, .jpg, .jpeg"  <?= (isset($item)) ?  '' : 'required' ?>>
+                <input  oninput="onFileChange(event)" class="form-control" type="file" id="input-file" name="input-file" accept=".png, .jpg, .jpeg"  <?= (isset($item)) ?  '' : 'required' ?>>
                 <small><?= (isset($item)) ?  '현재 사진:'.$item->img_url : '' ?></small>
 
                 <img id="input-file-display" class="img-fluid hide-item" ></div>

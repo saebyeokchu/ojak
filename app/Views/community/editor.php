@@ -79,7 +79,7 @@
     </div>
     <div class="mt-3 container">
         <span class="text-secondary" style="font-size:12px;">최대 400자까지 입력하실 수 있습니다. ( <span id="editorCounter"><?= ( isset($post) && isset($post['content']) ) ? mb_strlen($post['content']) : 0  ?></span>자 / 200자 ) </span>
-        <textarea id="textInput" class="w-100 form-input" rows="15" ><?= ( isset($post) && isset($post['content']) ) ? $post['content'] : ''  ?></textarea>
+        <textarea id="textInput" class="w-100 form-control" rows="15" ><?= ( isset($post) && isset($post['content']) ) ? $post['content'] : ''  ?></textarea>
     </div>
 </div>
 

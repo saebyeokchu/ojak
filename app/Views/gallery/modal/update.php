@@ -10,15 +10,15 @@
         <!-- Modal Body -->
         <div class="modal-body">
             <form action="javascript:;" onsubmit=" edit( event ) ">
-                <div >
+                <div class="d-flex flex-column gap-2" >
                     <input placeholder="작품 아이디" type="text" class="hide-item" id="editModalId">
-                    <input placeholder="작품 이름" maxlength="23" type="text" class="form-input" id="editModalTitle"  required>
-                    <input placeholder="작품 한 줄 설명(선택)" type="text" class="form-input"  id="editModalSubTitle" maxlength="23">
-                    <textarea placeholder="작품 내용"  class="form-input" id="editModalContent" name="input-content" required ></textarea>
-                    <input placeholder="구매링크(선택)" type="text" class="form-input"  id="editModalBuyLink">
+                    <input placeholder="작품 이름" maxlength="23" type="text" class="form-control" id="editModalTitle"  required>
+                    <input placeholder="작품 한 줄 설명(선택)" type="text" class="form-control"  id="editModalSubTitle" maxlength="23">
+                    <textarea placeholder="작품 내용"  class="form-control" id="editModalContent" name="input-content" required ></textarea>
+                    <input placeholder="구매링크(선택)" type="text" class="form-control"  id="editModalBuyLink">
 
                     <span class="text-secondary" style="font-size:12px;">업로드 가능 형식 : .png, .jpg, .jpeg</span>
-                    <input  oninput="onFileChange(event)" class="form-input" type="file" id="editModalInputFile" name="editModalInputFile" accept=".png, .jpg, .jpeg"  >
+                    <input  oninput="onFileChange(event)" class="form-control" type="file" id="editModalInputFile" name="editModalInputFile" accept=".png, .jpg, .jpeg"  >
                     <small id="previousInputUrl"></small>
 
                     <img id="input-file-display" class="img-fluid hide-item" ></div>

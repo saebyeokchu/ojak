@@ -11,11 +11,11 @@
         <div class="modal-body">
             <form action="javascript:;" onsubmit=" update( event ) ">
                 <div >
-                    <input placeholder="이벤트 이름" maxlength="23" type="text" class="form-input" id="input-name" value="<?= (isset($item)) ?  $item["title"] : '' ?>" required>
-                    <textarea placeholder="이벤트 내용"  class="form-input" id="input-content" name="input-content" required ><?= (isset($item)) ?  $item["content"]  : '' ?></textarea>
+                    <input placeholder="이벤트 이름" maxlength="23" type="text" class="form-control" id="input-name" value="<?= (isset($item)) ?  $item["title"] : '' ?>" required>
+                    <textarea placeholder="이벤트 내용"  class="form-control" id="input-content" name="input-content" required ><?= (isset($item)) ?  $item["content"]  : '' ?></textarea>
                     
                     <span class="text-secondary" style="font-size:12px;">업로드 가능 형식 : .png, .jpg, .jpeg</span>
-                    <input  oninput="onFileChange(event)" class="form-input" type="file" id="input-file" name="input-file" accept=".png, .jpg, .jpeg"  <?= (isset($item)) ?  '' : 'required' ?>>
+                    <input  oninput="onFileChange(event)" class="form-control" type="file" id="input-file" name="input-file" accept=".png, .jpg, .jpeg"  <?= (isset($item)) ?  '' : 'required' ?>>
                     <small><?= (isset($item)) ?  '현재 사진:'.$item["img_url"]  : '' ?></small>
 
                     <img id="input-file-display" class="img-fluid hide-item" ></div>
@@ -38,11 +38,11 @@
         </div>
         <form action="javascript:;" onsubmit=" update( event ) ">
             <div >
-                <input placeholder="이벤트 이름" maxlength="23" type="text" class="form-input" id="input-name" value="<?= (isset($item)) ?  $item["title"] : '' ?>" required>
-                <textarea placeholder="이벤트 내용"  class="form-input" id="input-content" name="input-content" required ><?= (isset($item)) ?  $item["content"]  : '' ?></textarea>
+                <input placeholder="이벤트 이름" maxlength="23" type="text" class="form-control" id="input-name" value="<?= (isset($item)) ?  $item["title"] : '' ?>" required>
+                <textarea placeholder="이벤트 내용"  class="form-control" id="input-content" name="input-content" required ><?= (isset($item)) ?  $item["content"]  : '' ?></textarea>
                 
                 <span class="text-secondary" style="font-size:12px;">업로드 가능 형식 : .png, .jpg, .jpeg</span>
-                <input  oninput="onFileChange(event)" class="form-input" type="file" id="input-file" name="input-file" accept=".png, .jpg, .jpeg"  <?= (isset($item)) ?  '' : 'required' ?>>
+                <input  oninput="onFileChange(event)" class="form-control" type="file" id="input-file" name="input-file" accept=".png, .jpg, .jpeg"  <?= (isset($item)) ?  '' : 'required' ?>>
                 <small><?= (isset($item)) ?  '현재 사진:'.$item["img_url"]  : '' ?></small>
 
                 <img id="input-file-display" class="img-fluid hide-item" ></div>

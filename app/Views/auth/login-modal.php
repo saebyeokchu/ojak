@@ -13,8 +13,8 @@
             </div>
             <form action="javascript:;" onsubmit=" authenticate( event ) ">
                 <div >
-                    <input id="userId" type="text" class="form-input" placeholder="이메일" required>
-                    <input id="userPw" type="password" class="form-input" placeholder="비밀번호" required>
+                    <input id="userId" type="text" class="form-control" placeholder="이메일" required>
+                    <input id="userPw" type="password" class="form-control" placeholder="비밀번호" required>
                     <span class="text-danger hide-item" id="login-error-text" >
                         아이디나 비밀번호가 일치하지 않습니다. 
                     </span>
@@ -40,11 +40,11 @@
                 <form action="javascript:;" onsubmit=" register( event ) ">
                     <div >
                         <span class="text-secondary" style="font-size:12px;">이름을 작성하지 않으시면 아이디로 자동 지정됩니다.</span>
-                        <input type="text" name="register-name" class="form-input" id="register-name" placeholder="이름">
+                        <input type="text" name="register-name" class="form-control" id="register-name" placeholder="이름">
                         <span class="badge text-bg-secondary cursor-pointer" onclick="checkId()" >아이디(이메일) 중복확인</span>
-                        <input type="email" name="register-id" class="form-input" id="register-id" placeholder="이메일" onkeydown="resetIdChecked()" required>
-                        <input type="password" name="register-pw" class="form-input" id="register-pw" placeholder="비밀번호" required>
-                        <input type="password" class="form-input" id="register-pw-chk" placeholder="비밀번호 확인" required>
+                        <input type="email" name="register-id" class="form-control" id="register-id" placeholder="이메일" onkeydown="resetIdChecked()" required>
+                        <input type="password" name="register-pw" class="form-control" id="register-pw" placeholder="비밀번호" required>
+                        <input type="password" class="form-control" id="register-pw-chk" placeholder="비밀번호 확인" required>
                     </div>
                     <!-- <div class="form-check mt-2">
                         <input type="checkbox" id="rememberMe" class="form-check-input">

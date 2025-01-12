@@ -62,7 +62,7 @@
     </div>
     <div class="mt-3 container">
         <span class="text-secondary" style="font-size:12px;">최대 400자까지 입력하실 수 있습니다. ( <span id="editorCounter">0</span>자 / 400자 ) </span>
-        <textarea id="textInput" class="w-100 form-input" rows="30" onkeydown="onTextTyped()"></textarea>
+        <textarea id="textInput" class="w-100 form-control" rows="30" onkeydown="onTextTyped()"></textarea>
         <!-- <div id="pell-editor" class="mt-2" style="height:400px !important;"></div>
         <div id="pell-markup" style="display:none;"></div> -->
     </div>
