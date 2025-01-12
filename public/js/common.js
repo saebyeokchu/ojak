@@ -19,10 +19,17 @@ function eraseCookie(name) {
     document.cookie = name+'=; path=/; Max-Age=-99999999;';  
 }
 
+function getAllUrl(){
+    return getUrl(0,0,0);
+}
+
 function getUrl(id, gubun, pageIndex) {
     const urls = {
         'communityEditor' : "/community/edit?id="+id+"&gubun="+gubun+"&pageIndex="+pageIndex,
-        'communityDetail' : "/community/detail?id="+id+"&gubun="+gubun+"&pageIndex="+pageIndex
+        'communityDetail' : "/community/detail?id="+id+"&gubun="+gubun+"&pageIndex="+pageIndex,
+        'communityNotice' : "/community/notice?pageIndex=1",
+        'communityEvent' : "/community/event?pageIndex=1",
+        'communityQna' : "/community/qna?pageIndex=1",
     };
     return urls;
 }

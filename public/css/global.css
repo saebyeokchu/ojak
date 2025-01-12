@@ -4,15 +4,16 @@ font-family: 'MaruBuri';
 font-family: 'MaruBuriBold';
 font-family: 'MaruBuriSemiBold'; */
 
-.body { 
+body { 
+    visibility: hidden;
     margin: 0px;
     padding: 0px;
     /* font-family: "Nanum Gothic", sans-serif; */
+    transition: opacity 0.3s ease-in-out;
 }
 
-h1 {
-    font-family: 'Pretendard', sans-serif;
-    font-weight: 700; /* Bold */
+body.loaded {
+    visibility: visible;
 }
 
 .slider-btn {

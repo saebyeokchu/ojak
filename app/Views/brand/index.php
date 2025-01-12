@@ -153,10 +153,15 @@
 
 <!-- 3. 실행 스크립트 -->
 <script charset="UTF-8">
+    window.addEventListener('load', () => {
+        document.body.classList.add('loaded');
+    });
+
     new daum.roughmap.Lander({
         "timestamp" : "1731324282394",
         "key" : "2m7gg",
         "mapWidth" : "640",
         "mapHeight" : "400"
     }).render();
+
 </script>

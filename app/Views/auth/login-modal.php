@@ -12,7 +12,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form action="javascript:;" onsubmit=" authenticate( event ) ">
-                <div >
+                <div class="d-flex flex-column gap-2" >
                     <input id="userId" type="text" class="form-control" placeholder="이메일" required>
                     <input id="userPw" type="password" class="form-control" placeholder="비밀번호" required>
                     <span class="text-danger hide-item" id="login-error-text" >
@@ -38,7 +38,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
                 <form action="javascript:;" onsubmit=" register( event ) ">
-                    <div >
+                    <div class="d-flex flex-column gap-2" >
                         <span class="text-secondary" style="font-size:12px;">이름을 작성하지 않으시면 아이디로 자동 지정됩니다.</span>
                         <input type="text" name="register-name" class="form-control" id="register-name" placeholder="이름">
                         <span class="badge text-bg-secondary cursor-pointer" onclick="checkId()" >아이디(이메일) 중복확인</span>

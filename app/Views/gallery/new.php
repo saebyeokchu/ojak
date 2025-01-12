@@ -53,6 +53,7 @@
 
 
 <script>
+
     window.onload = function(){
         //auth check
         const login_user_id = <?= $_COOKIE['user_id'] ?>;

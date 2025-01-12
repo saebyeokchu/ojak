@@ -10,5 +10,12 @@
 <!-- Instagram -->
 <?= view('/home/section/notice'); ?>
 
+<script>
+    window.addEventListener('load', () => {
+        document.body.classList.add('loaded');
+    });
+</script>
+
+
 
 

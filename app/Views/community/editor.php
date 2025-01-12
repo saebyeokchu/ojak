@@ -16,6 +16,14 @@
 
     if(isset($contents['sub'])){
         $sub = $contents['sub'];
+
+        if($sub==1){
+            $returnUrl = '/community/notice?pageIndex='.$pageIndex;
+        }else if($sub==2){
+            $returnUrl = '/community/event?pageIndex='.$pageIndex;
+        }else{
+            $returnUrl = '/community/qna?pageIndex='.$pageIndex;
+        }
     }
 
     if(isset($contents['post']) && isset($contents['pageIndex'])){
@@ -179,7 +187,7 @@
 
     function goBack(event){
         event.preventDefault();
-        location.href="/community/list/<?=$sub?>?pageIndex=1"
+        location.href="<?=$returnUrl?>";
     }
 </script>
 

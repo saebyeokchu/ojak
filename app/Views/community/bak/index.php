@@ -130,19 +130,5 @@
 
 </div>
 
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const menuWrapper = document.getElementById("menuWrapper");
-        const innerWidth = window.innerWidth;
 
-        if(menuWrapper){
-            if(innerWidth < 700){
-                menuWrapper.style.marginTop = "100px";
-            }else{
-                menuWrapper.style.marginTop = "150px";
-            }
-        }
-    });
-</script>
-   
 

@@ -23,7 +23,7 @@ class Community extends BaseController
         return $hangeulName;
     }
 
-    public function index($gubunNum): string
+    public function notice(): string
     {   
         $pageIndex = $this->request->getGet('pageIndex');
 
@@ -34,13 +34,11 @@ class Community extends BaseController
 
         // 공통변수
         $data['contents']['pageIndex'] = $pageIndex;
-        $data['contents']['gubunNum'] = $gubunNum;
-        $data['contents']['hangeulName'] = $this->getGubunHangeulName($gubunNum);
-        $data['yield']       = 'community/index';
+        $data['yield']       = 'community/notice';
 
         //데이터 설정
         $api = new \App\Controllers\Api();
-        $result = $api -> getAll($pageIndex,$gubunNum);
+        $result = $api -> getAll($pageIndex,1);
 
         $rowCount = $result['rowCount'];
         $data['contents']['posts'] = $result['posts'];
@@ -52,6 +50,92 @@ class Community extends BaseController
         
         return view('component/application', $data);
     }
+
+    public function event(): string
+    {   
+        $pageIndex = $this->request->getGet('pageIndex');
+
+        if(!$pageIndex){
+            $data['yield']       = 'errors/html/error_404_custom';
+            return view('component/application', $data);
+        }
+
+        // 공통변수
+        $data['contents']['pageIndex'] = $pageIndex;
+        $data['yield']       = 'community/event';
+
+        //데이터 설정
+        $api = new \App\Controllers\Api();
+        $result = $api -> getAll($pageIndex,2);
+
+        $rowCount = $result['rowCount'];
+        $data['contents']['posts'] = $result['posts'];
+        $data['contents']['rowCount'] = $rowCount;
+
+        // if($rowCount > 5){
+        //     $data['contents']['pageIndex'] = 1;
+        // }
+        
+        return view('component/application', $data);
+    }
+
+    public function qna(): string
+    {   
+        $pageIndex = $this->request->getGet('pageIndex');
+
+        if(!$pageIndex){
+            $data['yield']       = 'errors/html/error_404_custom';
+            return view('component/application', $data);
+        }
+
+        // 공통변수
+        $data['contents']['pageIndex'] = $pageIndex;
+        $data['yield']       = 'community/qna';
+
+        //데이터 설정
+        $api = new \App\Controllers\Api();
+        $result = $api -> getAll($pageIndex,3);
+
+        $rowCount = $result['rowCount'];
+        $data['contents']['posts'] = $result['posts'];
+        $data['contents']['rowCount'] = $rowCount;
+
+        // if($rowCount > 5){
+        //     $data['contents']['pageIndex'] = 1;
+        // }
+        
+        return view('component/application', $data);
+    }
+
+    // public function index($gubunNum): string
+    // {   
+    //     $pageIndex = $this->request->getGet('pageIndex');
+
+    //     if(!$pageIndex){
+    //         $data['yield']       = 'errors/html/error_404_custom';
+    //         return view('component/application', $data);
+    //     }
+
+    //     // 공통변수
+    //     $data['contents']['pageIndex'] = $pageIndex;
+    //     $data['contents']['gubunNum'] = $gubunNum;
+    //     $data['contents']['hangeulName'] = $this->getGubunHangeulName($gubunNum);
+    //     $data['yield']       = 'community/index';
+
+    //     //데이터 설정
+    //     $api = new \App\Controllers\Api();
+    //     $result = $api -> getAll($pageIndex,$gubunNum);
+
+    //     $rowCount = $result['rowCount'];
+    //     $data['contents']['posts'] = $result['posts'];
+    //     $data['contents']['rowCount'] = $rowCount;
+
+    //     // if($rowCount > 5){
+    //     //     $data['contents']['pageIndex'] = 1;
+    //     // }
+        
+    //     return view('component/application', $data);
+    // }
 
     public function new(): string {
         //login check

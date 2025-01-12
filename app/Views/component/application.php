@@ -72,6 +72,10 @@
     <script>
         AOS.init();
 
+        window.addEventListener('load', () => {
+            document.body.classList.add('loaded');
+        });
+
         // Function to show the loading screen
         function turnOnLoadingScreen() {
             const loadingScreen = document.getElementById('loading-screen');

@@ -29,6 +29,11 @@ $routes->get('/community/new', 'Community::new');
 $routes->get('/community/edit', 'Community::edit');
 $routes->get('/community/detail', 'Community::detail');
 
+//improve flickering
+$routes->get('/community/notice', 'Community::notice');
+$routes->get('/community/event', 'Community::event');
+$routes->get('/community/qna', 'Community::qna');
+
 // Auth
 $routes->get('/auth', 'Auth::index');
 $routes->get('/auth/login', 'Auth::login');

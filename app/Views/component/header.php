@@ -38,9 +38,12 @@
 
 
 
-<!-- HEADER: MENU + HEROE SECTION -->
+<!-- mobile header -webkit-fill-available;-->
 <header class="fixed-top for-sm bg-transparent" id="smHeader">
-    <div id="sm-header-toggle-div" class=" mh-100 fixed-top z-3 d-flex flex-column bg-black text-white" style="width:300px; height: -webkit-fill-available; transform: translateX(-100vh); transition: transform 0.8s ease-in-out;">
+    <div id="sm-header-toggle-div" class="mh-100 fixed-top z-3 d-flex flex-column bg-black text-white" style="width:300px; height: 100vh; transform: translateX(-100vh); transition: transform 0.8s ease-in-out;">
+        <div class="d-flex justify-content-end p-3">
+        <button onclick="closeToggleDivSm()" type="button" class="btn-close btn-close-white" aria-label="Close"></button>
+        </div>
         <!-- logo -->
         <div class="mt-5 d-flex justify-content-center">
             <a href="/" >
@@ -73,11 +76,11 @@
                 </a>
                 <a class=" nav-link pt-3 toggle-header-menu <?=$lgGalleryUrl?>" href="/gallery?pageIndex=1" style="height:60px;width:300px;"><span class="ps-3">작품</span></a>
                 <div  onmouseenter="showcommunitydiv('mobile-header-community-submenu')"  onmouseleave="hidecommunitydiv('mobile-header-community-submenu')">
-                    <span class="nav-link pt-3 toggle-header-menu" style="height:60px;width:300px;"><span class="ps-3">커뮤니티  +</span>
+                    <span class="nav-link pt-3 toggle-header-menu" style="height:60px;width:300px;"><span class="ps-3">커뮤니티  <span id="mobileCommunityPlus" class="hide-item">+</span> <span id="mobileCommunityMinus">-</span> </span>
                     <div id="mobile-header-community-submenu" class="hide-y-gradually mt-3" >
-                        <a class="nav-link pt-3 toggle-header-menu <?=$lgNoticeUrl?>" style="height:60px;width:300px;"><span class="ps-3">공지사항</span></a>
-                        <a class="nav-link pt-3 toggle-header-menu <?=$lgEventUrl?>" style="height:60px;width:300px;"><span class="ps-3">이벤트</span></a>
-                        <a class="nav-link pt-3 toggle-header-menu <?=$lgQnaUrl?>" style="height:60px;width:300px;"><span class="ps-3">Q&A</span></a>
+                        <a id="mobileNoticeMenu" class="nav-link pt-3 toggle-header-menu <?=$lgNoticeUrl?>" style="height:60px;width:300px;"><span class="ps-3">공지사항</span></a>
+                        <a id="mobileEventMenu" class="nav-link pt-3 toggle-header-menu <?=$lgEventUrl?>" style="height:60px;width:300px;" ><span class="ps-3">이벤트</span></a>
+                        <a id="mobileQnaMenu" class="nav-link pt-3 toggle-header-menu <?=$lgQnaUrl?>" style="height:60px;width:300px;" ><span class="ps-3">Q&A</span></a>
                     </div>
                 </div>
                 
@@ -178,13 +181,13 @@
         <div class="d-flex justify-content-center text-center cursor-pointer pt-15" >
             <div class="d-felx mt-4 g-3" style="list-style: none;">
                 <a class="mt-2 nav-link toggle-header-menu <?=$lgBrandUrl?>" href="/brand">브랜드</a>
-                <a class="mt-2 nav-link toggle-header-menu <?=$lgGalleryUrl?>" href="/gallery?pageIndex=1?pageIndex=1">작품</a>
+                <a class="mt-2 nav-link toggle-header-menu <?=$lgGalleryUrl?>" href="/gallery?pageIndex=1">작품</a>
                 <div onmouseenter="showcommunitydiv('sm-header-community-submenu')"  onmouseleave="hidecommunitydiv('sm-header-community-submenu')">
                     <span class="mt-2 nav-link toggle-header-menu" >커뮤니티</span>
                     <div id="sm-header-community-submenu" class="hide-y-gradually mt-2 ">
-                        <a class="nav-link cursor-hover <?=$lgNoticeUrl?>" href="/community/list/1?pageIndex=1">공지사항</a>
-                        <a class="nav-link cursor-hover <?=$lgEventUrl?> mt-2" href="/community/list/2?pageIndex=1">이벤트</a>
-                        <a class="nav-link cursor-hover <?=$lgQnaUrl?> mt-2" href="/community/list/3?pageIndex=1">Q&A</a>
+                        <a class="nav-link cursor-hover <?=$lgNoticeUrl?>" id="lgToggleCommunityNotice">공지사항</a>
+                        <a class="nav-link cursor-hover <?=$lgEventUrl?> mt-2" id="lgToggleCommunityEvent">이벤트</a>
+                        <a class="nav-link cursor-hover <?=$lgQnaUrl?> mt-2" id="lgToggleCommunityQna">Q&A</a>
                     </div>
                 </div>
                 <?php if(isset($_COOKIE["user_id"])) { ?>
@@ -211,9 +214,9 @@
                 <div class="position-relative nav-link cursor-hover nav-link cursor-pointer"  onmouseenter="showcommunitydiv('lg-header-community-submenu')"  onmouseleave="hidecommunitydiv('lg-header-community-submenu')">
                     커뮤니티
                     <div id="lg-header-community-submenu" class="position-absolute d-flex gap-4 hide-x-gradually" style="top:0px; padding-left:80px;">
-                        <a class="nav-link cursor-hover <?=$lgNoticeUrl?>" href="/community/list/1?pageIndex=1">공지사항</a>
-                        <a class="nav-link cursor-hover <?=$lgEventUrl?>" href="/community/list/2?pageIndex=1">이벤트</a>
-                        <a class="nav-link cursor-hover <?=$lgQnaUrl?> " href="/community/list/3?pageIndex=1">Q&A</a>
+                        <a class="nav-link cursor-hover <?=$lgNoticeUrl?>" id="lgCommunityNotice">공지사항</a>
+                        <a class="nav-link cursor-hover <?=$lgEventUrl?>" id="lgCommunityEvent">이벤트</a>
+                        <a class="nav-link cursor-hover <?=$lgQnaUrl?> " id="lgCommunityQna">Q&A</a>
                     </div>
                 </div>
             </div>
@@ -300,6 +303,14 @@
             }else{
                 communitySubMenu.classList.add('visible-y-gradually');
             }
+
+            if(id.includes('mobile')){
+                const communityPlus = document.getElementById('mobileCommunityPlus');
+                const communityMinus = document.getElementById('mobileCommunityMinus');
+
+                communityPlus.classList.add("hide-item");
+                communityMinus.classList.remove("hide-item");
+            }
         }
     }
 
@@ -311,6 +322,14 @@
                 communitySubMenu.classList.remove('visible-x-gradually');
             }else{
                 communitySubMenu.classList.remove('visible-y-gradually');
+            }
+
+            //모바일 커뮤니티 설정
+            if(id.includes('mobile')){
+                const communityPlus = document.getElementById('mobileCommunityPlus');
+                const communityMinus = document.getElementById('mobileCommunityMinus');
+                communityMinus.classList.add("hide-item");
+                communityPlus.classList.remove("hide-item");
             }
         }
     }
@@ -336,12 +355,7 @@
         }
     }
 
-    // Close modal when clicking outside the modal content
-    window.addEventListener("click", (event) => {
-        if (event.target == smToggleDiv) {
-            closeToggleDivSm();
-        }
-    });
+    
 
     function openToggleDiv(event){
         event.preventDefault();
@@ -538,6 +552,33 @@
 
     // script.js
     document.addEventListener("DOMContentLoaded", () => {
+        //set mobile menu link
+        const mobileNoticeMenu = document.getElementById("mobileNoticeMenu");
+        const mobileEventMenu = document.getElementById("mobileEventMenu");
+        const mobileQnaMenu = document.getElementById("mobileQnaMenu");
+
+        mobileNoticeMenu.href = getAllUrl().communityNotice;
+        mobileEventMenu.href = getAllUrl().communityEvent;
+        mobileQnaMenu.href = getAllUrl().communityQna;
+
+        //set lg header link
+        const lgCommunityNotice = document.getElementById("lgCommunityNotice");
+        const lgCommunityEvent = document.getElementById("lgCommunityEvent");
+        const lgCommunityQna = document.getElementById("lgCommunityQna");
+
+        lgCommunityNotice.href = getAllUrl().communityNotice;
+        lgCommunityEvent.href = getAllUrl().communityEvent;
+        lgCommunityQna.href = getAllUrl().communityQna;
+
+        //set lg toggle header link
+        const lgToggleCommunityNotice = document.getElementById("lgToggleCommunityNotice");
+        const lgToggleCommunityEvent = document.getElementById("lgToggleCommunityEvent");
+        const lgToggleCommunityQna = document.getElementById("lgToggleCommunityQna");
+        lgToggleCommunityNotice.href = getAllUrl().communityNotice;
+        lgToggleCommunityEvent.href = getAllUrl().communityEvent;
+        lgToggleCommunityQna.href = getAllUrl().communityQna;
+
+        //set header design
         const lgHeader = document.getElementById("lg-header");
 
         const menuIcon = document.getElementById("lg-header-menu-icon");

@@ -144,6 +144,10 @@
 </div>
 
 <script>
+        window.addEventListener('load', () => {
+        document.body.classList.add('loaded');
+    });
+    
     function onDeleteBtnClick(targetId){
         if(window.confirm("게시글을 영구히 삭제하시겠습니까?")){
             turnOnLoadingScreen();
@@ -175,4 +179,5 @@
         navigator.clipboard.writeText('<?=$shareUrl?>');
         window.alert("링크 복사가 완료되었습니다.");
     }
+
 </script>
