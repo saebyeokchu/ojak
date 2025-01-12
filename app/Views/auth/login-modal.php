@@ -1,14 +1,16 @@
 
-<!-- Modal Structure -->
-<div id="loginModal" class="modal z-5">
-    <div class="modal-content">
-        <!-- Modal Header -->
-        <div class="modal-header">
-            <h5 id="loginModalTitle" class="modal-title">로그인</h5>
-            <span id="closeModalBtn" class="close-btn">&times;</span>
-        </div>
-        <!-- Modal Body -->
-        <div id="loginModalLoginContent" class="modal-body">
+
+<!-- Modal -->
+<div class="modal fade" id="openModal" tabindex="-1" aria-labelledby="addHomeArtLabel" aria-hidden="true" >
+  <div class="modal-dialog modal-dialog-centered">
+    
+     <!-- Modal Body -->
+    <div  class="modal-content">
+        <div id="loginModalLoginContent">
+            <div class="modal-header">
+                <h5 class="modal-title" >로그인</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
             <form action="javascript:;" onsubmit=" authenticate( event ) ">
                 <div >
                     <input id="userId" type="text" class="form-input" placeholder="이메일" required>
@@ -28,29 +30,39 @@
                 <!-- <a href="#" class="text-black no-text-decoration hover-underline" >아이디 · 비밀번호 찾기</a> -->
             </div>
         </div>
+
         <!-- Modal Body (register) -->
-        <div id="loginModalRegisterContent" class="modal-body hide-item">
-            <form action="javascript:;" onsubmit=" register( event ) ">
-                <div >
-                    <span class="text-secondary" style="font-size:12px;">이름을 작성하지 않으시면 아이디로 자동 지정됩니다.</span>
-                    <input type="text" name="register-name" class="form-input" id="register-name" placeholder="이름">
-                    <span class="badge text-bg-secondary cursor-pointer" onclick="checkId()" >아이디(이메일) 중복확인</span>
-                    <input type="email" name="register-id" class="form-input" id="register-id" placeholder="이메일" onkeydown="resetIdChecked()" required>
-                    <input type="password" name="register-pw" class="form-input" id="register-pw" placeholder="비밀번호" required>
-                    <input type="password" class="form-input" id="register-pw-chk" placeholder="비밀번호 확인" required>
-                </div>
-                <!-- <div class="form-check mt-2">
-                    <input type="checkbox" id="rememberMe" class="form-check-input">
-                    <label for="rememberMe" class="form-check-label">로그인 상태 유지</label>
-                </div> -->
-                <button type="submit" class="btn btn-dark w-100 mt-4">멤버가입 요청</button>
-                <div class="d-flex justify-content-center mt-2">
-                    <span onclick="changeToLogin()" class="text-secondary hover-underline cursor-pointer" style="font-size:12px;">로그인하러 가기</span>
-                </div>
-            </form>
-        </div>
-    </div> 
+        <div id="loginModalRegisterContent" class="hide-item">
+            <div class="modal-header">
+                <h5 class="modal-title" >회원가입</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+                <form action="javascript:;" onsubmit=" register( event ) ">
+                    <div >
+                        <span class="text-secondary" style="font-size:12px;">이름을 작성하지 않으시면 아이디로 자동 지정됩니다.</span>
+                        <input type="text" name="register-name" class="form-input" id="register-name" placeholder="이름">
+                        <span class="badge text-bg-secondary cursor-pointer" onclick="checkId()" >아이디(이메일) 중복확인</span>
+                        <input type="email" name="register-id" class="form-input" id="register-id" placeholder="이메일" onkeydown="resetIdChecked()" required>
+                        <input type="password" name="register-pw" class="form-input" id="register-pw" placeholder="비밀번호" required>
+                        <input type="password" class="form-input" id="register-pw-chk" placeholder="비밀번호 확인" required>
+                    </div>
+                    <!-- <div class="form-check mt-2">
+                        <input type="checkbox" id="rememberMe" class="form-check-input">
+                        <label for="rememberMe" class="form-check-label">로그인 상태 유지</label>
+                    </div> -->
+                    <button type="submit" class="btn btn-dark w-100 mt-4">멤버가입 요청</button>
+                    <div class="d-flex justify-content-center mt-2">
+                        <span onclick="changeToLogin()" class="text-secondary hover-underline cursor-pointer" style="font-size:12px;">로그인하러 가기</span>
+                    </div>
+                </form>
+            </div>
+
+
+    </div>
+        
+  </div>
 </div>
+
 
 <!-- Modal -->
 <!-- <div class="modal fade" id="login-modal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true" >
@@ -142,7 +154,6 @@
 
         console.log("auth started");
 
-        modal.style.display = "none"; // Hide modal
         turnOnLoadingScreen();
 
         const errorTxt = document.getElementById('login-error-text');
@@ -169,7 +180,6 @@
                     errorTxt.classList.remove('hide-item');
                     errorTxt.classList.add('show-item');
                     turnOffLoadingScreen();
-                    modal.style.display = "flex"; // Show modal
                 }
             });
 
@@ -177,7 +187,6 @@
             errorTxt.classList.remove('hide-item');
             errorTxt.classList.add('show-item');
             turnOffLoadingScreen();
-            modal.style.display = "flex"; // Show modal
         }
 
     }

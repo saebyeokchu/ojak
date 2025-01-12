@@ -11,7 +11,7 @@
 
 <div class="d-flex justify-content-end text-end logged-in mb-3">
             <a  href="/community/new?sub=<?=$gubunNum?>" >
-                <svg
+                <!-- <svg
                     xmlns="http://www.w3.org/2000/svg"
                     class="plus-icon cursor-pointer"
                     viewBox="0 0 24 24"
@@ -19,7 +19,8 @@
                     <circle cx="12" cy="12" r="11" stroke="black" stroke-width="2" fill="black" />
                     <line x1="12" y1="6" x2="12" y2="18" stroke="white" stroke-width="2" />
                     <line x1="6" y1="12" x2="18" y2="12" stroke="white" stroke-width="2" />
-                </svg>
+                </svg> -->
+                <button type="button" class="btn btn-dark">질문하기</button>
             </a>
         </div>
 
