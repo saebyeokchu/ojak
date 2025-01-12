@@ -1,194 +1,121 @@
 <?php
-    $data = $contents['target_data'];
-    $userName = $_COOKIE['user_name'];
-    $userId = $_COOKIE['user_id'];
-    $userEmail = $_COOKIE['user_email'];
+
+    //set autorization
+    $userId = -1;
+    if(isset($_COOKIE['user_id'])){
+        $userId = $_COOKIE['user_id'];
+    }
+
+    $isAdmin = false;
+    if($userId > -1){
+        if($userId == 1){
+            $isAdmin = true;
+        }
+    }
+
+    //set data
+    $data = [];
+
+    if(isset($contents)){
+        if(isset($contents['target_data'])){
+            $data = $contents['target_data'];
+        }
+
+        if(isset($contents['gubun'])){
+            $gubun = $contents['gubun'];
+        }
+    }
+
 ?>
 
-<div style="width:100%; height: 60px;"></div>
+<div class="alert alert-danger for-sm" role="alert">
+  화면 크기가 너무 작습니다. 화면크기를 조절해 주세요
+</div>
 
-<div class="container-fluid">
+
+<div class="container-fluid for-lg">
     <div class="row flex-nowrap">
         <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-light">
             <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
-                <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
-                    <li class="nav-item">
-                        <span class="nav-link align-middle px-0 text-secondary">
-                            <span class="fs-4"></span>
-                            <strong>내 게시물 관리</strong>
-                        </span>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/my/gallery" class="nav-link align-middle px-0 text-secondary">
-                            <span class="fs-4">
-                                <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="15" cy="9" r="2" stroke="#1C274C" stroke-width="1.5"/>
-                                <path d="M19.9999 17.6001L17.7764 15.599C16.7368 14.6634 15.1887 14.5702 14.0445 15.3744L13.7463 15.5839C12.9511 16.1428 11.8693 16.0491 11.1821 15.3618L6.89237 11.0721C6.03616 10.2159 4.66274 10.1702 3.75147 10.9675L2.28101 12.2542" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/>
-                                <path d="M7 3.33782C8.47087 2.48697 10.1786 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 10.1786 2.48697 8.47087 3.33782 7" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/>
-                                </svg>
-                            </span>
-                            <?php if($contents['sub'] == 'gallery') { ?>
-                                <span class="ms-1 d-none d-sm-inline"><strong>작품 관리</strong></span>
-                            <?php }else{ ?>
-                                <span class="ms-1 d-none d-sm-inline ">작품 관리</span> 
-                            <?php } ?>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/my/community" class="nav-link px-0 align-middle text-secondary">
-                            <span class="fs-4">
-                                <svg fill="#000000" width="24px" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16 2H8C4.691 2 2 4.691 2 8v12a1 1 0 0 0 1 1h13c3.309 0 6-2.691 6-6V8c0-3.309-2.691-6-6-6zm4 13c0 2.206-1.794 4-4 4H4V8c0-2.206 1.794-4 4-4h8c2.206 0 4 1.794 4 4v7z"/></svg>
-                            </span> 
-                            <?php if($contents['sub'] == 'community') { ?>
-                                <span class="ms-1 d-none d-sm-inline"><strong>게시글 관리</strong></span>
-                            <?php }else{ ?>
-                                <span class="ms-1 d-none d-sm-inline ">게시글 관리</span> 
-                            <?php } ?>
-                        </a>
-                    </li>
-                    <!-- <li>
-                        <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                            <i class="fs-4 bi-grid"></i> <span class="ms-1 d-none d-sm-inline">Products</span> </a>
-                            <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
-                            <li class="w-100">
-                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 1</a>
-                            </li>
-                            <li>
-                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 2</a>
-                            </li>
-                            <li>
-                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 3</a>
-                            </li>
-                            <li>
-                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 4</a>
-                            </li>
-                        </ul>
-                    </li> -->
-                    <li class="nav-item">
-                        <span class="nav-link align-middle px-0 text-secondary">
-                            <span class="fs-4"></span>
-                            <strong>내 정보 관리</strong>
-                        </span>
-                    </li>
-                    <li>
-                        <a href="/my/info" class="nav-link px-0 align-middle text-secondary">
-                            <span class="fs-4 bi-people">
-                                <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M12 17.75C12.4142 17.75 12.75 17.4142 12.75 17V11C12.75 10.5858 12.4142 10.25 12 10.25C11.5858 10.25 11.25 10.5858 11.25 11V17C11.25 17.4142 11.5858 17.75 12 17.75Z" fill="#1C274C"/>
-                                    <path d="M12 7C12.5523 7 13 7.44772 13 8C13 8.55228 12.5523 9 12 9C11.4477 9 11 8.55228 11 8C11 7.44772 11.4477 7 12 7Z" fill="#1C274C"/>
-                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M1.25 12C1.25 6.06294 6.06294 1.25 12 1.25C17.9371 1.25 22.75 6.06294 22.75 12C22.75 17.9371 17.9371 22.75 12 22.75C6.06294 22.75 1.25 17.9371 1.25 12ZM12 2.75C6.89137 2.75 2.75 6.89137 2.75 12C2.75 17.1086 6.89137 21.25 12 21.25C17.1086 21.25 21.25 17.1086 21.25 12C21.25 6.89137 17.1086 2.75 12 2.75Z" fill="#1C274C"/>
-                                </svg>
-                            </span> 
-                            <?php if($contents['sub'] == 'info') { ?>
-                                <span class="ms-1 d-none d-sm-inline "><strong>개인 정보 변경</strong></span> 
-                            <?php }else{ ?>
-                                <span class="ms-1 d-none d-sm-inline ">개인 정보 변경</span> 
-                            <?php } ?>
-                        </a>
-                    </li>
-                    <?php if($userEmail == 'admin') { ?>
-                    <li>
-                        <a href="/my/busniess" class="nav-link px-0 align-middle text-secondary">
-                            <span class="fs-4 bi-people">
-                                <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M12 17.75C12.4142 17.75 12.75 17.4142 12.75 17V11C12.75 10.5858 12.4142 10.25 12 10.25C11.5858 10.25 11.25 10.5858 11.25 11V17C11.25 17.4142 11.5858 17.75 12 17.75Z" fill="#1C274C"/>
-                                    <path d="M12 7C12.5523 7 13 7.44772 13 8C13 8.55228 12.5523 9 12 9C11.4477 9 11 8.55228 11 8C11 7.44772 11.4477 7 12 7Z" fill="#1C274C"/>
-                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M1.25 12C1.25 6.06294 6.06294 1.25 12 1.25C17.9371 1.25 22.75 6.06294 22.75 12C22.75 17.9371 17.9371 22.75 12 22.75C6.06294 22.75 1.25 17.9371 1.25 12ZM12 2.75C6.89137 2.75 2.75 6.89137 2.75 12C2.75 17.1086 6.89137 21.25 12 21.25C17.1086 21.25 21.25 17.1086 21.25 12C21.25 6.89137 17.1086 2.75 12 2.75Z" fill="#1C274C"/>
-                                </svg>
-                            </span> 
-                            <?php if($contents['sub'] == 'busniess') { ?>
-                                <span class="ms-1 d-none d-sm-inline "><strong>사업자 정보 변경</strong></span> 
-                            <?php }else{ ?>
-                                <span class="ms-1 d-none d-sm-inline ">사업자 정보 변경</span> 
-                            <?php } ?>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <span class="nav-link align-middle px-0 text-secondary">
-                            <span class="fs-4"></span>
-                            <strong>홈페이지 관리</strong>
-                        </span>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/my/represent-gallery" class="nav-link align-middle px-0 text-secondary">
-                            <span class="fs-4">
-                                <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="15" cy="9" r="2" stroke="#1C274C" stroke-width="1.5"/>
-                                <path d="M19.9999 17.6001L17.7764 15.599C16.7368 14.6634 15.1887 14.5702 14.0445 15.3744L13.7463 15.5839C12.9511 16.1428 11.8693 16.0491 11.1821 15.3618L6.89237 11.0721C6.03616 10.2159 4.66274 10.1702 3.75147 10.9675L2.28101 12.2542" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/>
-                                <path d="M7 3.33782C8.47087 2.48697 10.1786 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 10.1786 2.48697 8.47087 3.33782 7" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/>
-                                </svg>
-                            </span>
-                            <?php if($contents['sub'] == 'represent-gallery') { ?>
-                                <span class="ms-1 d-none d-sm-inline"><strong>대표 작품/공지 관리</strong></span>
-                            <?php }else{ ?>
-                                <span class="ms-1 d-none d-sm-inline ">대표 작품/공지 관리</span> 
-                            <?php } ?>
-                        </a>
-                    </li>
-                    
-                    <li class="nav-item">
-                        <a href="/my/display-gallery" class="nav-link align-middle px-0 text-secondary">
-                            <span class="fs-4">
-                                <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="15" cy="9" r="2" stroke="#1C274C" stroke-width="1.5"/>
-                                <path d="M19.9999 17.6001L17.7764 15.599C16.7368 14.6634 15.1887 14.5702 14.0445 15.3744L13.7463 15.5839C12.9511 16.1428 11.8693 16.0491 11.1821 15.3618L6.89237 11.0721C6.03616 10.2159 4.66274 10.1702 3.75147 10.9675L2.28101 12.2542" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/>
-                                <path d="M7 3.33782C8.47087 2.48697 10.1786 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 10.1786 2.48697 8.47087 3.33782 7" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/>
-                                </svg>
-                            </span>
-                            <?php if($contents['sub'] == 'display-gallery') { ?>
-                                <span class="ms-1 d-none d-sm-inline"><strong>전시 작품 관리</strong></span>
-                            <?php }else{ ?>
-                                <span class="ms-1 d-none d-sm-inline ">전시 작품 관리</span> 
-                            <?php } ?>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/my/notice" class="nav-link align-middle px-0 text-secondary">
-                            <span class="fs-4">
-                                <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="15" cy="9" r="2" stroke="#1C274C" stroke-width="1.5"/>
-                                <path d="M19.9999 17.6001L17.7764 15.599C16.7368 14.6634 15.1887 14.5702 14.0445 15.3744L13.7463 15.5839C12.9511 16.1428 11.8693 16.0491 11.1821 15.3618L6.89237 11.0721C6.03616 10.2159 4.66274 10.1702 3.75147 10.9675L2.28101 12.2542" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/>
-                                <path d="M7 3.33782C8.47087 2.48697 10.1786 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 10.1786 2.48697 8.47087 3.33782 7" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/>
-                                </svg>
-                            </span>
-                            <?php if($contents['sub'] == 'notice') { ?>
-                                <span class="ms-1 d-none d-sm-inline"><strong>공지 사항 관리</strong></span>
-                            <?php }else{ ?>
-                                <span class="ms-1 d-none d-sm-inline ">공지 사항 관리</span> 
-                            <?php } ?>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <span class="nav-link align-middle px-0 text-secondary">
-                            <span class="fs-4"></span>
-                            <strong>유저 관리</strong>
-                        </span>
-                    </li>
-                    <li>
-                        <a href="/my/user-management" class="nav-link px-0 align-middle text-secondary">
-                            <span class="fs-4 bi-people">
-                                <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M12 17.75C12.4142 17.75 12.75 17.4142 12.75 17V11C12.75 10.5858 12.4142 10.25 12 10.25C11.5858 10.25 11.25 10.5858 11.25 11V17C11.25 17.4142 11.5858 17.75 12 17.75Z" fill="#1C274C"/>
-                                    <path d="M12 7C12.5523 7 13 7.44772 13 8C13 8.55228 12.5523 9 12 9C11.4477 9 11 8.55228 11 8C11 7.44772 11.4477 7 12 7Z" fill="#1C274C"/>
-                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M1.25 12C1.25 6.06294 6.06294 1.25 12 1.25C17.9371 1.25 22.75 6.06294 22.75 12C22.75 17.9371 17.9371 22.75 12 22.75C6.06294 22.75 1.25 17.9371 1.25 12ZM12 2.75C6.89137 2.75 2.75 6.89137 2.75 12C2.75 17.1086 6.89137 21.25 12 21.25C17.1086 21.25 21.25 17.1086 21.25 12C21.25 6.89137 17.1086 2.75 12 2.75Z" fill="#1C274C"/>
-                                </svg>
-                            </span> 
-                            <?php if($contents['sub'] == 'user-management') { ?>
-                                <span class="ms-1 d-none d-sm-inline "><strong>사용자 관리</strong></span> 
-                            <?php }else{ ?>
-                                <span class="ms-1 d-none d-sm-inline ">사용자 관리</span> 
-                            <?php } ?>
-                        </a>
-                    </li>
+                <div>
+                    <svg data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" width="45" height="90" viewBox="0 0 543.16 940.44">
+                        <g  class="">
+                            <path class="cls-7" fill="black" d="M315.95,255.73c-5.8-11.72-11.42-23.09-17.25-34.86,25.11-13.17,42.16-32.96,49.87-60.27,5.62-19.9,4.7-39.66-2.54-58.99-15.05-40.19-53.8-64.08-93.7-62.18-45.34,2.16-79.6,34.12-88.72,73.09-10.61,45.37,11.2,90.3,55.11,110.53-5.02,11.71-10.05,23.45-15.07,35.17-37.38-12.81-85.06-60.5-81.92-129.5C124.7,63.44,173.3,10.41,236.86,1.44c73.45-10.37,134.35,36.7,150.41,100.27,16.57,65.59-17,128.33-71.32,154.02Z"/>
+                            <path class="cls-7" fill="black" d="M27.57,686.26c-9.9-9.92-18.89-18.91-27.57-27.61,50.88-50.79,102.12-101.93,152.91-152.64,51.27,51.23,103.11,103.04,154.61,154.5-8.63,8.67-17.59,17.67-26.61,26.72-42.09-42.08-84.62-84.62-127.21-127.21-42.53,42.56-84.32,84.39-126.13,126.23Z"/>
+                            <path class="cls-7" fill="black" d="M352.83,940.44h-38.36v-175.45h-179.81v-39.06h218.18v214.51Z"/>
+                            <path class="cls-7" fill="black"  d="M235.88,268.78h39.39v214.66H56.94v-38.62h178.94v-176.03Z"/>
+                            <path class="cls-7" fill="black"  d="M323.7,675.9v-214.3h38.92v175.46h179.77v38.84h-218.69Z"/>
+                            <path class="cls-7" fill="black" d="M464.84,367.14c-16.84,10.14-30.31,9.59-39.59-1.19-9.99-11.59-10.31-30.1-.71-41.87,9.34-11.45,22.14-12.29,39.83-2.48.2-1.78.38-3.46.61-5.56h12.82v12.99c0,13.26-.15,26.51.09,39.76.07,4.1-1.06,5.6-5.28,5.36-4.58-.26-9.8.96-7.78-7.02ZM464.62,344.53c-.04-14.65-13.29-23.53-25.16-16.87-7.66,4.29-10.96,15.19-7.53,24.83,2.57,7.21,11.12,12.56,18,11.26,9.3-1.76,14.72-8.84,14.69-19.21Z"/>
+                            <path class="cls-7" fill="black" d="M505.18,349.55v24.15h-12.12v-77.61h11.95v44.03c5.92-7.01,11.25-12.6,15.69-18.83,3.22-4.53,6.8-6.44,12.22-5.72,2.84.38,5.77.07,9.97.07-9.4,10.28-17.91,19.59-26.58,29.08,8.81,9.61,17.32,18.91,26.87,29.33-6.23,0-10.91.34-15.49-.17-1.71-.19-3.42-2.15-4.74-3.65-5.65-6.41-11.15-12.95-17.75-20.67Z"/>
+                            <path class="cls-7" fill="black" d="M352.59,374.67c-17.08.03-29.55-12.23-29.37-29.86.2-19.32,13.44-30.22,29.62-30.23,17.53-.02,29.2,11.99,29.88,29.28.61,15.53-10.65,30.89-30.13,30.81ZM336.36,345.08c.04,11.4,6.58,18.91,16.33,18.77,10-.14,17.39-8.48,17.29-19.51-.1-11.15-7.16-18.69-17.4-18.56-10.39.13-16.27,7.13-16.22,19.3Z"/>
+                            <path class="cls-7" fill="black" d="M383.32,401.03c0-2.32-.04-4.39.02-6.45.03-1.19.22-2.37.32-3.41.53-.31.81-.6,1.12-.63q9.32-.86,9.33-10.27c0-19.52,0-39.04,0-58.55,0-1.87,0-3.74,0-5.85h12.56c0,1.89,0,3.73,0,5.57,0,20.04-.36,40.09.12,60.12.34,13.99-5.33,21.36-23.46,19.47Z"/>
+                            <path class="cls-7" fill="black" d="M408.24,300.26c.15,4.51-3.13,7.93-7.7,8.02-4.56.09-8.14-3.16-8.31-7.54-.17-4.18,3.5-8.01,7.81-8.16,4.39-.16,8.05,3.28,8.2,7.68Z"/>
+                        </g>
+                    </svg>  
+                </div>
+                <div class="d-flex flex-column ps-2 pt-4 gap-4 text-dark">
+                    <div class="d-flex flex-column gap-3">
+                        <div class="fw-bold">
+                            게시물 관리
+                        </div>
+                        <div class="cursor-pointer">
+                            <a href="/my/gallery" class="no-text-decoration text-dark hover-underline">작품 관리</a>
+                        </div>
+                        <div class="cursor-pointer">
+                            <a href="/my/community?gubun=0" class="no-text-decoration text-dark hover-underline">커뮤니티 관리</a>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-column gap-3">
+                        <div class="fw-bold">
+                            개인정보 관리
+                        </div>
+                        <div class="cursor-pointer">
+                            <a href="/my/info" class="no-text-decoration text-dark hover-underline">개인정보 관리</a>
+                        </div>
+                        <?php if($isAdmin) { ?>
+                            <div class="cursor-pointer">
+                            <a href="/my/busniess" class="no-text-decoration text-dark hover-underline">사업자 정보 관리</a>
+                            </div>
+                        <?php } ?>
+                    </div>
+                    <?php if($isAdmin) { ?>
+                        <div class="d-flex flex-column gap-3">
+                            <div class="fw-bold">
+                                홈페이지 관리
+                            </div> 
+                            <div class="cursor-pointer">
+                                <a href="/my/represent-gallery" class="no-text-decoration text-dark hover-underline">슬라이드 작품 관리</a>
+                            </div>
+                            <div class="cursor-pointer">
+                                <a href="/my/display-gallery" class="no-text-decoration text-dark hover-underline">대표 작품 관리</a>
+                            </div>
+                            <!-- <div class="cursor-pointer">
+                                <a href="/my/social" class="no-text-decoration text-dark hover-underline">소셜사이트 관리</a>
+                            </div> -->
+                        </div>
+                        <div class="d-flex flex-column gap-3">
+                            <div class="fw-bold">
+                                조합원 관리
+                            </div> 
+                            <div class="cursor-pointer">
+                                <a href="/my/user-management" class="no-text-decoration text-dark hover-underline">조합원 관리</a>
+                            </div>
+                            
+                        </div>
                     <?php } ?>
-                </ul>
+                    <div class="d-flex flex-column gap-3">
+                        <div class="fw-bold">
+                            <a href="/" class="no-text-decoration text-dark hover-underline">나가기</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="col py-3">
             <?php if($contents['sub'] == 'gallery') {
                 echo view('/my/gallery',array('data' => $data));
             }else if($contents['sub'] == 'community'){
-                echo view('/my/community',array('data' => $data));
+                echo view('/my/community',array('data' => $data, 'gubun' => $gubun));
             }else if($contents['sub'] == 'info'){
                 echo view('/my/info',array('data' => $data));
             }else if($contents['sub'] == 'busniess'){

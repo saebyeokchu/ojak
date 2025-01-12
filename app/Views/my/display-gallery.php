@@ -1,178 +1,262 @@
-<?php
-    $gallery1 = [null,null,null,null,null,null];
-    $gallery2 = [null,null,null,null,null,null];
+<?php 
+  // allGallery exhibits
+  $exhibits = $contents['target_data']['exhibits'] ?? [] ; 
+  $allGallery = $contents['target_data']['allGallery'] ?? [] ; 
 
-    if(isset($data)){
-
-        foreach($data[0] as $work){
-            if($work != null) {
-                $galleryOrder = explode("-",$work -> exhibit);
-                $gallery1[$galleryOrder[1]-1] = json_decode(json_encode($work), true);
-            }
-    
-        }
-    
-        foreach($data[1] as $work){
-            if($work != null) {
-                $galleryOrder = explode("-",$work -> exhibit);
-                $gallery2[$galleryOrder[1]-1] = json_decode(json_encode($work), true);
-            }
-        }
-    }
-    
 ?>
 
-<div class="d-flex gap-3 gx-3 mt-3 justify-content-center">
-    <button class="sm-black-btn" id="exh-edit-btn-1" onclick="onFirstExhibitClick()">제 1전시장</button>
-    <button class="sm-gray-btn" id="exh-edit-btn-2" onclick="onSecondExhibitClick()"> 제 2전시장</button>
+
+<div class="for-lg " >
+  <div class="d-flex flex-column justify-content-start mt-70">
+      <p class="fw-bold" style="font-size: 32px;">메인 작품 관리</p>
+      <small>대표작품은 맨 앞장에서 나오는 4가지 대표 작품을 관리합니다.</small>
+  </div>
+
+  <!-- row 3 column씩 -->
+<div class="home-exhibition  pb-30">
+
+<div class="row p-3 row-gap-3">
+  <!-- 2개 이하이면 -->
+  <?php foreach($exhibits as $exhibit) { ?> 
+      <div class="col-sm-3">
+        <div class="card d-flex justify-content-center align-items-center" style="min-height: 400px;" >
+          <img class="img-responsive w-100 h-100" src="/img/user/<?= $exhibit -> img_url ?>" alt="" style="object-fit: cover">
+          <div class="card-footer w-100 cursor-pointer d-flex justify-content-center" onclick="deleteDisplayGallery(<?=$exhibit->id?>)">
+            <span >삭제하기</span>
+          </div>
+        </div>
+      </div>
+    <?php } ?>
+    
+    <?php if(count($exhibits) < 4) { ?>
+      <div class="col-sm-3">
+          <div class="card d-flex justify-content-center align-items-center" style="min-height: 400px;" >
+              <svg data-bs-toggle="modal" data-bs-target="#addHomeArt" class="cursor-pointer" fill="#eeeeee" height="150px" width="150px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 455 455" xml:space="preserve">
+                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                  <g id="SVGRepo_iconCarrier"> <polygon points="455,212.5 242.5,212.5 242.5,0 212.5,0 212.5,212.5 0,212.5 0,242.5 212.5,242.5 212.5,455 242.5,455 242.5,242.5 455,242.5 "></polygon> </g>
+              </svg>
+          </div>
+      </div>
+    <?php } ?>
+
+  </div>
+</div>
+ 
 </div>
 
 
-<div class="home-exhibition-1 mt-30 show-item container pb-30">
-    <div class="row pt-15 gy-4" >
-        <div class="col-4"> 
-            <?= ( $gallery1!=null && $gallery1[0]!=null ) ? 
-                view('gallery/component/frame-edit', array('item' => $gallery1[0], 'height_input' => 400, 'id' => '1-1')) 
-                    : 
-                view('gallery/component/empty-edit', array('id' => '1-1'))?>
-        </div>
-        <div class="col-4"> 
-            <?= ( $gallery1!=null && $gallery1[1]!=null ) ? 
-                view('gallery/component/frame-edit', array('item' => $gallery1[1], 'height_input' => 400, 'id' => '1-2')) 
-                    : 
-                view('gallery/component/empty-edit', array('id' => '1-2'))?>
-        </div>
-        <div class="col-4"> 
-            <?= ( $gallery1!=null && $gallery1[2]!=null ) ? 
-                view('gallery/component/frame-edit', array('item' => $gallery1[2], 'height_input' => 400, 'id' => '1-3')) 
-                    : 
-                view('gallery/component/empty-edit', array('id' => '1-3'))?>
-        </div>
-    </div>
-    <div class="row pt-15 gy-4"  >
-        <div class="col-4"> 
-            <?= ( $gallery1!=null && $gallery1[3]!=null ) ? 
-                view('gallery/component/frame-edit', array('item' => $gallery1[3], 'height_input' => 400, 'id' => '1-4')) 
-                    : 
-                view('gallery/component/empty-edit', array('id' => '1-4'))?>
-        </div>
-        <div class="col-4"> 
-            <?= ( $gallery1!=null && $gallery1[4]!=null ) ? 
-                view('gallery/component/frame-edit', array('item' => $gallery1[4], 'height_input' => 400, 'id' => '1-5'))
-                    : 
-                view('gallery/component/empty-edit', array('id' => '1-5'))?>
-        </div>
-        <div class="col-4"> 
-            <?= ( $gallery1!=null && $gallery1[5]!=null ) ? 
-                view('gallery/component/frame-edit', array('item' => $gallery1[5], 'height_input' => 400, 'id' => '1-6')) 
-                    : 
-                view('gallery/component/empty-edit', array('id' => '1-6'))?>
-        </div>
-    </div>
-</div>
 
-<div  class="home-exhibition-2  mt-30 hide-item container pb-30">
-    <div class="row pt-15 gy-4">
-        <div class="col-4"> 
-            <?= ( $gallery2!=null && $gallery2[0]!=null ) ? 
-                view('gallery/component/frame-edit2', array('item' => $gallery2[0], 'height_input' => 400, 'id' => '2-1')) 
-                    : 
-                view('gallery/component/empty-edit2', array('id' => '2-1'))?>
-        </div>
-        <div class="col-4"> 
-            <?= ( $gallery2!=null && $gallery2[1]!=null ) ? 
-                view('gallery/component/frame-edit2', array('item' => $gallery2[1], 'height_input' => 400, 'id' => '2-2')) 
-                    : 
-                view('gallery/component/empty-edit2', array('id' => '2-2'))?>
-        </div>
-        <div class="col-4"> 
-            <?= ( $gallery2!=null && $gallery2[2]!=null ) ? 
-                view('gallery/component/frame-edit2', array('item' => $gallery2[2], 'height_input' => 400, 'id' => '2-3')) 
-                    : 
-                view('gallery/component/empty-edit2', array('id' => '2-3'))?>
+
+<!-- Modal -->
+<div class="modal fade" id="addHomeArt" tabindex="-1" aria-labelledby="addHomeArtLabel" aria-hidden="true" style="min-width: 600px">
+  <div class="modal-dialog">
+    <div class="modal-content" style="min-height: 300px; min-width: 600px; overflow-y:scroll;">
+        <div id="addHomeArtForm">
+          <div class="modal-body position-relative" style="min-height: 150px" >
+            <nav>
+              <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <button class="nav-link active" id="nav-gallery-tab" data-bs-toggle="tab" data-bs-target="#nav-gallery" type="button" role="tab" aria-controls="nav-gallery" aria-selected="true">
+                  갤러리  
+                </button>
+                <button class="nav-link" id="nav-upload-tab" data-bs-toggle="tab" data-bs-target="#nav-upload" type="button" role="tab" aria-controls="nav-upload" aria-selected="false">
+                  업로드
+                </button>
+              </div>
+            </nav>
+            <div class="tab-content" id="nav-tabContent">
+              <div class="tab-pane fade show active" id="nav-gallery" role="tabpanel" aria-labelledby="nav-gallery-tab" tabindex="0">
+                <?php if(count($allGallery) > 0) { ?>  
+                  <div style="font-size: x-small;" class="py-3">
+                    등록된 작품 중 대표작품을 설정합니다.
+                  </div>
+                  <div class="row row-gap-3">
+                    <?php foreach($allGallery as $gallery) { ?>
+                      <div class="col-sm-4">
+                        <img id="existed-item-<?=$gallery['id']?>" onclick="selectExistedItem(event)" class="cursor-pointer img-responsive w-100 h-100 exist-gallery-items" src="/img/user/<?= $gallery['img_url'] ?>" alt="" style="object-fit: cover">
+                      </div>
+                      <?php } ?>
+                  </div>
+                <?php }else{ ?>
+                  <div class="d-flex justify-content-center align-items-center">
+                    <div class="d-flex justify-content-center align-items-center" style="min-height: 300px">
+                      전시된 작품을 찾을 수 없습니다.
+                    </div>
+                  </div>
+                <?php } ?>
+                <div class="modal-footer  mt-3" >
+                  <button type="button" class="btn btn-dark" onClick="addArtWithExistedGallery()">등록</button>
+                </div> 
+              </div>
+              <div class="tab-pane fade" id="nav-upload" role="tabpanel" aria-labelledby="nav-upload-tab" tabindex="0">
+                <div style="font-size: x-small;" class="py-3">
+                  <span>새로운 작품을 설정합니다.</span><span class="text-danger"> 여기서 등록된 작품은 갤러리에 자동저장됩니다.</span>
+                </div>
+                <div>
+                  <input class="form-control" type="file" id="uploadNewDisplayGallery" name="uploadNewDisplayGallery" accept="image/*"  />
+                </div>
+                <div class="modal-footer  mt-3" >
+                  <button type="button" class="btn btn-dark" onclick="addArt()">등록</button>
+                </div>  
+              </div>
+            </div>
+              
+            <div id="displayGalleryLoadinSpinner" class="spinner-border position-absolute start-50 loading-spinner hide-item" style="top:40%;"  role="status" id="login-loading">
+                <span class="visually-hidden">Loading...</span>
+            </div>
         </div>
     </div>
-    <div class="row pt-15 gy-4" >
-        <div class="col-4"> 
-            <?= ( $gallery2!=null && $gallery2[3]!=null ) ? 
-                view('gallery/component/frame-edit2', array('item' => $gallery2[3], 'height_input' => 400, 'id' => '2-4')) 
-                    : 
-                view('gallery/component/empty-edit2', array('id' => '2-4'))?>
-        </div>
-        <div class="col-4"> 
-            <?= ( $gallery2!=null && $gallery2[4]!=null ) ? 
-                view('gallery/component/frame-edit2', array('item' => $gallery2[4], 'height_input' => 400, 'id' => '2-5')) 
-                    : 
-                view('gallery/component/empty-edit2', array('id' => '2-5'))?>
-        </div>
-        <div class="col-4"> 
-            <?= ( $gallery2!=null && $gallery2[5]!=null ) ? 
-                view('gallery/component/frame-edit2', array('item' => $gallery2[5], 'height_input' => 400, 'id' => '2-6')) 
-                    : 
-                view('gallery/component/empty-edit2', array('id' => '2-6'))?>
-        </div>
-    </div>
+
+
+
+
+  </div>
 </div>
 
 
 <script>
-    
-    function onFirstExhibitClick() {
-        //shwo home-exhibition-1
-        const elements1 = document.getElementsByClassName('home-exhibition-1');
+  async function addArt(){
+      event.preventDefault();
+      const file = document.getElementById('uploadNewDisplayGallery');
+      const spinner = document.getElementById('displayGalleryLoadinSpinner');
 
-        //showing item
-        Array.from(elements1).forEach( el => {
-            el.classList.remove('hide-item');
-            el.classList.add('show-item');
-        });
+      if(!file){
+        window.alert("등록하고자 하는 작품을 선택해 주세요");
+        return;
+      }
 
-        //hide home-exhibition-2
-        const elements2 = document.getElementsByClassName('home-exhibition-2');
+      try {
+          spinner.classList.remove('hide-item');
+          spinner.classList.add('show-item');
 
-        Array.from(elements2).forEach( el => {
-            el.classList.remove('show-item');
-            el.classList.add('hide-item');
-        });
+          //step1 add item to gallery
+          var postData = new FormData();
+          postData.append('title', '대표작품');
+          postData.append('content', '');
+          postData.append('image', file.files[0]);
+          postData.append('user_id',1);
+          postData.append('id', 0);
 
-        //change button color
-        const btn1 = document.getElementById('exh-edit-btn-1');
-        const btn2 = document.getElementById('exh-edit-btn-2');
+          await axios.post('/gallery/insert', postData, { headers: {
+                      'Content-Type': 'multipart/form-data', // Ensure correct headers
+          }}).then(async function(response){
+              console.log("upload to gallery", response)
+              const data = response.data;
+              if(data['status'] == 'success'){
+                  var postData2 = new FormData();
+                  postData2.append('galleryId', response.data.insertedId);
+                  //step2 add item to category
+                  await axios.post('/setting/uploadDisplayGallery', postData2).then(function(response){
+                    const data =  response.data;
+                    console.log("upload to setting", response)
 
-        btn1.classList.remove('sm-gray-btn');
-        btn1.classList.add('sm-black-btn');
+                      if(data['status'] == 'success'){
+                          window.alert(response.data.message);
+                          location.reload();
+                      }
+              
+          }).catch(function(error){
+              console.log("error:", error);
+          });
+              }
+              
+          }).catch(function(error){
+              console.log("error:", error);
+          });
 
-        btn2.classList.remove('sm-black-btn');
-        btn2.classList.add('sm-gray-btn');
-        
+          
+          
+          return;
+      } catch (error) {
+          console.error('Error inserting data:', error);
+          window.alert('등록에 실패하였습니다. 잠시후 다시 시도하여 주세요');
+      }
+
+      spinner.classList.remove('show-item');
+      spinner.classList.add('hide-item');
+  }
+
+  async function addArtWithExistedGallery(){
+      event.preventDefault();
+      const selectedExistedItem = document.getElementsByClassName('selected-gallery');
+      const spinner = document.getElementById('displayGalleryLoadinSpinner');
+
+      if(!selectedExistedItem[0]){
+        window.alert("등록하고자 하는 작품을 선택해 주세요");
+        return;
+      }
+
+      try {
+        spinner.classList.remove('hide-item');
+        spinner.classList.add('show-item');
+
+        //add item to setting table
+        const targetGalleryId = selectedExistedItem[0].id.split("-")[2];
+        var postData = new FormData();
+        postData.append('galleryId', targetGalleryId);
+
+        await axios.post('/setting/uploadDisplayGallery', postData).then(function(response){
+                  const data =  response.data;
+                  console.log("upload to setting", response);
+
+                    if(data['status'] == 'success'){
+                        window.alert(response.data.message);
+                        location.reload();
+                    }
+                }).catch(function(error){
+                    console.log("error:", error);
+                });
+      } catch (error) {
+          console.error('Error inserting data:', error);
+          window.alert('등록에 실패하였습니다. 잠시후 다시 시도하여 주세요');
+      }
+
+      spinner.classList.remove('show-item');
+      spinner.classList.add('hide-item');
+  }
+
+  function selectExistedItem(event){
+    //delete evert img dark class
+    const images = document.getElementsByClassName('exist-gallery-items');
+
+    for(i=0;i<images.length;i++){
+      images[i].classList.remove('img-dark'); // Remove the dark effect
+      images[i].classList.remove('selected-gallery'); 
     }
 
-    function onSecondExhibitClick() {
-        //shwo home-exhibition-1
-        const elements2 = document.getElementsByClassName('home-exhibition-2');
-
-        //showing item
-        Array.from(elements2).forEach( el => {
-            el.classList.remove('hide-item');
-            el.classList.add('show-item');
-        });
-
-        //hide home-exhibition-2
-        const elements1 = document.getElementsByClassName('home-exhibition-1');
-        Array.from(elements1).forEach( el => {
-            el.classList.remove('show-item');
-            el.classList.add('hide-item');
-        });
-
-        //change button color
-        const btn1 = document.getElementById('exh-edit-btn-1');
-        const btn2 = document.getElementById('exh-edit-btn-2');
-
-        btn1.classList.remove('sm-black-btn');
-        btn1.classList.add('sm-gray-btn');
-
-        btn2.classList.remove('sm-gray-btn');
-        btn2.classList.add('sm-black-btn');
-        
+    const imgElement = event.srcElement;
+    // Check if the img already has the 'img-dark' class
+    if (imgElement.classList.contains('img-dark')) {
+        imgElement.classList.remove('img-dark'); // Remove the dark effect
+        imgElement.classList.remove('selected-gallery'); 
+    } else {
+        imgElement.classList.add('img-dark'); // Apply the dark effect
+        imgElement.classList.add('selected-gallery'); 
     }
+  }
+
+  async function deleteDisplayGallery(settingId){
+    if(window.confirm("삭제를 진행하시겠습니까?")){
+      try {
+        turnOnLoadingScreen();
+        var postData = new FormData();
+        postData.append('id',settingId);
+
+        await axios.post('/setting/deleteDisplayGallery', postData).then(function(response){
+            console.log("success:", response);
+            window.alert(response.data.message);
+            locatoin.reload();
+            return;
+        }).catch(function(error){
+            console.log("error:", error);
+        });
+        
+        return;
+      } catch (error) {
+          console.error('Error deleting data:', error);
+      }
+    }
+
+    window.alert("전시작품을을 삭제할 수 없습니다. 잠시 후 다시 시도하여 주세요.");
+    turnOffLoadingScreen();
+  }
 </script>

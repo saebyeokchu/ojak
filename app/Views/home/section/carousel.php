@@ -1,27 +1,23 @@
-<?php
-    if(isset($contents)){
-        if(isset($contents['showpieces'])){
-            $data = $contents['showpieces'];
-        }
-    }
-?>
-<div class="owl-carousel main-carousel bg-black">
-    <?php
-        foreach($data as $d){
-            echo "<div class='item'>";
-            echo "  <img style='object-fit:cover;' width='100%' src='img/resource/".$d['value']."' class='d-block carousel-img img-fluid'/>";
-            echo "</div>";
-        }
-    ?>
+<div class="owl-carousel main-carousel overflow-hidden bg-dark">
+  <div class="item">
+    <img src="img/resource/home/carousel1.png" alt="Carousel Image 1" />
+  </div>
+  <div class="item">
+    <img src="img/resource/home/carousel2.png" alt="Carousel Image 2" />
+  </div>
+  <div class="item">
+    <img src="img/resource/home/carousel3.png" alt="Carousel Image 3" />
+  </div>
 </div>
 
 <script>
   $(document).ready(function () {
     $(".main-carousel").owlCarousel({
       loop: true, // Enable looping
-      margin: 10, // Margin between items
+      margin: 0, // Margin between items
+      animateOut: 'fadeOut',
       autoplay:true,
-      autoplayTimeout:5000,
+      autoplayTimeout:8000,
       autoplayHoverPause:false,
       smartSpeed: 2000,          // Smooth transition speed (1 second)
       dots: false,

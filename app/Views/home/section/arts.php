@@ -1,44 +1,34 @@
-<?php
-    $count=0;
-    $items = [];
 
-    if(isset($contents)){
-        $items = $contents['gallery'];
+<?php 
+    $gallery = [];
+    if(isset($contents["gallery"])){
+        $gallery = $contents["gallery"];
     }
-
-
-
 ?>
-<div class="mt-30 mb-70">
-    <div class="owl-carousel arts-carousel">
-            <?php foreach($items as $item) { ?> 
-        <div class="item p-3">
-                <?php echo view('gallery/component/card', array('item' => $item, true)); ?>
+
+<?php if(count($gallery) > 0){ ?>
+    <div class=" mx-5">
+        <div class="row row-cols-1 row-cols-md-4 g-4">
+            <?php 
+                foreach($gallery as $g) {
+            ?>
+                <div class="col">
+                    <img src="/img/user/<?=$g->img_url?>" class="img-fluid hover-saturate cursor-pointer" />
+                </div>
+            <?php    }?>
         </div>
-                
-            <?php } ?>
+
+        <div class="d-flex justify-content-center">
+            <a href="/gallery?pageIndex=1" class="no-text-decoration text-dark" style="margin-top:55px;">
+                <span  class="bs-button"> 
+                    작품 보러가기
+                </span>
+            </a>
+        </div>
     </div>
-</div>
+<?php }?>
 
-<script>
-  $(document).ready(function () {
-    $('.arts-carousel').owlCarousel({
-        loop:true,
-        margin:20,
-        dots: true, // Enable dots
-        responsive:{
-            0:{
-                items:1
-            },
-            600:{
-                items:2
-            },
-            1000:{
-                items:3
-            }
-    }
-})
-  });
 
-  
-</script>
+
+
+

@@ -1,13 +1,12 @@
-<!-- Auth -->
-<div class="page-header d-flex justify-content-center text-center">
-    <div class="title" data-aos="fade-up" data-aos-duration="1500">
-        <p class="main-title">멤버가입</p>
-
+<nav class="navbar navbar-expand-lg bg-body-tertiary mt-1" style="border-top:3px solid #eeeeee; padding-top:70px;">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">회원가입</a>
     </div>
-</div>
+</nav>
 
-<div class="page-wrap d-flex flex-row align-items-center pt-70 pb-70" style="min-height: 60vh;">
-    <div class="container bg-white py-5 px-5" style="width : 600px">
+<div class="page-wrap d-flex justify-content-center align-items-center pt-70 pb-70" style="min-height: 60vh;">
+    <!-- <div class="container bg-white py-5 px-5" style="width : 600px"> -->
+    <div class="card mt-30 pb-30 p-5" style="width: 25rem;">
         <form action="javascript:;" onsubmit=" register( event ) ">
             <div class="mb-3">
                 <label for="register-name" class="form-label">이름</label>
@@ -27,7 +26,7 @@
                 <label for="register-pw-chk" class="form-label">비밀번호 확인</label>
                 <input type="password" class="form-control" id="register-pw-chk" required>
             </div>
-            <button type="submit" class="long-black-btn">멤버가입 요청</button>
+            <button type="submit" class="btn btn-dark btn-lg" style="width:300px;">멤버가입 요청</button>
         </form>
     </div>
 </div>
@@ -119,12 +118,11 @@
                 console.log(response);
                 if(response.data.status == 'success'){
                     const insertedId = response.data.insertedId;
-                    window.alert('멤버가입 요청이 완료되었습니다. 승인메일 확인 후 로그인 해주세요.');
+                    // window.alert('멤버가입 요청이 완료되었습니다. 승인메일 확인 후 로그인 해주세요.');
 
                     // document.cookie = "user_id=" + insertedId;
                     // document.cookie = "user_name=" + name;
-
-                    location.href='<?=$contents['return_url']?>';
+                    location.href="/auth/register-request-complete?return_url=";
                     return;
                 }
             }).catch(function(error){

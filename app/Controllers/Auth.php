@@ -11,13 +11,37 @@ class Auth extends BaseController
         return view('component/application', $data);
     }
 
+    public function signup(): string
+    {
+        $data['yield']       = 'auth/signup';
+        // $data['contents']['return_url'] = $_GET['return_url'];
+        return view('component/application', $data);
+    }
+
+
+    public function login(): string
+    {
+        $data['yield']       = 'auth/login';
+        $data['contents']['return_url'] = $_GET['return_url'];
+        return view('component/application', $data);
+    }
+
+    public function registerRequestComplete() : string {
+        $data['yield']       = 'auth/register-request-complete';
+        $data['view_footer'] = false;
+
+        $returnUrl = $_GET['return_url'] ? $_GET['return_url'] : "/";
+        $data['contents']['return_url'] = $returnUrl;
+        return view('component/application', $data);
+    }
+
     public function mailAuth() {
         return 'mailAuth';
     }
 
 
     //logic
-    public function login()
+    public function verify()
     {
         $id = $this->request->getPost('id');
         $pw = $this->request->getPost('pw');

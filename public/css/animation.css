@@ -1,0 +1,25 @@
+.hide-y-gradually {
+    opacity: 0;
+    height: 0px;
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth animation */
+}
+
+/* Visible state */
+.visible-y-gradually {
+    opacity: 1;
+    height: fit-content;
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth animation */
+}
+
+.hide-x-gradually {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth animation */
+}
+
+.visible-x-gradually {
+    opacity: 1;
+    width: 300px;
+    visibility: visible;
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth animation */
+}

@@ -1,106 +1,88 @@
 <?php
+
+    function getgubun($post){
+        return $post['gubun'] == $gubun;
+    }
+
     if(isset($data)) {
         $posts = $data;
         $rowCount = count($data);
     }else{
         $rowCount = 0;
     }
-    
+
+    $detailUrl = "/community/detail?gubun=1&pageIndex=1&id=";
+    $thisUrl = '/my/community?gubun=';
 ?>
 
-<!-- Community -->
-<?php if($rowCount == 0) { ?>
-    <div class="page-wrap d-flex flex-row align-items-center" style="min-height: 60vh;">
-        <div class="container my-3">
-            <div class="row justify-content-center text-center">
-                <span class="h3">등록된 게시글이 없습니다.</span>
-            </div>
-        </div>
+<div class="for-lg " >
+    <div class="d-flex flex-column justify-content-start mt-70">
+        <p class="fw-bold" style="font-size: 32px;">커뮤니티 관리</p>
+        <p class="text-secondary">등록한 커뮤니티 게시글을 관리할 수 있습니다.</p>
     </div>
-<?php }else{ ?>
-    <div >
-        <table class="table align-middle mb-0 bg-white mt-2">
-            <tbody>
-                <?php foreach($posts as $post) { ?>
-                <div id="hidden-content" style="visibility: hidden; height:0px;">
-                    <?=$post['content']?>
-                </div>
-                <tr>
-                    <td class="pt-3 ps-2">
-                        <p class="hover-underline cursor-pointer">
-                            <a href="/community/detail/<?= $post['id'] ?>/1" class="text-secondary no-text-decoration"><?= $post['title'] ?></a>
-                        </p>
+
+    <div  class="d-flex flex-row justify-content-start fw-bold gap-4  mt-3 " style="font-size: 24px;">
+        <p class="cursor-pointer ">
+            <a href='<?= $thisUrl?>0' class=" <?= $gubun != 0 ? 'ojak-light-gray hover-underline no-text-decoration' : 'text-decoration-underline  text-dark' ?>">전체</a>
+        </p>
+        <p class="cursor-pointer ">
+            <a href='<?= $thisUrl?>1' class=" <?= $gubun != 1 ? 'ojak-light-gray hover-underline no-text-decoration' : 'text-decoration-underline  text-dark' ?>">
+                공지사항
+            </a>
+        </p>
+        <p class="cursor-pointer ">
+            <a href='<?= $thisUrl?>2' class=" <?= $gubun != 2 ? 'ojak-light-gray hover-underline no-text-decoration' : 'text-decoration-underline  text-dark' ?>">이벤트</a>
+        </p>
+        <p class="cursor-pointer ">
+            <a href='<?= $thisUrl?>3' class="<?= $gubun != 3 ? 'ojak-light-gray hover-underline no-text-decoration' : 'text-decoration-underline  text-dark' ?>">Q&A</a>    
+        </p>
+    </div>
+
+    <table class="table text-center mt-2" >
+        <thead>
+            <tr>
+                <th>번호</th>
+                <th class="w-50">제목</th>
+                <th>작성일</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php if(count($posts) > 0 ) {
+                foreach($posts as $item) { 
+                    if($item["gubun"]==$gubun || $gubun == 0){                    
+            ?> <tr>
+                    <td><?=$item["id"]?></td> 
+                    <td >
+                        <a class="no-text-decoration hover-underline text-dark" href="<?=$detailUrl?><?=$item["id"]?>"><?=$item["title"]?></a>
                     </td>
-                    <td class="d-flex justify-content-end post-edit-buttons item-<?=$post['user_id']?>" >
-                        <div class="for-lg  pt-3 pb-3">
-                            <span class="sm-black-btn cursor-pointer me-3" onclick="moveToEditor('<?=$post['id']?>','<?=$post['title']?>')">
+                    <td><?=date("Y-m-d H:i:s", $item["created_at"]);?></td>
+                    <td>
+                        <span class="btn btn-dark cursor-pointer me-3" onclick="moveToDetail(<?=$item['id']?>, <?=$item['gubun']?>)">
                                 수정
-                            </span>
-                            <span class="sm-black-btn cursor-pointer" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                삭제
-                            </span>
-                        </div>
-
-                        <div class="for-sm  pt-3 pb-3">
-                            <button class="btn btn-light" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                :
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li onclick="moveToEditor('<?=$post['id']?>','<?=$post['title']?>')"><a class="dropdown-item" >수정</a></li>
-                                <li data-bs-toggle="modal" data-bs-target="#exampleModal"><a class="dropdown-item">삭제</a></li>
-                            </ul>
-                        </div>
-
-                         <!-- Modal -->
-                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                <!-- <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div> -->
-                                <div class="modal-body">
-                                    게시글을 영구히 삭제하시겠습니까?
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="sm-black-btn" data-bs-dismiss="modal">닫기</button>
-                                    <button type="button" class="sm-black-btn" onclick="deletePost('<?=$post['id']?>')">삭제하기</button>
-                                </div>
-                                </div>
-                            </div>
-                        </div>
+                        </span>
+                        <span class="btn btn-dark cursor-pointer" onclick="deletePost(<?=$item['id']?>)">
+                            삭제
+                        </span>
                     </td>
                 </tr>
-                <?php } ?>
-            </tbody>
-        </table>
-    
-<?php }?>
-    
+                </tr>
+                <?php } 
+            } } else { ?>
+                <tr>
+                    <td></td>
+                    <td>등록된 게시글이 없습니다</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            <?php } ?>
+        </tbody>
+    </table>
+</div>
+
 <script>
-
-    function deletePost(id){
-        if(id){
-            try {
-                var postData = new FormData();
-                postData.append('id',id);
-
-                axios.post('/api/deletePost', postData).then(function(response){
-                    console.log("success:", response);
-                    window.alert(response.data.message)
-                    window.reload();
-                    return;
-                }).catch(function(error){
-                    console.log("error:", error);
-                });
-                
-                return;
-            } catch (error) {
-                console.error('Error deleting data:', error);
-            }
-        }
-
-        window.alert("게시물을 삭제할 수 없습니다. 잠시 후 다시 시도하여 주세요.")
-        
+    function moveToDetail(id, gubun){
+        const urls = getUrl(id, gubun, 1);
+        location.href = urls.communityEditor;
     }
 </script>

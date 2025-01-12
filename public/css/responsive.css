@@ -1,5 +1,5 @@
 
-@media (max-width: 576px) { 
+@media (max-width: 700px) { 
     .carousel-inner-lg {
         display : none;
     }
@@ -36,7 +36,7 @@
 
 }
 
-@media (min-width: 576px) { 
+@media (min-width: 700px) { 
     .carousel-inner-lg {
         display : block;
     }
@@ -90,3 +90,4 @@
         display : block;
     }
 }
+

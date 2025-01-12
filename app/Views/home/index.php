@@ -7,9 +7,6 @@
 <!-- Arts -->
 <?= view('/home/section/arts') ?? '' ?>
 
-<!-- BrandIntroduction -->
-<?= view('/home/section/brandIntro.html') ?? '' ?>
-
 <!-- Instagram -->
 <?= view('/home/section/notice'); ?>
 

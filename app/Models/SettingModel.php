@@ -8,7 +8,7 @@ class SettingModel extends Model
 {
     protected $table = 'setting';
     protected $primaryKey = 'id';
-    protected $allowedFields = ['name', 'value', 'category'];
+    protected $allowedFields = ['name', 'value', 'category', 'created_at'];
     //1 -> 사업자 정보
 
 }

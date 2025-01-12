@@ -21,7 +21,7 @@ $routes->get('/gallery/edit/(:num)', 'Gallery::edit/$1');
 $routes->get('/community/(:num)', 'Community::index/$1');
 $routes->get('/community/new', 'Community::new');
 $routes->get('/community/edit/(:num)', 'Community::edit/$1');
-$routes->get('/community/detail/(:num)/(:num)', 'Community::detail/$1/$2');
+$routes->get('/community/detail/(:num)', 'Community::detail/$1');
 
 // Api
 $routes->post('/api/insertPost', 'Api::insertPost');

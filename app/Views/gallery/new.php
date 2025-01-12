@@ -13,17 +13,15 @@
 
 
 <!-- Add new gallery item -->
-<div class="page-header d-flex justify-content-center text-center ">
-    <div class="title" data-aos="fade-up" data-aos-duration="1500">
-        <p class="main-title"><?= (isset($item)) ? "작품 수정" : "작품 추가" ?></p>
+<nav class="navbar navbar-expand-lg bg-body-tertiary mt-1" style="border-top:3px solid #eeeeee; padding-top:70px;">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#"><?= (isset($item)) ? "작품 수정" : "작품 추가" ?></a>
     </div>
-</div>
+</nav>
 
-<div class="page-wrap d-flex flex-row align-items-center pt-70 pb-70" style="min-height: 60vh;">
-    <div class="container bg-white py-5 px-5" style="width : 600px">
-    <!-- <div class="d-flex justify-content-end ">
-        <button class="sm-black-btn" onclick="history.back()"><?= (isset($item)) ?  "수정취소" : "등록취소" ?></button>
-    </div> -->
+
+<div class="page-wrap d-flex justify-content-center align-items-center pt-70 pb-70" >
+    <div class="card mt-50 pb-30 p-5" style="width: 25rem;">
         <div class="text-secondary ps-3 pt-3" >
             <small>*아래에 등록할 작품의 정보를 입력하세요.</small>
         </div>
@@ -43,8 +41,9 @@
                     <input oninput="onFileChange(event)" class="form-control" type="file" id="input-file" name="input-file" accept="image/*"  <?= (isset($item)) ?  '' : 'required' ?>>
                     <small><?= (isset($item)) ?  '현재 사진:'.$item->img_url : '' ?></small>
                 </div>
-                <div class="d-grid text-center pt-4">
-                    <button type="submit" class="long-black-btn "><?= (isset($item)) ?  '수정' : '등록' ?></button>
+                <div class="d-flex flex-row justify-content-center gap-3 text-center pt-4">
+                    <button type="button" class="btn btn-dark " onclick="history.back()">취소</button>
+                    <button type="submit" class="btn btn-dark "><?= (isset($item)) ?  '수정' : '등록' ?></button>
                 </div> 
             </form>
         </div>
@@ -119,6 +118,7 @@
         ?>' || '';
 
         try {
+            turnOnLoadingScreen();
             var postData = new FormData();
             postData.append('title', title);
             postData.append('content', content);
@@ -146,5 +146,7 @@
             console.error('Error inserting data:', error);
             window.alert('등록에 실패하였습니다. 잠시후 다시 시도하여 주세요');
         }
+
+        turnOffLoadingScreen();
     }
 </script>

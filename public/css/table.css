@@ -1,0 +1,17 @@
+.table thead {
+    border-top: 2px solid black;
+    border-bottom: 1px solid black; 
+}
+
+.table th, .table td {
+    vertical-align: middle; /* Align text vertically in the middle */
+    height: 80px; 
+}
+
+.table .notice {
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    border-radius: 4px;
+    padding : 4px 16px;
+}

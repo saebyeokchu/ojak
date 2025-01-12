@@ -24,14 +24,17 @@ $routes->get('/gallery/(:num)', 'Gallery::detail/$1');
 $routes->get('/gallery/edit/(:num)', 'Gallery::edit/$1');
 
 // Coummunity
-$routes->get('/community/l/(:any)/(:num)', 'Community::index/$1/$2');
+$routes->get('/community/list/(:num)', 'Community::index/$1');
 $routes->get('/community/new', 'Community::new');
-$routes->get('/community/edit/(:num)', 'Community::edit/$1');
-$routes->get('/community/detail/(:num)/(:num)', 'Community::detail/$1/$2');
+$routes->get('/community/edit', 'Community::edit');
+$routes->get('/community/detail', 'Community::detail');
 
 // Auth
 $routes->get('/auth', 'Auth::index');
-$routes->post('/auth/login', 'Auth::login');
+$routes->get('/auth/login', 'Auth::login');
+$routes->get('/auth/register-request-complete', 'Auth::registerRequestComplete');
+
+$routes->post('/auth/verify', 'Auth::verify');
 $routes->post('/auth/register', 'Auth::register');
 $routes->post('/auth/update', 'Auth::update');
 $routes->post('/auth/check', 'Auth::check');
@@ -45,15 +48,21 @@ $routes->post('/auth/checkAuthEmail', 'Auth::checkAuthEmail');
 
 // Setting
 $routes->post('/setting/uploadNotice', 'Setting::uploadNotice');
-
+$routes->post('/setting/uploadDisplayGallery', 'Setting::uploadDisplayGallery');
+$routes->post('/setting/deleteDisplayGallery', 'Setting::deleteDisplayGallery');
 
 // Api
 $routes->post('/api/insertPost', 'Api::insertPost');
 $routes->post('/api/deletePost', 'Api::deletePost');
 $routes->post('/api/getById/(:id)', 'Api::getById/$1');
+$routes->post('/api/getGalleryById', 'Api::getGalleryByIdAPI');
 $routes->post('/api/deleteGallery', 'Api::deleteGallery');
 $routes->get('/api/getBusniessInfo', 'Api::getBusniessInfo');
 $routes->post('/api/sendEmail', 'Api::sendEmail');
+$routes->post('/api/insertEvent', 'Api::insertEvent');
+$routes->post('/api/insertComment', 'Api::insertComment');
+$routes->post('/api/deleteComment', 'Api::deleteComment');
+
 
 
 

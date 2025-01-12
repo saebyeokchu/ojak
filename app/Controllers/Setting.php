@@ -48,4 +48,48 @@ class Setting extends BaseController
         
     }
 
+    //category4
+    public function uploadDisplayGallery()
+    {   
+        $galleryId = $this->request->getPost('galleryId');
+
+        //new or existedImage
+        $api = new \App\Controllers\Api();
+        $result = $api -> insertDisplayGallery($galleryId);
+
+        if($result['status'] === 'success'){
+            return $this->response->setJSON([
+                'status' => 'success',
+                'message' => '등록이 완료되었습니다'
+            ]);
+        }else{
+            return $this->response->setJSON([
+                'status' => 'fail',
+                'message' => '등록에 실패하였습니다'
+            ]);
+        }
+        
+    }
+
+    public function deleteDisplayGallery()
+    {   
+        $id = $this->request->getPost('id');
+
+        $api = new \App\Controllers\Api();
+        $result = $api -> deleteSettingById($id);
+
+        if($result){
+            return $this->response->setJSON([
+                'status' => 'success',
+                'message' => '성공적으로 삭제되었습니다.',
+            ]);
+        } else {
+            return $this->response->setJSON([
+                'status' => 'error',
+                'message' => '삭제에 실패하였습니다. 잠시 후 다시 시도하여 주세요.'
+            ]);
+        }
+        
+    }
+
 }

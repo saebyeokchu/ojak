@@ -6,6 +6,12 @@ class My extends BaseController
 {
     public function index($sub): string
     {
+        //test
+        $data['yield']       = 'my/index';
+        $data['contents']['sub']       = $sub;
+        $data['view_header'] = false;
+        $data['view_footer'] = false;
+
         //login check
         if(!isset($_COOKIE['user_id'])){
             $data['yield']       = 'errors/html/error_auth';
@@ -20,6 +26,10 @@ class My extends BaseController
                 if($result['status'] == 'success') {
                     $target_data = $result['posts'];
                 }
+
+                //communit 종류 setting
+                $gubun = $this->request->getGet('gubun');
+                $data['contents']['gubun']       = $gubun;
             }else if($sub == 'gallery'){
                 $result = $api -> getGalleryByUserId($_COOKIE['user_id']);
                 if($result['status'] == 'success') {
@@ -36,9 +46,9 @@ class My extends BaseController
                     $target_data = $result['data'];
                 }//
             }else if($sub == 'notice'){
-                $result = $api -> getNotice();
+                $result = $api -> getPostsByGubun(1);
                 if($result['status'] == 'success') {
-                    $target_data = $result['data'];
+                    $target_data = $result['posts'];
                 }//
             }else if($sub == 'represent-gallery'){
                 $result = $api -> getRepresentGallery();
@@ -46,10 +56,20 @@ class My extends BaseController
                     $target_data = $result['data'];
                 }//
             }else if($sub == 'display-gallery'){
-                $result = $api -> getExhibitGallery();
-                if($result['status'] == 'success') {
-                    $target_data = $result['itemByExhibit'];
-                }//
+                $target_data = [
+                    "exhibits" => null,
+                    "allGallery" => null
+                ]; 
+
+                $resultExhibits = $api -> getExhibitGallery();
+                if($resultExhibits['status'] == 'success') {
+                    $target_data["exhibits"] = $resultExhibits['items'];
+                }
+
+                $resultAllGalleries = $api -> getAllGallery();
+                if($resultAllGalleries['status'] == 'success') {
+                    $target_data["allGallery"] = $resultAllGalleries['items'];
+                }
             }else if($sub == 'user-management'){
                 $result = $api -> getAllUser();
                 if($result['status'] == 'success') {

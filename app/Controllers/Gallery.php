@@ -6,11 +6,14 @@ class Gallery extends BaseController
 {
     public function index(): string
     {
+        $pageIndex = $this->request->getGet('pageIndex');
+
         $api = new \App\Controllers\Api();
         $result = $api -> getAllGallery();
             
         if($result['status'] == 'success') {
             $data['contents']['items'] = $result['items'];
+            $data['contents']['pageIndex'] = $pageIndex;
         }
 
         $data['yield']       = 'gallery/index';
@@ -26,8 +29,9 @@ class Gallery extends BaseController
 
     public function detail($num): string
     {
-        $api = new \App\Controllers\Api();
+        $pageIndex = $this->request->getGet('pageIndex');
 
+        $api = new \App\Controllers\Api();
         $result = $api -> getGalleryById($num);
 
         log_message('error', $num);
@@ -37,6 +41,7 @@ class Gallery extends BaseController
 
             $data['yield']       = 'gallery/detail';
             $data['contents']['item'] = $item;
+            $data['contents']['pageIndex'] = $pageIndex;
         }else{
             $data['yield']       = 'errors/html/error_404_custom';
         }
@@ -67,10 +72,13 @@ class Gallery extends BaseController
     public function insert()
     {
         $title = $this->request->getPost('title');
+        $subTitle = $this->request->getPost('subTitle');
         $content = $this->request->getPost('content');
+        $buyLink = $this->request->getPost('buyLink');
+
         $user_id = $this->request->getPost('user_id');
         $id = $this->request->getPost('id');
-        $exhibit = $this->request->getPost('exhibit');
+        $uploadedFromUser = $this->request->getPost('uploadedFromUser') ?? true;
 
         $file_name = null;
         $file_upload = true;
@@ -80,10 +88,9 @@ class Gallery extends BaseController
         log_message('error',"content:".$content);
         log_message('error',"title:".$title);
 
-
         if(isset($_FILES['image'])){
             $file = new \App\Controllers\File();
-            $file_result = $file->upload($_FILES['image']);
+            $file_result = $file->upload($_FILES['image'],$uploadedFromUser);
             $file_name = $file_result['file_name'];
 
             $file_upload = $file_result['success'];
@@ -91,7 +98,7 @@ class Gallery extends BaseController
 
         if($file_upload){
             $api = new \App\Controllers\Api();
-            $result = $api -> insertGallery($title,$content,$file_name,$user_id,$id,$exhibit);
+            $result = $api -> insertGallery($title,$subTitle, $content, $buyLink, $file_name, $user_id, $id);
 
             if($result['status'] == 'success'){
                 //check pw
@@ -105,17 +112,17 @@ class Gallery extends BaseController
                 ]);
             }
         }
-    }
+    } 
 
     public function uploadRepresentItems()
-    {
+    { 
         $file = new \App\Controllers\File();
-        $img_names = ['showpiece1','showpiece2','showpiece3'];
+        $img_names = ['carousel1','carousel2','carousel3'];
         $upload_result = true;
 
         foreach($img_names as $in){
             if(isset($_FILES[$in])){
-                $file_result = $file->upload($_FILES[$in]);
+                $file_result = $file->uploadToSpecificFolder($_FILES[$in],$in);
                 $file_name = $file_result['file_name'];
     
                 if($file_result['success']){

@@ -2,73 +2,93 @@
   $info = $data[0]; 
 ?>
 
-<form class="p-3">
-  <div class="mb-3">
-    <label class="form-label">아이디</label>
-    <span class="badge rounded-pill text-bg-danger">아이디는 수정하실 수 없습니다.</span>
-    <input type="text" class="form-control" value="<?= $info['user_id'] ?>" disabled>
-  </div>
-  <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">비밀번호</label>
-    <span class="badge rounded-pill text-bg-secondary cursor-pointer" data-bs-toggle="modal" data-bs-target="#changePawssord">변경하기</span>
+<div class="for-lg " >
+    <div class="d-flex flex-column justify-content-start mt-70">
+        <p class="fw-bold" style="font-size: 32px;">개인 정보 관리</p>
+        <?php if($info['user_id'] == "admin") { ?>
+          <p><small class="text-danger"> admin계정은 홈페이지를 관리할 수 있는 유일한 계정입니다. 변경시 유의하세요.</small></p>
+        <?php }?>
+    </div>
 
-    <?php if($info['user_id'] == "admin") { ?>
-      <p><small class="text-danger"> admin계정은 홈페이지를 관리할 수 있는 유일한 계정입니다. 변경시 유의하세요.</small></p>
-    <?php }?>
-  </div>
-  <div class="mb-3">
-    <label class="form-label">이름</label>
-    <span class="badge rounded-pill text-bg-secondary cursor-pointer" onclick="changeName('<?=$info['id']?>','<?=$info['user_name']?>')" >수정하기</span>
+    <form >
+      <div class="mb-3">
+        <label class="form-label">이름</label>
+        <span class="badge rounded-pill text-bg-secondary cursor-pointer" onclick="changeName('<?=$info['id']?>','<?=$info['user_name']?>')" >수정하기</span>
 
-    <?php if($info['user_id'] == "admin") { ?>
-      <p><small class="text-danger"> admin계정은 홈페이지를 관리할 수 있는 유일한 계정입니다. 변경시 유의하세요.</small></p>
-    <?php }?>
 
-    <input type="text" class="form-control" id="newName" value="<?= $info['user_name'] ?>">
-  </div>
-</form> 
 
-<!-- Modal -->
-<div class="modal fade" id="changePawssord" tabindex="-1" aria-labelledby="changePawssord" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-            <!-- <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div> -->
-            <div class="modal-body">
+        <input type="text" class="form-control" id="newName" value="<?= $info['user_name'] ?>">
+      </div>
 
-              <div id="authDiv">
-                <div class="mb-3">
-                    <label class="form-label">인증번호</label>
-                    <span class="badge rounded-pill text-bg-info cursor-pointer" onclick="sendAuthCode(<?=$info['id']?>,'<?=$info['user_name']?>','<?=$info['user_id']?>')">이메일로 인증코드 받기</span>
-                    <input type="text" class="form-control" id="authCodeInput" >
+      <div class="mb-3">
+        <label class="form-label">아이디</label>
+        <span class="badge rounded-pill text-bg-danger">아이디는 수정하실 수 없습니다.</span>
+        <input type="text" class="form-control" value="<?= $info['user_id'] ?>" disabled>
+      </div>
+
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">비밀번호</label>
+        <!-- <span class="badge rounded-pill text-bg-secondary cursor-pointer" data-bs-toggle="modal" data-bs-target="#changePawssord">변경하기</span> -->
+        <span class="badge rounded-pill text-bg-secondary cursor-pointer" onclick="sendAuthCode(<?=$info['id']?>,'<?=$info['user_name']?>','<?=$info['user_id']?>')">
+          이메일 인증하기
+        </span>
+        
+        <input type="text" class="form-control" disabled>
+
+        <div class="d-flex flex-row w-25 gap-3 hide-item" id="authWrapper">
+          <input type="text" class="form-control" id="authCodeInput" placeholder="인증번호" />
+          <button type="button" class="btn btn-dark" onclick="authEmail('<?=$info['id']?>')" id="authBtn">인증</button>
+        </div>
+        
+        <div class="d-flex flex-column w-25 gap-3 my-3 hide-item" id="changePwDiv" >
+          <input placeholder="비밀번호"  type="password" name="register-pw" class="form-control" id="update-pw" required>
+          <input placeholder="비밀번호 확인" type="password" class="form-control" id="update-pw-chk" required>
+          <button type="button" class="btn btn-dark" onclick="changePassword('<?=$info['id']?>')" >변경</button>
+        </div>
+
+      </div>
+      
+    </form> 
+
+    <!-- Modal -->
+    <!-- <div class="modal fade" id="changePawssord" tabindex="-1" aria-labelledby="changePawssord" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">인증번호 받기</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-              </div>
+                <div class="modal-body">
+                  <div id="authDiv">
+                    <div class="mb-3">
+                        <span class="badge rounded-pill text-bg-info cursor-pointer" onclick="sendAuthCode(<?=$info['id']?>,'<?=$info['user_name']?>','<?=$info['user_id']?>')">이메일로 인증코드 받기</span>
+                        <input type="text" class="form-control" id="authCodeInput" >
+                    </div>
+                  </div>
 
-              <div id="changePwDiv" class="hide-item">
-                <div class="mb-3">
-                    <label for="register-pw" class="form-label">비밀번호</label>
-                    <input type="password" name="register-pw" class="form-control" id="update-pw" required>
-                </div>
-                <div class="mb-3">
-                    <label for="register-pw-chk" class="form-label">비밀번호 확인</label>
-                    <input type="password" class="form-control" id="update-pw-chk" required>
-                </div>
-              </div>
+                  <div id="changePwDiv" class="hide-item">
+                    <div class="mb-3">
+                        <label for="register-pw" class="form-label">비밀번호</label>
+                        <input type="password" name="register-pw" class="form-control" id="update-pw" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="register-pw-chk" class="form-label">비밀번호 확인</label>
+                        <input type="password" class="form-control" id="update-pw-chk" required>
+                    </div>
+                  </div>
 
-
-            <div class="modal-footer">
-                <button type="button" class="sm-black-btn" data-bs-dismiss="modal">닫기</button>
-                <button type="button" class="sm-black-btn" onclick="authEmail('<?=$info['id']?>')" id="authBtn">인증</button>
+                  <div class="d-flex justify-content-end">
+                    <button type="button" class="btn btn-dark" data-bs-dismiss="modal">닫기</button>
+                    <button type="button" class="btn btn-dark" onclick="authEmail('<?=$info['id']?>')" id="authBtn">인증</button>
+                  </div>
             </div>
         </div>
-    </div>
+    </div> -->
 </div>
 
 <script>
   function changeName(id,name) {
-    showLoadingSpinner();
+    turnOnLoadingScreen();
 
     const newName = document.getElementById('newName').value;
 
@@ -98,13 +118,13 @@
           window.alert("이름을 변경할 수 없습니다. 잠시후 다시 시도하여 주세요.")
       }
 
-      hideLoadingSpinner();
+      turnOffLoadingScreen();
     }
     
   }
 
   async function sendAuthCode(id, name, userId){
-    showLoadingSpinner();
+    turnOnLoadingScreen();
 
     const authCode = Math.floor(Math.random() * (999999 - 100000) + 100000);
     try {
@@ -119,6 +139,7 @@
         await axios.post('/auth/sendAuthEmail', postData).then(async function(response){
           if(response.data.status == 'success'){
             window.alert("인증번호가 전송되었습니다");
+            document.getElementById('authWrapper').classList.remove('hide-item');
             return;
           }
         }).catch(function(error){
@@ -130,12 +151,12 @@
         window.alert("인증코드 전송에 실패하였습니다. 잠시후 다시 시도하여 주세요.");
     }
 
-    hideLoadingSpinner();
+    turnOffLoadingScreen();
 
   }
 
   function changePassword(id) {
-    showLoadingSpinner();
+    turnOnLoadingScreen();
 
     const pw = document.getElementById('update-pw').value;
     const pwChk = document.getElementById('update-pw-chk').value;
@@ -165,7 +186,7 @@
       }
     }
     
-    hideLoadingSpinner();
+    turnOffLoadingScreen();
   }
 
   function showPassword(id){
@@ -196,7 +217,8 @@
         await axios.post('/auth/checkAuthEmail', postData).then(async function(response){
           if(response.data.status == 'success'){
             window.alert("인증에 성공하셨습니다");
-            showPassword(id);
+            document.getElementById("changePwDiv").classList.remove("hide-item");
+            document.getElementById("authWrapper").classList.add("hide-item");
             return;
           }
         }).catch(function(error){

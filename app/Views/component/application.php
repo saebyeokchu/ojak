@@ -16,9 +16,14 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/css/color.css">
     <link rel="stylesheet" href="/css/image.css">
     <link rel="stylesheet" href="/css/responsive.css">
-    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700,800" rel="stylesheet">
+    <link rel="stylesheet" href="/css/table.css">
+    <link rel="stylesheet" href="/css/animation.css">
+         
+    <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet"> <!-- pretandard -->
+    <link href="https://hangeul.pstatic.net/hangeul_static/css/maru-buri.css" rel="stylesheet"> <!-- Maru Buri Font -->
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/pell/dist/pell.min.css">
 
     <!-- Bootstrap -->
@@ -34,24 +39,53 @@
 
     <!-- Owl Carousel JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+    <!-- Helper js -->
+    <script src="/js/common.js"></script>
+    <script src="/js/gallery.js"></script>
+    <script src="/js/post.js"></script>
 </head>
-<body class="position-relative">
-    <?= view('/templates/header') ?? '' ?>
+<body class="position-relative" style="font-family: 'Pretendard', sans-serif!important;" >
+    <div id="loading-screen" class="loading-screen hide-item">
+        <div class="spinner-border text-light" role="status" aria-hidden="true"></div>
+        <!-- <div class="loading-text">Loading...</div> -->
+    </div>
+
+
+    <?= (isset($view_header) ? ( $view_header == true && view('/component/header') ) : view('/component/header') ) ?? '' ?>
 
     <!-- CONTENT -->
     <?= ( isset($contents) ? view($yield, $contents) : view($yield) ) ?? '' ?>
 
     
-    <?= (isset($view_footer) ? ( $view_footer == true && view('/templates/footer') ) : view('/templates/footer') ) ?? '' ?>
-    
+    <?= (isset($view_footer) ? ( $view_footer == true && view('/component/footer') ) : view('/component/footer') ) ?? '' ?>
+     
     <div class="position-absolute start-0 top-0 loading-spinner hide-item" style="width:100%;height:100%;background-color:rgb(0,0,0,0.3);z-index:9999;"></div>
     <div class="spinner-border position-absolute start-50 loading-spinner hide-item" style="top:100px;z-index:9999;" role="status" >
         <span class="visually-hidden">Loading...</span>
     </div>
 
+    <!-- modals -->
+    <?= view('/gallery/modal/update') ?>
+
     <!-- SCRIPTS -->
     <script>
         AOS.init();
+
+        // Function to show the loading screen
+        function turnOnLoadingScreen() {
+            const loadingScreen = document.getElementById('loading-screen');
+            loadingScreen.classList.add('show-item');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
+        }
+
+        // Function to hide the loading screen
+        function turnOffLoadingScreen() {
+            const loadingScreen = document.getElementById('loading-screen');
+            loadingScreen.classList.remove('show-item');
+            document.body.style.overflow = ''; // Restore scrolling
+        }
+
     </script>
     <!-- -->
 

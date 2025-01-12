@@ -22,7 +22,7 @@ class Api extends Controller
                 'status' => 'fail'
             ];
         }
-}
+    }
 
     public function getBusniessInfo(){
         $returnType = 'php';
@@ -105,6 +105,50 @@ class Api extends Controller
         }
     }
 
+    public function insertDisplayGallery($value)
+    {
+        // Get the incoming data from the POST request
+        $model = new \App\Models\SettingModel();
+
+        $data = [
+            'name' => 'display_gallery',
+            'value' => $value,
+            'category' => 4
+        ];
+
+        $result = $model->insert($data);
+
+        // Return the result as a JSON response
+        if ($result) {
+            return [
+                'status' => 'success',
+                'message' => 'Data inserted successfully!',
+                'insertedId' => $model->insertID
+            ];
+        } else {
+            return [
+                'status' => 'error',
+                'message' => 'Failed to insert data.'
+            ];
+        }
+    }
+
+    public function deleteSettingById($id){
+
+        $model = new \App\Models\GalleryModel();
+        $result = $model->delete($id);
+
+        if($result){
+            return [
+                'status' => 'success',
+            ];
+        } else {
+            return [
+                'status' => 'error',
+            ];
+        }
+    }
+
     //Auth
     public function getAllUser(){
         $model = new \App\Models\UserModel();
@@ -144,7 +188,6 @@ class Api extends Controller
 
     public function getUserByIdPw($id,$pw){
         $model = new \App\Models\UserModel();
-
         $result = $model->where('user_id', $id)->where('user_pw', $pw)->where('approved',1)->findAll();
 
         if($result) {
@@ -257,13 +300,42 @@ class Api extends Controller
 
     public function getGalleryByUserId($user_id) {
         $model = new \App\Models\GalleryModel();
-        $items = $model->where('user_id',$user_id)->findAll(); 
+        $items = $model->where('user_id',$user_id)->orderBy('id','desc')->findAll(); 
 
         if ($items) {
             return [
                 'status' => 'success',
                 'items' => $items
             ];
+        } else {
+            return [
+                'status' => 'error',
+                'message' => 'No data',
+            ];
+        }
+    }
+
+    public function getGalleryByIdAPI() {
+        $id = $this->request->getPost('id');
+
+        $db      = \Config\Database::connect();
+        $builder = $db->table('gallery'); 
+
+        $builder->select('gallery.*,auth.user_name');
+        $builder->join('auth', 'gallery.user_id = auth.id');
+        $builder->where('gallery.id',$id);
+        $builder->orderBy('gallery.created_at', 'DESC');
+        $query = $builder->get();
+
+        // $model = new \App\Models\GalleryModel();
+        // $item = $model->find($id);
+
+        if ($query) {
+            return $this->response->setJSON([
+                'status' => 'success',
+                'message' => 'Data inserted successfully!',
+                'item' => $query->getResult()
+            ]);
         } else {
             return [
                 'status' => 'error',
@@ -334,9 +406,8 @@ class Api extends Controller
         $builder->select('*');
         $builder->where('category',4);
         $builder->join('gallery', 'setting.value = gallery.id');
-        $builder->orderBy('setting.name', 'ASC');
+        // $builder->orderBy('setting.created_at', 'desc'); //최신순
         $query = $builder->get();
-
 
         if ($query) { 
             return [
@@ -368,7 +439,7 @@ class Api extends Controller
         }
     }
 
-    public function insertGallery($title,$content,$img_url,$user_id,$id, $exhibit)
+    public function insertGallery($title, $subTitle, $content, $buyLink, $img_url, $user_id, $id)
     {
         // Get the incoming data from the POST request
         $model = new \App\Models\GalleryModel();
@@ -376,9 +447,10 @@ class Api extends Controller
         //['title', 'content', 'user_id', 'created_at'];
         $data = [
             'title' => $title,
+            'sub_title' => $subTitle,
             'content' => $content,
             'user_id' => $user_id,
-            'exhibit' => $exhibit
+            'buy_link' => $buyLink 
         ];
 
         if($img_url != null){
@@ -474,9 +546,26 @@ class Api extends Controller
     public function getAll($pageIndex, $gubun) {
         $model = new \App\Models\CommunityModel();
         $start_row = (int)($pageIndex)-1;
-        $posts = $model->where('gubun',$gubun)->orderBy('id', 'desc')->findAll(5,$start_row*5); 
+        $posts = $model
+                    ->where('gubun',$gubun)
+                    ->orderBy('id', 'desc')
+                    ->findAll(5,$start_row*5); 
         $rowCount = $model->countAll();
 
+        $db      = \Config\Database::connect();
+        $builder = $db->table('community');
+        
+        // $builder->join('commnet', 'commnet.post_id = community.id', 'left');
+
+        $builder->select('community.*, auth.user_name');
+        $builder->where('gubun',$gubun);
+        $builder->join('auth', 'community.user_id = auth.id');
+        $builder->orderBy('id', 'desc'); //최신순
+        $query = $builder->get();
+
+        $posts = $query->getResult();
+        $rowCount = count($posts);
+        
         if ($posts) {
             return [
                 'status' => 'success',
@@ -511,10 +600,38 @@ class Api extends Controller
         }
     }
 
+    public function increaseViewCount($postId, $viewCount){
+        $model = new \App\Models\CommunityModel();
+        $data = [
+            'view_count' => $viewCount + 1
+        ];
+         $model->update($postId, $data);
+    }
+
     public function getPostsByUserId($user_id) {
         $model = new \App\Models\CommunityModel();
 
         $posts = $model->where('user_id',$user_id)->findAll();
+
+        if ($posts) {
+            return [
+                'status' => 'success',
+                'posts' => $posts
+            ];
+        } else {
+            return [
+                'status' => 'error',
+                'message' => 'No data',
+            ];
+        }
+    }
+
+    public function getPostsByGubun($gubun) {
+        $model = new \App\Models\CommunityModel();
+
+        $posts = $model->where('gubun',$gubun)->limit(3)->orderBy('id','desc')->findAll();
+
+        log_message('error',serialize(($posts)));
 
         if ($posts) {
             return [
@@ -590,6 +707,160 @@ class Api extends Controller
             ]);
         }
     }
+
+    
+    public function insertEvent()
+    {
+        $title = $this->request->getPost('title');
+        $content = $this->request->getPost('content');
+
+        $user_id = $this->request->getPost('user_id');
+        $id = $this->request->getPost('id');
+        $uploadedFromUser = $this->request->getPost('uploadedFromUser') ?? true;
+
+        $file_name = null;
+        $file_upload = true;
+
+        log_message('error',"id:".$id);
+        log_message('error',"user_id:".$user_id);
+        log_message('error',"content:".$content);
+        log_message('error',"title:".$title);
+
+        if(isset($_FILES['image'])){
+            $file = new \App\Controllers\File();
+            $file_result = $file->upload($_FILES['image'],$uploadedFromUser);
+            $file_name = $file_result['file_name'];
+
+            $file_upload = $file_result['success'];
+        }
+
+        if($file_upload){
+            // Get the incoming data from the POST request
+            $model = new \App\Models\CommunityModel();
+
+            //['title', 'content', 'user_id', 'created_at'];
+            $data = [
+                'title' => $title,
+                'content' => $content,
+                'user_id' => $user_id,
+                'gubun' => 2,
+            ];
+
+            if($file_name != null){
+                $data['img_url'] = $file_name;
+            }
+
+            if($id){
+                $result = $model->update($id, $data);
+            }else{
+                $result = $model->insert($data);
+                $id = $model->insertID;
+            }
+
+            log_message('error','id-after'.$id);
+
+            // Return the result as a JSON response
+            if ($result) {
+                return [
+                    'status' => 'success',
+                    'message' => 'Data inserted successfully!',
+                    'insertedId' => $id
+                ];
+            } else {
+                return [
+                    'status' => 'error',
+                    'message' => 'Failed to insert data.'
+                ];
+            }
+
+            if($result['status'] == 'success'){
+                //check pw
+                return $this->response->setJSON([
+                    'status' => 'success',
+                    'insertedId' => $result['insertedId']
+                ]);
+            }else{
+                return $this->response->setJSON([
+                    'status' => 'error'
+                ]);
+            }
+        }
+    } 
+
+    public function getComments($postId){
+       $model = new \App\Models\CommentModel();
+
+        $comments = $model->where("post_id",$postId)->findAll();
+        if ($comments) {
+            return [
+                'status' => 'success',
+                'comments' => $comments
+            ];
+        } else {
+            return [
+                'status' => 'error',
+                'message' => 'No data',
+            ];
+        }
+    }
+
+    public function deleteComment(){
+        $id = $this->request->getPost('id');
+
+        $model = new \App\Models\CommentModel();
+        $result = $model->delete($id);
+
+        if($result){
+            return $this->response->setJSON([
+                'status' => 'success',
+                'message' => '성공적으로 삭제되었습니다.',
+            ]);
+        } else {
+            return $this->response->setJSON([
+                'status' => 'error',
+                'message' => '삭제에 실패하였습니다. 잠시 후 다시 시도하여 주세요.'
+            ]);
+        }
+    }
+
+    public function insertComment()
+    {
+        // Get the incoming data from the POST request
+        $postId = $this->request->getPost('postId');
+        $comment = $this->request->getPost('comment');
+        $commentId = $this->request->getPost('commentId');
+
+        $model = new \App\Models\CommentModel();
+
+        //['title', 'content', 'user_id', 'created_at'];
+        $data = [
+            'post_id' => $postId,
+            'comment' => $comment
+        ];
+
+        if($commentId){
+            $result = $model->update($commentId, $data);
+        }else{
+            $result = $model->insert($data);
+        }
+
+        // Return the result as a JSON response
+        if ($result) {
+            $returnId = $commentId ? $commentId : $model->insertID();
+
+            return $this->response->setJSON([
+                'status' => 'success',
+                'message' => 'Data inserted successfully!',
+                'insertedId' => $returnId
+            ]);
+        } else {
+            return $this->response->setJSON([
+                'status' => 'error',
+                'message' => 'Failed to insert data.'
+            ]);
+        }
+    }
+
 }
 
 ?>
