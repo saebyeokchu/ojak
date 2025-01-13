@@ -244,7 +244,7 @@
         await axios.post('/setting/deleteDisplayGallery', postData).then(function(response){
             console.log("success:", response);
             window.alert(response.data.message);
-            locatoin.reload();
+            locatoin.href="/my/display-gallery";
             return;
         }).catch(function(error){
             console.log("error:", error);
