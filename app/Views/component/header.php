@@ -76,7 +76,7 @@
                 </a>
                 <a class=" nav-link pt-3 toggle-header-menu <?=$lgGalleryUrl?>" href="/gallery?pageIndex=1" style="height:60px;width:300px;"><span class="ps-3">작품</span></a>
                 <div  onmouseenter="showcommunitydiv('mobile-header-community-submenu')"  onmouseleave="hidecommunitydiv('mobile-header-community-submenu')">
-                    <span class="nav-link pt-3 toggle-header-menu" style="height:60px;width:300px;"><span class="ps-3">커뮤니티  <span id="mobileCommunityPlus" class="hide-item">+</span> <span id="mobileCommunityMinus">-</span> </span>
+                    <span class="nav-link pt-3 toggle-header-menu" style="height:60px;width:300px;"><span class="ps-3">커뮤니티  <span id="mobileCommunityPlus" >+</span> <span id="mobileCommunityMinus" class="hide-item">-</span> </span>
                     <div id="mobile-header-community-submenu" class="hide-y-gradually mt-3" >
                         <a id="mobileNoticeMenu" class="nav-link pt-3 toggle-header-menu <?=$lgNoticeUrl?>" style="height:60px;width:300px;"><span class="ps-3">공지사항</span></a>
                         <a id="mobileEventMenu" class="nav-link pt-3 toggle-header-menu <?=$lgEventUrl?>" style="height:60px;width:300px;" ><span class="ps-3">이벤트</span></a>
@@ -198,8 +198,8 @@
     </div>
 
     <nav class="navbar navbar-expand-lg px-5">
-    <!-- align-items-start  pt-5 header-inner-wrapper  -->
-        <div class="container d-flex justify-content-between align-items-start  pt-5" id="header-inner-wrapper" > 
+    <!-- align-items-start  pt-5 header-inner-wrapper  align-items-center  -->
+        <div class="w-100 d-flex justify-content-between  pt-5" id="header-inner-wrapper" > 
             <!-- 메뉴 -->
             <div class="d-flex gx-3 gap-4">
                 <!-- toggle -->
@@ -392,6 +392,7 @@
             headerLogoClass,
         ){
         //adjust padding
+        innerWrapper.classList.remove("align-items-center");
         innerWrapper.classList.add("align-items-start");
         innerWrapper.classList.add("pt-5");
 
@@ -456,7 +457,7 @@
          headerLgBlakcLogo, 
          headerLgWhiteLogo,
         ){
-
+        innerWrapper.classList.remove("align-items-center");
         innerWrapper.classList.add("align-items-start");
         innerWrapper.classList.add("pt-5");
 
@@ -508,6 +509,7 @@
         //adjust padding
         innerWrapper.classList.remove("align-items-start");
         innerWrapper.classList.remove("pt-5");
+        innerWrapper.classList.add("align-items-center");
 
         lgHeader.classList.add("bg-light");
         lgHeader.classList.add("text-black");
