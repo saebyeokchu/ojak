@@ -40,6 +40,8 @@ class File extends ResourceController
 
         // Define the destination path
         $destination = $uploadPath . $newFileName;
+        log_message('error',"newfilename:".$newFileName);
+
 
         // Move the file to the target directory
         if (move_uploaded_file($file['tmp_name'], $destination)) {
