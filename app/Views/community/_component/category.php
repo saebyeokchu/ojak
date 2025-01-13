@@ -62,8 +62,10 @@
         if(menuWrapper){
             if(innerWidth < 700){
                 menuWrapper.style.marginTop = "70px";
+                menuWrapper.style.fontSize = "18px";
             }else{
                 menuWrapper.style.marginTop = "100px";
+                menuWrapper.style.fontSize = "32px";
             }
         }
     });
