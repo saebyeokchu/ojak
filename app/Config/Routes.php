@@ -8,6 +8,8 @@ use CodeIgniter\Router\RouteCollection;
 $routes->get('/', 'Home::index');
 $routes->get('/home', 'Home::index');
 $routes->get('/brand', 'Brand::index');
+$routes->get('/contract', 'Home::contract');
+$routes->get('/personalinfo', 'Home::personalinfo');
 
 //My
 $routes->get('/my/(:any)', 'My::index/$1');

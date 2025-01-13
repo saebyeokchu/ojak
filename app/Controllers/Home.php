@@ -29,4 +29,16 @@ class Home extends BaseController
         $data['yield']       = '/home/index';
         return view('/component/application', $data);
     }
+    
+    public function contract(): string
+    {   
+        $data['yield']       = '/component/contract';
+        return view('/component/application', $data);
+    }
+
+    public function personalinfo(): string
+    {   
+        $data['yield']       = '/component/personalinfo';
+        return view('/component/application', $data);
+    }
 }

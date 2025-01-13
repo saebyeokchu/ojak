@@ -136,12 +136,14 @@
 
     if(closeModalBtn){
         closeModalBtn.addEventListener("click", () => {
+            changeToLogin();
             modal.style.display = "none"; // Hide modal
         });
     }
     
     // Close modal when clicking outside the modal content
     window.addEventListener("click", (event) => {
+        changeToLogin();
         if (event.target === modal) {
             modal.style.display = "none";
         }

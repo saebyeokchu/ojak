@@ -263,7 +263,7 @@
                     <a class="nav-link cursor-pointer hover-underline fs-6" data-bs-toggle="modal" data-bs-target="#openModal" >로그인</a>
                 <?php } ?>
                 <!-- blog -->
-                <svg class="cursor-pointer" width="29" height="30" viewBox="0 0 29 30"  xmlns="http://www.w3.org/2000/svg" onclick="location.href='https://smartstore.naver.com/house1004?NaPm=ct%3Dm5tmcm0n%7Cci%3Dcheckout%7Ctr%3Dds%7Ctrx%3Dnull%7Chk%3D601dcb1315024196e52f53b965cf590aa68e5e44'">
+                <svg class="cursor-pointer" width="29" height="30" viewBox="0 0 29 30"  xmlns="http://www.w3.org/2000/svg" onclick="location.href='https://blog.naver.com/ojak_kjs'">
                     <path class="scrollIcon" fill="#fff" d="M6.96927 12.3663C6.67963 12.3663 6.42217 12.4844 6.22907 12.7037C6.01989 12.9229 5.92334 13.1928 5.92334 13.5133C5.92334 13.8337 6.01989 14.0867 6.22907 14.3229C6.43826 14.5421 6.67963 14.6602 6.96927 14.6602C7.25891 14.6602 7.51637 14.5421 7.72556 14.3229C7.93475 14.1036 8.04738 13.8337 8.04738 13.5133C8.04738 13.1928 7.93475 12.9229 7.72556 12.7037C7.51637 12.4675 7.275 12.3663 6.96927 12.3663Z" fill="white"/>
                     <path class="scrollIcon" fill="#fff" d="M15.9966 12.3491C15.707 12.3491 15.4495 12.4672 15.2564 12.6865C15.0472 12.9057 14.9507 13.1756 14.9507 13.496C14.9507 13.8165 15.0472 14.0695 15.2564 14.3056C15.4656 14.5249 15.707 14.643 15.9966 14.643C16.2863 14.643 16.5437 14.5249 16.7529 14.3056C16.9621 14.0864 17.0747 13.8165 17.0747 13.496C17.0747 13.1756 16.9621 12.9226 16.7529 12.6865C16.5598 12.4503 16.3023 12.3491 15.9966 12.3491Z" fill="white"/>
                     <path class="scrollIcon" fill="#fff" d="M22.0308 12.3663C21.7412 12.3663 21.4837 12.4844 21.2906 12.7037C21.0814 12.9229 20.9849 13.1928 20.9849 13.5133C20.9849 13.8337 21.0814 14.0867 21.2906 14.3229C21.4998 14.5421 21.7412 14.6602 22.0308 14.6602C22.3204 14.6602 22.5779 14.5421 22.7871 14.3229C22.9963 14.1036 23.1089 13.8337 23.1089 13.5133C23.1089 13.1928 22.9963 12.9229 22.7871 12.7037C22.5779 12.4675 22.3204 12.3663 22.0308 12.3663Z" fill="white"/>
@@ -615,7 +615,7 @@
         }
 
         //scroll menu setting
-        if(href.includes("community/new") || href.includes("community/edit") || href.includes("auth/register-request-complete")){
+        if(href.includes("community/new") || href.includes("community/edit") || href.includes("auth/register-request-complete") || href.includes("contract") || href.includes("personalinfo")){
             makeScrolledHedaer(
                         lgHeader, 
                         menuIcon, 

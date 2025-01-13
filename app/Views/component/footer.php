@@ -1,7 +1,7 @@
 <!-- FOOTER: DEBUG INFO + COPYRIGHTS -->
 <footer class=" bg-light px-5 for-lg">
     <div class="d-flex justify-content-between  py-5">
-        <div class="d-flex flex-column gy-5 fw-bold" id="footer-busniess">
+        <div class="d-flex flex-column gy-5 fw-bold" >
             <!-- <div class="pt-2">상호명 : 경북공예문화협동조합</div>
             <div class="pt-2">대표자 : 고정숙</div>
             <div class="pt-2">사업자등록번호 : 506-18-72685</div>
@@ -10,10 +10,13 @@
             <div class="pt-2">팩스 : 0504-084-2789</div>
             <div class="pt-2">주소 : 37911 경상북도 포항시 남구 오천읍 장기로1479번길 2-4</div>
             <div class="pt-2">개인정보보호책임자 : 고보빈(jung755@naver.com)</div> -->
+            <div id="footer-busniess"></div>
+            <div class="cursor-pointer hover-underline pt-2" onclick="location.href='/contract'">이용약관</div>
+            <div class="cursor-pointer hover-underline pt-2" onclick="location.href='/personalinfo'">개인정보처리방침</div>
         </div>
         <div class="d-flex gx-3 gap-4 for-sm">
             <!-- blog -->
-            <svg class="cursor-pointer" width="29" height="30" viewBox="0 0 29 30"  xmlns="http://www.w3.org/2000/svg"  onclick="location.href='https://smartstore.naver.com/house1004?NaPm=ct%3Dm5tmcm0n%7Cci%3Dcheckout%7Ctr%3Dds%7Ctrx%3Dnull%7Chk%3D601dcb1315024196e52f53b965cf590aa68e5e44'">
+            <svg class="cursor-pointer" width="29" height="30" viewBox="0 0 29 30"  xmlns="http://www.w3.org/2000/svg"  onclick="location.href=''">
                 <path class="scrollIcon" fill="#fff" d="M6.96927 12.3663C6.67963 12.3663 6.42217 12.4844 6.22907 12.7037C6.01989 12.9229 5.92334 13.1928 5.92334 13.5133C5.92334 13.8337 6.01989 14.0867 6.22907 14.3229C6.43826 14.5421 6.67963 14.6602 6.96927 14.6602C7.25891 14.6602 7.51637 14.5421 7.72556 14.3229C7.93475 14.1036 8.04738 13.8337 8.04738 13.5133C8.04738 13.1928 7.93475 12.9229 7.72556 12.7037C7.51637 12.4675 7.275 12.3663 6.96927 12.3663Z" fill="white"/>
                 <path class="scrollIcon" fill="#fff" d="M15.9966 12.3491C15.707 12.3491 15.4495 12.4672 15.2564 12.6865C15.0472 12.9057 14.9507 13.1756 14.9507 13.496C14.9507 13.8165 15.0472 14.0695 15.2564 14.3056C15.4656 14.5249 15.707 14.643 15.9966 14.643C16.2863 14.643 16.5437 14.5249 16.7529 14.3056C16.9621 14.0864 17.0747 13.8165 17.0747 13.496C17.0747 13.1756 16.9621 12.9226 16.7529 12.6865C16.5598 12.4503 16.3023 12.3491 15.9966 12.3491Z" fill="white"/>
                 <path class="scrollIcon" fill="#fff" d="M22.0308 12.3663C21.7412 12.3663 21.4837 12.4844 21.2906 12.7037C21.0814 12.9229 20.9849 13.1928 20.9849 13.5133C20.9849 13.8337 21.0814 14.0867 21.2906 14.3229C21.4998 14.5421 21.7412 14.6602 22.0308 14.6602C22.3204 14.6602 22.5779 14.5421 22.7871 14.3229C22.9963 14.1036 23.1089 13.8337 23.1089 13.5133C23.1089 13.1928 22.9963 12.9229 22.7871 12.7037C22.5779 12.4675 22.3204 12.3663 22.0308 12.3663Z" fill="white"/>
@@ -30,6 +33,8 @@
             <!-- <svg width="29" height="30" viewBox="0 0 29 30"  xmlns="http://www.w3.org/2000/svg">
                 <path class="scrollIcon" fill="#fff" fill-rule="evenodd" clip-rule="evenodd" d="M24.8892 5.89461C26.0334 6.20992 26.9337 7.14616 27.2385 8.33949C27.7918 10.4982 27.7871 14.9998 27.7871 14.9998C27.7871 14.9998 27.7871 19.5015 27.2338 21.6602C26.929 22.8487 26.0287 23.7849 24.8845 24.1051C22.8119 24.6823 14.4978 24.6823 14.4978 24.6823C14.4978 24.6823 6.18379 24.6823 4.11114 24.1051C2.96696 23.7897 2.06663 22.8535 1.76183 21.6602C1.2085 19.5015 1.2085 14.9998 1.2085 14.9998C1.2085 14.9998 1.2085 10.4982 1.76652 8.33464C2.07132 7.14616 2.97165 6.20992 4.11583 5.88976C6.18848 5.3125 14.5025 5.3125 14.5025 5.3125C14.5025 5.3125 22.8119 5.3125 24.8892 5.89461ZM18.7322 14.9999L11.7827 10.9105V19.0892L18.7322 14.9999Z" fill="white"/>
             </svg> -->
+
+            
         </div>
     </div>
 </footer>
@@ -38,7 +43,7 @@
     <div class="d-flex flex-column py-3">
         <div class="d-flex gx-3 gap-4 for-sm ">
             <!-- blog -->
-            <svg class="cursor-pointer" width="29" height="30" viewBox="0 0 29 30"  xmlns="http://www.w3.org/2000/svg"  onclick="location.href='https://smartstore.naver.com/house1004?NaPm=ct%3Dm5tmcm0n%7Cci%3Dcheckout%7Ctr%3Dds%7Ctrx%3Dnull%7Chk%3D601dcb1315024196e52f53b965cf590aa68e5e44'">
+            <svg class="cursor-pointer" width="29" height="30" viewBox="0 0 29 30"  xmlns="http://www.w3.org/2000/svg"  onclick="location.href='https://blog.naver.com/ojak_kjs'">
                 <path class="scrollIcon" fill="#fff" d="M6.96927 12.3663C6.67963 12.3663 6.42217 12.4844 6.22907 12.7037C6.01989 12.9229 5.92334 13.1928 5.92334 13.5133C5.92334 13.8337 6.01989 14.0867 6.22907 14.3229C6.43826 14.5421 6.67963 14.6602 6.96927 14.6602C7.25891 14.6602 7.51637 14.5421 7.72556 14.3229C7.93475 14.1036 8.04738 13.8337 8.04738 13.5133C8.04738 13.1928 7.93475 12.9229 7.72556 12.7037C7.51637 12.4675 7.275 12.3663 6.96927 12.3663Z" fill="white"/>
                 <path class="scrollIcon" fill="#fff" d="M15.9966 12.3491C15.707 12.3491 15.4495 12.4672 15.2564 12.6865C15.0472 12.9057 14.9507 13.1756 14.9507 13.496C14.9507 13.8165 15.0472 14.0695 15.2564 14.3056C15.4656 14.5249 15.707 14.643 15.9966 14.643C16.2863 14.643 16.5437 14.5249 16.7529 14.3056C16.9621 14.0864 17.0747 13.8165 17.0747 13.496C17.0747 13.1756 16.9621 12.9226 16.7529 12.6865C16.5598 12.4503 16.3023 12.3491 15.9966 12.3491Z" fill="white"/>
                 <path class="scrollIcon" fill="#fff" d="M22.0308 12.3663C21.7412 12.3663 21.4837 12.4844 21.2906 12.7037C21.0814 12.9229 20.9849 13.1928 20.9849 13.5133C20.9849 13.8337 21.0814 14.0867 21.2906 14.3229C21.4998 14.5421 21.7412 14.6602 22.0308 14.6602C22.3204 14.6602 22.5779 14.5421 22.7871 14.3229C22.9963 14.1036 23.1089 13.8337 23.1089 13.5133C23.1089 13.1928 22.9963 12.9229 22.7871 12.7037C22.5779 12.4675 22.3204 12.3663 22.0308 12.3663Z" fill="white"/>
@@ -100,7 +105,7 @@
         const footerDivSm = document.getElementById('footer-busniess-sm');
         const footerInnerHtml = sessionStorage.getItem("footerInnerHtml");
 
-        if(!footerInnerHtml){
+        if(window.location.href == "/"){
             try {
                 axios.get('/api/getBusniessInfo?return_type=json').then(function(response){
                     if(response['data']['status']=='success'){
@@ -110,11 +115,11 @@
                             // document.cookie = d['name'] + " = " + d['value'];
                             const newDiv = document.createElement("div");
                             newDiv.classList.add('pt-2');
-                            newDiv.innerText = d['value'];
-                            // newDiv.innerText = d['name'] + " : " + d['value'];
+                            // newDiv.innerText = d['value'];
+                            newDiv.innerText = d['name'] + " : " + d['value'];
                             if(footerDiv) footerDiv.appendChild(newDiv);
                             if(footerDivSm) footerDivSm.appendChild(newDiv);
-                        })
+                        }) 
 
                         //footerdiv cookie에 저장하기
                         if(footerDiv) sessionStorage.setItem("footerInnerHtml",footerDiv.innerHTML);
@@ -129,7 +134,6 @@
                 console.error('Error inserting data:', error);
             }
         }else{
-           
             if(footerDiv)  footerDiv.innerHTML = footerInnerHtml;
             if(footerDivSm) footerDivSm.innerHTML = footerInnerHtml;
         }
