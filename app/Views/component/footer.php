@@ -1,18 +1,19 @@
 <!-- FOOTER: DEBUG INFO + COPYRIGHTS -->
 <footer class=" bg-light px-5 for-lg">
     <div class="d-flex justify-content-between  py-5">
-        <div class="d-flex flex-column gy-5 fw-bold" >
-            <!-- <div class="pt-2">상호명 : 경북공예문화협동조합</div>
-            <div class="pt-2">대표자 : 고정숙</div>
-            <div class="pt-2">사업자등록번호 : 506-18-72685</div>
-            <div class="pt-2">통신판매업신고번호 : 제2013-경북포항-0195호 [사업자정보확인]</div>
-            <div class="pt-2">고객센터 : 1661-1574</div>
-            <div class="pt-2">팩스 : 0504-084-2789</div>
-            <div class="pt-2">주소 : 37911 경상북도 포항시 남구 오천읍 장기로1479번길 2-4</div>
-            <div class="pt-2">개인정보보호책임자 : 고보빈(jung755@naver.com)</div> -->
-            <div id="footer-busniess"></div>
-            <div class="cursor-pointer hover-underline pt-2" onclick="location.href='/contract'">이용약관</div>
-            <div class="cursor-pointer hover-underline pt-2" onclick="location.href='/personalinfo'">개인정보처리방침</div>
+        <div>
+            <div class="d-flex flex-column gy-5 fw-bold" id="footer-busniess">
+                <!-- <div class="pt-2">상호명 : 경북공예문화협동조합</div>
+                <div class="pt-2">대표자 : 고정숙</div>
+                <div class="pt-2">사업자등록번호 : 506-18-72685</div>
+                <div class="pt-2">통신판매업신고번호 : 제2013-경북포항-0195호 [사업자정보확인]</div>
+                <div class="pt-2">고객센터 : 1661-1574</div>
+                <div class="pt-2">팩스 : 0504-084-2789</div>
+                <div class="pt-2">주소 : 37911 경상북도 포항시 남구 오천읍 장기로1479번길 2-4</div>
+                <div class="pt-2">개인정보보호책임자 : 고보빈(jung755@naver.com)</div> -->
+            </div>
+            <div class="cursor-pointer hover-underline pt-2 fw-bold" onclick="location.href='/contract'">이용약관</div>
+            <div class="cursor-pointer hover-underline pt-2 fw-bold" onclick="location.href='/personalinfo'">개인정보처리방침</div>
         </div>
         <div class="d-flex gx-3 gap-4 for-sm">
             <!-- blog -->
@@ -105,7 +106,7 @@
         const footerDivSm = document.getElementById('footer-busniess-sm');
         const footerInnerHtml = sessionStorage.getItem("footerInnerHtml");
 
-        if(window.location.href == "/"){
+        if(true){
             try {
                 axios.get('/api/getBusniessInfo?return_type=json').then(function(response){
                     if(response['data']['status']=='success'){
@@ -117,7 +118,7 @@
                             newDiv.classList.add('pt-2');
                             // newDiv.innerText = d['value'];
                             newDiv.innerText = d['name'] + " : " + d['value'];
-                            if(footerDiv) footerDiv.appendChild(newDiv);
+                            if(footerDiv) footerDiv.innerHTML += '<div class="pt-2">'+d['name'] + " : " + d['value']+'</div>';
                             if(footerDivSm) footerDivSm.appendChild(newDiv);
                         }) 
 

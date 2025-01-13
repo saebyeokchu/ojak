@@ -143,8 +143,8 @@
     
     // Close modal when clicking outside the modal content
     window.addEventListener("click", (event) => {
-        changeToLogin();
         if (event.target === modal) {
+            changeToLogin();
             modal.style.display = "none";
         }
     });
