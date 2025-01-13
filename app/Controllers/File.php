@@ -9,7 +9,7 @@ class File extends ResourceController
     public function upload($file,$uploadedFromUser)
     {
         // Define the upload path
-        $uploadPath = $uploadedFromUser ? ROOTPATH . 'public\\img\\user\\' : ROOTPATH . 'public\\img\\';
+        $uploadPath = $uploadedFromUser ? ROOTPATH . 'public//img//user//' : ROOTPATH . 'public//img//';
         log_message('error',"uploadPath:".$uploadPath);
         
         // Ensure the upload directory exists
