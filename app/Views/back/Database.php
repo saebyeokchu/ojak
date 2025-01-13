@@ -1,7 +1,18 @@
 <?php
 
 namespace Config;
+use Aws\Ssm\SsmClient;
+
 use CodeIgniter\Database\Config;
+
+// switch($_SERVER["HTTP_HOST"]){
+//     case "localhost":
+//        define('DB_ENV', 'development');
+//         break;
+//     default:
+//        define('DB_ENV', 'production');
+//        break;
+// }
 
 
 /**
@@ -9,6 +20,10 @@ use CodeIgniter\Database\Config;
  */
 class Database extends Config
 {
+    public array $aws = [
+        'region' => ''
+    ];
+
     /**
      * The directory that holds the Migrations and Seeds directories.
      */
@@ -191,5 +206,27 @@ class Database extends Config
     {
         parent::__construct();
 
+        // Ensure that we always set the database group to 'tests' if
+        // we are currently running an automated test suite, so that
+        // we don't overwrite live data on accident.
+        if (ENVIRONMENT === 'testing') {
+            $this->defaultGroup = 'tests';
+        }
+
+        // $client = new SsmClient([
+        //     'version' => 'latest',
+        //     'region' => 'us-east-1',
+        //     'profile' => 'ojak'
+        // ]);
+
+        // $result = $client->getParameter([
+        //     'Name' => 'ojakdbpw',
+        //     'WithDecryption' => true,
+        // ]);
+
+        // if((DB_ENV === 'production')){
+        //     $this->default['password'] = $result['Parameter']['Value'];
+        // }
+        
     }
 }
