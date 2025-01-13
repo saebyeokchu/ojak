@@ -45,7 +45,7 @@
 
 
     <!-- content -->
-    <div class="grid mt-70" >
+    <div class="grid " id="galleryOuterWrapper" >
         <div class="d-flex justify-content-center">
             <p class="fw-bold" style="font-size: 32px;">작품</p>
         </div>
@@ -265,14 +265,17 @@
 
     document.addEventListener("DOMContentLoaded", () => {
         //layout
+        const galleryOuterWrapper  = document.getElementById("galleryOuterWrapper");
         const galleryWrapper = document.getElementById("galleryWrapper");
         const innerWidth = window.innerWidth;
 
         if(galleryWrapper){
             if(innerWidth < 700){
                 galleryWrapper.style.marginTop = "30px";
+                galleryOuterWrapper.style.marginTop = "70px";
             }else{
                 galleryWrapper.style.marginTop = "70px";
+                galleryOuterWrapper.style.marginTop = "100px";
             }
         }
     });

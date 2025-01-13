@@ -8,6 +8,15 @@
     if(isset($_COOKIE['user_id'])){
         $userId = $_COOKIE['user_id'];
     }
+
+    //check ownership
+    $owned_by_user = false;
+
+    if(isset( $_COOKIE['user_id'])){
+        if($_COOKIE['user_id'] == $post['id']){
+            $owned_by_user = true;
+        }
+    }
 ?>
 
 <div class="d-flex flex-column ms-5 me-5" style="margin-top:200px; margin-bottom:100px;">
@@ -52,10 +61,12 @@
     </div>
 
     <!-- button -->
+    <?php if($owned_by_user) { ?>
     <div class="d-flex flex-row gap-2 justify-content-center" >
         <a class="bs-button no-text-decoration " href="/community/edit?id=<?=$post['id']?>&gubun=1&pageIndex=<?=$pageIndex?>"> 수정하기 </a>
         <span class="bs-button" onclick="deleteNotice(<?=$post['id']?>)"> 삭제하기 </span>
     </div>
+    <?php } ?>
 
     <!-- return text -->
     <div class="d-flex justify-content-start w-100 align-middle cursor-pointer mt-150" onclick="location.href='/community/list/1?index=1'">

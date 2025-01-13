@@ -5,14 +5,14 @@ use Aws\Ssm\SsmClient;
 
 use CodeIgniter\Database\Config;
 
-switch($_SERVER["HTTP_HOST"]){
-    case "localhost":
-       define('DB_ENV', 'development');
-        break;
-    default:
-       define('DB_ENV', 'production');
-       break;
-}
+// switch($_SERVER["HTTP_HOST"]){
+//     case "localhost":
+//        define('DB_ENV', 'development');
+//         break;
+//     default:
+//        define('DB_ENV', 'production');
+//        break;
+// }
 
 
 /**
