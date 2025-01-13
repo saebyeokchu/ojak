@@ -1,4 +1,9 @@
-
+<?php 
+    if(!$isAdmin){
+        echo '<script>window.alert("유효하지 않은 접근입니다.")</script>';
+        echo '<script>location.href="/";</script>';
+    }
+?>
 
 <div class="for-lg " >
     <div class="d-flex flex-column justify-content-start mt-70">

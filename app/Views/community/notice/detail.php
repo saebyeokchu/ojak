@@ -2,7 +2,6 @@
     $post = $contents["post"];
     $pageIndex = $contents["pageIndex"];
     $gubun = $contents["gubun"];
-    $deleteUrl = "/community/list/".$gubun."?pageIndex=".$pageIndex;
 
     $userId=0;
     if(isset($_COOKIE['user_id'])){
@@ -13,7 +12,7 @@
     $owned_by_user = false;
 
     if(isset( $_COOKIE['user_id'])){
-        if($_COOKIE['user_id'] == $post['id']){
+        if($_COOKIE['user_id'] == $post['user_id']){
             $owned_by_user = true;
         }
     }
@@ -52,7 +51,7 @@
         <div style="font-size: 36px;" class="fw-bold">
             <?=$post["title"];?>
         </div>
-        <div style="font-size: 20px;" ><?=date("Y-m-d H:i:s",$post["created_at"]);?></div>
+        <div style="font-size: 20px;" ><?=$post["created_at"];?></div>
     </div>
 
     <!-- content -->
@@ -69,7 +68,7 @@
     <?php } ?>
 
     <!-- return text -->
-    <div class="d-flex justify-content-start w-100 align-middle cursor-pointer mt-150" onclick="location.href='/community/list/1?index=1'">
+    <div class="d-flex justify-content-start w-100 align-middle cursor-pointer mt-150" id="backToListLink">
         <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M15.98 26L34.5 26L34.5 22L15.98 22L15.98 16L8 24L15.98 32L15.98 26Z" fill="#17171B"/>
         </svg>
@@ -80,6 +79,10 @@
 
 
 <script>
+    window.addEventListener('load', () => {
+        document.getElementById('backToListLink').onclick = () => location.href = getUrl(0,0,<?=$pageIndex?>).communityNotice;
+     });
+
     function deleteNotice(id){
         turnOnLoadingScreen();
 
@@ -92,7 +95,7 @@
                 axios.post('/api/deletePost', postData).then(function(response){
                     console.log("success:", response);
                     window.alert(response.data.message)
-                    location.href = '<?=$deleteUrl?>';
+                    location.href = getUrl(0,0,<?=$pageIndex?>).communityNotice;
                     return;
                 }).catch(function(error){
                     console.log("error:", error);

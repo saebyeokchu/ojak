@@ -77,6 +77,58 @@
 
         window.addEventListener('load', () => {
             document.body.classList.add('loaded');
+
+            //get social info
+            axios.get('/api/getSocialInfo').then(function(response){
+                if(response['data']['status']=='success'){
+                    const data = response['data']['data'];
+
+                    const headerNaverLogo = document.getElementById("headerNaverLogo");
+                    const headerInstaLogo = document.getElementById("headerInstaLogo");
+                    const footerNaverLogo = document.getElementById("footerNaverLogo");
+                    const footerInstaLogo = document.getElementById("footerInstaLogo");
+
+                    //headerNaverLogo headerInstaLogo footerNaverLogo footerInstaLogo
+                    data.forEach(e => {
+                        switch(e.name){
+                            case "네이버 블로그" : {
+                                if(e.note=="on"){
+                                    footerNaverLogo.classList.remove("hide-item");
+                                    headerNaverLogo.classList.remove("hide-item");
+                                    headerNaverLogo.onclick = () => window.open(
+                                                                        e.value,
+                                                                        '_blank' 
+                                                                    );
+                                }else{
+                                    footerNaverLogo.classList.add("hide-item"); 
+                                    headerNaverLogo.classList.add("hide-item"); 
+                                }
+                                break;
+                            }
+                            case "인스타그램" : {
+                                if(e.note=="on"){
+                                    footerInstaLogo.classList.remove("hide-item");
+                                    headerInstaLogo.classList.remove("hide-item");
+                                    headerInstaLogo.onclick = () => window.open(
+                                                                        e.value,
+                                                                        '_blank' 
+                                                                    );
+                                }else{
+                                    footerInstaLogo.classList.add("hide-item"); 
+                                    headerInstaLogo.classList.add("hide-item"); 
+                                }
+                                break;
+                            }
+                            case "유튜브" : {
+                                break;
+                            }
+                        }
+                    });
+                }
+            }).catch(function(error){
+                console.log("error:", error);
+            });
+                
         });
 
         // Function to show the loading screen
@@ -92,6 +144,8 @@
             loadingScreen.classList.remove('show-item');
             document.body.style.overflow = ''; // Restore scrolling
         }
+
+        //get socials
 
     </script>
     <!-- -->

@@ -181,11 +181,11 @@ class Community extends BaseController
             $posts['view_count'] = $posts['view_count'] + 1;
 
             if($gubun == 1){
-                $data['yield']       = 'community/component/noticeDetail';
+                $data['yield']       = 'community/notice/detail';
             }else if($gubun == 2){
-                $data['yield']       = 'community/component/eventDetail';
+                $data['yield']       = 'community/event/detail';
             }else if($gubun == 3){
-                $data['yield']       = 'community/component/qnaDetail';
+                $data['yield']       = 'community/qna/detail';
 
                 if($comments['status'] == 'success') {
                     $data['contents']["comments"] = $comments['comments'];

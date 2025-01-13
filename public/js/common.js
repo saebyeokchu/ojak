@@ -20,16 +20,16 @@ function eraseCookie(name) {
 }
 
 function getAllUrl(){
-    return getUrl(0,0,0);
+    return getUrl(0,0);
 }
 
-function getUrl(id, gubun, pageIndex) {
+function getUrl(id, gubun, pageIndex=1) {
     const urls = {
         'communityEditor' : "/community/edit?id="+id+"&gubun="+gubun+"&pageIndex="+pageIndex,
         'communityDetail' : "/community/detail?id="+id+"&gubun="+gubun+"&pageIndex="+pageIndex,
-        'communityNotice' : "/community/notice?pageIndex=1",
-        'communityEvent' : "/community/event?pageIndex=1",
-        'communityQna' : "/community/qna?pageIndex=1",
+        'communityNotice' : "/community/notice?pageIndex="+pageIndex,
+        'communityEvent' : "/community/event?pageIndex="+pageIndex,
+        'communityQna' : "/community/qna?pageIndex="+pageIndex,
     };
     return urls;
 }

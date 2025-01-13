@@ -1,9 +1,4 @@
 <?php
-
-    function getgubun($post){
-        return $post['gubun'] == $gubun;
-    }
-
     if(isset($data)) {
         $posts = $data;
         $rowCount = count($data);

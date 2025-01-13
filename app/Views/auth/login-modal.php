@@ -124,19 +124,20 @@
     if(openModalBtn){
         openModalBtn.addEventListener("click", () => {
             modal.style.display = "flex"; // Show modal
+            changeToLogin();
         });
     }
 
     if(openModalMobileBtn){
         openModalMobileBtn.addEventListener("click", () => {
-        closeToggleDivSm();
-        modal.style.display = "flex"; // Show modal
+            closeToggleDivSm();
+            modal.style.display = "flex"; // Show modal
+            changeToLogin();
         });
     }
 
     if(closeModalBtn){
         closeModalBtn.addEventListener("click", () => {
-            changeToLogin();
             modal.style.display = "none"; // Hide modal
         });
     }

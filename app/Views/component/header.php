@@ -180,6 +180,10 @@
         <!-- menu -->
         <div class="d-flex justify-content-center text-center cursor-pointer pt-15" >
             <div class="d-felx mt-4 g-3" style="list-style: none;">
+                <?php if(isset($_COOKIE["user_id"])) { ?>
+                    <a class="mt-2 nav-link toggle-header-menu " href="/my/home">마이페이지</a>
+                <?php } ?>
+
                 <a class="mt-2 nav-link toggle-header-menu <?=$lgBrandUrl?>" href="/brand">브랜드</a>
                 <a class="mt-2 nav-link toggle-header-menu <?=$lgGalleryUrl?>" href="/gallery?pageIndex=1">작품</a>
                 <div onmouseenter="showcommunitydiv('sm-header-community-submenu')"  onmouseleave="hidecommunitydiv('sm-header-community-submenu')">
@@ -190,9 +194,6 @@
                         <a class="nav-link cursor-hover <?=$lgQnaUrl?> mt-2" id="lgToggleCommunityQna">Q&A</a>
                     </div>
                 </div>
-                <?php if(isset($_COOKIE["user_id"])) { ?>
-                    <a class="mt-2 nav-link toggle-header-menu " href="/my/home">마이페이지</a>
-                <?php } ?>
             </div>
         </div>
     </div>
@@ -262,8 +263,8 @@
                     <!-- <a class="nav-link cursor-pointer mt-2 fs-6" data-bs-toggle="modal" data-bs-target="#login-modal">로그인</a> -->
                     <a class="nav-link cursor-pointer hover-underline fs-6" data-bs-toggle="modal" data-bs-target="#openModal" >로그인</a>
                 <?php } ?>
-                <!-- blog -->
-                <svg class="cursor-pointer" width="29" height="30" viewBox="0 0 29 30"  xmlns="http://www.w3.org/2000/svg" onclick="location.href='https://blog.naver.com/ojak_kjs'">
+                <!-- naver blog -->
+                <svg id="headerNaverLogo" class="cursor-pointer" width="29" height="30" viewBox="0 0 29 30"  xmlns="http://www.w3.org/2000/svg" >
                     <path class="scrollIcon" fill="#fff" d="M6.96927 12.3663C6.67963 12.3663 6.42217 12.4844 6.22907 12.7037C6.01989 12.9229 5.92334 13.1928 5.92334 13.5133C5.92334 13.8337 6.01989 14.0867 6.22907 14.3229C6.43826 14.5421 6.67963 14.6602 6.96927 14.6602C7.25891 14.6602 7.51637 14.5421 7.72556 14.3229C7.93475 14.1036 8.04738 13.8337 8.04738 13.5133C8.04738 13.1928 7.93475 12.9229 7.72556 12.7037C7.51637 12.4675 7.275 12.3663 6.96927 12.3663Z" fill="white"/>
                     <path class="scrollIcon" fill="#fff" d="M15.9966 12.3491C15.707 12.3491 15.4495 12.4672 15.2564 12.6865C15.0472 12.9057 14.9507 13.1756 14.9507 13.496C14.9507 13.8165 15.0472 14.0695 15.2564 14.3056C15.4656 14.5249 15.707 14.643 15.9966 14.643C16.2863 14.643 16.5437 14.5249 16.7529 14.3056C16.9621 14.0864 17.0747 13.8165 17.0747 13.496C17.0747 13.1756 16.9621 12.9226 16.7529 12.6865C16.5598 12.4503 16.3023 12.3491 15.9966 12.3491Z" fill="white"/>
                     <path class="scrollIcon" fill="#fff" d="M22.0308 12.3663C21.7412 12.3663 21.4837 12.4844 21.2906 12.7037C21.0814 12.9229 20.9849 13.1928 20.9849 13.5133C20.9849 13.8337 21.0814 14.0867 21.2906 14.3229C21.4998 14.5421 21.7412 14.6602 22.0308 14.6602C22.3204 14.6602 22.5779 14.5421 22.7871 14.3229C22.9963 14.1036 23.1089 13.8337 23.1089 13.5133C23.1089 13.1928 22.9963 12.9229 22.7871 12.7037C22.5779 12.4675 22.3204 12.3663 22.0308 12.3663Z" fill="white"/>
@@ -271,7 +272,7 @@
                 </svg>
 
                 <!-- instagram icon href="https://www.instagram.com/ko_jeong_suk/" -->
-                <svg class="cursor-pointer" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" onclick="location.href='https://www.instagram.com/ko_jeong_suk/'">
+                <svg id="headerInstaLogo" class="cursor-pointer" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" >
                     <path class="scrollIcon" fill="#fff"id="lg-header-insta-icon1" d="M14.9998 11.0419C12.8602 11.0419 11.0415 12.8606 11.0415 15.0002C11.0415 17.1398 12.8602 18.9585 14.9998 18.9585C17.1395 18.9585 18.9582 17.1398 18.9582 15.0002C18.9582 12.8606 17.1395 11.0419 14.9998 11.0419Z" fill="white"/>
                     <path class="scrollIcon" fill="#fff"id="lg-header-insta-icon2" d="M20.0739 3.125H10.0341C6.14773 3.125 3.125 6.14773 3.125 9.92614V19.9659C3.125 23.8523 6.14773 26.875 10.0341 26.875H20.0739C23.8523 26.875 26.875 23.8523 26.875 19.9659V9.92614C26.875 6.14773 23.8523 3.125 20.0739 3.125ZM15 21.2614C11.5455 21.2614 8.84659 18.4545 8.84659 15.108C8.84659 11.7614 11.5455 8.84659 15 8.84659C18.4545 8.84659 21.1534 11.6534 21.1534 15C21.1534 18.3466 18.4545 21.2614 15 21.2614ZM21.3693 10.142C20.6136 10.142 19.9659 9.49432 19.9659 8.73864C19.9659 7.98295 20.6136 7.33523 21.3693 7.33523C22.125 7.33523 22.7727 7.98295 22.7727 8.73864C22.7727 9.49432 22.125 10.142 21.3693 10.142Z" fill="white"/>
                 </svg>

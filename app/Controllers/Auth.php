@@ -1,9 +1,23 @@
 <?php
 
 namespace App\Controllers;
+use PhpParser\Node\Expr\BinaryOp\BooleanOr;
 
 class Auth extends BaseController
 {
+
+    public function isAdmin() : bool {
+        $logginedId = $_COOKIE['user_id'];
+
+        if(isset($logginedId) && $logginedId > -1){
+            if($logginedId == 1){
+                return true;
+            }
+        }
+
+        return false;
+    }
+    
     public function index(): string
     {
         $data['yield']       = 'auth/index';
@@ -89,13 +103,16 @@ class Auth extends BaseController
         $name = $this->request->getPost('name');
         $pw = $this->request->getPost('pw');
         $authCode = $this->request->getPost('authCode');
+        $note = $this->request->getPost('adminEmail');
+
+        log_message('error','password : '.$pw);
 
         $api = new \App\Controllers\Api();
 
         $getUser = $api -> getUserByUserId($id);
 
         if(isset($getUser['user'])){
-            $user = $getUser['user'][0];
+            $user = $getUser['user'];
 
             if(isset($name)){
                 $user['user_name'] = $name;
@@ -108,7 +125,11 @@ class Auth extends BaseController
             if(isset($authCode)){
                 $user['auth_code'] = $authCode;
             }
-            
+
+            if(isset($note)){
+                $user['note'] = $note;
+            }
+
     
             $result = $api -> updateUser($user);
     
@@ -251,33 +272,49 @@ class Auth extends BaseController
         $getUser = $api -> getUserByUserId($id);
 
         if(isset($getUser['user'])){
-            $user = $getUser['user'][0];
-            $user['auth_code'] = $authCode;
+
+            //after verify user, send email
+            $user = $getUser['user'];
+            log_message('error',serialize($user));
+
+            if($userId == 'admin'){
+                $targetEmail = $api -> getAdminEmail();
+            }else{
+                $targetEmail = $userId;
+            }
+            
+            log_message('error','userId : '.serialize($userId));
+
+            //send email
+            $eapi = new \App\Controllers\Mail();
+            $mailReault = $eapi -> send(
+                $targetEmail, 
+                $name, 
+                '[오작] 오작에서 전송한 인증번호입니다.', 
+                '<div style="max-width: 600px; margin: 20px auto; background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                <div style="background-color: black; color: #ffffff; padding: 20px; text-align: center; font-size: 24px;"><strong>인증번호</strong></div>
+                <div style="padding: 20px; color: #333333;">
+                <p style="margin: 10px 0;">'.$user['user_name'].'님,</p>
+                <p style="margin: 10px 0;">인증번호를 보내드립니다.</p>
+                <div style="display: inline-block; background-color: #f4f4f4; color: #black; font-size: 24px; font-weight: bold; padding: 10px 20px; border: 1px dashed black; border-radius: 5px; margin: 20px 0; text-align: center;">'.$authCode.'</div>
+                <p style="margin: 10px 0;">이 코드는 전송시점 이후 <strong>10 분</strong>까지 유효합니다. 만약 이 인증번호를 요청하시지 않았다면 이 메일을 삭제하여 주시기 바랍니다.</p>
+                </div>
+                <div style="padding: 10px 20px; text-align: center; background-color: #f4f4f4; font-size: 12px; color: #666666;">&copy; 2025 Ojak. All rights reserved.</div>
+                </div>'
+            );
+
+            if($mailReault){
+                //check pw
+                $user['auth_code'] = $authCode;
     
-            $result = $api -> updateUser($user);
-    
-            if($result['status'] == 'success'){
-                if($userId == 'admin'){
-                    $userId = "cuu2252@gmail.com";
-                }
-
-                //send email
-                $eapi = new \App\Controllers\Mail();
-                $mailReault = $eapi -> send(
-                    $userId, 
-                    $name, 
-                    '오작 인증번호', 
-                    '인증번호를 입력해 주세요 <br />'.$authCode
-                );
-
-
-                if($mailReault){
-                    //check pw
+                $result = $api -> updateUser($user);
+                if($result['status'] == 'success'){
                     return $this->response->setJSON([
                         'status' => 'success'
                     ]);
                 }
             }
+            
         }
     
         return $this->response->setJSON([
@@ -294,7 +331,7 @@ class Auth extends BaseController
         $getUser = $api -> getUserByUserId($id);
 
         if(isset($getUser['user'])){
-            $user = $getUser['user'][0];
+            $user = $getUser['user'];
             $dbAuthCode = $user['auth_code'];
 
             log_message('error',$authCode.":".$user['auth_code']);

@@ -10,7 +10,7 @@ class File extends ResourceController
     {
         // Define the upload path
         $uploadPath = $uploadedFromUser ? ROOTPATH . 'public/img/user/' : ROOTPATH . 'public/img/';
-        log_message('error',"uploadPath2:".$uploadPath);
+        log_message('error',"uploadPath:".$uploadPath);
         
         // Ensure the upload directory exists
         if (!is_dir($uploadPath)) {

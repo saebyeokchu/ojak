@@ -16,10 +16,13 @@ class My extends BaseController
         if(!isset($_COOKIE['user_id'])){
             $data['yield']       = 'errors/html/error_auth';
         }else{
+            $api = new \App\Controllers\Api();
+            $auth = new \App\Controllers\Auth();
+
             $data['yield']       = 'my/index';
             $data['contents']['sub']       = $sub;
+            $data['contents']['isAdmin']       = $auth->isAdmin();
     
-            $api = new \App\Controllers\Api();
             $target_data = null;
             if($sub == 'community'){
                 $result = $api -> getPostsByUserId($_COOKIE['user_id']);
@@ -42,6 +45,11 @@ class My extends BaseController
                 }
             }else if($sub == 'busniess'){
                 $result = $api -> getBusniessInfo();
+                if($result['status'] == 'success') {
+                    $target_data = $result['data'];
+                }//
+            }else if($sub == 'social'){
+                $result = $api -> getSocialInfo();
                 if($result['status'] == 'success') {
                     $target_data = $result['data'];
                 }//

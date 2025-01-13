@@ -24,11 +24,49 @@ class Api extends Controller
         }
     }
 
+    public function getSocialInfo(){
+        $model = new \App\Models\SettingModel();
+
+        $result = $model->where('category', 5)->orderBy('sort_order','asc')->findAll();
+
+        if($result) {
+                return [
+                    'status' => 'success',
+                    'data' => $result
+                ];
+        } else {
+
+                return [
+                    'status' => 'error',
+                    'message' => 'No data',
+                ];
+            }
+    }
+
+    public function getSocialInfoJson(){
+        $model = new \App\Models\SettingModel();
+
+        $result = $model->where('category', 5)->orderBy('sort_order','asc')->findAll();
+
+        if($result) {
+                return $this->response->setJSON([
+                    'status' => 'success',
+                    'data' => $result
+                ]);
+        } else {
+
+                return $this->response->setJSON([
+                    'status' => 'error',
+                    'message' => 'No data',
+                ]);
+            }
+    }
+
     public function getBusniessInfo(){
         $returnType = 'php';
         $model = new \App\Models\SettingModel();
 
-        $result = $model->where('category', 1)->findAll();
+        $result = $model->where('category', 1)->orderBy('sort_order','asc')->findAll();
 
         if(isset($_GET['return_type'])){
             $returnType = 'json';
@@ -64,11 +102,53 @@ class Api extends Controller
             }
         }
     }
+    
+
+    public function insertBusniessInfo($data)
+    {
+        // Get the incoming data from the POST request
+        $model = new \App\Models\SettingModel();
+        $result = $model->insert($data);
+
+        // Return the result as a JSON response
+        if ($result) {
+            return [
+                'status' => 'success',
+                'message' => 'Data inserted successfully!',
+                'insertedId' => $model->insertID
+            ];
+        } else {
+            return [
+                'status' => 'error',
+                'message' => 'Failed to insert data.'
+            ];
+        }
+    }
+
 
     public function updateBusniessInfo($id, $data){
         $model = new \App\Models\SettingModel();
 
         $result = $model->update($id, [ 'value' => $data ] );
+
+        if($result) {
+            return [
+                'status' => 'success',
+                'data' => $result
+            ];
+        } else {
+            return [
+                'status' => 'error',
+                'message' => 'No data',
+            ];
+        }
+    }
+
+    public function updateBatchSetting($data){
+        // $result = $model->update_batch('setting',$data, 'id');
+        $db      = \Config\Database::connect();
+        $builder = $db->table('setting');
+        $result = $builder->updateBatch($data, 'id');
 
         if($result) {
             return [
@@ -149,7 +229,37 @@ class Api extends Controller
         }
     }
 
+    public function deleteBatchSetting($ids){
+
+        $db      = \Config\Database::connect();
+        $builder = $db->table('setting');
+        $result = $builder->whereIn('id', $ids)->delete();
+
+        if($result){
+            return [
+                'status' => 'success',
+            ];
+        } else {
+            return [
+                'status' => 'error',
+            ];
+        }
+    }
+
     //Auth
+    public function getAdminEmail(){
+        $model = new \App\Models\UserModel();
+
+        $result = $model->find(1);
+
+        if($result) {
+            return $result["note"];
+        } else {
+            return null;
+        }
+    }
+
+
     public function getAllUser(){
         $model = new \App\Models\UserModel();
 
@@ -171,7 +281,7 @@ class Api extends Controller
     public function getUserByUserId($id){
         $model = new \App\Models\UserModel();
 
-        $result = $model->where('id', $id)->findAll();
+        $result = $model->find($id);
 
         if($result) {
             return [
@@ -241,6 +351,7 @@ class Api extends Controller
         $data = [
             'user_name' => $user['user_name'],
             'user_id' => $user['user_id'],
+            'user_pw' => $user['user_pw'],
             'approved' => $user['approved'],
             'auth_code' => $user['auth_code'],
         ];
@@ -833,6 +944,8 @@ class Api extends Controller
         $model = new \App\Models\CommentModel();
 
         //['title', 'content', 'user_id', 'created_at'];
+
+
         $data = [
             'post_id' => $postId,
             'comment' => $comment
@@ -841,6 +954,7 @@ class Api extends Controller
         if($commentId){
             $result = $model->update($commentId, $data);
         }else{
+            log_message('error',serialize($data));
             $result = $model->insert($data);
         }
 

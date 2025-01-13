@@ -13,7 +13,7 @@ function deletePost(postId){
             axios.post('/api/deletePost', postData).then(function(response){
                 console.log("success:", response);
                 window.alert(response.data.message)
-                window.reload();
+                location.reload();
                 return;
             }).catch(function(error){
                 console.log("error:", error);

@@ -7,7 +7,7 @@
             <h5 class="modal-title">이벤트 <?= (isset($item)) ?  '수정' : '추가' ?></h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <form action="javascript:;" onsubmit=" update( event ) ">
+        <form action="javascript:;" onsubmit=" update( event , <?= (isset($item)) ?  $item['id'] : null ?> ) ">
             <div class="d-flex flex-column gap-2">
                 <input placeholder="이벤트 이름" maxlength="23" type="text" class="form-control" id="input-name" value="<?= (isset($item)) ?  $item["title"] : '' ?>" required>
                 <textarea placeholder="이벤트 내용"  class="form-control" id="input-content" name="input-content" required ><?= (isset($item)) ?  $item["content"]  : '' ?></textarea>
@@ -60,19 +60,15 @@
         }
     }
 
-    async function update(event){
+    async function update(event, itemId){
         event.preventDefault();
 
         const title = event.target[0].value;
         const content = event.target[1].value;
         const file = document.getElementById('input-file');
-        const id = '<?php
-            if(isset($item)){
-                if(isset($item -> id)){
-                    echo $item -> id;
-                }
-            }
-        ?>' || '';
+        const id = itemId;
+
+        console.log("update", id);
 
         try {
             addEventModal.style.display = "none"; // Hide modal
@@ -91,9 +87,10 @@
                 const data =  response.data;
                 console.log(response)
 
-                if(data['status'] == 'success'){
+                if(response.status == 200){
                     // location.href="/gallery/" + response.data.insertedId
-                    console.log("success:", response);
+                    console.log("success2:", response);
+                    location.reload();
                 }
                 
             }).catch(function(error){

@@ -29,7 +29,7 @@
                         <a class="no-text-decoration hover-underline text-dark" href="<?=$detailUrl?><?=$pin->id?>"><?=$pin->title?></a>
                     </td>
                     <td><?=$pin->user_name?></td>
-                    <td><?=date("Y-m-d H:i:s", $pin->created_at);?></td>
+                    <td><?=$pin->created_at?></td>
                     <td><?=$pin->view_count?></td>
                 </tr>
             <?php } ?>
@@ -41,7 +41,7 @@
                         <a class="no-text-decoration hover-underline text-dark" href="<?=$detailUrl?><?=$post->id?>"><?=$post->title?></a>
                     </td>
                     <td><?=$post->user_name?></td>
-                    <td><?=date("Y-m-d H:i:s", $post->created_at);?></td>
+                    <td><?=$post->created_at?></td>
                     <td><?=$post->view_count?></td>
                 </tr>
                 <?php } 

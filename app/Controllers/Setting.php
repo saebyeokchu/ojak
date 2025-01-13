@@ -92,4 +92,76 @@ class Setting extends BaseController
         
     }
 
+    public function updateBusniessInfo(){
+        $targets = explode(',',$this->request->getPost('targets'));
+        $inputs = explode(',',$this->request->getPost('inputs'));
+        $columnName = $this->request->getPost('columnName');
+        $data = array();
+        $result = false;
+
+        for($i=0;$i<count($targets);$i++){
+            array_push($data,array('id'=>$targets[$i], $columnName=>$inputs[$i]));
+        }
+
+        if(count($data) > 0){
+            $api = new \App\Controllers\Api();
+            $result = $api -> updateBatchSetting($data);
+        }
+
+        if($result){
+            return $this->response->setJSON([
+                'status' => 'success',
+                'message' => '성공적으로 반영되었습니다.',
+            ]);
+        } else {
+            return $this->response->setJSON([
+                'status' => 'error',
+                'message' => '반영에 실패하였습니다. 잠시 후 다시 시도하여 주세요.'
+            ]);
+        }
+    }
+
+    public function insert(){
+        $name = $this->request->getPost('name');
+        $value = $this->request->getPost('value'); 
+        $category = $this->request->getPost('category'); 
+        $sort_order = $this->request->getPost('sort_order');
+
+        $api = new \App\Controllers\Api();
+        $result = $api -> insertBusniessInfo(array('name' => $name, 'value' => $value, 'category'=> $category, 'sort_order' => $sort_order));
+
+        if($result){
+            return $this->response->setJSON([
+                'status' => 'success',
+                'message' => '성공적으로 삭제되었습니다.',
+            ]);
+        } else {
+            return $this->response->setJSON([
+                'status' => 'error',
+                'message' => '삭제에 실패하였습니다. 잠시 후 다시 시도하여 주세요.'
+            ]);
+        }
+    }
+
+    public function deleteBiz()
+    {   
+        $targets = explode(',',$this->request->getPost('targets'));
+
+        $api = new \App\Controllers\Api();
+        $result = $api -> deleteBatchSetting($targets);
+
+        if($result){
+            return $this->response->setJSON([
+                'status' => 'success',
+                'message' => '성공적으로 삭제되었습니다.',
+            ]);
+        } else {
+            return $this->response->setJSON([
+                'status' => 'error',
+                'message' => '삭제에 실패하였습니다. 잠시 후 다시 시도하여 주세요.'
+            ]);
+        }
+        
+    }
+
 }

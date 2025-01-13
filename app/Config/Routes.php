@@ -57,6 +57,9 @@ $routes->post('/auth/checkAuthEmail', 'Auth::checkAuthEmail');
 $routes->post('/setting/uploadNotice', 'Setting::uploadNotice');
 $routes->post('/setting/uploadDisplayGallery', 'Setting::uploadDisplayGallery');
 $routes->post('/setting/deleteDisplayGallery', 'Setting::deleteDisplayGallery');
+$routes->post('/setting/updateBusniessInfo', 'Setting::updateBusniessInfo');
+$routes->post('/setting/insert', 'Setting::insert');
+$routes->post('/setting/deleteBiz', 'Setting::deleteBiz');
 
 // Api
 $routes->post('/api/insertPost', 'Api::insertPost');
@@ -65,6 +68,7 @@ $routes->post('/api/getById/(:id)', 'Api::getById/$1');
 $routes->post('/api/getGalleryById', 'Api::getGalleryByIdAPI');
 $routes->post('/api/deleteGallery', 'Api::deleteGallery');
 $routes->get('/api/getBusniessInfo', 'Api::getBusniessInfo');
+$routes->get('/api/getSocialInfo', 'Api::getSocialInfoJson');
 $routes->post('/api/sendEmail', 'Api::sendEmail');
 $routes->post('/api/insertEvent', 'Api::insertEvent');
 $routes->post('/api/insertComment', 'Api::insertComment');

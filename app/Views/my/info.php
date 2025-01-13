@@ -1,23 +1,34 @@
 <?php 
-  $info = $data[0]; 
-?>
+  $info = $data; 
+?> 
 
 <div class="for-lg " >
+    <p><small class="text-danger"> admin계정은 홈페이지를 관리할 수 있는 유일한 계정입니다. 변경시 유의하세요.</small></p>
+
     <div class="d-flex flex-column justify-content-start mt-70">
-        <p class="fw-bold" style="font-size: 32px;">개인 정보 관리</p>
-        <?php if($info['user_id'] == "admin") { ?>
-          <p><small class="text-danger"> admin계정은 홈페이지를 관리할 수 있는 유일한 계정입니다. 변경시 유의하세요.</small></p>
+        <p ><span class="fw-bold" style="font-size: 32px;">개인 정보 관리</span><br /><span>이메일 인증 후 개인정보를 변경하실 수 있습니다.</span></p>
+        <?php if($isAdmin) { ?>
         <?php }?>
     </div>
 
-    <form >
+    <div  id="authButton">
+      <button type="submit" class="btn btn-dark"  onclick="sendAuthCode(<?=$info['id']?>,'<?=$info['user_name']?>','<?=$info['user_id']?>')">이메일 인증하기</button>
+    </div>
+    
+    <div id="updateBtn"  class="hide-item">
+      <button type="submit" class="btn btn-dark"  onclick="updateUserInfo(<?=$info['id']?>,<?=$isAdmin?>)">수정하기</button>
+    </div>
+
+    <div class="d-flex flex-row gap-3 hide-item" id="authWrapper">
+          <input style="width: 200px;" type="text" class="form-control" id="authCodeInput" placeholder="인증번호" />
+          <button type="button" class="btn btn-dark" onclick="authEmail('<?=$info['id']?>')" id="authBtn">인증</button>
+    </div>
+
+    <form class="mt-3 w-25">
       <div class="mb-3">
         <label class="form-label">이름</label>
-        <span class="badge rounded-pill text-bg-secondary cursor-pointer" onclick="changeName('<?=$info['id']?>','<?=$info['user_name']?>')" >수정하기</span>
-
-
-
-        <input type="text" class="form-control" id="newName" value="<?= $info['user_name'] ?>">
+        <span class="badge rounded-pill text-bg-secondary cursor-pointer hide-item" onclick="changeName('<?=$info['id']?>','<?=$info['user_name']?>')" >수정하기</span>
+        <input type="text" class="form-control" id="newName" value="<?= $info['user_name'] ?>" disabled>
       </div>
 
       <div class="mb-3">
@@ -29,24 +40,21 @@
       <div class="mb-3">
         <label for="exampleInputPassword1" class="form-label">비밀번호</label>
         <!-- <span class="badge rounded-pill text-bg-secondary cursor-pointer" data-bs-toggle="modal" data-bs-target="#changePawssord">변경하기</span> -->
-        <span class="badge rounded-pill text-bg-secondary cursor-pointer" onclick="sendAuthCode(<?=$info['id']?>,'<?=$info['user_name']?>','<?=$info['user_id']?>')">
-          이메일 인증하기
-        </span>
+        <input type="text" class="form-control" id="fakeIdInput" disabled>
         
-        <input type="text" class="form-control" disabled>
-
-        <div class="d-flex flex-row w-25 gap-3 hide-item" id="authWrapper">
-          <input type="text" class="form-control" id="authCodeInput" placeholder="인증번호" />
-          <button type="button" class="btn btn-dark" onclick="authEmail('<?=$info['id']?>')" id="authBtn">인증</button>
-        </div>
-        
-        <div class="d-flex flex-column w-25 gap-3 my-3 hide-item" id="changePwDiv" >
+        <div class="d-flex flex-column gap-3 hide-item" id="changePwDiv" >
           <input placeholder="비밀번호"  type="password" name="register-pw" class="form-control" id="update-pw" required>
           <input placeholder="비밀번호 확인" type="password" class="form-control" id="update-pw-chk" required>
-          <button type="button" class="btn btn-dark" onclick="changePassword('<?=$info['id']?>')" >변경</button>
+          <button type="button" class="btn btn-dark hide-item" onclick="changePassword('<?=$info['id']?>')" >변경</button>
         </div>
-
       </div>
+      
+      <?php if($isAdmin) { ?>
+        <div class="mb-3">
+          <label class="form-label">관리자 이메일</label>
+          <input type="text" class="form-control" id="newAdminEmail" value="<?= $info['note'] ?>" disabled>
+        </div>
+      <?php } ?>
       
     </form> 
 
@@ -139,7 +147,12 @@
         await axios.post('/auth/sendAuthEmail', postData).then(async function(response){
           if(response.data.status == 'success'){
             window.alert("인증번호가 전송되었습니다");
+            
+            //show items
             document.getElementById('authWrapper').classList.remove('hide-item');
+            document.getElementById('authButton').classList.add('hide-item');
+
+
             return;
           }
         }).catch(function(error){
@@ -201,6 +214,8 @@
   }
 
   async function authEmail(id){
+    turnOnLoadingScreen();
+    
     const authCodeInput = document.getElementById('authCodeInput').value;
 
     if(!authCodeInput){
@@ -217,18 +232,80 @@
         await axios.post('/auth/checkAuthEmail', postData).then(async function(response){
           if(response.data.status == 'success'){
             window.alert("인증에 성공하셨습니다");
-            document.getElementById("changePwDiv").classList.remove("hide-item");
             document.getElementById("authWrapper").classList.add("hide-item");
+            document.getElementById("fakeIdInput").classList.add("hide-item");
+            document.getElementById("changePwDiv").classList.remove("hide-item");
+            document.getElementById("updateBtn").classList.remove("hide-item");
+            document.getElementById('newName').disabled = false;
+            document.getElementById('newAdminEmail').disabled = false;
             return;
           }
         }).catch(function(error){
             console.log("error:", error);
-            window.alert("인증코드 전송에 실패하였습니다. 잠시후 다시 시도하여 주세요.");
+            window.alert("올바르지 않은 인증번호 입니다. 잠시후 다시 시도하여 주세요");
+            document.getElementById('authButton').classList.remove('hide-item');
+            document.getElementById('authWrapper').classList.add('hide-item');
         });
     } catch (error) {
         console.error('Error deleting data:', error);
-        window.alert("인증코드 전송에 실패하였습니다. 잠시후 다시 시도하여 주세요.");
+        window.alert("올바르지 않은 인증번호 입니다. 잠시후 다시 시도하여 주세요.");
+        document.getElementById('authButton').classList.remove('hide-item');
+        document.getElementById('authWrapper').classList.add('hide-item');
     }
+    turnOffLoadingScreen();
+  }
+
+  function updateUserInfo(id, isAdmin) {
+    turnOnLoadingScreen();
+    const newName = document.getElementById('newName').value;
+    const newPassword = document.getElementById('update-pw').value;
+    const checkPassword = document.getElementById('update-pw-chk').value;
+    let newAdminEmail = null;
+
+    if(isAdmin){
+      newAdminEmail = document.getElementById('newAdminEmail').value;
+    }
+
+    if(newPassword){
+      if(newPassword != checkPassword){
+        window.alert("비밀번호가 일치하지 않습니다");
+        turnOffLoadingScreen();
+        return;
+      }
+    }
+
+    try {
+      var postData = new FormData();
+      postData.append('id',id);
+
+      if(newPassword){
+        postData.append('pw',newPassword);
+      }
+
+      if(newName){
+        postData.append('name',newName);
+      }
+
+      if(newAdminEmail){
+        postData.append('adminEmail',newAdminEmail);
+      }
+
+      axios.post('/auth/update', postData).then(function(response){
+          window.alert("개인 정보 변경이 완료되었습니다.");
+          turnOffLoadingScreen();
+          location.reload();
+          return;
+      }).catch(function(error){
+          console.log("error:", error);
+          window.alert("개인 정보를 변경할 수 없습니다. 잠시후 다시 시도하여 주세요.")
+      });
+        
+    } catch (error) {
+        console.error('Error deleting data:', error);
+        window.alert("개인 정보를 변경할 수 없습니다. 잠시후 다시 시도하여 주세요.")
+    }
+  
+    turnOffLoadingScreen();
   }
 </script>
 
