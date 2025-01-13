@@ -13,7 +13,9 @@
                 foreach($gallery as $g) {
             ?>
                 <div class="col">
-                    <img src="/img/user/<?=$g->img_url?>" class="img-fluid hover-saturate cursor-pointer" />
+                    <a href="/gallery/<?=$g->id?>?pageIndex=1">
+                        <img src="/img/user/<?=$g->img_url?>" class="img-fluid hover-saturate cursor-pointer" />
+                    </a>
                 </div>
             <?php    }?>
         </div>
