@@ -4,6 +4,7 @@
     if(isset($contents['notices'])){
         $notices = $contents['notices'];
     }
+
 ?>
 
 
@@ -17,12 +18,18 @@
         </div>
         <?php if(count($notices) > 0) {
                 foreach($notices as $notice) {
-        ?> <div class="col"  >
-                <p class="bg-light p-3 cursor-pointer" style="font-size: 32px; height:250px; " onclick="moveToDetail(<?=$notice['id']?>)"><?=$notice['title']?></p>
+        ?> <div class="col cursor-pointer" onclick="moveToDetail(<?=$notice['id']?>)" >
+                <div class="bg-light p-3"  style="height:250px; "> 
+                    <p class="fw-bold" style="font-size: 20px; height:50px;"><?=$notice['title']?></p>
+                    <p style="height:110px; ">
+                        <?=$notice['content']?>
+                    </p>
+                    <p><?=substr($notice['created_at'],0,10)?></p>
+                </div>
             </div>
         <?php } }else{ ?>
             <div class="col"  >
-                <p class="bg-light p-3" style="font-size: 32px; height:250px; ">등록된 공지사항이 없습니다.</p>
+                <p class="bg-light p-3" style="font-size: 20px; height:250px; ">등록된 공지사항이 없습니다.</p>
             </div>
         <?php } ?>
 

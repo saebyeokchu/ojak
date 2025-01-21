@@ -1,4 +1,4 @@
-<div id="menuWrapper" class="d-flex flex-row justify-content-between fw-bold gap-4 " style="font-size: 32px;">
+<div id="menuWrapper" class="d-flex flex-row justify-content-between fw-bold gap-4 " style="font-size: 25px;">
     <div class="d-flex flex-row gap-4">
         <p class="cursor-pointer ">
             <a id="communityMiddleNotice" class=" <?= $gubun != 1 ? 'ojak-light-gray hover-underline no-text-decoration' : 'text-decoration-underline  text-dark' ?>">

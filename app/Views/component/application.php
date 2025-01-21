@@ -85,8 +85,11 @@
 
                     const headerNaverLogo = document.getElementById("headerNaverLogo");
                     const headerInstaLogo = document.getElementById("headerInstaLogo");
+                    const headerYoutubeLogo = document.getElementById("headerYoutubeLogo");
+
                     const footerNaverLogo = document.getElementById("footerNaverLogo");
                     const footerInstaLogo = document.getElementById("footerInstaLogo");
+                    const footerYoutubeLogo = document.getElementById("footerYoutubeLogo");
 
                     //headerNaverLogo headerInstaLogo footerNaverLogo footerInstaLogo
                     data.forEach(e => {
@@ -120,6 +123,17 @@
                                 break;
                             }
                             case "유튜브" : {
+                                if(e.note=="on"){
+                                    footerYoutubeLogo.classList.remove("hide-item");
+                                    headerYoutubeLogo.classList.remove("hide-item");
+                                    headerYoutubeLogo.onclick = () => window.open(
+                                                                        e.value,
+                                                                        '_blank' 
+                                                                    );
+                                }else{
+                                    footerYoutubeLogo.classList.add("hide-item"); 
+                                    headerYoutubeLogo.classList.add("hide-item"); 
+                                }
                                 break;
                             }
                         }

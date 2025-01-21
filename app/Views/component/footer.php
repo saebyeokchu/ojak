@@ -1,20 +1,39 @@
 <!-- FOOTER: DEBUG INFO + COPYRIGHTS -->
 <footer class=" bg-light px-5 for-lg">
     <div class="d-flex justify-content-between  py-5">
-        <div>
-            <div class="d-flex flex-column gy-5 fw-bold" id="footer-busniess">
-                <!-- <div class="pt-2">상호명 : 경북공예문화협동조합</div>
-                <div class="pt-2">대표자 : 고정숙</div>
-                <div class="pt-2">사업자등록번호 : 506-18-72685</div>
-                <div class="pt-2">통신판매업신고번호 : 제2013-경북포항-0195호 [사업자정보확인]</div>
-                <div class="pt-2">고객센터 : 1661-1574</div>
-                <div class="pt-2">팩스 : 0504-084-2789</div>
-                <div class="pt-2">주소 : 37911 경상북도 포항시 남구 오천읍 장기로1479번길 2-4</div>
-                <div class="pt-2">개인정보보호책임자 : 고보빈(jung755@naver.com)</div> -->
+
+        <div class="d-flex flex-row">
+            <div class=" p-3">
+                <svg style="margin-top:10px;" width="37" height="64" viewBox="0 0 37 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_320_482)">
+                    <path d="M21.5232 17.6798C21.1282 16.8702 20.7457 16.0836 20.3482 15.269C22.0592 14.3573 23.2191 12.991 23.745 11.1012C24.1275 9.72476 24.0645 8.35849 23.5714 7.02287C22.5473 4.24437 19.9053 2.59208 17.1879 2.72488C14.0981 2.873 11.7656 5.08456 11.1441 7.77879C10.422 10.9148 11.9065 14.0228 14.8982 15.4197C14.556 16.2292 14.2138 17.0413 13.8716 17.8509C11.3253 16.9647 8.07692 13.6678 8.2908 8.89734C8.4946 4.38738 11.8059 0.72017 16.1362 0.0996038C21.1383 -0.618005 25.2874 2.63805 26.3819 7.03309C27.5117 11.5686 25.2245 15.9049 21.5232 17.6823V17.6798Z" fill="#5A5A5A"/>
+                    <path d="M1.87705 46.425C1.20272 45.7405 0.591295 45.1174 0 44.5173C3.46726 41.0059 6.95716 37.4689 10.4169 33.9651C13.9093 37.5072 17.4394 41.0876 20.9495 44.6475C20.3607 45.2477 19.7518 45.8682 19.1378 46.4939C16.2719 43.5852 13.3733 40.6432 10.4722 37.6987C7.57613 40.6407 4.72785 43.5341 1.87956 46.425H1.87705Z" fill="#5A5A5A"/>
+                    <path d="M24.0343 64H21.42V51.8696H9.17139V49.1677H24.0343V64Z" fill="#5A5A5A"/>
+                    <path d="M16.0681 18.5838H18.7503V33.4237H3.87988V30.7525H16.0706V18.5812L16.0681 18.5838Z" fill="#5A5A5A"/>
+                    <path d="M22.0518 45.7099V30.8929H24.7038V43.0233H36.9499V45.7099H22.0518Z" fill="#5A5A5A"/>
+                    <path d="M31.6659 25.3845C30.5186 26.0842 29.6027 26.0485 28.9686 25.3028C28.2867 24.5009 28.2666 23.2214 28.9208 22.4093C29.5574 21.6177 30.428 21.5589 31.6332 22.2382C31.6458 22.1156 31.6584 21.9982 31.676 21.8552H32.5491V22.7541C32.5491 23.6709 32.539 24.5877 32.5541 25.5045C32.5592 25.788 32.4812 25.8927 32.1943 25.8748C31.8823 25.8569 31.5275 25.9412 31.6659 25.3896V25.3845ZM31.6508 23.8216C31.6483 22.8103 30.745 22.1948 29.9373 22.6545C29.4165 22.9507 29.19 23.7041 29.424 24.3706C29.6002 24.8686 30.1814 25.2389 30.6494 25.1495C31.2835 25.0269 31.6533 24.5392 31.6508 23.8216Z" fill="#5A5A5A"/>
+                    <path d="M34.4132 24.1663V25.8365H33.5879V20.471H34.4006V23.5151C34.8032 23.0299 35.168 22.6443 35.47 22.2127C35.6889 21.8986 35.9329 21.7683 36.3028 21.8168C36.4966 21.8424 36.6953 21.822 36.9822 21.822C36.3406 22.5319 35.7618 23.1754 35.1705 23.8318C35.7694 24.4957 36.3506 25.1393 36.9998 25.8595C36.5746 25.8595 36.2575 25.8824 35.9455 25.8467C35.8298 25.8339 35.7115 25.6986 35.6235 25.5939C35.2385 25.1495 34.8636 24.6975 34.4132 24.1663Z" fill="#5A5A5A"/>
+                    <path d="M24.019 25.9054C22.8566 25.9054 22.0061 25.0601 22.0187 23.842C22.0313 22.5064 22.9346 21.753 24.0366 21.7505C25.2318 21.7505 26.0269 22.5804 26.0722 23.7756C26.115 24.8482 25.3476 25.9105 24.019 25.9054ZM22.9119 23.8573C22.9144 24.6464 23.3598 25.1648 24.0241 25.1546C24.7059 25.1444 25.2092 24.5673 25.2016 23.8062C25.1941 23.035 24.7135 22.514 24.0165 22.5217C23.3095 22.5319 22.9069 23.0146 22.9119 23.8573Z" fill="#5A5A5A"/>
+                    <path d="M26.1124 27.7263C26.1124 27.5654 26.1099 27.4224 26.1124 27.2794C26.1124 27.1977 26.1275 27.1159 26.135 27.0444C26.1703 27.024 26.1904 27.0036 26.2105 27.001C26.6332 26.9619 26.8446 26.7252 26.8446 26.2911C26.8446 24.9427 26.8446 23.5917 26.8446 22.2433C26.8446 22.1131 26.8446 21.9854 26.8446 21.8398H27.7001C27.7001 21.9701 27.7001 22.0978 27.7001 22.2255C27.7001 23.6122 27.6749 24.9963 27.7076 26.383C27.7303 27.3509 27.3453 27.8591 26.1099 27.7288L26.1124 27.7263Z" fill="#5A5A5A"/>
+                    <path d="M27.8085 20.7596C27.8186 21.0712 27.5947 21.3087 27.2852 21.3138C26.9757 21.3189 26.7316 21.0967 26.719 20.7928C26.709 20.5042 26.9581 20.2386 27.25 20.2284C27.5494 20.2182 27.7985 20.4557 27.8085 20.7596Z" fill="#5A5A5A"/>
+                    </g>
+                    <defs>
+                    <clipPath id="clip0_320_482">
+                    <rect width="37" height="64" fill="white"/>
+                    </clipPath>
+                    </defs>
+                </svg>
             </div>
-            <div class="cursor-pointer hover-underline pt-2 fw-bold" onclick="location.href='/contract'">이용약관</div>
-            <div class="cursor-pointer hover-underline pt-2 fw-bold" onclick="location.href='/personalinfo'">개인정보처리방침</div>
+            <div class="grid  p-3">
+                <div class="row" style="font-size: 11px;" id="footer-busniess">
+                </div>
+                <div class="d-flex flex-row gap-3">
+                    <div class="cursor-pointer hover-underline" style="font-size: 11px;"  onclick="location.href='/contract'">이용약관</div>
+                    <div class="cursor-pointer hover-underline" style="font-size: 11px;"  onclick="location.href='/personalinfo'">개인정보처리방침</div>
+                </div>
+            </div>
         </div>
+
         <div class="d-flex gx-3 gap-4 for-sm">
             <!-- blog -->
             <svg class="cursor-pointer" width="29" height="30" viewBox="0 0 29 30"  xmlns="http://www.w3.org/2000/svg"  onclick="location.href=''">
@@ -58,12 +77,12 @@
             </svg>
 
             <!-- youtube -->
-            <!-- <svg width="29" height="30" viewBox="0 0 29 30"  xmlns="http://www.w3.org/2000/svg">
+            <svg  id="footerYoutubeLogo" width="29" height="30" viewBox="0 0 29 30"  xmlns="http://www.w3.org/2000/svg">
                 <path class="scrollIcon" fill="#fff" fill-rule="evenodd" clip-rule="evenodd" d="M24.8892 5.89461C26.0334 6.20992 26.9337 7.14616 27.2385 8.33949C27.7918 10.4982 27.7871 14.9998 27.7871 14.9998C27.7871 14.9998 27.7871 19.5015 27.2338 21.6602C26.929 22.8487 26.0287 23.7849 24.8845 24.1051C22.8119 24.6823 14.4978 24.6823 14.4978 24.6823C14.4978 24.6823 6.18379 24.6823 4.11114 24.1051C2.96696 23.7897 2.06663 22.8535 1.76183 21.6602C1.2085 19.5015 1.2085 14.9998 1.2085 14.9998C1.2085 14.9998 1.2085 10.4982 1.76652 8.33464C2.07132 7.14616 2.97165 6.20992 4.11583 5.88976C6.18848 5.3125 14.5025 5.3125 14.5025 5.3125C14.5025 5.3125 22.8119 5.3125 24.8892 5.89461ZM18.7322 14.9999L11.7827 10.9105V19.0892L18.7322 14.9999Z" fill="white"/>
-            </svg> -->
+            </svg>
         </div>
 
-        <div class="d-flex flex-column gy-5 fw-bold" id="footer-busniess-sm">
+        <div class="d-flex flex-column gy-5 mt-2" id="footer-busniess-sm" style="font-size: 11px;" >
         </div>
     </div>
 </footer>
@@ -111,15 +130,30 @@
                 axios.get('/api/getBusniessInfo?return_type=json').then(function(response){
                     if(response['data']['status']=='success'){
                         const data = response['data']['data'];
+                        let i = 1;
+                        let targetRow = null;
 
                         data.forEach(function(d){
                             // document.cookie = d['name'] + " = " + d['value'];
                             const newDiv = document.createElement("div");
-                            newDiv.classList.add('pt-2');
+                            newDiv.classList.add('pt-0');
                             // newDiv.innerText = d['value'];
                             newDiv.innerText = d['name'] + " : " + d['value'];
-                            if(footerDiv) footerDiv.innerHTML += '<div class="pt-2">'+d['name'] + " : " + d['value']+'</div>';
+
+                            if(footerDiv) {
+                                if(i%2 == 1){
+                                    targetRow = 'target'+i;
+                                    footerDiv.insertAdjacentHTML('beforeend','<div id="'+targetRow+'" class="d-flex flex-row gap-3">');
+                                 }
+
+                                // footerDiv.innerHTML += '<div class="pt-0">'+d['name'] + " : " + d['value']+'</div>';
+                                console.log(targetRow, document.getElementById(targetRow));
+                                document.getElementById(targetRow).insertAdjacentHTML('beforeend','<div class="pt-0">'+d['name'] + " : " + d['value']+'</div>');
+                               
+                            }
                             if(footerDivSm) footerDivSm.appendChild(newDiv);
+
+                            i++;
                         }) 
 
                         //footerdiv cookie에 저장하기

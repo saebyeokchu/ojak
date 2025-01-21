@@ -393,25 +393,58 @@ body.loaded {
 
 
 /* owl-carousel */
-.owl-dots {
-position: relative;
-top: -0px; /* Adjust the distance above the carousel items */
-text-align: center; /* Center the dots */
+.owl-carousel .owl-dots {
+    position: absolute;
+    bottom: 15px; /* Adjust this value to move dots up/down */
+    left: 50%;
+    display: flex;
+    z-index: 10;
+    transform: translateX(-50%);
+    justify-content: center;
+    width: 100%;
+    
 }
 
+/* Style the dots as crosses */
 .owl-dots .owl-dot {
-display: inline-block;
-margin: 0 5px;
-width: 12px;
-height: 12px;
-background-color: gray !important; 
-border-radius: 50%;
-/* transition: background-color 0.3s ease; */
+    position: relative;
+    display: inline-block;
+    width: 14px;  /* Adjust size */
+    height: 14px; /* Adjust size */
+    margin: 0 5px;
+    background-color: transparent !important; /* Remove background */
 }
 
-.owl-dots .owl-dot.active {
-background-color: black !important; /* Highlight the active dot */
+/* Create the cross shape using pseudo-elements */
+.owl-dots .owl-dot::before,
+.owl-dots .owl-dot::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 14px; /* Adjust cross size */
+    height: 2.5px;  /* Thickness of the cross line */
+    background-color: gray; /* Cross color */
+    transform-origin: center;
 }
+
+.owl-dots .owl-dot::before {
+    transform: translate(-50%, -50%) rotate(90deg); /* First diagonal line */
+}
+
+.owl-dots .owl-dot::after {
+    transform: translate(-50%, -50%) rotate(-180deg); /* Second diagonal line */
+}
+
+/* Change color when active */
+.owl-dots .owl-dot.active::before,
+.owl-dots .owl-dot.active::after {
+    background-color: white !important; /* Change active dot to white */
+}
+
+/* .owl-dots .owl-dot.active {
+background-color: white !important; 
+} */
 
 /* Ensure the carousel container takes full screen */
 .main-carousel .owl-stage-outer {

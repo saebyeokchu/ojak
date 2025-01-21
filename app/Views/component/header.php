@@ -46,41 +46,47 @@
         </div>
         <!-- logo -->
         <div class="mt-5 d-flex justify-content-center">
-            <a href="/" >
-                <svg data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" width="90" height="150" viewBox="0 0 543.16 940.44">
-                    <g >
-                        <path class="cls-1" fill="white" d="M315.95,255.73c-5.8-11.72-11.42-23.09-17.25-34.86,25.11-13.17,42.16-32.96,49.87-60.27,5.62-19.9,4.7-39.66-2.54-58.99-15.05-40.19-53.8-64.08-93.7-62.18-45.34,2.16-79.6,34.12-88.72,73.09-10.61,45.37,11.2,90.3,55.11,110.53-5.02,11.71-10.05,23.45-15.07,35.17-37.38-12.81-85.06-60.5-81.92-129.5C124.7,63.44,173.3,10.41,236.86,1.44c73.45-10.37,134.35,36.7,150.41,100.27,16.57,65.59-17,128.33-71.32,154.02Z"/>
-                        <path class="cls-1" fill="white" d="M27.57,686.26c-9.9-9.92-18.89-18.91-27.57-27.61,50.88-50.79,102.12-101.93,152.91-152.64,51.27,51.23,103.11,103.04,154.61,154.5-8.63,8.67-17.59,17.67-26.61,26.72-42.09-42.08-84.62-84.62-127.21-127.21-42.53,42.56-84.32,84.39-126.13,126.23Z"/>
-                        <path class="cls-1" fill="white" d="M352.83,940.44h-38.36v-175.45h-179.81v-39.06h218.18v214.51Z"/>
-                        <path class="cls-1" fill="white"  d="M235.88,268.78h39.39v214.66H56.94v-38.62h178.94v-176.03Z"/>
-                        <path class="cls-1" fill="white"  d="M323.7,675.9v-214.3h38.92v175.46h179.77v38.84h-218.69Z"/>
-                        <path class="cls-1" fill="white" d="M464.84,367.14c-16.84,10.14-30.31,9.59-39.59-1.19-9.99-11.59-10.31-30.1-.71-41.87,9.34-11.45,22.14-12.29,39.83-2.48.2-1.78.38-3.46.61-5.56h12.82v12.99c0,13.26-.15,26.51.09,39.76.07,4.1-1.06,5.6-5.28,5.36-4.58-.26-9.8.96-7.78-7.02ZM464.62,344.53c-.04-14.65-13.29-23.53-25.16-16.87-7.66,4.29-10.96,15.19-7.53,24.83,2.57,7.21,11.12,12.56,18,11.26,9.3-1.76,14.72-8.84,14.69-19.21Z"/>
-                        <path class="cls-1" fill="white" d="M505.18,349.55v24.15h-12.12v-77.61h11.95v44.03c5.92-7.01,11.25-12.6,15.69-18.83,3.22-4.53,6.8-6.44,12.22-5.72,2.84.38,5.77.07,9.97.07-9.4,10.28-17.91,19.59-26.58,29.08,8.81,9.61,17.32,18.91,26.87,29.33-6.23,0-10.91.34-15.49-.17-1.71-.19-3.42-2.15-4.74-3.65-5.65-6.41-11.15-12.95-17.75-20.67Z"/>
-                        <path class="cls-1" fill="white" d="M352.59,374.67c-17.08.03-29.55-12.23-29.37-29.86.2-19.32,13.44-30.22,29.62-30.23,17.53-.02,29.2,11.99,29.88,29.28.61,15.53-10.65,30.89-30.13,30.81ZM336.36,345.08c.04,11.4,6.58,18.91,16.33,18.77,10-.14,17.39-8.48,17.29-19.51-.1-11.15-7.16-18.69-17.4-18.56-10.39.13-16.27,7.13-16.22,19.3Z"/>
-                        <path class="cls-1" fill="white" d="M383.32,401.03c0-2.32-.04-4.39.02-6.45.03-1.19.22-2.37.32-3.41.53-.31.81-.6,1.12-.63q9.32-.86,9.33-10.27c0-19.52,0-39.04,0-58.55,0-1.87,0-3.74,0-5.85h12.56c0,1.89,0,3.73,0,5.57,0,20.04-.36,40.09.12,60.12.34,13.99-5.33,21.36-23.46,19.47Z"/>
-                        <path class="cls-1" fill="white" d="M408.24,300.26c.15,4.51-3.13,7.93-7.7,8.02-4.56.09-8.14-3.16-8.31-7.54-.17-4.18,3.5-8.01,7.81-8.16,4.39-.16,8.05,3.28,8.2,7.68Z"/>
-                    </g>
-                    
-                </svg>
-            </a>
+`            <svg width="79" height="135" viewBox="0 0 79 135" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_320_2340)">
+                <path d="M45.9255 37.1691C45.0826 35.4672 44.2665 33.8135 43.4182 32.1008C47.0691 30.1841 49.5442 27.3118 50.6663 23.3388C51.4824 20.4449 51.3481 17.5725 50.2958 14.7646C48.1107 8.9232 42.4733 5.44951 36.6749 5.72869C30.0818 6.04009 25.1048 10.6896 23.7787 16.3538C22.2378 22.9468 25.4055 29.4808 31.7891 32.4176C31.059 34.1196 30.3288 35.8269 29.5986 37.5288C24.1653 35.6658 17.234 28.7345 17.6904 18.7054C18.1252 9.22386 25.1907 1.51409 34.4307 0.209441C45.1041 -1.29923 53.9574 5.54615 56.2929 14.7861C58.7035 24.3213 53.8232 33.4377 45.9255 37.1745V37.1691Z" fill="white"/>
+                <path d="M4.00522 97.6017C2.56634 96.1628 1.2617 94.8528 0 93.5911C7.39837 86.2089 14.8451 78.7729 22.2273 71.4067C29.6794 78.8534 37.212 86.3807 44.7016 93.8649C43.4453 95.1266 42.146 96.4313 40.836 97.7467C34.7208 91.6315 28.5358 85.4465 22.3455 79.2561C16.1658 85.4411 10.0882 91.5241 4.01058 97.6017H4.00522Z" fill="white"/>
+                <path d="M51.2836 134.551H45.7052V109.048H19.5693V103.368H51.2836V134.551Z" fill="white"/>
+                <path d="M34.2864 39.0696H40.0096V70.2684H8.2793V64.6525H34.2917V39.0642L34.2864 39.0696Z" fill="white"/>
+                <path d="M47.0537 96.0982V64.9478H52.7126V90.4501H78.8431V96.0982H47.0537Z" fill="white"/>
+                <path d="M67.5677 53.367C65.1194 54.8381 63.1652 54.763 61.8122 53.1952C60.3572 51.5094 60.3143 48.8196 61.7102 47.1122C63.0685 45.4479 64.9262 45.3244 67.4979 46.7525C67.5247 46.4948 67.5516 46.2479 67.5891 45.9472H69.4522V47.8371C69.4522 49.7645 69.4307 51.6919 69.4629 53.6194C69.4736 54.2153 69.3072 54.4355 68.6951 54.3979C68.0294 54.3603 67.2724 54.5375 67.5677 53.3778V53.367ZM67.5355 50.0813C67.5301 47.9552 65.6026 46.6613 63.8792 47.6277C62.7679 48.2505 62.2847 49.8343 62.784 51.2356C63.1598 52.2825 64.4 53.061 65.3986 52.8731C66.7516 52.6154 67.5408 51.5899 67.5355 50.0813Z" fill="white"/>
+                <path d="M73.4309 50.8062V54.3175H71.6699V43.0374H73.4041V49.4371C74.2631 48.417 75.0416 47.6063 75.6859 46.699C76.153 46.0386 76.6738 45.7648 77.463 45.8668C77.8764 45.9205 78.3005 45.8775 78.9126 45.8775C77.5435 47.3701 76.3087 48.723 75.047 50.1029C76.3248 51.4988 77.565 52.8517 78.9502 54.3658C78.0428 54.3658 77.3663 54.4141 76.7006 54.3389C76.4536 54.3121 76.2013 54.0275 76.0134 53.8074C75.1919 52.8732 74.392 51.9229 73.4309 50.8062Z" fill="white"/>
+                <path d="M51.252 54.4623C48.7715 54.4623 46.9568 52.6852 46.9837 50.1242C47.0105 47.3163 48.938 45.7324 51.2896 45.7271C53.8398 45.7271 55.5364 47.472 55.633 49.9846C55.7243 52.2396 54.0868 54.473 51.252 54.4623ZM48.8897 50.1564C48.895 51.8154 49.8453 52.9053 51.2627 52.8838C52.7177 52.8623 53.7915 51.649 53.7754 50.049C53.7593 48.4276 52.7338 47.3324 51.2466 47.3485C49.7379 47.3699 48.8789 48.3847 48.8897 50.1564Z" fill="white"/>
+                <path d="M55.7183 58.2904C55.7183 57.9522 55.7129 57.6515 55.7183 57.3508C55.7183 57.179 55.7505 57.0072 55.7666 56.8569C55.8417 56.814 55.8847 56.771 55.9276 56.7656C56.8296 56.6833 57.2806 56.1858 57.2806 55.2731C57.2806 52.4383 57.2806 49.5981 57.2806 46.7633C57.2806 46.4895 57.2806 46.2211 57.2806 45.915H59.106C59.106 46.1889 59.106 46.4573 59.106 46.7257C59.106 49.6411 59.0524 52.551 59.1222 55.4664C59.1705 57.5012 58.349 58.5696 55.7129 58.2958L55.7183 58.2904Z" fill="white"/>
+                <path d="M59.3371 43.644C59.3586 44.299 58.8807 44.7983 58.2204 44.8091C57.56 44.8198 57.0392 44.3527 57.0123 43.7138C56.9909 43.1071 57.5224 42.5488 58.1452 42.5273C58.7841 42.5058 59.3156 43.0051 59.3371 43.644Z" fill="white"/>
+                </g>
+                <defs>
+                <clipPath id="clip0_320_2340">
+                <rect width="78.95" height="134.551" fill="white"/>
+                </clipPath>
+                </defs>
+            </svg>`
         </div>
         <!-- menu -->
         <div class="d-flex text-center cursor-pointer pt-3" >
-            <div class="d-felx gap-3 gy-3" style="list-style: none;">
+            <div class="d-felx flex-column gap-3 gy-3" style="list-style: none;">
                 <?php if(isset($_COOKIE["user_id"])) { ?>
-                    <a class=" nav-link pt-3 toggle-header-menu <?=$lgMypageUrl?>" href="/my/home" style="height:60px;width:300px;"><span class="ps-3">마이페이지</span></a>
+                    <a id="mobileToggleMyPage" class=" nav-link pt-3 toggle-header-menu <?=$lgMypageUrl?>" href="/my/home" style="width:300px;" onmouseenter="changeInnerText('mobileToggleMyPage','마이페이지')" onmouseleave="changeInnerText('mobileToggleMyPage','MY PAGE')"><span class="ps-3">MY PAGE</span></a>
                 <?php } ?>
 
-                <a class=" nav-link pt-3 toggle-header-menu <?=$lgBrandUrl?>" href="/brand" style="height:60px;width:300px;">
-                    <span class="ps-3">브랜드</span>
+                <a class=" nav-link pt-3 toggle-header-menu <?=$lgBrandUrl?>" href="/brand" style="width:300px;">
+                    <span id="mobileToggleBrand"  onmouseenter="changeInnerText('mobileToggleBrand','브랜드')" onmouseleave="changeInnerText('mobileToggleBrand','BRAND')">BRAND</span>
                 </a>
-                <a class=" nav-link pt-3 toggle-header-menu <?=$lgGalleryUrl?>" href="/gallery?pageIndex=1" style="height:60px;width:300px;"><span class="ps-3">작품</span></a>
+                <a id="mobileToggleGallery" class=" nav-link pt-3 toggle-header-menu <?=$lgGalleryUrl?>" href="/gallery?pageIndex=1" style="width:300px;" onmouseenter="changeInnerText('mobileToggleGallery','갤러리')" onmouseleave="changeInnerText('mobileToggleGallery','GALLERY')"><span class="ps-3">GALLERY</span></a>
                 <div  onmouseenter="showcommunitydiv('mobile-header-community-submenu')"  onmouseleave="hidecommunitydiv('mobile-header-community-submenu')">
-                    <span class="nav-link pt-3 toggle-header-menu" style="height:60px;width:300px;"><span class="ps-3">커뮤니티  <span id="mobileCommunityPlus" >+</span> <span id="mobileCommunityMinus" class="hide-item">-</span> </span>
-                    <div id="mobile-header-community-submenu" class="hide-y-gradually mt-3" >
-                        <a id="mobileNoticeMenu" class="nav-link pt-3 toggle-header-menu <?=$lgNoticeUrl?>" style="height:60px;width:300px;"><span class="ps-3">공지사항</span></a>
-                        <a id="mobileEventMenu" class="nav-link pt-3 toggle-header-menu <?=$lgEventUrl?>" style="height:60px;width:300px;" ><span class="ps-3">이벤트</span></a>
-                        <a id="mobileQnaMenu" class="nav-link pt-3 toggle-header-menu <?=$lgQnaUrl?>" style="height:60px;width:300px;" ><span class="ps-3">Q&A</span></a>
+                    <div class="nav-link pt-3 toggle-header-menu" style="width:300px;">
+                        <span id="mobileToggleCommunity"    style="width:300px;" onclick="location.href='/community/notice?pageIndex=1'" onmouseenter="changeInnerText('mobileToggleCommunity','커뮤니티')" onmouseleave="changeInnerText('mobileToggleCommunity','COMMUNITY')">COMMUNITY</span>  
+                        <span id="mobileCommunityPlus" >+</span> 
+                        <span id="mobileCommunityMinus" class="hide-item">-</span>
+                    </div>
+                    <div id="mobile-header-community-submenu" class="hide-y-gradually d-felx flex-column text-center " >
+                        <a id="mobileNoticeMenu" class="nav-link pt-3 toggle-header-menu <?=$lgNoticeUrl?>"   onmouseenter="changeInnerText('mobileNoticeMenu','공지사항')" onmouseleave="changeInnerText('mobileNoticeMenu','NOTICE')">NOTICE</a>
+                        <a id="mobileEventMenu" class="nav-link pt-3 toggle-header-menu <?=$lgEventUrl?>"   onmouseenter="changeInnerText('mobileEventMenu','이벤트')" onmouseleave="changeInnerText('mobileEventMenu','EVENT')">EVENT</a>
+                        <a id="mobileQnaMenu" class="nav-link pt-3 toggle-header-menu <?=$lgQnaUrl?>"  >Q&A</a>
                     </div>
                 </div>
                 
@@ -156,6 +162,27 @@
         <!-- logo -->
         <div class="d-flex justify-content-center pt-70 cursor-pointer" >
             <a href="/">
+                <svg width="79" height="135" viewBox="0 0 79 135" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_320_462)">
+                    <path d="M45.9255 37.1691C45.0826 35.4672 44.2665 33.8135 43.4182 32.1008C47.0691 30.1841 49.5442 27.3118 50.6663 23.3388C51.4824 20.4449 51.3481 17.5725 50.2958 14.7646C48.1107 8.9232 42.4733 5.44951 36.6749 5.72869C30.0818 6.04009 25.1048 10.6896 23.7787 16.3538C22.2378 22.9468 25.4055 29.4808 31.7891 32.4176C31.059 34.1196 30.3288 35.8269 29.5986 37.5288C24.1653 35.6658 17.234 28.7345 17.6904 18.7054C18.1252 9.22386 25.1907 1.51409 34.4307 0.209441C45.1041 -1.29923 53.9574 5.54615 56.2929 14.7861C58.7035 24.3213 53.8232 33.4377 45.9255 37.1745V37.1691Z" fill="white"/>
+                    <path d="M4.00522 97.6016C2.56634 96.1627 1.2617 94.8527 0 93.591C7.39837 86.2087 14.8451 78.7728 22.2273 71.4066C29.6794 78.8533 37.212 86.3805 44.7016 93.8648C43.4453 95.1265 42.146 96.4312 40.836 97.7465C34.7208 91.6313 28.5358 85.4463 22.3455 79.256C16.1658 85.441 10.0882 91.524 4.01058 97.6016H4.00522Z" fill="white"/>
+                    <path d="M51.2836 134.55H45.7052V109.048H19.5693V103.368H51.2836V134.55Z" fill="white"/>
+                    <path d="M34.2864 39.0697H40.0096V70.2685H8.2793V64.6526H34.2917V39.0643L34.2864 39.0697Z" fill="white"/>
+                    <path d="M47.0537 96.0984V64.9479H52.7126V90.4503H78.8431V96.0984H47.0537Z" fill="white"/>
+                    <path d="M67.5677 53.367C65.1194 54.8381 63.1652 54.763 61.8122 53.1952C60.3572 51.5094 60.3143 48.8196 61.7102 47.1122C63.0685 45.4479 64.9262 45.3244 67.4979 46.7525C67.5247 46.4948 67.5516 46.2479 67.5891 45.9472H69.4522V47.8371C69.4522 49.7645 69.4307 51.6919 69.4629 53.6194C69.4736 54.2153 69.3072 54.4355 68.6951 54.3979C68.0294 54.3603 67.2724 54.5375 67.5677 53.3778V53.367ZM67.5355 50.0813C67.5301 47.9552 65.6026 46.6613 63.8792 47.6277C62.7679 48.2505 62.2847 49.8343 62.784 51.2356C63.1598 52.2825 64.4 53.061 65.3986 52.8731C66.7516 52.6154 67.5408 51.5899 67.5355 50.0813Z" fill="white"/>
+                    <path d="M73.4309 50.8061V54.3173H71.6699V43.0372H73.4041V49.437C74.2631 48.4169 75.0416 47.6062 75.6859 46.6988C76.153 46.0385 76.6738 45.7646 77.463 45.8667C77.8764 45.9203 78.3005 45.8774 78.9126 45.8774C77.5435 47.3699 76.3087 48.7229 75.047 50.1027C76.3248 51.4986 77.565 52.8516 78.9502 54.3657C78.0428 54.3657 77.3663 54.414 76.7006 54.3388C76.4536 54.312 76.2013 54.0274 76.0134 53.8073C75.1919 52.8731 74.392 51.9228 73.4309 50.8061Z" fill="white"/>
+                    <path d="M51.252 54.4623C48.7715 54.4623 46.9568 52.6852 46.9837 50.1242C47.0105 47.3163 48.938 45.7324 51.2896 45.7271C53.8398 45.7271 55.5364 47.472 55.633 49.9846C55.7243 52.2396 54.0868 54.473 51.252 54.4623ZM48.8897 50.1564C48.895 51.8154 49.8453 52.9053 51.2627 52.8838C52.7177 52.8623 53.7915 51.649 53.7754 50.049C53.7593 48.4276 52.7338 47.3324 51.2466 47.3485C49.7379 47.3699 48.8789 48.3847 48.8897 50.1564Z" fill="white"/>
+                    <path d="M55.7183 58.2904C55.7183 57.9522 55.7129 57.6515 55.7183 57.3508C55.7183 57.179 55.7505 57.0072 55.7666 56.8569C55.8417 56.814 55.8847 56.771 55.9276 56.7656C56.8296 56.6833 57.2806 56.1858 57.2806 55.2731C57.2806 52.4383 57.2806 49.5981 57.2806 46.7633C57.2806 46.4895 57.2806 46.2211 57.2806 45.915H59.106C59.106 46.1889 59.106 46.4573 59.106 46.7257C59.106 49.6411 59.0524 52.551 59.1222 55.4664C59.1705 57.5012 58.349 58.5696 55.7129 58.2958L55.7183 58.2904Z" fill="white"/>
+                    <path d="M59.3371 43.644C59.3586 44.299 58.8807 44.7983 58.2204 44.8091C57.56 44.8198 57.0392 44.3527 57.0123 43.7138C56.9909 43.1071 57.5224 42.5488 58.1452 42.5273C58.7841 42.5058 59.3156 43.0051 59.3371 43.644Z" fill="white"/>
+                    </g>
+                    <defs>
+                    <clipPath id="clip0_320_462">
+                    <rect width="78.95" height="134.551" fill="white"/>
+                    </clipPath>
+                    </defs>
+                </svg>
+                
+<!-- 
                 <svg width="63" height="108" viewBox="0 0 63 108" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clip-path="url(#clip0_137_154)">
                     <path d="M36.6499 29.3665C35.9777 28.0189 35.3277 26.7153 34.6499 25.3622C37.561 23.8496 39.5388 21.578 40.4332 18.4428C41.0832 16.1601 40.9777 13.8885 40.1388 11.6663C38.3943 7.05148 33.8999 4.30679 29.2721 4.5268C24.011 4.77432 20.0388 8.44308 18.9832 12.9204C17.7499 18.1292 20.2832 23.2886 25.3777 25.6153C24.7943 26.9629 24.211 28.3105 23.6277 29.6525C19.2888 28.1839 13.761 22.7056 14.1277 14.7795C14.4666 7.288 20.0999 1.19357 27.4721 0.165001C35.9888 -1.02308 43.0555 4.37829 44.9166 11.6828C46.8388 19.2128 42.9443 26.4183 36.6443 29.372L36.6499 29.3665Z" fill="white"/>
@@ -174,23 +201,31 @@
                     <rect width="63" height="108" fill="white"/>
                     </clipPath>
                     </defs>
-                </svg>
+                </svg> -->
             </a>
         </div>
         <!-- menu -->
         <div class="d-flex justify-content-center text-center cursor-pointer pt-15" >
             <div class="d-felx mt-4 g-3" style="list-style: none;">
                 <?php if(isset($_COOKIE["user_id"])) { ?>
-                    <a class="mt-2 nav-link toggle-header-menu " href="/my/home">마이페이지</a>
+                    <a id="toggleMyPageText" class="mt-2 nav-link toggle-header-menu " href="/my/home" onmouseenter="changeInnerText('toggleMyPageText','마이페이지')" 
+                    onmouseleave="changeInnerText('toggleMyPageText','MY PAGE')">MY PAGE</a>
                 <?php } ?>
 
-                <a class="mt-2 nav-link toggle-header-menu <?=$lgBrandUrl?>" href="/brand">브랜드</a>
-                <a class="mt-2 nav-link toggle-header-menu <?=$lgGalleryUrl?>" href="/gallery?pageIndex=1">작품</a>
+                <a  id="toggleBrandText" class="mt-2 nav-link toggle-header-menu <?=$lgBrandUrl?>" href="/brand" onmouseenter="changeInnerText('toggleBrandText','브랜드')" 
+                onmouseleave="changeInnerText('toggleBrandText','BRAND')">BRAND</a>
+                <a 
+                    id="toggleGalleryText" 
+                    class="mt-2 nav-link toggle-header-menu <?=$lgGalleryUrl?>" 
+                    href="/gallery?pageIndex=1"
+                    onmouseenter="changeInnerText('toggleGalleryText','갤러리')" 
+                    onmouseleave="changeInnerText('toggleGalleryText','GALLERY')"
+                >GALLERY</a>
                 <div onmouseenter="showcommunitydiv('sm-header-community-submenu')"  onmouseleave="hidecommunitydiv('sm-header-community-submenu')">
-                    <span class="mt-2 nav-link toggle-header-menu" >커뮤니티</span>
+                    <span   id="toggleCommunityText" class="mt-2 nav-link toggle-header-menu hover-underline" onmouseenter="changeInnerText('toggleCommunityText','커뮤니티')" onmouseleave="changeInnerText('toggleCommunityText','COMMUNITY')">COMMUNITY</span>
                     <div id="sm-header-community-submenu" class="hide-y-gradually mt-2 ">
-                        <a class="nav-link cursor-hover <?=$lgNoticeUrl?>" id="lgToggleCommunityNotice">공지사항</a>
-                        <a class="nav-link cursor-hover <?=$lgEventUrl?> mt-2" id="lgToggleCommunityEvent">이벤트</a>
+                        <a class="nav-link cursor-hover <?=$lgNoticeUrl?>" id="lgToggleCommunityNotice" onmouseenter="changeInnerText('lgToggleCommunityNotice','공지사항')" onmouseleave="changeInnerText('lgToggleCommunityNotice','NOTICE')">NOTICE</a>
+                        <a class="nav-link cursor-hover <?=$lgEventUrl?> mt-2" id="lgToggleCommunityEvent" onmouseenter="changeInnerText('lgToggleCommunityEvent','이벤트')" onmouseleave="changeInnerText('lgToggleCommunityEvent','EVENT')">EVENT</a>
                         <a class="nav-link cursor-hover <?=$lgQnaUrl?> mt-2" id="lgToggleCommunityQna">Q&A</a>
                     </div>
                 </div>
@@ -210,23 +245,65 @@
                     </svg>
                 </a>
                 
-                <a class="nav-link cursor-hover <?=$lgBrandUrl?>" aria-current="page" href="/brand">브랜드</a>
-                <a class="nav-link cursor-hover <?=$lgGalleryUrl?>" href="/gallery?pageIndex=1">작품</a>
-                <div class="position-relative nav-link cursor-hover nav-link cursor-pointer"  onmouseenter="showcommunitydiv('lg-header-community-submenu')"  onmouseleave="hidecommunitydiv('lg-header-community-submenu')">
-                    커뮤니티
-                    <div id="lg-header-community-submenu" class="position-absolute d-flex gap-4 hide-x-gradually" style="top:0px; padding-left:80px;">
-                        <a class="nav-link cursor-hover <?=$lgNoticeUrl?>" id="lgCommunityNotice">공지사항</a>
-                        <a class="nav-link cursor-hover <?=$lgEventUrl?>" id="lgCommunityEvent">이벤트</a>
-                        <a class="nav-link cursor-hover <?=$lgQnaUrl?> " id="lgCommunityQna">Q&A</a>
+                <a 
+                    id="lgHeaderBrandText" 
+                    style="min-width: 60px;" 
+                    class="nav-link cursor-hover <?=$lgBrandUrl?>" 
+                    aria-current="page" 
+                    href="/brand" 
+                    onmouseleave="changeInnerText('lgHeaderBrandText','BRAND')" 
+                    onmouseenter="changeInnerText('lgHeaderBrandText','브랜드')">
+                    BRAND
+                </a>
+                <a 
+                    id="lgHeaderGalleryText" 
+                    style="min-width: 72px;" 
+                    class="nav-link cursor-hover <?=$lgGalleryUrl?>" 
+                    href="/gallery?pageIndex=1"
+                    onmouseenter="changeInnerText('lgHeaderGalleryText','갤러리')" 
+                    onmouseleave="changeInnerText('lgHeaderGalleryText','GALLERY')"
+                >GALLERY</a>
+                <div 
+                    class="position-relative" 
+                    onmouseenter="showcommunitydiv('lg-header-community-submenu');"  
+                    onmouseleave="hidecommunitydiv('lg-header-community-submenu');">
+                    <a 
+                        id="lgHeaderCommunityText" 
+                        style="min-width: 110px;"
+                        href="/community/notice?pageIndex=1" 
+                        class="hover-underline nav-link" 
+                        onmouseenter="changeInnerText('lgHeaderCommunityText','커뮤니티');" 
+                        onmouseleave="changeInnerText('lgHeaderCommunityText','COMMUNITY');"
+                    >
+                        COMMUNITY
+                </a>
+                    <div 
+                        id="lg-header-community-submenu" 
+                        class="position-absolute d-flex flex-column gap-4 py-3 pe-5 ps-3 px bg-light text-left hide-y-gradually" style="top:35px; width:120px;">
+                        <a 
+                            class="nav-link cursor-hover <?=$lgNoticeUrl?> text-black" 
+                            id="lgCommunityNotice" 
+                            onmouseenter="changeInnerText('lgCommunityNotice','공지사항')" 
+                            onmouseleave="changeInnerText('lgCommunityNotice','NOTICE')">NOTICE</a>
+                        <a 
+                            class="nav-link cursor-hover <?=$lgEventUrl?> text-black" 
+                            id="lgCommunityEvent"
+                            onmouseenter="changeInnerText('lgCommunityEvent','이벤트')" 
+                            onmouseleave="changeInnerText('lgCommunityEvent','EVENT')"
+                        >EVENT</a>
+                        <a 
+                            class="nav-link cursor-hover <?=$lgQnaUrl?> text-black" 
+                            id="lgCommunityQna"
+                        >Q&A</a>
                     </div>
                 </div>
             </div>
             
             <!-- 로고 -->
-            <div class="d-flex navbar-brand " style="margin-left:<?=isset($_COOKIE["user_id"]) ? '100px' : '0'?>;">
+            <div class="d-flex navbar-brand " style="margin-left:<?=isset($_COOKIE["user_id"]) ? '100px' : '0px'?>;padding-right:150px;">
                 <a  href="/" id="white-header-scroll-logo"  class="text-black hide-item" style="text-decoration: none;">OJAK</a>
                 <a href="/" id="white-header-logo" >
-                    <svg data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" width="90" height="150" viewBox="0 0 543.16 940.44">
+                    <!-- <svg data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" width="90" height="150" viewBox="0 0 543.16 940.44">
                         <g id="lg-header-logo-white">
                             <path class="cls-1" fill="white" d="M315.95,255.73c-5.8-11.72-11.42-23.09-17.25-34.86,25.11-13.17,42.16-32.96,49.87-60.27,5.62-19.9,4.7-39.66-2.54-58.99-15.05-40.19-53.8-64.08-93.7-62.18-45.34,2.16-79.6,34.12-88.72,73.09-10.61,45.37,11.2,90.3,55.11,110.53-5.02,11.71-10.05,23.45-15.07,35.17-37.38-12.81-85.06-60.5-81.92-129.5C124.7,63.44,173.3,10.41,236.86,1.44c73.45-10.37,134.35,36.7,150.41,100.27,16.57,65.59-17,128.33-71.32,154.02Z"/>
                             <path class="cls-1" fill="white" d="M27.57,686.26c-9.9-9.92-18.89-18.91-27.57-27.61,50.88-50.79,102.12-101.93,152.91-152.64,51.27,51.23,103.11,103.04,154.61,154.5-8.63,8.67-17.59,17.67-26.61,26.72-42.09-42.08-84.62-84.62-127.21-127.21-42.53,42.56-84.32,84.39-126.13,126.23Z"/>
@@ -251,20 +328,77 @@
                             <path class="cls-7" fill="black" d="M383.32,401.03c0-2.32-.04-4.39.02-6.45.03-1.19.22-2.37.32-3.41.53-.31.81-.6,1.12-.63q9.32-.86,9.33-10.27c0-19.52,0-39.04,0-58.55,0-1.87,0-3.74,0-5.85h12.56c0,1.89,0,3.73,0,5.57,0,20.04-.36,40.09.12,60.12.34,13.99-5.33,21.36-23.46,19.47Z"/>
                             <path class="cls-7" fill="black" d="M408.24,300.26c.15,4.51-3.13,7.93-7.7,8.02-4.56.09-8.14-3.16-8.31-7.54-.17-4.18,3.5-8.01,7.81-8.16,4.39-.16,8.05,3.28,8.2,7.68Z"/>
                         </g>
+                    </svg> -->
+                    <svg width="79" height="135" viewBox="0 0 79 135" fill="none" xmlns="http://www.w3.org/2000/svg" >
+                        <g clip-path="url(#clip0_320_463)" id="lg-header-logo-white">
+                            <path d="M45.9255 37.1691C45.0826 35.4672 44.2665 33.8135 43.4182 32.1008C47.0691 30.1841 49.5442 27.3118 50.6663 23.3388C51.4824 20.4449 51.3481 17.5725 50.2958 14.7646C48.1107 8.9232 42.4733 5.44951 36.6749 5.72869C30.0818 6.04009 25.1048 10.6896 23.7787 16.3538C22.2378 22.9468 25.4055 29.4808 31.7891 32.4176C31.059 34.1196 30.3288 35.8269 29.5986 37.5288C24.1653 35.6658 17.234 28.7345 17.6904 18.7054C18.1252 9.22386 25.1907 1.51409 34.4307 0.209441C45.1041 -1.29923 53.9574 5.54615 56.2929 14.7861C58.7035 24.3213 53.8232 33.4377 45.9255 37.1745V37.1691Z" fill="white"/>
+                            <path d="M4.00522 97.6016C2.56634 96.1627 1.2617 94.8527 0 93.591C7.39837 86.2087 14.8451 78.7728 22.2273 71.4066C29.6794 78.8533 37.212 86.3805 44.7016 93.8648C43.4453 95.1265 42.146 96.4312 40.836 97.7465C34.7208 91.6313 28.5358 85.4463 22.3455 79.256C16.1658 85.441 10.0882 91.524 4.01058 97.6016H4.00522Z" fill="white"/>
+                            <path d="M51.2836 134.55H45.7052V109.048H19.5693V103.368H51.2836V134.55Z" fill="white"/>
+                            <path d="M34.2864 39.0697H40.0096V70.2685H8.2793V64.6526H34.2917V39.0643L34.2864 39.0697Z" fill="white"/>
+                            <path d="M47.0537 96.0984V64.9479H52.7126V90.4503H78.8431V96.0984H47.0537Z" fill="white"/>
+                            <path d="M67.5677 53.367C65.1194 54.8381 63.1652 54.763 61.8122 53.1952C60.3572 51.5094 60.3143 48.8196 61.7102 47.1122C63.0685 45.4479 64.9262 45.3244 67.4979 46.7525C67.5247 46.4948 67.5516 46.2479 67.5891 45.9472H69.4522V47.8371C69.4522 49.7645 69.4307 51.6919 69.4629 53.6194C69.4736 54.2153 69.3072 54.4355 68.6951 54.3979C68.0294 54.3603 67.2724 54.5375 67.5677 53.3778V53.367ZM67.5355 50.0813C67.5301 47.9552 65.6026 46.6613 63.8792 47.6277C62.7679 48.2505 62.2847 49.8343 62.784 51.2356C63.1598 52.2825 64.4 53.061 65.3986 52.8731C66.7516 52.6154 67.5408 51.5899 67.5355 50.0813Z" fill="white"/>
+                            <path d="M73.4309 50.8061V54.3173H71.6699V43.0372H73.4041V49.437C74.2631 48.4169 75.0416 47.6062 75.6859 46.6988C76.153 46.0385 76.6738 45.7646 77.463 45.8667C77.8764 45.9203 78.3005 45.8774 78.9126 45.8774C77.5435 47.3699 76.3087 48.7229 75.047 50.1027C76.3248 51.4986 77.565 52.8516 78.9502 54.3657C78.0428 54.3657 77.3663 54.414 76.7006 54.3388C76.4536 54.312 76.2013 54.0274 76.0134 53.8073C75.1919 52.8731 74.392 51.9228 73.4309 50.8061Z" fill="white"/>
+                            <path d="M51.252 54.4623C48.7715 54.4623 46.9568 52.6852 46.9837 50.1242C47.0105 47.3163 48.938 45.7324 51.2896 45.7271C53.8398 45.7271 55.5364 47.472 55.633 49.9846C55.7243 52.2396 54.0868 54.473 51.252 54.4623ZM48.8897 50.1564C48.895 51.8154 49.8453 52.9053 51.2627 52.8838C52.7177 52.8623 53.7915 51.649 53.7754 50.049C53.7593 48.4276 52.7338 47.3324 51.2466 47.3485C49.7379 47.3699 48.8789 48.3847 48.8897 50.1564Z" fill="white"/>
+                            <path d="M55.7183 58.2904C55.7183 57.9522 55.7129 57.6515 55.7183 57.3508C55.7183 57.179 55.7505 57.0072 55.7666 56.8569C55.8417 56.814 55.8847 56.771 55.9276 56.7656C56.8296 56.6833 57.2806 56.1858 57.2806 55.2731C57.2806 52.4383 57.2806 49.5981 57.2806 46.7633C57.2806 46.4895 57.2806 46.2211 57.2806 45.915H59.106C59.106 46.1889 59.106 46.4573 59.106 46.7257C59.106 49.6411 59.0524 52.551 59.1222 55.4664C59.1705 57.5012 58.349 58.5696 55.7129 58.2958L55.7183 58.2904Z" fill="white"/>
+                            <path d="M59.3371 43.644C59.3586 44.299 58.8807 44.7983 58.2204 44.8091C57.56 44.8198 57.0392 44.3527 57.0123 43.7138C56.9909 43.1071 57.5224 42.5488 58.1452 42.5273C58.7841 42.5058 59.3156 43.0051 59.3371 43.644Z" fill="white"/>
+                        </g>
+                        <g clip-path="url(#clip0_320_464)" id="lg-header-logo-black" class="hide-item">
+                            <path d="M45.9255 37.1691C45.0826 35.4672 44.2665 33.8135 43.4182 32.1008C47.0691 30.1841 49.5442 27.3118 50.6663 23.3388C51.4824 20.4449 51.3481 17.5725 50.2958 14.7646C48.1107 8.9232 42.4733 5.44951 36.6749 5.72869C30.0818 6.04009 25.1048 10.6896 23.7787 16.3538C22.2378 22.9468 25.4055 29.4808 31.7891 32.4176C31.059 34.1196 30.3288 35.8269 29.5986 37.5288C24.1653 35.6658 17.234 28.7345 17.6904 18.7054C18.1252 9.22386 25.1907 1.51409 34.4307 0.209441C45.1041 -1.29923 53.9574 5.54615 56.2929 14.7861C58.7035 24.3213 53.8232 33.4377 45.9255 37.1745V37.1691Z" fill="black"/>
+                            <path d="M4.00522 97.6016C2.56634 96.1627 1.2617 94.8527 0 93.591C7.39837 86.2087 14.8451 78.7728 22.2273 71.4066C29.6794 78.8533 37.212 86.3805 44.7016 93.8648C43.4453 95.1265 42.146 96.4312 40.836 97.7465C34.7208 91.6313 28.5358 85.4463 22.3455 79.256C16.1658 85.441 10.0882 91.524 4.01058 97.6016H4.00522Z" fill="black"/>
+                            <path d="M51.2836 134.55H45.7052V109.048H19.5693V103.368H51.2836V134.55Z" fill="black"/>
+                            <path d="M34.2864 39.0697H40.0096V70.2685H8.2793V64.6526H34.2917V39.0643L34.2864 39.0697Z" fill="black"/>
+                            <path d="M47.0537 96.0984V64.9479H52.7126V90.4503H78.8431V96.0984H47.0537Z" fill="black"/>
+                            <path d="M67.5677 53.367C65.1194 54.8381 63.1652 54.763 61.8122 53.1952C60.3572 51.5094 60.3143 48.8196 61.7102 47.1122C63.0685 45.4479 64.9262 45.3244 67.4979 46.7525C67.5247 46.4948 67.5516 46.2479 67.5891 45.9472H69.4522V47.8371C69.4522 49.7645 69.4307 51.6919 69.4629 53.6194C69.4736 54.2153 69.3072 54.4355 68.6951 54.3979C68.0294 54.3603 67.2724 54.5375 67.5677 53.3778V53.367ZM67.5355 50.0813C67.5301 47.9552 65.6026 46.6613 63.8792 47.6277C62.7679 48.2505 62.2847 49.8343 62.784 51.2356C63.1598 52.2825 64.4 53.061 65.3986 52.8731C66.7516 52.6154 67.5408 51.5899 67.5355 50.0813Z" fill="black"/>
+                            <path d="M73.4309 50.8061V54.3173H71.6699V43.0372H73.4041V49.437C74.2631 48.4169 75.0416 47.6062 75.6859 46.6988C76.153 46.0385 76.6738 45.7646 77.463 45.8667C77.8764 45.9203 78.3005 45.8774 78.9126 45.8774C77.5435 47.3699 76.3087 48.7229 75.047 50.1027C76.3248 51.4986 77.565 52.8516 78.9502 54.3657C78.0428 54.3657 77.3663 54.414 76.7006 54.3388C76.4536 54.312 76.2013 54.0274 76.0134 53.8073C75.1919 52.8731 74.392 51.9228 73.4309 50.8061Z" fill="black"/>
+                            <path d="M51.252 54.4623C48.7715 54.4623 46.9568 52.6852 46.9837 50.1242C47.0105 47.3163 48.938 45.7324 51.2896 45.7271C53.8398 45.7271 55.5364 47.472 55.633 49.9846C55.7243 52.2396 54.0868 54.473 51.252 54.4623ZM48.8897 50.1564C48.895 51.8154 49.8453 52.9053 51.2627 52.8838C52.7177 52.8623 53.7915 51.649 53.7754 50.049C53.7593 48.4276 52.7338 47.3324 51.2466 47.3485C49.7379 47.3699 48.8789 48.3847 48.8897 50.1564Z" fill="black"/>
+                            <path d="M55.7183 58.2904C55.7183 57.9522 55.7129 57.6515 55.7183 57.3508C55.7183 57.179 55.7505 57.0072 55.7666 56.8569C55.8417 56.814 55.8847 56.771 55.9276 56.7656C56.8296 56.6833 57.2806 56.1858 57.2806 55.2731C57.2806 52.4383 57.2806 49.5981 57.2806 46.7633C57.2806 46.4895 57.2806 46.2211 57.2806 45.915H59.106C59.106 46.1889 59.106 46.4573 59.106 46.7257C59.106 49.6411 59.0524 52.551 59.1222 55.4664C59.1705 57.5012 58.349 58.5696 55.7129 58.2958L55.7183 58.2904Z" fill="black"/>
+                            <path d="M59.3371 43.644C59.3586 44.299 58.8807 44.7983 58.2204 44.8091C57.56 44.8198 57.0392 44.3527 57.0123 43.7138C56.9909 43.1071 57.5224 42.5488 58.1452 42.5273C58.7841 42.5058 59.3156 43.0051 59.3371 43.644Z" fill="black"/>
+                        </g>
+                        <defs>
+                            <clipPath id="clip0_320_463">
+                                <rect width="78.95" height="134.551" fill="white"/>
+                            </clipPath>
+                            <clipPath id="clip0_320_464">
+                                <rect width="78.95" height="134.551" fill="black"/>
+                            </clipPath>
+                        </defs>
                     </svg>
                 </a>
             </div>
 
             <div class="d-flex gx-3 gap-4">
                 <?php if(isset($_COOKIE["user_id"])) { ?>
-                    <a class="nav-link cursor-pointer hover-underline fs-6" href="" onclick="logout(event)">로그아웃</a>
-                    <a class="nav-link cursor-hover hover-underline" href="/my/home">마이페이지</a>
+                    <a 
+                        id="lgHeaderLogOut"
+                        class="nav-link cursor-pointer hover-underline fs-6" 
+                        href="" 
+                        style="min-width: 80px;"
+                        onclick="logout(event)"
+                        onmouseenter="changeInnerText('lgHeaderLogOut','로그아웃')" 
+                        onmouseleave="changeInnerText('lgHeaderLogOut','LOG OUT')"
+                    >LOG OUT</a>
+                    <a 
+                        id="lgHeaderMyPage"
+                        class="nav-link cursor-hover hover-underline" 
+                        href="/my/home"
+                        style="min-width: 80px;"
+                        onmouseenter="changeInnerText('lgHeaderMyPage','마이페이지')" 
+                        onmouseleave="changeInnerText('lgHeaderMyPage','MY PAGE')"
+                    >MY PAGE</a>
                 <?php }else{ ?>
                     <!-- <a class="nav-link cursor-pointer mt-2 fs-6" data-bs-toggle="modal" data-bs-target="#login-modal">로그인</a> -->
-                    <a class="nav-link cursor-pointer hover-underline fs-6" data-bs-toggle="modal" data-bs-target="#openModal" >로그인</a>
+                    <a 
+                        id="lgHeaderLogIn"
+                        class="nav-link cursor-pointer hover-underline fs-6" 
+                        style="min-width: 60px;"
+                        data-bs-toggle="modal"
+                         data-bs-target="#openModal" 
+                         onmouseenter="changeInnerText('lgHeaderLogIn','로그인')" 
+                        onmouseleave="changeInnerText('lgHeaderLogIn','LOG IN')"
+                    >LOG IN</a>
                 <?php } ?>
                 <!-- naver blog -->
-                <svg id="headerNaverLogo" class="cursor-pointer" width="29" height="30" viewBox="0 0 29 30"  xmlns="http://www.w3.org/2000/svg" >
+                <svg id="headerNaverLogo" class="cursor-pointer hide-item" width="29" height="30" viewBox="0 0 29 30"  xmlns="http://www.w3.org/2000/svg" >
                     <path class="scrollIcon" fill="#fff" d="M6.96927 12.3663C6.67963 12.3663 6.42217 12.4844 6.22907 12.7037C6.01989 12.9229 5.92334 13.1928 5.92334 13.5133C5.92334 13.8337 6.01989 14.0867 6.22907 14.3229C6.43826 14.5421 6.67963 14.6602 6.96927 14.6602C7.25891 14.6602 7.51637 14.5421 7.72556 14.3229C7.93475 14.1036 8.04738 13.8337 8.04738 13.5133C8.04738 13.1928 7.93475 12.9229 7.72556 12.7037C7.51637 12.4675 7.275 12.3663 6.96927 12.3663Z" fill="white"/>
                     <path class="scrollIcon" fill="#fff" d="M15.9966 12.3491C15.707 12.3491 15.4495 12.4672 15.2564 12.6865C15.0472 12.9057 14.9507 13.1756 14.9507 13.496C14.9507 13.8165 15.0472 14.0695 15.2564 14.3056C15.4656 14.5249 15.707 14.643 15.9966 14.643C16.2863 14.643 16.5437 14.5249 16.7529 14.3056C16.9621 14.0864 17.0747 13.8165 17.0747 13.496C17.0747 13.1756 16.9621 12.9226 16.7529 12.6865C16.5598 12.4503 16.3023 12.3491 15.9966 12.3491Z" fill="white"/>
                     <path class="scrollIcon" fill="#fff" d="M22.0308 12.3663C21.7412 12.3663 21.4837 12.4844 21.2906 12.7037C21.0814 12.9229 20.9849 13.1928 20.9849 13.5133C20.9849 13.8337 21.0814 14.0867 21.2906 14.3229C21.4998 14.5421 21.7412 14.6602 22.0308 14.6602C22.3204 14.6602 22.5779 14.5421 22.7871 14.3229C22.9963 14.1036 23.1089 13.8337 23.1089 13.5133C23.1089 13.1928 22.9963 12.9229 22.7871 12.7037C22.5779 12.4675 22.3204 12.3663 22.0308 12.3663Z" fill="white"/>
@@ -272,15 +406,15 @@
                 </svg>
 
                 <!-- instagram icon href="https://www.instagram.com/ko_jeong_suk/" -->
-                <svg id="headerInstaLogo" class="cursor-pointer" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" >
+                <svg id="headerInstaLogo" class="cursor-pointer hide-item" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" >
                     <path class="scrollIcon" fill="#fff"id="lg-header-insta-icon1" d="M14.9998 11.0419C12.8602 11.0419 11.0415 12.8606 11.0415 15.0002C11.0415 17.1398 12.8602 18.9585 14.9998 18.9585C17.1395 18.9585 18.9582 17.1398 18.9582 15.0002C18.9582 12.8606 17.1395 11.0419 14.9998 11.0419Z" fill="white"/>
                     <path class="scrollIcon" fill="#fff"id="lg-header-insta-icon2" d="M20.0739 3.125H10.0341C6.14773 3.125 3.125 6.14773 3.125 9.92614V19.9659C3.125 23.8523 6.14773 26.875 10.0341 26.875H20.0739C23.8523 26.875 26.875 23.8523 26.875 19.9659V9.92614C26.875 6.14773 23.8523 3.125 20.0739 3.125ZM15 21.2614C11.5455 21.2614 8.84659 18.4545 8.84659 15.108C8.84659 11.7614 11.5455 8.84659 15 8.84659C18.4545 8.84659 21.1534 11.6534 21.1534 15C21.1534 18.3466 18.4545 21.2614 15 21.2614ZM21.3693 10.142C20.6136 10.142 19.9659 9.49432 19.9659 8.73864C19.9659 7.98295 20.6136 7.33523 21.3693 7.33523C22.125 7.33523 22.7727 7.98295 22.7727 8.73864C22.7727 9.49432 22.125 10.142 21.3693 10.142Z" fill="white"/>
                 </svg>
 
                 <!-- youtube -->
-                <!-- <svg class="cursor-pointer" width="29" height="30" viewBox="0 0 29 30"  xmlns="http://www.w3.org/2000/svg">
+                <svg id="headerYoutubeLogo" class="cursor-pointer hide-item" width="29" height="30" viewBox="0 0 29 30"  xmlns="http://www.w3.org/2000/svg">
                     <path class="scrollIcon" fill="#fff" fill-rule="evenodd" clip-rule="evenodd" d="M24.8892 5.89461C26.0334 6.20992 26.9337 7.14616 27.2385 8.33949C27.7918 10.4982 27.7871 14.9998 27.7871 14.9998C27.7871 14.9998 27.7871 19.5015 27.2338 21.6602C26.929 22.8487 26.0287 23.7849 24.8845 24.1051C22.8119 24.6823 14.4978 24.6823 14.4978 24.6823C14.4978 24.6823 6.18379 24.6823 4.11114 24.1051C2.96696 23.7897 2.06663 22.8535 1.76183 21.6602C1.2085 19.5015 1.2085 14.9998 1.2085 14.9998C1.2085 14.9998 1.2085 10.4982 1.76652 8.33464C2.07132 7.14616 2.97165 6.20992 4.11583 5.88976C6.18848 5.3125 14.5025 5.3125 14.5025 5.3125C14.5025 5.3125 22.8119 5.3125 24.8892 5.89461ZM18.7322 14.9999L11.7827 10.9105V19.0892L18.7322 14.9999Z" fill="white"/>
-                </svg> -->
+                </svg>
 
 
             </div>
@@ -295,12 +429,20 @@
 
 <script>
 
+    function changeInnerText(id, text){
+        const target = document.getElementById(id);
+
+        if(target){
+            target.innerText = text;
+        }
+    }
+
     function showcommunitydiv(id){
         const communitySubMenu = document.getElementById(id);
 
         if(communitySubMenu){
             if(id.includes('lg')){
-                communitySubMenu.classList.add('visible-x-gradually');
+                communitySubMenu.classList.add('visible-y-gradually');
             }else{
                 communitySubMenu.classList.add('visible-y-gradually');
             }
@@ -320,7 +462,7 @@
 
         if(communitySubMenu){
             if(id.includes('lg')){
-                communitySubMenu.classList.remove('visible-x-gradually');
+                communitySubMenu.classList.remove('visible-y-gradually');
             }else{
                 communitySubMenu.classList.remove('visible-y-gradually');
             }
@@ -348,15 +490,14 @@
     }
 
     const smToggleDiv = document.getElementById('sm-header-toggle-div');
+
     function openToggleDivSm(event){
         event.preventDefault();
 
         if(smToggleDiv){
             smToggleDiv.style.transform = "translateX(0vh)"; 
         }
-    }
-
-    
+    } 
 
     function openToggleDiv(event){
         event.preventDefault();
@@ -446,6 +587,13 @@
             });
         }
 
+        //community sub 설정
+        const communitySubMenu = document.getElementById("lg-header-community-submenu");
+        communitySubMenu.classList.remove("bg-light");
+        communitySubMenu.classList.add("bg-dark");
+        document.getElementById("lgCommunityNotice").classList.add("text-white");
+        document.getElementById("lgCommunityEvent").classList.add("text-white");
+        document.getElementById("lgCommunityQna").classList.add("text-white");
     }
     
     function makeWhiteHeader(
@@ -473,6 +621,14 @@
         headerLogo.classList.remove("hide-item");
         headerLgBlakcLogo.classList.add("hide-item");
         headerScrollLogo.classList.add("hide-item");
+
+        //커뮤니티 아래 스크롤 색깔설정
+        const communitySubMenu = document.getElementById("lg-header-community-submenu");
+        document.getElementById("lgCommunityNotice").classList.remove("text-white");
+        document.getElementById("lgCommunityEvent").classList.remove("text-white");
+        document.getElementById("lgCommunityQna").classList.remove("text-white");
+        communitySubMenu.classList.remove("bg-dark");
+        communitySubMenu.classList.add("bg-light");
 
         // smHeader.classList.remove("hide-item");
         // smScrollHeader.classList.add("hide-item");
@@ -534,6 +690,7 @@
             });
         }
 
+       
         const smHeaderMenuIcon = document.getElementById("smHeaderMenuIcon");
         const smHeader = document.getElementById("smHeader");
         const smHeaderLogoClass = document.getElementsByClassName("smHeaderLogoClass");
@@ -550,6 +707,14 @@
                 el.classList.add("cls-7");
             });
         }
+
+         //community sub 설정
+         const communitySubMenu = document.getElementById("lg-header-community-submenu");
+         document.getElementById("lgCommunityNotice").classList.add("text-white");
+        document.getElementById("lgCommunityEvent").classList.add("text-white");
+        document.getElementById("lgCommunityQna").classList.add("text-white");
+        communitySubMenu.classList.remove("bg-light");
+        communitySubMenu.classList.add("bg-dark");
 
     }
 
@@ -666,9 +831,7 @@
         }
         
     });
-
     
-
 </script>
 
 <?= view('/auth/login-modal') ?>

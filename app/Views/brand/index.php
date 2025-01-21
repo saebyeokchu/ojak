@@ -1,19 +1,29 @@
-<div class="d-flex flex-column ms-5 me-5" style="margin-top:200px;">
+<div class="d-flex flex-column " style="margin-top:100px;">
     
     <!-- breadcrumb -->
-    <?= view('/component/breadcrumb',[
-        'breadsInput' => [ ['name' => '브랜드', 'url' => '/brand'] ]
-    ]) ?>
+    <div class="ms-5 me-5">
+        <?= view('/component/breadcrumb',[
+            'breadsInput' => [ ['name' => '브랜드', 'url' => '/brand'] ]
+        ]) ?>
+    </div>
 
 
     <!-- section 1 -->
-    <div class="grid text-center mt-150" >
+    <div class="grid text-center mt-100 ms-5 me-5" >
 
-        <div class="d-flex justify-content-center">
-            <p class="fw-bold" style="font-size: 32px;">오작의 이야기</p>
+        <div class="d-flex flex-column justify-content-center text-center">
+            <div>
+                <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21.6426 11.0713H28.5711C32.3977 11.0713 35.4997 14.1733 35.4997 17.9999C35.4997 21.8264 32.3977 24.9284 28.5711 24.9284H21.6426V11.0713Z" stroke="black"/>
+                    <path d="M14.3574 24.9287L7.42885 24.9287C3.60231 24.9287 0.50028 21.8267 0.50028 18.0001C0.500279 14.1736 3.60231 11.0716 7.42885 11.0716L14.3574 11.0716L14.3574 24.9287Z" stroke="black"/>
+                    <path d="M24.9277 21.6431L24.9277 28.5716C24.9277 32.3982 21.8257 35.5002 17.9992 35.5002C14.1726 35.5002 11.0706 32.3982 11.0706 28.5716L11.0706 21.6431L24.9277 21.6431Z" stroke="black"/>
+                    <path d="M11.0723 14.3569L11.0723 7.42836C11.0723 3.60182 14.1743 0.499792 18.0008 0.499792C21.8274 0.499792 24.9294 3.60182 24.9294 7.42836L24.9294 14.3569L11.0723 14.3569Z" stroke="black"/>
+                </svg>
+            </div>
+            <p class="fw-bold mt-2" style="font-size: 32px;">오작의 이야기</p>
         </div>
 
-        <div class="row text-start" style="margin-top:100px;" >
+        <div class="row text-start " style="margin-top:50px;" >
             <div class="col-sm-6 row">
                 <img src="/img/resource/brand/brand1.png" class="w-100" />
             </div>
@@ -32,9 +42,9 @@
             </div>
         </div>
 
-        <div class="row text-start mt-5" style="margin-top: 20px;">
+        <div class="row text-start mt-5 " style="margin-top: 20px; ">
             <div class="col-sm-6 row">
-                <img src="/img/resource/brand/brand2.png" class="w-100" />
+                <img src="/img/resource/brand/brand2.png" class="w-100"  style="height:550px;object-fit : cover;" />
             </div>
             <div class="col-sm-6 d-flex flex-column">
                 <div>
@@ -74,20 +84,26 @@
         </div>
 
         <div class="d-flex justify-content-center" >
-            <span style="margin-top:143px;" class="for-lg bs-button" onclick="location.href='/gallery?pageIndex=1'"> 작품 보러가기 </span>
-            <span style="margin-top:90px;" class="for-sm bs-button" onclick="location.href='/gallery?pageIndex=1'"> 작품 보러가기 </span>
+            <span style="margin-top:100px;" class="for-lg bs-button" onclick="location.href='/gallery?pageIndex=1'"> 작품 보러가기 </span>
+            <span style="margin-top:90px;" class="for-sm bs-button" onclick="location.href='/gallery?pageIndex=1'">작품 보러가기 </span>
         </div>
         
     </div>
 
     <!-- section 2 -->
-    <div class="grid text-center mt-150" >
-
-        <div class="d-flex justify-content-start">
-            <p class="fw-bold" style="font-size: 32px;">브랜드 로고 / 슬로건</p>
+    <div class="grid text-center mt-100 pb-5 bg-light" >
+        <div class="d-flex flex-column mt-5 justify-content-center">
+            <div>
+                <svg width="47" height="23" viewBox="0 0 47 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="12.2325" y="11.5049" width="15.2703" height="15.2703" transform="rotate(-45 12.2325 11.5049)" stroke="#17171B"/>
+                    <path d="M23.7559 11.5049L29.1548 6.10598C32.1365 3.12427 36.9708 3.12427 39.9526 6.10598C42.9343 9.0877 42.9343 13.922 39.9526 16.9037C36.9708 19.8855 32.1365 19.8855 29.1548 16.9037L23.7559 11.5049Z" stroke="#17171B"/>
+                    <path d="M22.3027 11.5049L16.9038 16.9037C13.9221 19.8855 9.08775 19.8855 6.10603 16.9037C3.12431 13.922 3.12431 9.0877 6.10603 6.10598C9.08775 3.12427 13.9221 3.12427 16.9038 6.10598L22.3027 11.5049Z" stroke="#17171B"/>
+                </svg>
+            </div>
+            <p class="fw-bold mt-2 " style="font-size: 32px;">브랜드 로고 / 슬로건</p>
         </div>
 
-        <div class="d-flex justify-content-center" style="margin-top:100px;" >
+        <div class="d-flex justify-content-center" style="margin-top:50px;" >
             <svg width="148" height="256" viewBox="0 0 148 256" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g clip-path="url(#clip0_112_1050)">
                 <path d="M86.0985 69.6096C84.5193 66.4153 82.9923 63.3253 81.4001 60.118C88.2389 56.5325 92.8851 51.1478 94.9863 43.7162C96.5133 38.3055 96.2653 32.9208 94.2946 27.6535C90.1965 16.7146 79.6382 10.2087 68.7666 10.7302C56.4071 11.3169 47.0756 20.0132 44.5958 30.6261C41.6985 42.9731 47.6498 55.2026 59.6177 60.7177C58.2473 63.912 56.877 67.1063 55.5066 70.2875C45.3137 66.8064 32.3278 53.8206 33.1891 35.033C33.9853 17.2753 47.2191 2.82924 64.538 0.391148C84.5454 -2.42505 101.146 10.3782 105.519 27.6926C110.034 45.5415 100.885 62.6212 86.0854 69.6226L86.0985 69.6096Z" fill="#17171B"/>
@@ -125,16 +141,20 @@
     </div>
 
     <!-- section 3 -->
-    <div class="grid mt-150" style="margin-bottom:100px;" >
+    <div class="grid mt-100 ms-5 me-5" style="margin-bottom:100px;" >
 
-        <div class="d-flex flex-column justify-content-start">
-            <p>
-                <span class="fw-bold" style="font-size: 32px;">오시는 길</span>
-                <br/>
-                <span class="for-lg" style="font-size: 24px;">경상북도 포항시 남구 오천읍 장기로 1479번길 2-4</span>
-                <span class="for-sm" style="font-size: 20px;">경상북도 포항시 남구 오천읍 장기로 1479번길 2-4</span>
-
-            </p>
+        <div class="d-flex flex-column justify-content-center text-center">
+            <div>
+                <svg width="47" height="23" viewBox="0 0 47 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="12.2325" y="11.5049" width="15.2703" height="15.2703" transform="rotate(-45 12.2325 11.5049)" stroke="#17171B"/>
+                    <path d="M23.7559 11.5049L29.1548 6.10598C32.1365 3.12427 36.9708 3.12427 39.9526 6.10598C42.9343 9.0877 42.9343 13.922 39.9526 16.9037C36.9708 19.8855 32.1365 19.8855 29.1548 16.9037L23.7559 11.5049Z" stroke="#17171B"/>
+                    <path d="M22.3027 11.5049L16.9038 16.9037C13.9221 19.8855 9.08775 19.8855 6.10603 16.9037C3.12431 13.922 3.12431 9.0877 6.10603 6.10598C9.08775 3.12427 13.9221 3.12427 16.9038 6.10598L22.3027 11.5049Z" stroke="#17171B"/>
+                </svg>
+            </div>
+            <span class="fw-bold mt-2" style="font-size: 32px;">오시는 길</span>
+            <br/>
+            <span class="for-lg" style="font-size: 24px;">경상북도 포항시 남구 오천읍 장기로 1479번길 2-4</span>
+            <span class="for-sm" style="font-size: 20px;">경상북도 포항시 남구 오천읍 장기로 1479번길 2-4</span>
         </div>
 
         <div class="d-flex justify-content-center mt-3">

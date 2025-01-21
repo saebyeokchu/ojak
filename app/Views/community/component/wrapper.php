@@ -64,20 +64,23 @@
     </nav>
 
     <!-- menu -->
-    <div id="menuWrapper" class="d-flex flex-row justify-content-start fw-bold gap-4 " style="font-size: 32px;">
+    <div id="menuWrapper" class="d-flex flex-row justify-content-start fw-bold gap-4 " style="font-size: 25px;">
         <p class="cursor-pointer ">
             <a href="/community/list/1?pageIndex=1" class=" <?= $gubunNum != 1 ? 'ojak-light-gray hover-underline no-text-decoration' : 'text-decoration-underline  text-dark' ?>">
                 공지사항
             </a>
         </p>
         <p class="cursor-pointer ">
-            <a href="/community/list/2?pageIndex=1" class=" <?= $gubunNum != 2 ? 'ojak-light-gray hover-underline no-text-decoration' : 'text-decoration-underline  text-dark' ?>">이벤트</a>
+            <a href="/community/list/2?pageIndex=1" class=" <?= $gubunNum != 2 ? 'ojak-light-gray hover-underline no-text-decoration' : 'text-decoration-underline  text-dark' ?>">
+                이벤트
+            </a>
         </p>
         <p class="cursor-pointer ">
-            <a href="/community/list/3?pageIndex=1" class="<?= $gubunNum != 3 ? 'ojak-light-gray hover-underline no-text-decoration' : 'text-decoration-underline  text-dark' ?>">Q&A</a>    
+            <a href="/community/list/3?pageIndex=1" class="<?= $gubunNum != 3 ? 'ojak-light-gray hover-underline no-text-decoration' : 'text-decoration-underline  text-dark' ?>">
+                Q&A
+            </a>    
         </p>
     </div>
-
 
 
     <!-- content -->

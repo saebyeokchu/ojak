@@ -1,12 +1,12 @@
 <div class="owl-carousel main-carousel overflow-hidden bg-dark">
   <div class="item">
-    <img src="img/resource/home/carousel1.png" alt="Carousel Image 1" />
+    <img src="img/resource/home/carousel1.jpg" alt="Carousel Image 1" />
   </div>
   <div class="item">
-    <img src="img/resource/home/carousel2.png" alt="Carousel Image 2" />
+    <img src="img/resource/home/carousel2.jpg" alt="Carousel Image 2" />
   </div>
   <div class="item">
-    <img src="img/resource/home/carousel3.png" alt="Carousel Image 3" />
+    <img src="img/resource/home/carousel3.jpg" alt="Carousel Image 3" />
   </div>
 </div>
 
@@ -20,7 +20,7 @@
       autoplayTimeout:8000,
       autoplayHoverPause:false,
       smartSpeed: 2000,          // Smooth transition speed (1 second)
-      dots: false,
+      dots: true,
       responsive: {
         0: {
           items: 1 // 1 item for small screens

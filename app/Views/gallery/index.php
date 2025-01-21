@@ -40,14 +40,14 @@
     <!-- breadcrumb -->
     <?= view('/component/breadcrumb',[
         'breadsInput' => [ 
-            ['name' => '작품', 'url' => '/gallery?pageIndex=1'], 
+            ['name' => '갤러리', 'url' => '/gallery?pageIndex=1'], 
         ] ]) ?>
 
 
     <!-- content -->
     <div class="grid " id="galleryOuterWrapper" >
         <div class="d-flex justify-content-center">
-            <p class="fw-bold" style="font-size: 32px;">작품</p>
+            <p class="fw-bold" style="font-size: 32px;">갤러리</p>
         </div>
         
         <div id="galleryWrapper">
@@ -67,14 +67,15 @@
             </div>
 
             
-            
             <!-- 한줄 설명은 23자 -->
+            <!-- 작품 가로 꽉 -->
+            <div class="container">
                 <?php if(count($items) > 0){
                     foreach($items as $item){ ?>
                     <?php if($galleryCounter % 4 == 0) { ?> <div class='row row-cols-1 row-cols-md-4 g-4 <?=$galleryCounter > 3 ?? 'mt-70' ?>'> <?php } ?>
                         <div class="col"> 
                             <a href="gallery/<?=$item["id"]?>?pageIndex=<?=$pageIndex?>">
-                                <img src="/img/user/<?=$item["img_url"]?>" class="w-100 hover-saturate cursor-pointer" style="min-height: 380px;object-fit:cover;" />
+                                <img src="/img/user/<?=$item["img_url"]?>" class="w-100 hover-saturate cursor-pointer" style="height: 280px;object-fit:cover;" />
                             </a>
                             <div style="font-size: 24px;" class="fw-bold mt-2">
                                 <?=$item["title"]?>
@@ -89,90 +90,72 @@
                         현재 등록된 작품이 없습니다.
                     </div>    
                 <?php } ?>
-
-
-            
-
-
-            <!-- <div class="row row-cols-1 row-cols-md-4 g-4 mt-1"  >
-                <div class="col">
-                    <img src="/img/resource/gallery/1.png" class="img-fluid hover-saturate cursor-pointer" />
-                    <div style="font-size: 24px;" class="fw-bold mt-2">
-                        작품 이름_1
-                    </div>
-                    <div style="font-size: 20px;" class="mt-2">
-                        작품에 대한 한줄 설명입니다
-                    </div>
-                </div>
-                <div class="col">
-                    <img src="/img/resource/gallery/2.png" class="img-fluid hover-saturate cursor-pointer" />
-                    <div style="font-size: 24px;" class="fw-bold mt-2">
-                        작품 이름_1
-                    </div>
-                    <div style="font-size: 20px;" class="mt-2">
-                        작품에 대한 한줄 설명입니다
-                    </div>
-                </div>
-                <div class="col">
-                    <img src="/img/resource/gallery/3.png" class="img-fluid hover-saturate cursor-pointer" />
-                    <div style="font-size: 24px;" class="fw-bold mt-2">
-                        작품 이름_1
-                    </div>
-                    <div style="font-size: 20px;" class="mt-2">
-                        작품에 대한 한줄 설명입니다
-                    </div>
-                </div>
-                <div class="col">
-                    <img src="/img/resource/gallery/4.png" class="img-fluid hover-saturate cursor-pointer" />
-                    <div style="font-size: 24px;" class="fw-bold mt-2">
-                        작품 이름_1
-                    </div>
-                    <div style="font-size: 20px;" class="mt-2">
-                        작품에 대한 한줄 설명입니다
-                    </div>
-                </div>
+                <?php if(count($items) > 0){
+                    foreach($items as $item){ ?>
+                    <?php if($galleryCounter % 4 == 0) { ?> <div class='row row-cols-1 row-cols-md-4 g-4 pt-30 <?=$galleryCounter > 3 ?? 'mt-70' ?>'> <?php } ?>
+                        <div class="col"> 
+                            <a href="gallery/<?=$item["id"]?>?pageIndex=<?=$pageIndex?>">
+                                <img src="/img/user/<?=$item["img_url"]?>" class="w-100 hover-saturate cursor-pointer" style="height: 280px;object-fit:cover;" />
+                            </a>
+                            <div style="font-size: 24px;" class="fw-bold mt-2">
+                                <?=$item["title"]?>
+                            </div>
+                            <div style="font-size: 20px;" class="mt-2">
+                            <?=$item["sub_title"]?>
+                            </div>
+                        </div>
+                    <?php if($galleryCounter % 4 == 3 || $galleryCounter + 1 == count($items)) { ?> </div> <?php } ?>
+                <?php $galleryCounter = $galleryCounter+1; } } else { ?>
+                    <div style="font-size: 32px;min-height:200px;" class="d-flex justify-content-center">
+                        현재 등록된 작품이 없습니다.
+                    </div>    
+                <?php } ?>
             </div>
 
-            <div class="row row-cols-1 row-cols-md-4 g-4"  style="margin-top:70px;">
-                <div class="col">
-                    <a href="gallery/1">
-                        <img src="/img/resource/gallery/1.png" class="img-fluid hover-saturate cursor-pointer" />
-                    </a>
-                    <div style="font-size: 24px;" class="fw-bold mt-2">
-                        작품 이름_1
+
+            <?php if(count($items) > 0){
+                foreach($items as $item){ ?>
+                <?php if($galleryCounter % 4 == 0) { ?> <div class='row row-cols-1 row-cols-md-4 g-4 pt-30 <?=$galleryCounter > 3 ?? 'mt-70' ?>'> <?php } ?>
+                    <div class="col"> 
+                        <a href="gallery/<?=$item["id"]?>?pageIndex=<?=$pageIndex?>">
+                            <img src="/img/user/<?=$item["img_url"]?>" class="w-100 hover-saturate cursor-pointer" style="height: 240px;object-fit:cover;" />
+                        </a>
+                        <div style="font-size: 24px;" class="fw-bold mt-2">
+                            <?=$item["title"]?>
+                        </div>
+                        <div style="font-size: 20px;" class="mt-2">
+                        <?=$item["sub_title"]?>
+                        </div>
                     </div>
-                    <div style="font-size: 20px;" class="mt-2">
-                        작품에 대한 한줄 설명입니다 작품에 대한 한줄 설명(23자)
+                <?php if($galleryCounter % 4 == 3 || $galleryCounter + 1 == count($items)) { ?> </div> <?php } ?>
+            <?php $galleryCounter = $galleryCounter+1; } } else { ?>
+                <div style="font-size: 32px;min-height:200px;" class="d-flex justify-content-center">
+                    현재 등록된 작품이 없습니다.
+                </div>    
+            <?php } ?>
+
+            <!-- 작품 세로 꽉  -->
+            <?php if(count($items) > 0){
+                foreach($items as $item){ ?>
+                <?php if($galleryCounter % 4 == 0) { ?> <div class='row row-cols-1 row-cols-md-4 g-4 pt-30 <?=$galleryCounter > 3 ?? 'mt-70' ?>'> <?php } ?>
+                    <div class="col"> 
+                        <a href="gallery/<?=$item["id"]?>?pageIndex=<?=$pageIndex?>">
+                            <img src="/img/user/<?=$item["img_url"]?>" class="w-100 hover-saturate cursor-pointer" style="height: 240px;object-fit:cover;" />
+                        </a>
+                        <div style="font-size: 24px;" class="fw-bold mt-2">
+                            <?=$item["title"]?>
+                        </div>
+                        <div style="font-size: 20px;" class="mt-2">
+                        <?=$item["sub_title"]?>
+                        </div>
                     </div>
-                </div>
-                <div class="col">
-                    <img src="/img/resource/gallery/2.png" class="img-fluid hover-saturate cursor-pointer" />
-                    <div style="font-size: 24px;" class="fw-bold mt-2">
-                        작품 이름_1
-                    </div>
-                    <div style="font-size: 20px;" class="mt-2">
-                        작품에 대한 한줄 설명입니다
-                    </div>
-                </div>
-                <div class="col">
-                    <img src="/img/resource/gallery/3.png" class="img-fluid hover-saturate cursor-pointer" />
-                    <div style="font-size: 24px;" class="fw-bold mt-2">
-                        작품 이름_1
-                    </div>
-                    <div style="font-size: 20px;" class="mt-2">
-                        작품에 대한 한줄 설명입니다
-                    </div>
-                </div>
-                <div class="col">
-                    <img src="/img/resource/gallery/4.png" class="img-fluid hover-saturate cursor-pointer" />
-                    <div style="font-size: 24px;" class="fw-bold mt-2">
-                        작품 이름_1
-                    </div>
-                    <div style="font-size: 20px;" class="mt-2">
-                        작품에 대한 한줄 설명입니다
-                    </div>
-                </div>
-            </div> -->
+                <?php if($galleryCounter % 4 == 3 || $galleryCounter + 1 == count($items)) { ?> </div> <?php } ?>
+            <?php $galleryCounter = $galleryCounter+1; } } else { ?>
+                <div style="font-size: 32px;min-height:200px;" class="d-flex justify-content-center">
+                    현재 등록된 작품이 없습니다.
+                </div>    
+            <?php } ?>
+
 
             <!-- pagination -->
             <?php if(count($items) > 0){ ?>
@@ -216,47 +199,6 @@
 </div>
 
 
-<!-- Gallery Contents -->
-<!-- <?php //if($count == 0){ ?>
-    <div class="page-wrap d-flex flex-row align-items-center" style="min-height: 60vh;">
-        <div class="container my-3">
-            <div class="row justify-content-center text-center">
-                <span class="h3">등록된 작품이 없습니다.</span>
-            </div>
-            <div class="row justify-content-center text-center mt-3 " >
-                <?php //if( $userId > 0 ) { ?>
-                    <a href="/gallery/new" class="logged-in">
-                        <button id="createNewItemBtnLoggined" type="button" class="btn btn-dark btn-lg" style="width:300px;">새로운 작품 등록하기</button>
-                    </a>
-                <?php //} ?>
-            </div>
-        </div>
-    </div>
-<?php //}else{ ?>
-
-    
-
-    <div class="container pt-70 pb-100" >
-        <?php //if( $userId > 0 ) { ?>
-            <div class="d-flex justify-content-end">
-                <a class="no-text-decoration" href="/gallery/new" >
-                    <button class="btn btn-dark">작품 등록하기</button>
-                </a>
-            </div>
-        <?php //} ?>
-        <?php //for($i=0;$i<$count;$i=$i+4) { ?>
-            <div class="row pt-15 gy-4" data-aos="fade-up" data-aos-duration="1500" >
-                <?php //for($j=$i;$j<$i+4 && $j < $count;$j=$j+1) { ?>
-                        <div class="col-lg-3 col-sm-6 col-xs-12"> 
-                            /view('gallery/component/frame', array('item' => $items[$j])); 
-                        </div>
-                <?php // } ?>
-            </div>
-        <?php //} ?>
-    </div>
-
-<?php //} ?>
- -->
 
 <script>
         window.addEventListener('load', () => {
@@ -271,11 +213,10 @@
 
         if(galleryWrapper){
             if(innerWidth < 700){
-                galleryWrapper.style.marginTop = "30px";
-                galleryOuterWrapper.style.marginTop = "70px";
+                galleryWrapper.style.marginTop = "10px";
+                galleryOuterWrapper.style.marginTop = "20px";
             }else{
-                galleryWrapper.style.marginTop = "70px";
-                galleryOuterWrapper.style.marginTop = "100px";
+                galleryOuterWrapper.style.marginTop = "30px";
             }
         }
     });
