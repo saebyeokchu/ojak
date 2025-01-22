@@ -137,7 +137,7 @@
             postData.append('id',id);
 
 
-            axios.post('/api/insertEvent', postData, { headers: {
+            axios.post('/api/upsertEvent', postData, { headers: {
                         'Content-Type': 'multipart/form-data', // Ensure correct headers
             }}).then(function(response){
                 const data =  response.data;

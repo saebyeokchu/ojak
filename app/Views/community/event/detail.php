@@ -49,7 +49,7 @@
     </nav>
 
      <!-- title and content -->
-     <div class="grid gap-4 mt-150">
+     <div class="grid gap-4 mt-70">
         <div class="row">
             <div class="col-sm-6">
                 <img src="/img/user/<?=$post['img_url']?>" class="img-fluid cursor-pointer w-100" />

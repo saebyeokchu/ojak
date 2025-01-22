@@ -161,8 +161,6 @@
     }
 
     function getReturnUrl(postId){
-        return getUrl(postId,currentCategory,<?=$pageIndex?>).communityDetail;
-        
         if(window.location.href.includes('edit')){
             return getUrl(postId,currentCategory,<?=$pageIndex?>).communityDetail;
         }else{

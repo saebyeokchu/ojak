@@ -70,7 +70,7 @@ $routes->post('/api/deleteGallery', 'Api::deleteGallery');
 $routes->get('/api/getBusniessInfo', 'Api::getBusniessInfo');
 $routes->get('/api/getSocialInfo', 'Api::getSocialInfoJson');
 $routes->post('/api/sendEmail', 'Api::sendEmail');
-$routes->post('/api/insertEvent', 'Api::insertEvent');
+$routes->post('/api/upsertEvent', 'Api::upsertEvent');
 $routes->post('/api/insertComment', 'Api::insertComment');
 $routes->post('/api/deleteComment', 'Api::deleteComment');
 

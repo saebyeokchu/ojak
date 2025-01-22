@@ -34,7 +34,7 @@
 
 ?>
 
-<div class="d-flex flex-column ms-5 me-5" style="margin-top:200px; margin-bottom:100px;">
+<div class="d-flex flex-column ms-5 me-5" style="margin-top:100px; margin-bottom:100px;">
         
      <!-- breadcrumb -->
      <?= view('/component/breadcrumb',[
@@ -43,7 +43,7 @@
 
 
     <!-- title -->
-    <div class="d-flex flex-column gap-4 mt-150">
+    <div class="d-flex flex-column gap-4 mt-100">
         <div style="font-size: 20px;" class="ojak-middle-gray">Q&A</div>
         <div style="font-size: 36px;" class="fw-bold">
             <?= $post["title"] ?>
@@ -60,7 +60,7 @@
     <?php if($owned_by_user) { ?>
     <div class="d-flex flex-row gap-2 justify-content-center  mt-50" >
         <a class="bs-button no-text-decoration " href="/community/edit?id=<?=$post['id']?>&gubun=3&pageIndex=<?=$pageIndex?>"> 수정하기 </a>
-        <span class="bs-button" onclick="deletePost(<?=$post['id']?>)"> 삭제하기 </span>
+        <span class="bs-button" onclick="deletePost(<?=$post['id']?>, '/community/qna?pageIndex=<?=$pageIndex?>')"> 삭제하기 </span>
     </div>
     <?php } ?>
 

@@ -16,7 +16,7 @@
         <p class="text-secondary">등록한 커뮤니티 게시글을 관리할 수 있습니다.</p>
     </div>
 
-    <div  class="d-flex flex-row justify-content-start fw-bold gap-4  mt-3 " style="font-size: 24px;">
+    <div  class="d-flex flex-row justify-content-start fw-bold gap-4 mt-3 " style="font-size: 24px;">
         <p class="cursor-pointer ">
             <a href='<?= $thisUrl?>0' class=" <?= $gubun != 0 ? 'ojak-light-gray hover-underline no-text-decoration' : 'text-decoration-underline  text-dark' ?>">전체</a>
         </p>
@@ -51,7 +51,7 @@
                     <td >
                         <a class="no-text-decoration hover-underline text-dark" href="<?=$detailUrl?><?=$item["id"]?>"><?=$item["title"]?></a>
                     </td>
-                    <td><?=date("Y-m-d H:i:s", $item["created_at"]);?></td>
+                    <td><?=$item["created_at"]?></td>
                     <td>
                         <span class="btn btn-dark cursor-pointer me-3" onclick="moveToDetail(<?=$item['id']?>, <?=$item['gubun']?>)">
                                 수정

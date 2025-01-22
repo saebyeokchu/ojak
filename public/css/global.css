@@ -395,7 +395,7 @@ body.loaded {
 /* owl-carousel */
 .owl-carousel .owl-dots {
     position: absolute;
-    bottom: 15px; /* Adjust this value to move dots up/down */
+    bottom: 30px; /* Adjust this value to move dots up/down */
     left: 50%;
     display: flex;
     z-index: 10;

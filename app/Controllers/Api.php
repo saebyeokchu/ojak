@@ -842,7 +842,7 @@ class Api extends Controller
     }
 
     
-    public function insertEvent()
+    public function upsertEvent()
     {
         $title = $this->request->getPost('title');
         $content = $this->request->getPost('content');
@@ -869,7 +869,6 @@ class Api extends Controller
 
         if($file_upload){
             // Get the incoming data from the POST request
-            $model = new \App\Models\CommunityModel();
 
             //['title', 'content', 'user_id', 'created_at'];
             $data = [
@@ -877,15 +876,21 @@ class Api extends Controller
                 'content' => $content,
                 'user_id' => $user_id,
                 'gubun' => 2,
+                'pinned' => false
             ];
 
             if($file_name != null){
                 $data['img_url'] = $file_name;
             }
 
-            if($id){
+            $model = new \App\Models\CommunityModel();
+            log_message('error','isset'.isset($id));
+
+            if(isset($id)){
+                log_message('error','updateEvent');
                 $result = $model->update($id, $data);
             }else{
+                log_message('error','insertEvent');
                 $result = $model->insert($data);
                 $id = $model->insertID;
             }

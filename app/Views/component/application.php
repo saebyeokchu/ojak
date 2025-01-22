@@ -100,8 +100,6 @@
                         switch(e.name){
                             case "네이버 블로그" : {
                                 if(e.note=="on"){
-                                    console.log("footerNaverLogo",e);
-
                                     //footer 
                                     footerNaverLogo.classList.remove("hide-item");
                                     footerNaverLogo.onclick = () => window.open(

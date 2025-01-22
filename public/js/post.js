@@ -1,4 +1,4 @@
-function deletePost(postId){
+function deletePost(postId, returnUrl){
     if(!postId){
         return;
     }
@@ -12,8 +12,14 @@ function deletePost(postId){
     
             axios.post('/api/deletePost', postData).then(function(response){
                 console.log("success:", response);
-                window.alert(response.data.message)
-                location.reload();
+                window.alert(response.data.message);
+
+                if(returnUrl){
+                    location.href=returnUrl;
+                }else{
+                    location.reload();
+                }
+
                 return;
             }).catch(function(error){
                 console.log("error:", error);

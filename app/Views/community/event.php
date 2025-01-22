@@ -25,7 +25,7 @@
 
 
     <!-- content -->
-    <div class="mt-70" >
+    <div class="mt-15" >
         <?=view('/community/event/card', [ 'posts' => $posts ]);?>
     </div>
 

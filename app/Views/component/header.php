@@ -70,13 +70,13 @@
         <div class="d-flex text-center cursor-pointer pt-3" >
             <div class="d-felx flex-column gap-3 gy-3" style="list-style: none;">
                 <?php if(isset($_COOKIE["user_id"])) { ?>
-                    <a id="mobileToggleMyPage" class=" nav-link pt-3 toggle-header-menu <?=$lgMypageUrl?>" href="/my/home" style="width:300px;" ><span class="ps-3">마이페이지</span></a>
+                    <a id="mobileToggleMyPage" class=" nav-link pt-3 toggle-header-menu <?=$lgMypageUrl?>" href="/my/home" style="width:300px;" >마이페이지</a>
                 <?php } ?>
 
                 <a class=" nav-link pt-3 toggle-header-menu <?=$lgBrandUrl?>" href="/brand" style="width:300px;">
                     <span id="mobileToggleBrand" >브랜드</span>
                 </a>
-                <a id="mobileToggleGallery" class=" nav-link pt-3 toggle-header-menu <?=$lgGalleryUrl?>" href="/gallery?pageIndex=1" style="width:300px;"><span class="ps-3">갤러리</span></a>
+                <a id="mobileToggleGallery" class=" nav-link pt-3 toggle-header-menu <?=$lgGalleryUrl?>" href="/gallery?pageIndex=1" style="width:300px;">갤러리</a>
                 <div  onmouseenter="showcommunitydiv('mobile-header-community-submenu')"  onmouseleave="hidecommunitydiv('mobile-header-community-submenu')">
                     <div class="nav-link pt-3 toggle-header-menu" style="width:300px;">
                         <span id="mobileToggleCommunity"    style="width:300px;" onclick="location.href='/community/notice?pageIndex=1'" >커뮤니티</span>  

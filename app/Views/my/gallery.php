@@ -16,7 +16,7 @@
         <p class="text-secondary">등록한 작품을 관리할 수 있습니다.</p>
     </div>
 
-    <table class="table text-center mt-50" >
+    <table class="table text-center mt-15" >
         <thead>
             <tr>
                 <th>번호</th>

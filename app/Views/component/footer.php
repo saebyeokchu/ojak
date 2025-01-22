@@ -147,7 +147,6 @@
                                  }
 
                                 // footerDiv.innerHTML += '<div class="pt-0">'+d['name'] + " : " + d['value']+'</div>';
-                                console.log(targetRow, document.getElementById(targetRow));
                                 document.getElementById(targetRow).insertAdjacentHTML('beforeend','<div class="pt-0">'+d['name'] + " : " + d['value']+'</div>');
                                
                             }

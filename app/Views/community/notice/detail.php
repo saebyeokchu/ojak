@@ -46,7 +46,7 @@
     </nav>
 
     <!-- title -->
-    <div class="d-flex flex-column gap-4 mt-150">
+    <div class="d-flex flex-column gap-4 mt-100">
         <div style="font-size: 20px;" class="ojak-middle-gray">공지사항</div>
         <div style="font-size: 36px;" class="fw-bold">
             <?=$post["title"];?>

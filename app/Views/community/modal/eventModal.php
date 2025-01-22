@@ -66,22 +66,25 @@
         const title = event.target[0].value;
         const content = event.target[1].value;
         const file = document.getElementById('input-file');
+        const imageFile = file.files[0];
         const id = itemId;
-
-        console.log("update", id);
 
         try {
             addEventModal.style.display = "none"; // Hide modal
             turnOnLoadingScreen();
+
             var postData = new FormData();
             postData.append('title', title);
             postData.append('content', content);
-            postData.append('image', file.files[0]);
+            if(imageFile){
+                postData.append('image', imageFile);
+            }
             postData.append('user_id',getCookieByName('user_id'));
-            postData.append('id',id);
+            if(id){
+                postData.append('id', id );
+            }
 
-
-            axios.post('/api/insertEvent', postData, { headers: {
+            axios.post('/api/upsertEvent', postData, { headers: {
                         'Content-Type': 'multipart/form-data', // Ensure correct headers
             }}).then(function(response){
                 const data =  response.data;
