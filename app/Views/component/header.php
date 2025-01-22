@@ -218,7 +218,7 @@
                     href="/gallery?pageIndex=1"
                 >갤러리</a>
                 <div onmouseenter="showcommunitydiv('sm-header-community-submenu')"  onmouseleave="hidecommunitydiv('sm-header-community-submenu')">
-                    <span   id="toggleCommunityText" class="mt-2 nav-link toggle-header-menu hover-underline">커뮤니티</span>
+                    <span   id="toggleCommunityText" class="mt-2 nav-link toggle-header-menu hover-underline" onclick="location.href='/community/notice?pageIndex=1'">커뮤니티</span>
                     <div id="sm-header-community-submenu" class="hide-y-gradually mt-2 ">
                         <a class="nav-link cursor-hover <?=$lgNoticeUrl?>" id="lgToggleCommunityNotice" >공지사항</a>
                         <a class="nav-link cursor-hover <?=$lgEventUrl?> mt-2" id="lgToggleCommunityEvent" >이벤트</a>
