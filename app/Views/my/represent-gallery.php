@@ -20,7 +20,7 @@
 <div class="for-lg " >
     <div class="d-flex flex-column justify-content-start mt-70">
         <p class="fw-bold" style="font-size: 32px;">메인 작품 관리</p>
-        <small>대표작품은 맨 앞장에서 나오는 슬라이드 작품을 관리합니다.</small>
+        <small>대표작품은 맨 앞장에서 나오는 슬라이드 작품을 관리합니다.(투명도 관리를 위해 jpg만 가능)</small>
     </div>
     <form class="mt-3" action="javascript:;" onsubmit=" update( event ) ">
         <div class="d-flex justify-content-start">
@@ -32,15 +32,15 @@
 
         <div class="mb-3 mt-3">
             <label for="formFile" class="form-label font-weight-bold"><strong>1번 작품</strong></label>
-            <input class="form-control" type="file" id="input-file1" name="input-file1" accept=".png" <?= (isset($item[0])) ?  '' : 'required' ?>>
+            <input class="form-control" type="file" id="input-file1" name="input-file1" accept=".jpg" <?= (isset($item[0])) ?  '' : 'required' ?>>
         </div>
         <div class="mb-3">
             <label for="formFile" class="form-label font-weight-bold"><strong>2번 작품</strong></label>
-            <input class="form-control" type="file" id="input-file2" name="input-file2" accept=".png"  >
+            <input class="form-control" type="file" id="input-file2" name="input-file2" accept=".jpg"  >
         </div>
         <div class="mb-3">
             <label for="formFile" class="form-label font-weight-bold"><strong>3번 작품</strong></label>
-            <input class="form-control" type="file" id="input-file3" name="input-file3" accept=".png"  >
+            <input class="form-control" type="file" id="input-file3" name="input-file3" accept=".jpg"  >
         </div>
     </form>
 </div>

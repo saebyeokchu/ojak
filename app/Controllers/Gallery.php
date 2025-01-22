@@ -9,10 +9,12 @@ class Gallery extends BaseController
         $pageIndex = $this->request->getGet('pageIndex');
 
         $api = new \App\Controllers\Api();
-        $result = $api -> getAllGallery();
+        $countResult = $api -> getAllGalleryCount();
+        $result = $api -> getAllGallery($pageIndex);
             
         if($result['status'] == 'success') {
             $data['contents']['items'] = $result['items'];
+            $data['contents']['totalCount'] = $countResult['count'];
             $data['contents']['pageIndex'] = $pageIndex;
         }
 

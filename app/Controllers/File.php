@@ -88,7 +88,7 @@ class File extends ResourceController
         $fileName = pathinfo($fileNameInput, PATHINFO_FILENAME);
 
         // Define the destination path
-        $destination = $uploadPath . $fileNameInput . '.png';
+        $destination = $uploadPath . $fileNameInput . '.jpg';
 
         // Move the file to the target directory
         if (move_uploaded_file($file['tmp_name'], $destination)) {

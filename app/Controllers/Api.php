@@ -392,19 +392,41 @@ class Api extends Controller
     }
 
     //Gallery
-    public function getAllGallery() {
+    public function getAllGallery($pageIndex) { 
+        $numPerPage = 8;
+        $pageIndex = $pageIndex - 1;
+
         $model = new \App\Models\GalleryModel();
-        $items = $model->findAll(); 
+        //등록순으로 보여주기
+        $items = $model->orderBy('created_at','desc')->findAll(8, $pageIndex * 8); 
 
         if ($items) {
             return [
                 'status' => 'success',
-                'items' => $items
+                'items' => $items,
             ];
         } else {
             return [
                 'status' => 'error',
                 'message' => 'No data',
+            ];
+        }
+    }
+
+    public function getAllGalleryCount() { 
+        $model = new \App\Models\GalleryModel();
+        //등록순으로 보여주기
+        $count = $model->countAll(); 
+
+        if ($count > 0) {
+            return [
+                'status' => 'success',
+                'count' => $count,
+            ];
+        } else {
+            return [
+                'status' => 'error',
+                'count' => 0,
             ];
         }
     }

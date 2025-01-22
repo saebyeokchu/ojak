@@ -74,7 +74,8 @@ class My extends BaseController
                     $target_data["exhibits"] = $resultExhibits['items'];
                 }
 
-                $resultAllGalleries = $api -> getAllGallery();
+                //saebyeok 여기 자기것만 가져오도록 수정
+                $resultAllGalleries = $api -> getAllGallery(1);
                 if($resultAllGalleries['status'] == 'success') {
                     $target_data["allGallery"] = $resultAllGalleries['items'];
                 }

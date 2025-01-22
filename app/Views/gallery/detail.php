@@ -20,7 +20,7 @@
     $returnUrl = "/gallery?pageIndex=".$pageIndex;
 ?>
 
-<div class="d-flex flex-column ms-5 me-5" style="margin-top:200px; margin-bottom:100px;">
+<div class="d-flex flex-column ms-5 me-5" style="margin-top:100px; margin-bottom:100px;">
     
     <!-- breadcrumb -->
     <?= view('/component/breadcrumb',[
@@ -29,8 +29,8 @@
 
 
     <!-- content -->
-    <div class="grid  mt-100" >
-        <div class="row row-cols-1 row-cols-md-2"  style="margin-top:100px;min-height:783px;">
+    <div class="grid  " >
+        <div class="row row-cols-1 row-cols-md-2 mt-5"  style="min-height:783px;">
             <div class="col-sm-6">
                 <img src="/img/user/<?=$item->img_url?>" class="w-100 object-fit-cover" />
                 <!-- <div class="for-sm">
@@ -104,10 +104,8 @@
                 </div>
 
                 <?php if(isset($item->buy_link) && $item->buy_link != ''){ ?>
-                    <div class="d-flex justify-content-center mt-20" >
-                        <a href="<?=$item->buy_link?>" class="no-text-decoration text-dark">
-                            <span style="font-size:22px; border:1px solid black; margin-top:38px;" class="fw-bold px-4 py-2 cursor-pointer"> 작품 구매하러 가기 </span>
-                        </a>
+                    <div class="d-flex justify-content-center mt-20" onclick="window.open('<?=$item->buy_link?>','_blank');">
+                        <span  class="fw-bold px-4 py-2 cursor-pointer bs-button"> 작품 구매하러 가기 </span>
                     </div>
                 <?php } ?>
             </div>
