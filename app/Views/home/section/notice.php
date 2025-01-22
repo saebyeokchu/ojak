@@ -8,10 +8,10 @@
 ?>
 
 
-<div class=" px-5 " style='font-family: "MaruBuri", sans-serif;'>
+<div class=" px-5 " >
     <div class="row row-cols-1 row-cols-md-4" style="margin-top: 150px;margin-bottom: 150px; ">
         <div class="col p-3">
-            <p style="font-size: 32px;"> 오작의 소식을 <br/>알려드립니다.</p>
+            <p style="font-size: 32px;font-family: 'MaruBuri', sans-serif;" > 오작의 소식을 <br/>알려드립니다.</p>
             <?php if(count($notices) > 0) {?>
                 <p style="font-size: 24px; margin-top: 50px;" ><a href="http://localhost/community/list/1?pageIndex=1 " class="text-dark">전체보기</a></p>
             <?php } ?>
@@ -19,8 +19,8 @@
         <?php if(count($notices) > 0) {
                 foreach($notices as $notice) {
         ?> <div class="col cursor-pointer" onclick="moveToDetail(<?=$notice['id']?>)" >
-                <div class="bg-light p-3"  style="height:250px; "> 
-                    <p class="fw-bold" style="font-size: 20px; height:50px;"><?=$notice['title']?></p>
+                <div class="bg-ojak-dark-grey  p-3"  style="height:250px; "> 
+                    <p class="fw-bold" style="font-size: 20px; height:50px;font-family: 'MaruBuri', sans-serif;"><?=$notice['title']?></p>
                     <p style="height:110px; ">
                         <?=$notice['content']?>
                     </p>
@@ -29,7 +29,7 @@
             </div>
         <?php } }else{ ?>
             <div class="col"  >
-                <p class="bg-light p-3" style="font-size: 20px; height:250px; ">등록된 공지사항이 없습니다.</p>
+                <p class="bg-ojak-dark-grey  p-3" style="font-size: 20px; height:250px; ">등록된 공지사항이 없습니다.</p>
             </div>
         <?php } ?>
 

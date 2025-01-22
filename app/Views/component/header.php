@@ -70,22 +70,22 @@
         <div class="d-flex text-center cursor-pointer pt-3" >
             <div class="d-felx flex-column gap-3 gy-3" style="list-style: none;">
                 <?php if(isset($_COOKIE["user_id"])) { ?>
-                    <a id="mobileToggleMyPage" class=" nav-link pt-3 toggle-header-menu <?=$lgMypageUrl?>" href="/my/home" style="width:300px;" onmouseenter="changeInnerText('mobileToggleMyPage','마이페이지')" onmouseleave="changeInnerText('mobileToggleMyPage','MY PAGE')"><span class="ps-3">MY PAGE</span></a>
+                    <a id="mobileToggleMyPage" class=" nav-link pt-3 toggle-header-menu <?=$lgMypageUrl?>" href="/my/home" style="width:300px;" ><span class="ps-3">마이페이지</span></a>
                 <?php } ?>
 
                 <a class=" nav-link pt-3 toggle-header-menu <?=$lgBrandUrl?>" href="/brand" style="width:300px;">
-                    <span id="mobileToggleBrand"  onmouseenter="changeInnerText('mobileToggleBrand','브랜드')" onmouseleave="changeInnerText('mobileToggleBrand','BRAND')">BRAND</span>
+                    <span id="mobileToggleBrand" >브랜드</span>
                 </a>
-                <a id="mobileToggleGallery" class=" nav-link pt-3 toggle-header-menu <?=$lgGalleryUrl?>" href="/gallery?pageIndex=1" style="width:300px;" onmouseenter="changeInnerText('mobileToggleGallery','갤러리')" onmouseleave="changeInnerText('mobileToggleGallery','GALLERY')"><span class="ps-3">GALLERY</span></a>
+                <a id="mobileToggleGallery" class=" nav-link pt-3 toggle-header-menu <?=$lgGalleryUrl?>" href="/gallery?pageIndex=1" style="width:300px;"><span class="ps-3">갤러리</span></a>
                 <div  onmouseenter="showcommunitydiv('mobile-header-community-submenu')"  onmouseleave="hidecommunitydiv('mobile-header-community-submenu')">
                     <div class="nav-link pt-3 toggle-header-menu" style="width:300px;">
-                        <span id="mobileToggleCommunity"    style="width:300px;" onclick="location.href='/community/notice?pageIndex=1'" onmouseenter="changeInnerText('mobileToggleCommunity','커뮤니티')" onmouseleave="changeInnerText('mobileToggleCommunity','COMMUNITY')">COMMUNITY</span>  
+                        <span id="mobileToggleCommunity"    style="width:300px;" onclick="location.href='/community/notice?pageIndex=1'" >커뮤니티</span>  
                         <span id="mobileCommunityPlus" >+</span> 
                         <span id="mobileCommunityMinus" class="hide-item">-</span>
                     </div>
                     <div id="mobile-header-community-submenu" class="hide-y-gradually d-felx flex-column text-center " >
-                        <a id="mobileNoticeMenu" class="nav-link pt-3 toggle-header-menu <?=$lgNoticeUrl?>"   onmouseenter="changeInnerText('mobileNoticeMenu','공지사항')" onmouseleave="changeInnerText('mobileNoticeMenu','NOTICE')">NOTICE</a>
-                        <a id="mobileEventMenu" class="nav-link pt-3 toggle-header-menu <?=$lgEventUrl?>"   onmouseenter="changeInnerText('mobileEventMenu','이벤트')" onmouseleave="changeInnerText('mobileEventMenu','EVENT')">EVENT</a>
+                        <a id="mobileNoticeMenu" class="nav-link pt-3 toggle-header-menu <?=$lgNoticeUrl?>"   >공지사항</a>
+                        <a id="mobileEventMenu" class="nav-link pt-3 toggle-header-menu <?=$lgEventUrl?>"   >이벤트</a>
                         <a id="mobileQnaMenu" class="nav-link pt-3 toggle-header-menu <?=$lgQnaUrl?>"  >Q&A</a>
                     </div>
                 </div>
@@ -152,7 +152,7 @@
 
 
 <!-- LG HEADER SECTION -->
-<header class="fixed-top for-lg bg-transparent text-white fw-bold" id="lg-header" >
+<header class="fixed-top for-lg bg-transparent text-white " id="lg-header" >
     <!-- toggle menu -->
     <div id="lg-header-toggle-div" class=" mh-100 fixed-top z-3 d-flex flex-column bg-black text-white" style="width:211px; height: -webkit-fill-available; transform: translateX(-100vh); transition: transform 0.8s ease-in-out;">
         <!-- close button -->
@@ -208,24 +208,20 @@
         <div class="d-flex justify-content-center text-center cursor-pointer pt-15" >
             <div class="d-felx mt-4 g-3" style="list-style: none;">
                 <?php if(isset($_COOKIE["user_id"])) { ?>
-                    <a id="toggleMyPageText" class="mt-2 nav-link toggle-header-menu " href="/my/home" onmouseenter="changeInnerText('toggleMyPageText','마이페이지')" 
-                    onmouseleave="changeInnerText('toggleMyPageText','MY PAGE')">MY PAGE</a>
+                    <a id="toggleMyPageText" class="mt-2 nav-link toggle-header-menu " href="/my/home">마이페이지</a>
                 <?php } ?>
 
-                <a  id="toggleBrandText" class="mt-2 nav-link toggle-header-menu <?=$lgBrandUrl?>" href="/brand" onmouseenter="changeInnerText('toggleBrandText','브랜드')" 
-                onmouseleave="changeInnerText('toggleBrandText','BRAND')">BRAND</a>
+                <a  id="toggleBrandText" class="mt-2 nav-link toggle-header-menu <?=$lgBrandUrl?>" href="/brand" >브랜드</a>
                 <a 
                     id="toggleGalleryText" 
                     class="mt-2 nav-link toggle-header-menu <?=$lgGalleryUrl?>" 
                     href="/gallery?pageIndex=1"
-                    onmouseenter="changeInnerText('toggleGalleryText','갤러리')" 
-                    onmouseleave="changeInnerText('toggleGalleryText','GALLERY')"
-                >GALLERY</a>
+                >갤러리</a>
                 <div onmouseenter="showcommunitydiv('sm-header-community-submenu')"  onmouseleave="hidecommunitydiv('sm-header-community-submenu')">
-                    <span   id="toggleCommunityText" class="mt-2 nav-link toggle-header-menu hover-underline" onmouseenter="changeInnerText('toggleCommunityText','커뮤니티')" onmouseleave="changeInnerText('toggleCommunityText','COMMUNITY')">COMMUNITY</span>
+                    <span   id="toggleCommunityText" class="mt-2 nav-link toggle-header-menu hover-underline">커뮤니티</span>
                     <div id="sm-header-community-submenu" class="hide-y-gradually mt-2 ">
-                        <a class="nav-link cursor-hover <?=$lgNoticeUrl?>" id="lgToggleCommunityNotice" onmouseenter="changeInnerText('lgToggleCommunityNotice','공지사항')" onmouseleave="changeInnerText('lgToggleCommunityNotice','NOTICE')">NOTICE</a>
-                        <a class="nav-link cursor-hover <?=$lgEventUrl?> mt-2" id="lgToggleCommunityEvent" onmouseenter="changeInnerText('lgToggleCommunityEvent','이벤트')" onmouseleave="changeInnerText('lgToggleCommunityEvent','EVENT')">EVENT</a>
+                        <a class="nav-link cursor-hover <?=$lgNoticeUrl?>" id="lgToggleCommunityNotice" >공지사항</a>
+                        <a class="nav-link cursor-hover <?=$lgEventUrl?> mt-2" id="lgToggleCommunityEvent" >이벤트</a>
                         <a class="nav-link cursor-hover <?=$lgQnaUrl?> mt-2" id="lgToggleCommunityQna">Q&A</a>
                     </div>
                 </div>
@@ -247,50 +243,37 @@
                 
                 <a 
                     id="lgHeaderBrandText" 
-                    style="min-width: 60px;" 
                     class="nav-link cursor-hover <?=$lgBrandUrl?>" 
                     aria-current="page" 
-                    href="/brand" 
-                    onmouseleave="changeInnerText('lgHeaderBrandText','BRAND')" 
-                    onmouseenter="changeInnerText('lgHeaderBrandText','브랜드')">
-                    BRAND
+                    href="/brand" >
+                    브랜드
                 </a>
                 <a 
                     id="lgHeaderGalleryText" 
-                    style="min-width: 72px;" 
                     class="nav-link cursor-hover <?=$lgGalleryUrl?>" 
                     href="/gallery?pageIndex=1"
-                    onmouseenter="changeInnerText('lgHeaderGalleryText','갤러리')" 
-                    onmouseleave="changeInnerText('lgHeaderGalleryText','GALLERY')"
-                >GALLERY</a>
+                >갤러리</a>
                 <div 
                     class="position-relative" 
                     onmouseenter="showcommunitydiv('lg-header-community-submenu');"  
                     onmouseleave="hidecommunitydiv('lg-header-community-submenu');">
                     <a 
                         id="lgHeaderCommunityText" 
-                        style="min-width: 110px;"
                         href="/community/notice?pageIndex=1" 
                         class="hover-underline nav-link" 
-                        onmouseenter="changeInnerText('lgHeaderCommunityText','커뮤니티');" 
-                        onmouseleave="changeInnerText('lgHeaderCommunityText','COMMUNITY');"
                     >
-                        COMMUNITY
+                        커뮤니티
                 </a>
                     <div 
                         id="lg-header-community-submenu" 
                         class="position-absolute d-flex flex-column gap-4 py-3 pe-5 ps-3 px bg-light text-left hide-y-gradually" style="top:35px; width:120px;">
                         <a 
                             class="nav-link cursor-hover <?=$lgNoticeUrl?> text-black" 
-                            id="lgCommunityNotice" 
-                            onmouseenter="changeInnerText('lgCommunityNotice','공지사항')" 
-                            onmouseleave="changeInnerText('lgCommunityNotice','NOTICE')">NOTICE</a>
+                            id="lgCommunityNotice" >공지사항</a>
                         <a 
                             class="nav-link cursor-hover <?=$lgEventUrl?> text-black" 
                             id="lgCommunityEvent"
-                            onmouseenter="changeInnerText('lgCommunityEvent','이벤트')" 
-                            onmouseleave="changeInnerText('lgCommunityEvent','EVENT')"
-                        >EVENT</a>
+                        >이벤트</a>
                         <a 
                             class="nav-link cursor-hover <?=$lgQnaUrl?> text-black" 
                             id="lgCommunityQna"
@@ -300,7 +283,7 @@
             </div>
             
             <!-- 로고 -->
-            <div class="d-flex navbar-brand " style="margin-left:<?=isset($_COOKIE["user_id"]) ? '100px' : '0px'?>;padding-right:150px;">
+            <div class="d-flex navbar-brand " style="margin-left:<?=isset($_COOKIE["user_id"]) ? '100px' : '0px'?>;padding-right:55px;">
                 <a  href="/" id="white-header-scroll-logo"  class="text-black hide-item" style="text-decoration: none;">OJAK</a>
                 <a href="/" id="white-header-logo" >
                     <!-- <svg data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" width="90" height="150" viewBox="0 0 543.16 940.44">
@@ -372,30 +355,22 @@
                         id="lgHeaderLogOut"
                         class="nav-link cursor-pointer hover-underline fs-6" 
                         href="" 
-                        style="min-width: 80px;"
                         onclick="logout(event)"
-                        onmouseenter="changeInnerText('lgHeaderLogOut','로그아웃')" 
-                        onmouseleave="changeInnerText('lgHeaderLogOut','LOG OUT')"
-                    >LOG OUT</a>
+                    >로그아웃</a>
                     <a 
                         id="lgHeaderMyPage"
                         class="nav-link cursor-hover hover-underline" 
                         href="/my/home"
-                        style="min-width: 80px;"
-                        onmouseenter="changeInnerText('lgHeaderMyPage','마이페이지')" 
-                        onmouseleave="changeInnerText('lgHeaderMyPage','MY PAGE')"
-                    >MY PAGE</a>
+ 
+                    >마이페이지</a>
                 <?php }else{ ?>
                     <!-- <a class="nav-link cursor-pointer mt-2 fs-6" data-bs-toggle="modal" data-bs-target="#login-modal">로그인</a> -->
                     <a 
                         id="lgHeaderLogIn"
                         class="nav-link cursor-pointer hover-underline fs-6" 
-                        style="min-width: 60px;"
                         data-bs-toggle="modal"
                          data-bs-target="#openModal" 
-                         onmouseenter="changeInnerText('lgHeaderLogIn','로그인')" 
-                        onmouseleave="changeInnerText('lgHeaderLogIn','LOG IN')"
-                    >LOG IN</a>
+                    >로그인</a>
                 <?php } ?>
                 <!-- naver blog -->
                 <svg id="headerNaverLogo" class="cursor-pointer hide-item" width="29" height="30" viewBox="0 0 29 30"  xmlns="http://www.w3.org/2000/svg" >
@@ -428,14 +403,6 @@
 
 
 <script>
-
-    function changeInnerText(id, text){
-        const target = document.getElementById(id);
-
-        if(target){
-            target.innerText = text;
-        }
-    }
 
     function showcommunitydiv(id){
         const communitySubMenu = document.getElementById(id);

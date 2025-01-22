@@ -52,14 +52,14 @@
 
     <!-- content -->
     <div class="grid " id="galleryOuterWrapper" >
-        <div class="d-flex justify-content-center">
+        <!-- <div class="d-flex justify-content-center">
             <p class="fw-bold" style="font-size: 32px;">갤러리</p>
-        </div>
+        </div> -->
         
         <div id="galleryWrapper">
             <!-- user gallery control class="logged-in"-->
-            <div class="d-flex justify-content-end text-end logged-in mb-3" onclick="openEditModal()">
-                <svg
+            <div class="d-flex justify-content-end text-end logged-in" onclick="openEditModal()">
+                <!-- <svg
                     xmlns="http://www.w3.org/2000/svg"
                     class="plus-icon cursor-pointer"
                     viewBox="0 0 24 24"
@@ -69,14 +69,15 @@
                     <circle cx="12" cy="12" r="11" stroke="black" stroke-width="2" fill="black" />
                     <line x1="12" y1="6" x2="12" y2="18" stroke="white" stroke-width="2" />
                     <line x1="6" y1="12" x2="18" y2="12" stroke="white" stroke-width="2" />
-                </svg>
+                </svg> -->
+                <span class="bs-button cursor-pointer"> 작품 추가하기</span>
             </div>
 
             
             <!-- 한줄 설명은 23자 -->
             <?php if(count($items) > 0){
                 foreach($items as $item){ ?>
-                <?php if($galleryCounter % 4 == 0) { ?> <div class='row row-cols-1 row-cols-md-4 g-4 <?=$galleryCounter > 3 ?? 'mt-70' ?>'> <?php } ?>
+                <?php if($galleryCounter % 4 == 0) { ?> <div class='row row-cols-1 row-cols-md-4 pt-4 <?=$galleryCounter > 3 ?? 'mt-70' ?>'> <?php } ?>
                     <div class="col"> 
                         <a href="gallery/<?=$item["id"]?>?pageIndex=<?=$pageIndex?>">
                             <img src="/img/user/<?=$item["img_url"]?>" class="w-100 hover-saturate cursor-pointer" style="height: 240px;object-fit:cover;" />
@@ -158,7 +159,6 @@
 
         if(galleryWrapper){
             if(innerWidth < 700){
-                galleryWrapper.style.marginTop = "10px";
                 galleryOuterWrapper.style.marginTop = "20px";
             }else{
                 galleryOuterWrapper.style.marginTop = "30px";

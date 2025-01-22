@@ -23,9 +23,9 @@
             <p class="fw-bold mt-2" style="font-size: 32px;">오작의 이야기</p>
         </div>
 
-        <div class="row text-start " style="margin-top:50px;" >
+        <div class="row text-start " style="margin-top:30px;" >
             <div class="col-sm-6 row">
-                <img src="/img/resource/brand/brand1.png" class="w-100" />
+                <img src="/img/resource/brand/brand1.png" class="w-100"  />
             </div>
             <div class="col-sm-6 d-flex flex-column">
                 <div class="for-lg fw-bold" style="font-size: 24px;">
@@ -34,10 +34,18 @@
                 <div class="for-sm fw-bold mt-3" style="font-size: 24px;">
                     오작, 한지의 이야기를 담다
                 </div>
-                <div style="font-size: 20px;margin-top:22px;">
-                '오작(五作)'은 완전함과 완성을 상징합니다. 예로부터 우리 전통문화에서 중요한 의미를 담아온 숫자 5는 오방색, 오복 등 다섯 가지 조화로운 가치를 담고 있습니다. 이러한 전통의 상징성을 현대적으로 풀어낸 것이 바로 오작의 시작입니다.
-                오작은 한지의 깊은 이야기를 통해 전통과 현대를 연결합니다. 자연의 선물인 한지는 그 자체로 한국 문화의 정수를 담고 있으며, 손끝에서 빚어지는 오작의 작품들은 이 전통의 아름다움을 현대인의 삶 속에 녹여냅니다.
-                "오작, 한지의 이야기를 담다"라는 철학 아래, 우리는 단순한 공예품을 넘어 일상에 특별한 아름다움을 더하고자 합니다.
+                <div style="font-size: 20px;margin-top:22px; ">
+                    <span>
+                        '오작(五作)'은 완전함과 완성을 상징합니다. 예로부터 우리 전통문화에서 중요한 의미를 담아온 숫자 5는 오방색, 오복 등 다섯 가지 조화로운 가치를 담고 있습니다. 이러한 전통의 상징성을 현대적으로 풀어낸 것이 바로 오작의 시작입니다.
+                    </span>
+                    <br />
+                    <span>
+                    오작은 한지의 깊은 이야기를 통해 전통과 현대를 연결합니다. 자연의 선물인 한지는 그 자체로 한국 문화의 정수를 담고 있으며, 손끝에서 빚어지는 오작의 작품들은 이 전통의 아름다움을 현대인의 삶 속에 녹여냅니다.
+                    </span>
+                    <br />
+                    <span>
+                    "오작, 한지의 이야기를 담다"라는 철학 아래, 우리는 단순한 공예품을 넘어 일상에 특별한 아름다움을 더하고자 합니다.
+                    </span>
                 </div>
             </div>
         </div>
@@ -65,7 +73,9 @@
                     </div>
                     <div style="font-size: 20px;margin-top:22px;">
                     전통 한지를 현대적 감각으로 재해석한 디자인 클래스는 단순한 공예를 넘어 자신만의 작품을 완성할 수 있는 특별한 경험을 제공합니다. 초보자부터 전문가까지 참여할 수 있는 다양한 프로그램을 통해 전통의 아름다움을 공유합니다.
+                    <br />
                     오작은 한지를 통해 지속 가능한 삶의 방식을 제안하며, 우리의 공예품과 이야기가 여러분의 일상 속에서 새로운 완성을 만들어가길 바랍니다.
+                    <br />
                     오작과 함께 전통을 느끼고, 완전함을 경험하세요.
                     </div>
                 </div>
@@ -91,7 +101,7 @@
     </div>
 
     <!-- section 2 -->
-    <div class="grid text-center mt-100 pb-5 bg-light" >
+    <div class="grid text-center mt-100 pb-5 bg-ojak-dark-grey" >
         <div class="d-flex flex-column mt-5 justify-content-center">
             <div>
                 <svg width="47" height="23" viewBox="0 0 47 23" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -141,7 +151,7 @@
     </div>
 
     <!-- section 3 -->
-    <div class="grid mt-100 ms-5 me-5" style="margin-bottom:100px;" >
+    <div class="grid ms-5 me-5" style="margin-bottom:100px; margin-top:70px;" >
 
         <div class="d-flex flex-column justify-content-center text-center">
             <div>

@@ -91,12 +91,31 @@
                     const footerInstaLogo = document.getElementById("footerInstaLogo");
                     const footerYoutubeLogo = document.getElementById("footerYoutubeLogo");
 
+                    const footerNaverLogoLg = document.getElementById("footerNaverLogoLg");
+                    const footerInstaLogoLg = document.getElementById("footerInstaLogoLg");
+                    const footerYoutubeLogoLg = document.getElementById("footerYoutubeLogoLg");
+
                     //headerNaverLogo headerInstaLogo footerNaverLogo footerInstaLogo
                     data.forEach(e => {
                         switch(e.name){
                             case "네이버 블로그" : {
                                 if(e.note=="on"){
+                                    console.log("footerNaverLogo",e);
+
+                                    //footer 
                                     footerNaverLogo.classList.remove("hide-item");
+                                    footerNaverLogo.onclick = () => window.open(
+                                                                        e.value,
+                                                                        '_blank' 
+                                                                    );
+
+                                    footerNaverLogoLg.classList.remove("hide-item");
+                                    footerNaverLogoLg.onclick = () => window.open(
+                                                                        e.value,
+                                                                        '_blank' 
+                                                                    );
+                                    
+                                    //header
                                     headerNaverLogo.classList.remove("hide-item");
                                     headerNaverLogo.onclick = () => window.open(
                                                                         e.value,
@@ -104,6 +123,7 @@
                                                                     );
                                 }else{
                                     footerNaverLogo.classList.add("hide-item"); 
+                                    footerNaverLogoLg.classList.add("hide-item"); 
                                     headerNaverLogo.classList.add("hide-item"); 
                                 }
                                 break;
@@ -111,6 +131,17 @@
                             case "인스타그램" : {
                                 if(e.note=="on"){
                                     footerInstaLogo.classList.remove("hide-item");
+                                    footerInstaLogo.onclick = () => window.open(
+                                                                        e.value,
+                                                                        '_blank' 
+                                                                    );
+                                                                    
+                                    footerInstaLogoLg.classList.remove("hide-item");
+                                    footerInstaLogoLg.onclick = () => window.open(
+                                                                        e.value,
+                                                                        '_blank' 
+                                                                    );
+
                                     headerInstaLogo.classList.remove("hide-item");
                                     headerInstaLogo.onclick = () => window.open(
                                                                         e.value,
@@ -118,6 +149,7 @@
                                                                     );
                                 }else{
                                     footerInstaLogo.classList.add("hide-item"); 
+                                    footerInstaLogoLg.classList.add("hide-item"); 
                                     headerInstaLogo.classList.add("hide-item"); 
                                 }
                                 break;
@@ -125,6 +157,17 @@
                             case "유튜브" : {
                                 if(e.note=="on"){
                                     footerYoutubeLogo.classList.remove("hide-item");
+                                    footerYoutubeLogo.onclick = () => window.open(
+                                                                        e.value,
+                                                                        '_blank' 
+                                                                    );
+                                    
+                                    footerYoutubeLogoLg.classList.remove("hide-item");
+                                    footerYoutubeLogoLg.onclick = () => window.open(
+                                                                        e.value,
+                                                                        '_blank' 
+                                                                    );
+
                                     headerYoutubeLogo.classList.remove("hide-item");
                                     headerYoutubeLogo.onclick = () => window.open(
                                                                         e.value,
@@ -132,6 +175,7 @@
                                                                     );
                                 }else{
                                     footerYoutubeLogo.classList.add("hide-item"); 
+                                    footerYoutubeLogoLg.classList.add("hide-item"); 
                                     headerYoutubeLogo.classList.add("hide-item"); 
                                 }
                                 break;
