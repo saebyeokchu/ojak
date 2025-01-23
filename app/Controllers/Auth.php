@@ -249,7 +249,7 @@ class Auth extends BaseController
 
         if($result['status'] == 'success'){
             //send email
-            $eapi = new \App\Controllers\Mail();
+            $eapi = new \App\Controllers\Mail(); 
             $mailReault = $eapi -> send(
                 $user['user_id'], 
                 $user['user_name'], 
