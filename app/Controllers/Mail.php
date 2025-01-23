@@ -41,6 +41,7 @@ class Mail extends BaseController
             $client->setClientId(env('MAIL_CLINET_ID'));
             $client->setClientSecret(env('MAIL_CLINET_PW'));
             $client->setAccessType('offline');
+            $client->setApprovalPrompt('force');
             $client->addScope('https://mail.google.com/');
 
             // $client->setRedirectUri('http://localhost');
