@@ -6,8 +6,8 @@ use Google\Service\Gmail;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require '/xampp/htdocs/vendor/autoload.php';
-// require '/opt/bitnami/apache/htdocs/ojak/vendor/autoload.php';
+// require '/xampp/htdocs/vendor/autoload.php';
+require '/opt/bitnami/apache/htdocs/ojak/vendor/autoload.php';
 
 
 class Mail extends BaseController
