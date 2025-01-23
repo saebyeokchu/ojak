@@ -1,4 +1,4 @@
 writable/logs/*
 vendor
 .env
-public/img/user/*
+public/img/*
