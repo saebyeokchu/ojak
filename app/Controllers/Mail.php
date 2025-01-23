@@ -6,8 +6,8 @@ use Google\Service\Gmail;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-// require '/xampp/htdocs/vendor/autoload.php';
-require '/opt/bitnami/apache/htdocs/ojak/vendor/autoload.php';
+require '/xampp/htdocs/vendor/autoload.php';
+// require '/opt/bitnami/apache/htdocs/ojak/vendor/autoload.php';
 
 
 class Mail extends BaseController
@@ -43,7 +43,8 @@ class Mail extends BaseController
             $client->setAccessType('offline');
             $client->addScope('https://mail.google.com/');
 
-            $client->setRedirectUri('http://localhost');
+            // $client->setRedirectUri('http://localhost');
+            $client->setRedirectUri('https://ojak.co.kr');
             $client->refreshToken(env('MAIL_REFRESH_TOKEN'));
 
             $accessToken = $client->getAccessToken();
@@ -54,7 +55,8 @@ class Mail extends BaseController
                     'provider' => new \League\OAuth2\Client\Provider\GenericProvider([
                         'clientId' => env('MAIL_CLINET_ID'),
                         'clientSecret' =>env('MAIL_CLINET_PW'),
-                        'redirectUri' => 'http://localhost',
+                        // 'redirectUri' => 'http://localhost',
+                        'redirectUri' => 'https://ojak.co.kr',
                         'urlAuthorize' => 'https://accounts.google.com/o/oauth2/auth',
                         'urlAccessToken' => 'https://oauth2.googleapis.com/token',
                         'urlResourceOwnerDetails' => 'https://www.googleapis.com/oauth2/v1/certs',
