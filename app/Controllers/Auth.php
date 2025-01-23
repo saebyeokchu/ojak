@@ -192,7 +192,7 @@ class Auth extends BaseController
 
         //1. get user info
         $result = $api -> getUserByUserId($id);
-        $user = $result['user'][0];
+        $user = $result['user'];
         log_message('error',serialize($user));
         $user['approved'] = 1;
 
@@ -205,9 +205,18 @@ class Auth extends BaseController
             $mailReault = $eapi -> send(
                 $user['user_id'], 
                 $user['user_name'], 
-                '오작 커뮤니티 일원이 되신것을 환영합니다!', 
-                '이제부터 가입하신 이메일로 로그인하여 오작을 탐헙하실 수 있습니다<a href="https://ojak.co.kr">오작으로 이동하기</a>'
+                '오작 가입이 승인되었습니다.', 
+                '<div style="max-width: 600px; margin: 20px auto; background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                <div style="background-color: black; color: #ffffff; padding: 20px; text-align: center; font-size: 24px;"><strong>오작 가입 승인 메일</strong></div>
+                <div style="padding: 20px; color: #333333;">
+                <p style="margin: 10px 0;">'.$user['user_name'].'님,</p>
+                <p style="margin: 10px 0;">오작 조합원 승인이 완료되었습니다.<br />가입하신 이메일로 로그인하실 수 있습니다.</p>
+                <a style=" background-color: #555555; border: none;color: white;padding: 15px 32px;text-align: center;text-decoration: none;display: inline-block;font-size: 16px;margin: 4px 2px;cursor: pointer;" href="https://ojak.co.kr">오작으로 이동하기</a>
+                </div>
+                <div style="padding: 10px 20px; text-align: center; background-color: #f4f4f4; font-size: 12px; color: #666666;">&copy; 2025 Ojak. All rights reserved.</div>
+                </div>'
             );
+
 
             if($mailReault){
                 //check pw
@@ -231,7 +240,7 @@ class Auth extends BaseController
 
         //1. get user info
         $result = $api -> getUserByUserId($id);
-        $user = $result['user'][0];
+        $user = $result['user'];
         log_message('error',serialize($user));
         $user['approved'] = 0;
 
@@ -244,8 +253,15 @@ class Auth extends BaseController
             $mailReault = $eapi -> send(
                 $user['user_id'], 
                 $user['user_name'], 
-                '오작 커뮤니티 회원에서 제외되셨습니다.', 
-                '이제부터 해당하는 아이디로 로그인하실 수 없습니다'
+                '오작 조합원 상태가 비승인 되었습니다.', 
+                '<div style="max-width: 600px; margin: 20px auto; background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                <div style="background-color: black; color: #ffffff; padding: 20px; text-align: center; font-size: 24px;"><strong>오작 가입 비승인 메일</strong></div>
+                <div style="padding: 20px; color: #333333;">
+                <p style="margin: 10px 0;">'.$user['user_name'].'님,</p>
+                <p style="margin: 10px 0;">오작 조합원에서 제외처리 되셨습니다.</p>
+                </div>
+                <div style="padding: 10px 20px; text-align: center; background-color: #f4f4f4; font-size: 12px; color: #666666;">&copy; 2025 Ojak. All rights reserved.</div>
+                </div>'
             );
 
             if($mailReault){
