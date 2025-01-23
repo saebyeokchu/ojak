@@ -360,7 +360,7 @@
                     <a 
                         id="lgHeaderMyPage"
                         class="nav-link cursor-hover hover-underline" 
-                        href="/my/home"
+                        href="/my/home" 
  
                     >마이페이지</a>
                 <?php }else{ ?>
