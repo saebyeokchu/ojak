@@ -677,33 +677,40 @@ class Api extends Controller
 
 
     public function getAll($pageIndex, $gubun) {
-        $model = new \App\Models\CommunityModel();
         $start_row = (int)($pageIndex)-1;
-        $posts = $model
-                    ->where('gubun',$gubun)
-                    ->orderBy('id', 'desc')
-                    ->findAll(5,$start_row*5); 
-        $rowCount = $model->countAll();
+        $itemsPerPage = 10;
+
+        //iems per page
+        if($gubun == 2){
+            $itemsPerPage = 8;
+        }
 
         $db      = \Config\Database::connect();
         $builder = $db->table('community');
-        
-        // $builder->join('commnet', 'commnet.post_id = community.id', 'left');
-
+        //get posts
         $builder->select('community.*, auth.user_name');
         $builder->where('gubun',$gubun);
         $builder->join('auth', 'community.user_id = auth.id');
         $builder->orderBy('id', 'desc'); //최신순
+        $builder -> limit($itemsPerPage,$start_row*$itemsPerPage);
         $query = $builder->get();
-
         $posts = $query->getResult();
-        $rowCount = count($posts);
+
+        //get count
+        $builder2 = $db->table('community');
+        //get posts
+        $builder2->select('community.*, auth.user_name');
+        $builder2->where('gubun',$gubun);
+        $builder2->join('auth', 'community.user_id = auth.id');
+        $builder2->orderBy('id', 'desc'); //최신순
+        $query2 = $builder2->get();
+        $totalPosts = $query2->getResult();
         
         if ($posts) {
             return [
                 'status' => 'success',
                 'posts' => $posts,
-                'rowCount' => $rowCount
+                'rowCount' => count($totalPosts)
             ];
         } else {
             return [

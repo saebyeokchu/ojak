@@ -3,11 +3,17 @@
     if(isset($_COOKIE['user_id'])){
         $userId = $_COOKIE['user_id'];
     }
-    
-    $rowCount = (int)$contents['rowCount'];
-    if($rowCount > 0) {
-        $posts = $contents['posts'];
-        $pageIndex = $contents['pageIndex'];
+
+    $rowCount = 0;
+    $posts = [];
+    $pageIndex = 1;
+
+    if(isset($contents)){
+        $rowCount = (int)$contents['rowCount'];
+        if($rowCount > 0) {
+            $posts = $contents['posts'];
+            $pageIndex = $contents['pageIndex'];
+        }
     }
 ?>
 
@@ -30,7 +36,18 @@
     </div>
 
     <!-- pagination -->
-    <?php if(isset($posts) && count($posts) > 0) { echo view('/community/_component/pagination', [ 'posts' => $posts ]); } ?>
+    <?php if($rowCount > 0) { 
+        // echo view('/community/_component/pagination', [ 'posts' => $posts ]); 
+        echo view('/community/_component/pagination', 
+            [ 
+                'posts' => $posts, 
+                'itemPerPage' => 10 , 
+                'paginationRange' => 5,
+                'totalCount' => $rowCount,
+                'src' => '/community/qna'
+            ]
+        );
+    } ?>
 
 </div>
 

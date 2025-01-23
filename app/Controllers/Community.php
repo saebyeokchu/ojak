@@ -146,7 +146,7 @@ class Community extends BaseController
             $sub = $this->request->getGet('sub');
         
             $data['yield']       = 'community/editor';
-            $data['view_footer'] = false;
+            // $data['view_footer'] = false;
             $data['contents']['pageIndex'] = 1;
             $data['contents']['sub'] = $sub;
         }

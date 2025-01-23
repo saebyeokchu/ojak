@@ -4,10 +4,16 @@
         $userId = $_COOKIE['user_id'];
     }
     
-    $rowCount = (int)$contents['rowCount'];
-    if($rowCount > 0) {
-        $posts = $contents['posts'];
-        $pageIndex = $contents['pageIndex'];
+    $rowCount = 0;
+    $posts = [];
+    $pageIndex = 0;
+
+    if(isset($contents)){
+        $rowCount = (int)$contents['rowCount'];
+        if($rowCount > 0) {
+            $posts = $contents['posts'];
+            $pageIndex = $contents['pageIndex'];
+        }
     }
 ?>
 
@@ -26,11 +32,21 @@
 
     <!-- content -->
     <div class="mt-15" >
-        <?=view('/community/event/card', [ 'posts' => $posts ]);?>
+        <?=view('/community/event/card', [ 'posts' => $posts, 'rowCount' => $rowCount ]);?>
     </div>
 
     <!-- pagination -->
-    <?php if(isset($posts) && count($posts) > 0) { echo view('/community/_component/pagination', [ 'posts' => $posts ]); } ?>
+    <?php if(isset($posts) && count($posts) > 0) { 
+        echo view('/community/_component/pagination', 
+            [ 
+                'posts' => $posts, 
+                'itemPerPage' => 8 , 
+                'paginationRange' => 5,
+                'totalCount' => $rowCount,
+                'src' => '/community/event'
+            ]
+        ); 
+    } ?>
 
 </div>
 

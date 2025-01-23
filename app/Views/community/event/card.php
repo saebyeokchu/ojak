@@ -13,17 +13,27 @@
     <?php } ?>
 
     <?php foreach($posts as $post){ ?>
-        <?php if($eventCounter % 4 == 0) { ?> <div class='row row-cols-1 row-cols-md-4 g-4 <?=$eventCounter > 3 ?? 'mt-3' ?>'> <?php } ?>
-            <div class="col"> 
-                <a href="<?=$detailUrl?><?=$post -> id?>">
-                    <img src="/img/user/<?=$post -> img_url?>" class="w-100 hover-saturate cursor-pointer" style="min-height: 380px;object-fit:cover;" />
-                </a>
-                <div style="font-size: 24px;" class="fw-bold mt-2">
-                    <?=$post -> title?>
-                </div>
-            </div>
-        <?php if($eventCounter % 4 == 3 || $eventCounter + 1 == count($posts)) { ?> </div> <?php } ?>
-    <?php $eventCounter = $eventCounter+1; } ?>
+        <?php 
+            if($eventCounter % 4 == 0) { 
+                if($eventCounter >= 3) {  ?>
+                    <div class='row row-cols-1 row-cols-md-4 mt-5'> 
+                <?php }else{ ?> 
+                    <div class='row row-cols-1 row-cols-md-4 '> 
+                <?php } } ?>
+                        <div class="col"> 
+                            <a href="<?=$detailUrl?><?=$post -> id?>">
+                                <img src="/img/user/<?=$post -> img_url?>" class="w-100 hover-saturate cursor-pointer" style="min-height: 380px;object-fit:cover;" />
+                            </a>
+                            <div style="font-size: 24px;" class="fw-bold mt-2">
+                                <?=$post -> title?> 
+                            </div>
+                        </div>
+                <?php if($eventCounter % 4 == 3 || $eventCounter + 1 == count($posts)) { ?> 
+                    </div> 
+                <?php } ?>
+    <?php 
+        $eventCounter = $eventCounter+1; 
+    } ?>
 
 </div>
 
