@@ -7,7 +7,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 // require '/xampp/htdocs/vendor/autoload.php';
-require '../../vendor/autoload.php';
+require '/opt/bitnami/apache/htdocs/ojak/vendor/autoload.php';
 
 
 class Mail extends BaseController
