@@ -31,7 +31,7 @@
 ?>
 
 <!-- New post -->
-<div class="bg-light vh-100 pt-150 pb-100" >
+<div class="bg-light  pt-150 pb-100" >
 
     <div class="d-flex container flex-column justify-content-start">
         <p class="fw-bold" style="font-size: 32px;">커뮤니티 게시물 등록</p>
@@ -56,24 +56,6 @@
             </div>
         </div>
     </div>
-
-    <!-- <div class = "for-sm container hide-item">
-        <div class="d-flex justify-content-between mt-2" >
-            <div class="w-75">
-                <input type="text" class="form-control community-title" aria-describedby="communityTitleSM" placeholder="제목"  value="<?= ( isset($post) && isset($post['title']) ) ? $post['title'] : '' ?>" />
-            </div>
-            <div class="dropdown pe-3">
-                <button class="btn btn-light" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    :
-                </button>
-                <ul class="dropdown-menu">
-                    <li  onclick="savedata(event)"><a class="dropdown-item" >저장</a></li>
-                    <li onclick="goBack(event)" ><a class="dropdown-item"  >취소</a></li>
-                </ul>
-            </div>
-            
-        </div>
-    </div> -->
 
 
     <div class="container">
