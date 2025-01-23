@@ -52,11 +52,19 @@
                         <a class="no-text-decoration hover-underline text-dark" href="<?=$detailUrl?><?=$item["id"]?>"><?=$item["title"]?></a>
                     </td>
                     <td><?=$item["created_at"]?></td>
-                    <td>
-                        <span class="btn btn-dark cursor-pointer me-3" onclick="moveToDetail(<?=$item['id']?>, <?=$item['gubun']?>)">
+                    <td> 
+                        <?php if($gubun == 2){ ?>
+                            <span class="btn btn-dark cursor-pointer me-3" data-bs-target="#addEventModal" class="bs-button-sm">
+                        <?php }else{ ?>
+                            <span class="btn btn-dark cursor-pointer me-3" onclick="moveToDetail(<?=$item['id']?>, <?=$item['gubun']?>)">
+                        <?php  }?>
                                 수정
                         </span>
-                        <span class="btn btn-dark cursor-pointer" onclick="deletePost(<?=$item['id']?>)">
+                        <?php if($gubun == 2){ ?>
+                            <span class="btn btn-dark cursor-pointer" onclick="onEventDeleteBtnClick(<?=$item['id']?>)">
+                        <?php }else{ ?>
+                            <span class="btn btn-dark cursor-pointer" onclick="deletePost(<?=$item['id']?>)">
+                        <?php  }?>
                             삭제
                         </span>
                     </td>
@@ -74,6 +82,8 @@
         </tbody>
     </table>
 </div>
+
+<?= view('/community/modal/eventModal')?>
 
 <script>
     function moveToDetail(id, gubun){

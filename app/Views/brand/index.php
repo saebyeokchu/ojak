@@ -110,7 +110,7 @@
                     <path d="M22.3027 11.5049L16.9038 16.9037C13.9221 19.8855 9.08775 19.8855 6.10603 16.9037C3.12431 13.922 3.12431 9.0877 6.10603 6.10598C9.08775 3.12427 13.9221 3.12427 16.9038 6.10598L22.3027 11.5049Z" stroke="#17171B"/>
                 </svg>
             </div>
-            <p class="fw-bold mt-2 " style="font-size: 32px; font-family: 'NanumSquareNeo', sans-serif; font-weight: 800;">브랜드 로고 / 슬로건</p>
+            <p class=" mt-2 " style="font-size: 32px; font-family: 'NanumSquareNeo', sans-serif; font-weight: 800;">브랜드 로고 / 슬로건</p>
         </div>
 
         <div class="d-flex justify-content-center" style="margin-top:50px;" >
@@ -161,7 +161,7 @@
                     <path d="M22.3027 11.5049L16.9038 16.9037C13.9221 19.8855 9.08775 19.8855 6.10603 16.9037C3.12431 13.922 3.12431 9.0877 6.10603 6.10598C9.08775 3.12427 13.9221 3.12427 16.9038 6.10598L22.3027 11.5049Z" stroke="#17171B"/>
                 </svg>
             </div>
-            <span class="fw-bold mt-2" style="font-size: 32px; font-family: 'NanumSquareNeo', sans-serif; font-weight: 800;">오시는 길</span>
+            <span class="mt-2" style="font-size: 32px; font-family: 'NanumSquareNeo', sans-serif; font-weight: 800;">오시는 길</span>
             <br/>
             <span class="for-lg" style="font-size: 24px;font-family: 'NanumSquareNeo', sans-serif;">경상북도 포항시 남구 오천읍 장기로 1479번길 2-4</span>
             <span class="for-sm" style="font-size: 20px;font-family: 'NanumSquareNeo', sans-serif;">경상북도 포항시 남구 오천읍 장기로 1479번길 2-4</span>

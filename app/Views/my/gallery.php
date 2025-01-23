@@ -6,7 +6,7 @@
         $count = 0;
     }
     
-    $detailUrl = "/community/detail?gubun=1&pageIndex=1&id="
+    $detailUrl = "/gallery/35?pageIndex=1"
 ?>
 
     
@@ -33,7 +33,7 @@
                 <tr>
                     <td><?=$item["id"]?></td> 
                     <td >
-                        <a class="no-text-decoration hover-underline text-dark" href="<?=$detailUrl?><?=$item["id"]?>"><?=$item["title"]?></a>
+                        <a class="no-text-decoration hover-underline text-dark" href="/gallery/<?=$item["id"]?>?pageIndex=1X"><?=$item["title"]?></a>
                     </td>
                     <td><?=$item["created_at"];?></td>
                     <td>

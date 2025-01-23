@@ -60,7 +60,7 @@
                         <p style="font-size:30px;" class="fw-bold"><?= $post['title'] ?></p>
                         <div class="d-flex flex-row gap-3 mt-2">
                         <?php if($owned_by_user) { ?>
-                            <p class="cursor-pointer" onclick="onEventDeleteBtnClick(<?= $post['id'] ?>)">
+                            <p class="cursor-pointer" onclick="onEventDeleteBtnClick(<?= $post['id'] ?>,<?= $pageIndex ?>)">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     width="26"
@@ -123,35 +123,9 @@
 <?= view('/community/modal/eventModal', [ 'item' => $post ])?>
 
 <script>
-        window.addEventListener('load', () => {
+    window.addEventListener('load', () => {
         document.getElementById('backToEventList').onclick = () => location.href = getUrl(0,0,<?=$pageIndex?>).communityEvent;
-     });
-
-    function onEventDeleteBtnClick(targetId){
-        if(window.confirm("이벤트를 영구히 삭제하시겠습니까?")){
-            turnOnLoadingScreen();
-
-            try {
-                var postData = new FormData();
-                postData.append('id',targetId);
-
-                axios.post('/api/deletePost', postData).then(function(response){
-                    console.log("success:", response);
-                    window.alert(response.data.message)
-                    location.href=getUrl(0,0,<?=$pageIndex?>).communityEvent;
-                    return;
-                }).catch(function(error){
-                    console.log("error:", error);
-                });
-                
-            } catch (error) {
-                console.error('Error deleting data:', error);
-                window.alert("이벤트를 삭제할 수 없습니다. 잠시 후 다시 시도하여 주세요.")
-            }
-
-            turnOffLoadingScreen();
-        }
-    }
+    });
 
     function onShareEventBtnClick(){
         navigator.clipboard.writeText('<?=$shareUrl?>');

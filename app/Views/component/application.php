@@ -49,6 +49,7 @@
     <script src="/js/common.js"></script>
     <script src="/js/gallery.js"></script>
     <script src="/js/post.js"></script>
+    <script src="/js/event.js"></script>
 </head>
 <body class="position-relative" style="font-family: 'Pretendard', sans-serif!important;" >
     <div id="loading-screen" class="loading-screen hide-item">
