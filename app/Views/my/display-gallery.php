@@ -8,7 +8,7 @@
 
 <div class="for-lg " >
   <div class="d-flex flex-column justify-content-start mt-70">
-      <p class="fw-bold" style="font-size: 32px;">메인 작품 관리</p>
+      <p class="fw-bold" style="font-size: 32px;">대표 작품 관리</p>
       <small>대표작품은 맨 앞장에서 나오는 4가지 대표 작품을 관리합니다.</small>
   </div>
 

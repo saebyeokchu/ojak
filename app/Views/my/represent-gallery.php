@@ -19,8 +19,8 @@
 
 <div class="for-lg " >
     <div class="d-flex flex-column justify-content-start mt-70">
-        <p class="fw-bold" style="font-size: 32px;">메인 작품 관리</p>
-        <small>대표작품은 맨 앞장에서 나오는 슬라이드 작품을 관리합니다.(투명도 관리를 위해 jpg만 가능)</small>
+        <p class="fw-bold" style="font-size: 32px;">슬라이드 작품 관리</p>
+        <small>슬라이드 작품은 맨 앞장에서 나오는 슬라이드 작품을 관리합니다.(투명도 관리를 위해 jpg만 가능)</small>
     </div>
     <form class="mt-3" action="javascript:;" onsubmit=" update( event ) ">
         <div class="d-flex justify-content-start">
