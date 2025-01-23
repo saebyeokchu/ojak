@@ -20,7 +20,7 @@
                     <path d="M11.0723 14.3569L11.0723 7.42836C11.0723 3.60182 14.1743 0.499792 18.0008 0.499792C21.8274 0.499792 24.9294 3.60182 24.9294 7.42836L24.9294 14.3569L11.0723 14.3569Z" stroke="black"/>
                 </svg>
             </div>
-            <p class="fw-bold mt-2" style="font-size: 32px;">오작의 이야기</p>
+            <p class="mt-2 " style="font-size: 32px; font-family: 'NanumSquareNeo', sans-serif; font-weight: 800;">오작의 이야기</p>
         </div>
 
         <div class="row text-start " style="margin-top:30px;" >
@@ -28,13 +28,13 @@
                 <img src="/img/resource/brand/brand1.png" class="w-100"  />
             </div>
             <div class="col-sm-6 d-flex flex-column">
-                <div class="for-lg fw-bold" style="font-size: 24px;">
+                <div class="for-lg fw-bold" style="font-size: 24px; font-family: 'NanumSquareNeo', sans-serif; font-weight: 700;">
                     오작, 한지의 이야기를 담다
                 </div>
-                <div class="for-sm fw-bold mt-3" style="font-size: 24px;">
+                <div class="for-sm fw-bold mt-3" style="font-size: 24px; font-family: 'NanumSquareNeo', sans-serif; font-weight: 700;">
                     오작, 한지의 이야기를 담다
                 </div>
-                <div style="font-size: 20px;margin-top:22px; ">
+                <div style="font-size: 20px;margin-top:22px; font-family: 'NanumSquareNeo', sans-serif; ">
                     <span>
                         '오작(五作)'은 완전함과 완성을 상징합니다. 예로부터 우리 전통문화에서 중요한 의미를 담아온 숫자 5는 오방색, 오복 등 다섯 가지 조화로운 가치를 담고 있습니다. 이러한 전통의 상징성을 현대적으로 풀어낸 것이 바로 오작의 시작입니다.
                     </span>
@@ -56,22 +56,22 @@
             </div>
             <div class="col-sm-6 d-flex flex-column">
                 <div>
-                    <div class="for-lg fw-bold"  style="font-size: 24px;">
+                    <div class="for-lg fw-bold"  style="font-size: 24px;font-family: 'NanumSquareNeo', sans-serif; font-weight: 700;">
                         오작, 한지의 이야기를 담다
                     </div>
-                    <div class="for-sm fw-bold mt-3" style="font-size: 24px;">
+                    <div class="for-sm fw-bold mt-3" style="font-size: 24px;font-family: 'NanumSquareNeo', sans-serif; font-weight: 700;">
                         오작, 한지의 이야기를 담다
                 </div>
-                    <div style="font-size: 20px;margin-top:22px;">
+                    <div style="font-size: 20px;margin-top:22px;font-family: 'NanumSquareNeo', sans-serif;">
                     오작은 전통적인 한지의 우아함을 바탕으로 소품, 생활용품, 인테리어 소품 등 독창적인 제품을 선보입니다. 모든 제품은 하나하나 수작업으로 제작되며, 고객의 라이프스타일에 어울리는 맞춤 제작도 가능합니다.
                     </div>
                 </div>
 
                 <div class="for-lg" style="margin-top: 77px;">
-                    <div class="fw-bold" style="font-size: 24px;">
+                    <div class="fw-bold" style="font-size: 24px;font-family: 'NanumSquareNeo', sans-serif; font-weight: 700;">
                     감각적인 디자인과 클래스 운영
                     </div>
-                    <div style="font-size: 20px;margin-top:22px;">
+                    <div style="font-size: 20px;margin-top:22px;font-family: 'NanumSquareNeo', sans-serif;">
                     전통 한지를 현대적 감각으로 재해석한 디자인 클래스는 단순한 공예를 넘어 자신만의 작품을 완성할 수 있는 특별한 경험을 제공합니다. 초보자부터 전문가까지 참여할 수 있는 다양한 프로그램을 통해 전통의 아름다움을 공유합니다.
                     <br />
                     오작은 한지를 통해 지속 가능한 삶의 방식을 제안하며, 우리의 공예품과 이야기가 여러분의 일상 속에서 새로운 완성을 만들어가길 바랍니다.
@@ -81,10 +81,10 @@
                 </div>
 
                 <div class="for-sm"  style="margin-top: 40px;">
-                    <div class="fw-bold" style="font-size: 24px;">
+                    <div class="fw-bold" style="font-size: 24px;font-family: 'NanumSquareNeo', sans-serif; font-weight: 700;">
                     감각적인 디자인과 클래스 운영
                     </div>
-                    <div style="font-size: 20px;margin-top:22px;">
+                    <div style="font-size: 20px;margin-top:22px;font-family: 'NanumSquareNeo', sans-serif; ">
                     전통 한지를 현대적 감각으로 재해석한 디자인 클래스는 단순한 공예를 넘어 자신만의 작품을 완성할 수 있는 특별한 경험을 제공합니다. 초보자부터 전문가까지 참여할 수 있는 다양한 프로그램을 통해 전통의 아름다움을 공유합니다.
                     오작은 한지를 통해 지속 가능한 삶의 방식을 제안하며, 우리의 공예품과 이야기가 여러분의 일상 속에서 새로운 완성을 만들어가길 바랍니다.
                     오작과 함께 전통을 느끼고, 완전함을 경험하세요.
@@ -94,8 +94,8 @@
         </div>
 
         <div class="d-flex justify-content-center" >
-            <span style="margin-top:100px;" class="for-lg bs-button" onclick="location.href='/gallery?pageIndex=1'"> 작품 보러가기 </span>
-            <span style="margin-top:90px;" class="for-sm bs-button" onclick="location.href='/gallery?pageIndex=1'">작품 보러가기 </span>
+            <span style="margin-top:100px;font-family: 'NanumSquareNeo', sans-serif; " class="for-lg bs-button " onclick="location.href='/gallery?pageIndex=1'"> 작품 보러가기 </span>
+            <span style="margin-top:90px;font-family: 'NanumSquareNeo', sans-serif; " class="for-sm bs-button" onclick="location.href='/gallery?pageIndex=1'">작품 보러가기 </span>
         </div>
         
     </div>
@@ -110,7 +110,7 @@
                     <path d="M22.3027 11.5049L16.9038 16.9037C13.9221 19.8855 9.08775 19.8855 6.10603 16.9037C3.12431 13.922 3.12431 9.0877 6.10603 6.10598C9.08775 3.12427 13.9221 3.12427 16.9038 6.10598L22.3027 11.5049Z" stroke="#17171B"/>
                 </svg>
             </div>
-            <p class="fw-bold mt-2 " style="font-size: 32px;">브랜드 로고 / 슬로건</p>
+            <p class="fw-bold mt-2 " style="font-size: 32px; font-family: 'NanumSquareNeo', sans-serif; font-weight: 800;">브랜드 로고 / 슬로건</p>
         </div>
 
         <div class="d-flex justify-content-center" style="margin-top:50px;" >
@@ -136,13 +136,13 @@
         </div>
 
         <div class="for-lg">
-            <div class="d-flex flex-column justify-content-center fw-bold " style="margin-top:42px; font-size:32px;" >
+            <div class="d-flex flex-column justify-content-center fw-bold " style="margin-top:42px; font-size:32px;font-family: 'NanumSquareNeo', sans-serif;font-weight: 700;" >
                 <p>"오작, 한지의 이야기를 담다" <br /> 한지로 빚어낸 일상의 아름다움</p>
             </div>
         </div>
 
         <div class="for-sm">
-            <div class="d-flex flex-column justify-content-center fw-bold " style="margin-top:42px; font-size:24px;" >
+            <div class="d-flex flex-column justify-content-center fw-bold " style="margin-top:42px; font-size:24px;font-family: 'NanumSquareNeo', sans-serif;font-weight: 700;" >
                 <p>"오작, 한지의 이야기를 담다" <br /> 한지로 빚어낸 일상의 아름다움</p>
             </div>
         </div>
@@ -161,10 +161,10 @@
                     <path d="M22.3027 11.5049L16.9038 16.9037C13.9221 19.8855 9.08775 19.8855 6.10603 16.9037C3.12431 13.922 3.12431 9.0877 6.10603 6.10598C9.08775 3.12427 13.9221 3.12427 16.9038 6.10598L22.3027 11.5049Z" stroke="#17171B"/>
                 </svg>
             </div>
-            <span class="fw-bold mt-2" style="font-size: 32px;">오시는 길</span>
+            <span class="fw-bold mt-2" style="font-size: 32px; font-family: 'NanumSquareNeo', sans-serif; font-weight: 800;">오시는 길</span>
             <br/>
-            <span class="for-lg" style="font-size: 24px;">경상북도 포항시 남구 오천읍 장기로 1479번길 2-4</span>
-            <span class="for-sm" style="font-size: 20px;">경상북도 포항시 남구 오천읍 장기로 1479번길 2-4</span>
+            <span class="for-lg" style="font-size: 24px;font-family: 'NanumSquareNeo', sans-serif;">경상북도 포항시 남구 오천읍 장기로 1479번길 2-4</span>
+            <span class="for-sm" style="font-size: 20px;font-family: 'NanumSquareNeo', sans-serif;">경상북도 포항시 남구 오천읍 장기로 1479번길 2-4</span>
         </div>
 
         <div class="d-flex justify-content-center mt-3">

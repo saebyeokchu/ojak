@@ -27,6 +27,8 @@
          
     <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet"> <!-- pretandard -->
     <link href="https://hangeul.pstatic.net/hangeul_static/css/maru-buri.css" rel="stylesheet"> <!-- Maru Buri Font -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/moonspam/NanumSquareNeo@1.0/nanumsquareneo.css"> <!-- NanumSquareNeo -->
+
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/pell/dist/pell.min.css">
 
     <!-- Bootstrap -->

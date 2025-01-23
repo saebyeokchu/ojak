@@ -268,6 +268,21 @@ body.loaded {
     background-color: black;
 }
 
+.bs-button-sm{
+    font-size:16px; 
+    border:1px solid black; 
+    padding : 10px 20px 10px 20px;
+    cursor:pointer;
+    font-weight: bold;
+    color:black;
+}
+
+.bs-button-sm:hover{
+    color:white;
+    background-color: black;
+}
+
+
 .long-gray-btn {
     background-color : gray;
     padding-top:20px;

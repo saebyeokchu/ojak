@@ -7,8 +7,9 @@
 
 <div id="eventCardWrapper" class="grid" >
     <?php if(count($posts) == 0) { ?>
-        <div style="font-size: 32px;min-height:200px;" class="d-flex justify-content-center">
-            현재 진행중인 이벤트가 없습니다. 
+        <div style="min-height:200px;" class="d-flex justify-content-center">
+            <span class="for-lg" style="font-size: 32px;">현재 진행중인 이벤트가 없습니다.</span>
+            <span class="for-sm mt-5" style="font-size: 18px;">현재 진행중인 이벤트가 없습니다.</span>
         </div>
     <?php } ?>
 
