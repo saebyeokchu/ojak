@@ -53,14 +53,13 @@
                     </td>
                     <td><?=$item["created_at"]?></td>
                     <td> 
-                        <?php if($gubun == 2){ ?>
-                            <span class="btn btn-dark cursor-pointer me-3" data-bs-target="#addEventModal" class="bs-button-sm">
-                        <?php }else{ ?>
+                        <?php 
+                            if($item["gubun"] != 2){ 
+                        ?>
                             <span class="btn btn-dark cursor-pointer me-3" onclick="moveToDetail(<?=$item['id']?>, <?=$item['gubun']?>)">
-                        <?php  }?>
                                 수정
-                        </span>
-                        <?php if($gubun == 2){ ?>
+                            </span>
+                        <?php }if($item["gubun"] == 2){ ?>
                             <span class="btn btn-dark cursor-pointer" onclick="onEventDeleteBtnClick(<?=$item['id']?>)">
                         <?php }else{ ?>
                             <span class="btn btn-dark cursor-pointer" onclick="deletePost(<?=$item['id']?>)">
@@ -82,8 +81,6 @@
         </tbody>
     </table>
 </div>
-
-<?= view('/community/modal/eventModal')?>
 
 <script>
     function moveToDetail(id, gubun){

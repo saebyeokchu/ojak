@@ -1,3 +1,4 @@
+
 function onEventDeleteBtnClick(targetId, pageIndex){
     if(window.confirm("이벤트를 영구히 삭제하시겠습니까?")){
         turnOnLoadingScreen();

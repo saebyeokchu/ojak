@@ -102,7 +102,7 @@
     }
 
     function hideAddNewBizModal(){
-        document.getElementById('sortInfo').classList.add('hide-item');
+        document.getElementById('addNewBiz').classList.add('hide-item');
     }
 
 
