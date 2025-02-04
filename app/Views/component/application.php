@@ -54,22 +54,21 @@
 <body class="position-relative" style="font-family: 'Pretendard', sans-serif!important;" >
     <div id="loading-screen" class="loading-screen hide-item">
         <div class="spinner-border text-light" role="status" aria-hidden="true"></div>
-        <!-- <div class="loading-text">Loading...</div> -->
     </div>
 
-
-    <?= (isset($view_header) ? ( $view_header == true && view('/component/header') ) : view('/component/header') ) ?? '' ?>
+    <!-- HEADER  -->
+    <?= (isset($view_header) ? ( $view_header == true && view('/component/header') ) : view('/component/header') ) ?? '' ?> 
 
     <!-- CONTENT -->
     <?= ( isset($contents) ? view($yield, $contents) : view($yield) ) ?? '' ?>
 
-    
+    <!-- FOOTER -->
     <?= (isset($view_footer) ? ( $view_footer == true && view('/component/footer') ) : view('/component/footer') ) ?? '' ?>
-     
+<!--      
     <div class="position-absolute start-0 top-0 loading-spinner hide-item" style="width:100%;height:100%;background-color:rgb(0,0,0,0.3);z-index:9999;"></div>
     <div class="spinner-border position-absolute start-50 loading-spinner hide-item" style="top:100px;z-index:9999;" role="status" >
         <span class="visually-hidden">Loading...</span>
-    </div>
+    </div> -->
 
     <!-- modals -->
     <?= view('/gallery/modal/update') ?>

@@ -10,6 +10,7 @@ body {
     padding: 0px;
     /* font-family: "Nanum Gothic", sans-serif; */
     transition: opacity 0.3s ease-in-out;
+    text-underline-offset: 8px;
 }
 
 body.loaded {
@@ -263,7 +264,21 @@ body.loaded {
     color:black;
 }
 
+.bs-button-sm{
+    font-size:16px; 
+    border:1px solid black; 
+    padding : 10px 20px 10px 20px;
+    cursor:pointer;
+    font-weight: bold;
+    color:black;
+}
+
 .bs-button:hover{
+    color:white;
+    background-color: black;
+}
+
+.bs-button-sm:hover{
     color:white;
     background-color: black;
 }

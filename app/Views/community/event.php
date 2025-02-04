@@ -17,9 +17,9 @@
     }
 ?>
 
-<div class="d-flex flex-column ms-5 me-5" style="margin-top:100px; margin-bottom:100px;">
-    
-    <!-- breadcrumb -->
+<div class="d-flex justify-content-center  mt-100 " >
+    <div class="d-flex flex-column px-5 w-100" style="max-width:1440px;" >
+    `<!-- breadcrumb -->
     <?= view('/component/breadcrumb',[
         'breadsInput' => [ 
             ['name' => '커뮤니티', 'url' => '/community/event?pageIndex=1'], 
@@ -29,25 +29,24 @@
     <!-- menu -->
     <?=view('/community/_component/category', [ 'gubun' => 2 ]);?>
 
-
-    <!-- content -->
-    <div class="mt-15" >
+    <div  style="min-height: 500px;">
+        <!-- content -->
         <?=view('/community/event/card', [ 'posts' => $posts, 'rowCount' => $rowCount ]);?>
+
+        <!-- pagination -->
+        <?php if(isset($posts) && count($posts) > 0) { 
+            echo view('/community/_component/pagination', 
+                [ 
+                    'posts' => $posts, 
+                    'itemPerPage' => 8 , 
+                    'paginationRange' => 5,
+                    'totalCount' => $rowCount,
+                    'src' => '/community/event'
+                ]
+            ); 
+        } ?>
     </div>
-
-    <!-- pagination -->
-    <?php if(isset($posts) && count($posts) > 0) { 
-        echo view('/community/_component/pagination', 
-            [ 
-                'posts' => $posts, 
-                'itemPerPage' => 8 , 
-                'paginationRange' => 5,
-                'totalCount' => $rowCount,
-                'src' => '/community/event'
-            ]
-        ); 
-    } ?>
-
+    </div>
 </div>
 
 <script>

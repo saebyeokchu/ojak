@@ -83,6 +83,10 @@ class Gallery extends BaseController
         $uploadedFromUser = $this->request->getPost('uploadedFromUser') ?? true;
 
         $file_name = null;
+        $file_name2 = null;
+        $file_name3 = null;
+        $file_name4 = null;
+
         $file_upload = true;
 
         log_message('error',"id:".$id);
@@ -98,9 +102,33 @@ class Gallery extends BaseController
             $file_upload = $file_result['success'];
         }
 
+        if(isset($_FILES['image2'])){
+            $file = new \App\Controllers\File();
+            $file_result = $file->upload($_FILES['image2'],$uploadedFromUser);
+            $file_name2 = $file_result['file_name'];
+
+            $file_upload = $file_result['success'];
+        }
+
+        if(isset($_FILES['image3'])){
+            $file = new \App\Controllers\File();
+            $file_result = $file->upload($_FILES['image3'],$uploadedFromUser);
+            $file_name3 = $file_result['file_name'];
+
+            $file_upload = $file_result['success'];
+        }
+
+        if(isset($_FILES['image4'])){
+            $file = new \App\Controllers\File();
+            $file_result = $file->upload($_FILES['image4'],$uploadedFromUser);
+            $file_name4 = $file_result['file_name'];
+
+            $file_upload = $file_result['success'];
+        }
+
         if($file_upload){
             $api = new \App\Controllers\Api();
-            $result = $api -> insertGallery($title,$subTitle, $content, $buyLink, $file_name, $user_id, $id);
+            $result = $api -> insertGallery($title,$subTitle, $content, $buyLink, $file_name, $file_name2, $file_name3, $file_name4, $user_id, $id);
 
             if($result['status'] == 'success'){
                 //check pw

@@ -7,8 +7,9 @@
 <!-- Arts -->
 <?= view('/home/section/arts') ?? '' ?>
 
-<!-- Instagram -->
+<!-- SNS's -->
 <?= view('/home/section/notice'); ?>
+
 
 <script>
     window.addEventListener('load', () => {

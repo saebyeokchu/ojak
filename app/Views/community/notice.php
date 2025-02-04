@@ -17,38 +17,41 @@
     }
 ?>
 
-<div class="d-flex flex-column ms-5 me-5" style="margin-top:100px; margin-bottom:100px;">
+<div class="d-flex justify-content-center   mt-100" >
+    <div class="d-flex flex-column px-5    w-100" style="max-width:1440px;" >
     
-    <!-- breadcrumb -->
-    <?= view('/component/breadcrumb',[
-        'breadsInput' => [ 
-            ['name' => '커뮤니티', 'url' => '/community/notice?pageIndex=1'], 
-            ['name' => '공지사항', 'url' => '/community/notice?pageIndex=1'] 
-        ] ]) ?>
+        <!-- breadcrumb -->
+        <?= view('/component/breadcrumb',[
+            'breadsInput' => [ 
+                ['name' => '커뮤니티', 'url' => '/community/notice?pageIndex=1'], 
+                ['name' => '공지사항', 'url' => '/community/notice?pageIndex=1'] 
+            ] ]) ?>
 
-    <!-- menu -->
-    <?=view('/community/_component/category', [ 'gubun' => 1 ]);?>
+        <!-- menu -->
+        <?=view('/community/_component/category', [ 'gubun' => 1 ]);?>
 
     
-    <!-- content -->
-    <div class="mt-3" >
-        <?=view('/community/notice/table', [ 'posts' => $posts ]);?>
+        <div  style="min-height: 500px;">
+            <!-- content -->
+            <div class="mt-3" >
+                <?=view('/community/notice/table', [ 'posts' => $posts ]);?>
+            </div>
+
+            <!-- pagination -->
+            <?php if($rowCount > 0) { 
+                // echo view('/community/_component/pagination', [ 'posts' => $posts ]); 
+                echo view('/community/_component/pagination', 
+                    [ 
+                        'posts' => $posts, 
+                        'itemPerPage' => 10 , 
+                        'paginationRange' => 5,
+                        'totalCount' => $rowCount,
+                        'src' => '/community/notice'
+                    ]
+                );
+            } ?>
+        </div>
     </div>
-
-    <!-- pagination -->
-    <?php if($rowCount > 0) { 
-        // echo view('/community/_component/pagination', [ 'posts' => $posts ]); 
-        echo view('/community/_component/pagination', 
-            [ 
-                'posts' => $posts, 
-                'itemPerPage' => 10 , 
-                'paginationRange' => 5,
-                'totalCount' => $rowCount,
-                'src' => '/community/notice'
-            ]
-        );
-    } ?>
-
 </div>
 
 <script>

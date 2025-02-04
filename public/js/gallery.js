@@ -46,10 +46,28 @@ function updateEditModalContent(targetData){
     if(targetData["buy_link"]) editModalBuyLink.value = targetData["buy_link"];
 
 
-    //부제목입력
+    //이미지 입력
     const previousInputUrl = document.getElementById("previousInputUrl");
     if(targetData["img_url"]){
-        previousInputUrl.innerText = '현재 사진:' + targetData["img_url"];
+        previousInputUrl.innerText =  targetData["img_url"];
+    }
+
+    //이미지 입력2
+    const previousInputUrl2 = document.getElementById("previousInputUrl2");
+    if(targetData["img_url2"]){
+        previousInputUrl2.innerText =  targetData["img_url2"];
+    }
+
+    //이미지 입력3
+    const previousInputUrl3 = document.getElementById("previousInputUrl3");
+    if(targetData["img_url3"]){
+        previousInputUrl3.innerText =   targetData["img_url3"];
+    }
+
+    //이미지 입력4
+    const previousInputUrl4 = document.getElementById("previousInputUrl4");
+    if(targetData["img_url4"]){
+        previousInputUrl4.innerText =  targetData["img_url4"];
     }
 
 }

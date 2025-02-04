@@ -41,9 +41,9 @@
 
 ?>
 
-<div class="d-flex justify-content-center   " style="margin-top:100px; margin-bottom:100px;">
+<div class="d-flex justify-content-center   w-full" style="margin-top:100px; margin-bottom:100px;">
 
-    <div class="d-flex flex-column mx-5    w-100" style="max-width:1440px;">
+    <div class="d-flex flex-column mx-5   " style="max-width:1440px;">
     
         <!-- breadcrumb -->
         <?= view('/component/breadcrumb',[

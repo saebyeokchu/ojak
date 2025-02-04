@@ -10,7 +10,7 @@
         <!-- Modal Body -->
         <div class="modal-body">
             <form action="javascript:;" onsubmit=" edit( event ) ">
-                <div class="d-flex flex-column gap-2" >
+                <div class="d-flex flex-column gap-2">
                     <input placeholder="작품 아이디" type="text" class="hide-item" id="editModalId">
                     <input placeholder="작품 이름" maxlength="23" type="text" class="form-control" id="editModalTitle"  required>
                     <input placeholder="작품 한 줄 설명(선택)" type="text" class="form-control"  id="editModalSubTitle" maxlength="23">
@@ -18,12 +18,33 @@
                     <input placeholder="구매링크(선택)" type="text" class="form-control"  id="editModalBuyLink">
 
                     <span class="text-secondary" style="font-size:12px;">업로드 가능 형식 : .png, .jpg, .jpeg</span>
-                    <input  oninput="onFileChange(event)" class="form-control" type="file" id="editModalInputFile" name="editModalInputFile" accept=".png, .jpg, .jpeg"  >
-                    <small id="previousInputUrl"></small>
+                    <input  oninput="onFileChange(event, 'previousInputUrl')" class="form-control" type="file" id="editModalInputFile" name="editModalInputFile" accept=".png, .jpg, .jpeg"  >
+                    <small >첫번째 이미지 : <span id="previousInputUrl"></span></small>
 
-                    <img id="input-file-display" class="img-fluid hide-item" ></div>
+                    <div class="d-flex flex-row justify-content-between">
+                        <input  oninput="onFileChange(event, 'previousInputUrl2')" class="form-control w-75" type="file" id="editModalInputFile2" name="editModalInputFile2" accept=".png, .jpg, .jpeg"  >
+                        <button type="button" class="btn btn-dark" onclick="deleteImg('editModalInputFile2', 'previousInputUrl2')">삭제</button>
+                    </div>
+                    <small >두번째 이미지 : <span id="previousInputUrl2"></span></small>
+
+                    <div class="d-flex flex-row justify-content-between">
+                        <input  oninput="onFileChange(event, 'previousInputUrl3')" class="form-control w-75" type="file" id="editModalInputFile3" name="editModalInputFile3" accept=".png, .jpg, .jpeg"  >
+                        <button type="button" class="btn btn-dark" onclick="deleteImg('editModalInputFile3', 'previousInputUrl3')">삭제</button>
+                    </div>
+                    <small >세번째 이미지 : <span id="previousInputUrl3"></span></small>
+
+                    <div class="d-flex flex-row justify-content-between">
+                        <input  oninput="onFileChange(event, 'previousInputUrl4')" class="form-control w-75" type="file" id="editModalInputFile4" name="editModalInputFile4" accept=".png, .jpg, .jpeg"  >
+                        <button type="button" class="btn btn-dark" onclick="deleteImg('editModalInputFile4', 'previousInputUrl4')">삭제</button>
+                    </div>
+                    <small >네번째 이미지 : <span id="previousInputUrl4"></span></small>
+
+                    <img id="input-file-display" class="img-fluid hide-item"  />
+                    <img id="input-file-display2" class="img-fluid hide-item" />
+                    <img id="input-file-display3" class="img-fluid hide-item" />
+                    <img id="input-file-display4" class="img-fluid hide-item" />
+                    <button id="editModalBtn" type="submit" class="btn btn-dark w-100 mt-4">등록</button>
                 </div>
-                <button id="editModalBtn" type="submit" class="btn btn-dark w-100 mt-4">등록</button>
             </form>
         </div>
     </div> 
@@ -35,24 +56,39 @@
     });
 
     //preview image
-    function onFileChange(event){
+    function onFileChange(event, previousInputUrl){
         const [file] = event.target.files;
-        const previewImg = document.getElementById('input-file-display');
+        // const previewImg = document.getElementById('input-file-display');
+        const previousInpu = document.getElementById(previousInputUrl);
 
-        console.log(file);
+        if(file && file.name){
+            console.log(file.name);
+            var text = document.createTextNode(file.name);
+            previousInpu.appendChild(text);
+        }
 
-        if (file) {
-            previewImg.src = URL.createObjectURL(file);
+        // if (file) {
+        //     previewImg.src = URL.createObjectURL(file);
 
-            previewImg.classList.remove('hide-item');
-            previewImg.classList.add('show-item');
-        }else{
-            previewImg.src = '';
+        //     previewImg.classList.remove('hide-item');
+        //     previewImg.classList.add('show-item');
+        // }else{
+        //     previewImg.src = '';
 
-            previewImg.classList.add('hide-item');
-            previewImg.classList.remove('show-item');
+        //     previewImg.classList.add('hide-item');
+        //     previewImg.classList.remove('show-item');
+        // }
+    }
+
+    function deleteImg(fileId, urlPreviewId){
+        const targetFile = document.getElementById(fileId);
+        const previousInput = document.getElementById(urlPreviewId);
+        if(previousInput && fileId){
+            previousInput.innerText='';
+            targetFile.value = "";
         }
     }
+
 
     async function edit(event){
         event.preventDefault();
@@ -63,6 +99,9 @@
         const content = event.target[3].value;
         const buyLink = event.target[4].value;
         const file = document.getElementById('editModalInputFile');
+        const file2 = document.getElementById('editModalInputFile2');
+        const file3 = document.getElementById('editModalInputFile3');
+        const file4 = document.getElementById('editModalInputFile4');
 
         try {
             editGalleryModal.style.display = "none"; // Hide modal
@@ -73,6 +112,9 @@
             postData.append('content', content);
             postData.append('buyLink', buyLink );
             postData.append('image', file.files[0]);
+            postData.append('image2', file2.files[0]);
+            postData.append('image3', file3.files[0]);
+            postData.append('image4', file4.files[0]);
             postData.append('user_id',getCookieByName('user_id'));
             postData.append('id',id);
 

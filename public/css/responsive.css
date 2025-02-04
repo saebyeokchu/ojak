@@ -91,3 +91,23 @@
     }
 }
 
+@media (min-width: 1440px) { 
+    .for-xl-show {
+        display : block;
+    }
+
+    .for-xl-hide {
+        display : none;
+    }
+}
+
+@media (max-width: 1440px) { 
+    .for-xl-show {
+        display : none;
+    }
+
+    .for-xl-hide {
+        display : block;
+    }
+}
+

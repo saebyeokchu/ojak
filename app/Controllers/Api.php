@@ -572,7 +572,7 @@ class Api extends Controller
         }
     }
 
-    public function insertGallery($title, $subTitle, $content, $buyLink, $img_url, $user_id, $id)
+    public function insertGallery($title, $subTitle, $content, $buyLink, $img_url, $img_url2, $img_url3, $img_url4, $user_id, $id)
     {
         // Get the incoming data from the POST request
         $model = new \App\Models\GalleryModel();
@@ -588,6 +588,24 @@ class Api extends Controller
 
         if($img_url != null){
             $data['img_url'] = $img_url;
+        }
+
+        if($img_url2 != null){
+            $data['img_url2'] = $img_url2;
+        }else{
+            $data['img_url2'] = null;
+        }
+
+        if($img_url3 != null){
+            $data['img_url3'] = $img_url3;
+        }else{
+            $data['img_url3'] = null;
+        }
+
+        if($img_url4 != null){
+            $data['img_url4'] = $img_url4;
+        }else{
+            $data['img_url4'] = null;
         }
 
         if($id){

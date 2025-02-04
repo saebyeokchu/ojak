@@ -18,26 +18,67 @@
     //make share url
     $shareUrl =  "https://".$_SERVER["HTTP_HOST"].$_SERVER["REQUEST_URI"];
     $returnUrl = "/gallery?pageIndex=".$pageIndex;
+
 ?>
 
-<div class="d-flex flex-column ms-5 me-5" style="margin-top:100px; margin-bottom:100px;">
-    
-    <!-- breadcrumb -->
-    <?= view('/component/breadcrumb',[
-        'breadsInput' => [ ['name' => '작품', 'url' => $returnUrl ] ]
-    ]) ?>
+<div class="d-flex justify-content-center   " style="margin-top:100px; margin-bottom:100px;">
+    <div class="d-flex flex-column px-5 w-100" style="max-width: 1440px;" >
+        
+        <!-- breadcrumb -->
+        <?= view('/component/breadcrumb',[
+            'breadsInput' => [ ['name' => '작품', 'url' => $returnUrl ] ]
+        ]) ?>
 
 
-    <!-- content -->
-    <div class="grid  " >
-        <div class="row row-cols-1 row-cols-md-2 mt-5"  style="min-height:700px;">
-            <div class="col-sm-6"> 
-                <img src="/img/user/<?=$item->img_url?>" class="w-100 object-fit-cover" />
-            </div>
+        <!-- content -->
+        <div class="grid mt-100" >
+            <div class="d-flex flex-row justify-content-center"  style="min-height:700px;">
+                <div class="  d-flex flex-column"> 
+                    <img id="galleryDetailMainImg" src="/img/user/<?=$item->img_url?>" class="object-fit-cover" width="650" height="680" />
+                    <div class="row mt-3"> 
+                        <div class="col-3 hovereffect" onclick="changeGalleryDetailMainImg('<?=$item->img_url?>')">
+                            <img src="/img/user/<?=$item->img_url?>" class="object-fit-cover cursor-pointer " width="145"/>
+                            <div class="overlay cursor-pointer"></div>
+                        </div>
+                        <div class="col-3 hovereffect" onclick="changeGalleryDetailMainImg('<?=$item->img_url2?>')">
+                            <?php if($item->img_url2){ ?>
+                                <img src="/img/user/<?=$item->img_url2?>" class="object-fit-cover cursor-pointer" width="145"/>
+                                <div class="overlay cursor-pointer"></div>
+                            <?php } ?>
+                        </div>
+                        <div class="col-3 hovereffect" onclick="changeGalleryDetailMainImg('<?=$item->img_url3?>')">
+                            <?php if($item->img_url3){ ?>
+                                <img src="/img/user/<?=$item->img_url3?>" class="object-fit-cover cursor-pointer" width="145"/>
+                                <div class="overlay cursor-pointer"></div>
+                            <?php } ?>
+                        </div>
+                        <div class="col-3 hovereffect" onclick="changeGalleryDetailMainImg('<?=$item->img_url4?>')">
+                            <?php if($item->img_url4){ ?>
+                                <img src="/img/user/<?=$item->img_url4?>" class="object-fit-cover cursor-pointer" width="145"/>
+                                <div class="overlay cursor-pointer"></div>
+                            <?php } ?>
+                        </div>
+                    </div>
+                </div>
 
-            <div class="d-flex flex-column col-sm-6">
-                <div class="d-flex justify-content-between">
+                <div class="d-flex flex-column text-center  " style="width: 650px;height: 680px;">
                     <p style="font-size:30px;" class="fw-bold"><?=$item->title?><br /><span style="color:#8C8C8C;font-size:18px;"><?=$item->sub_title?></span></p>
+
+                    <div class="for-lg" style="margin-top:70px;font-size: 20px; line-height: 35px;margin-bottom:20px;height:380px;">
+                        <?=$item->content?>
+                    </div>
+                    <div class="for-sm" style="margin-top:30px;font-size: 20px; line-height: 35px;margin-bottom:20px;height:380px;">
+                        <?=$item->content?>
+                    </div>
+
+                    <?php if(isset($item->buy_link) && $item->buy_link != ''){ ?>
+                        <div class="d-flex justify-content-center mt-20" onclick="window.open('<?=$item->buy_link?>','_blank');">
+                            <span  class="fw-bold px-4 py-2 cursor-pointer bs-button"> 작품 구매하러 가기 </span>
+                        </div>
+                    <?php } ?>
+                </div>
+
+                <div class=" "> 
                     <div class="d-flex flex-row gap-3 mt-2">
                         <?php if($owned_by_user) { ?>
                         <p class="cursor-pointer" onclick="onDeleteBtnClick(<?= $item -> id ?>)">
@@ -81,54 +122,39 @@
                         </p>
                     </div>
                 </div>
-
-                
-
-                <div class="for-lg" style="margin-top:70px;font-size: 20px; line-height: 35px;margin-bottom:20px;">
-                    <?=$item->content?>
-                </div>
-                <div class="for-sm" style="margin-top:30px;font-size: 20px; line-height: 35px;margin-bottom:20px;">
-                    <?=$item->content?>
-                </div>
-
-                <?php if(isset($item->buy_link) && $item->buy_link != ''){ ?>
-                    <div class="d-flex justify-content-center mt-20" onclick="window.open('<?=$item->buy_link?>','_blank');">
-                        <span  class="fw-bold px-4 py-2 cursor-pointer bs-button"> 작품 구매하러 가기 </span>
-                    </div>
-                <?php } ?>
             </div>
-        </div>
 
-        <!-- <div class=" for-lg">
-            <div class="row row-cols-1 row-cols-md-2  mt-3">
-                <div class="col-sm-6">
-                    <div class="d-flex justify-content-between gap-2">
-                        <div class="w-100" style="background-color: gray;min-height:100px;">
-                        </div>
-                        <div class="w-100"  style="background-color: gray;min-height:100px;">
-                        </div>
-                        <div class="w-100"  style="background-color: gray;min-height:100px;">
-                        </div>
-                        <div class="w-100"  style="background-color: gray;min-height:100px;">
-                        </div>
-                        <div class="w-100"  style="background-color: gray;min-height:100px;">
-                        </div>
-                        <div class="w-100"  style="background-color: gray;min-height:100px;">
+            <!-- <div class=" for-lg">
+                <div class="row row-cols-1 row-cols-md-2  mt-3">
+                    <div class="col-sm-6">
+                        <div class="d-flex justify-content-between gap-2">
+                            <div class="w-100" style="background-color: gray;min-height:100px;">
+                            </div>
+                            <div class="w-100"  style="background-color: gray;min-height:100px;">
+                            </div>
+                            <div class="w-100"  style="background-color: gray;min-height:100px;">
+                            </div>
+                            <div class="w-100"  style="background-color: gray;min-height:100px;">
+                            </div>
+                            <div class="w-100"  style="background-color: gray;min-height:100px;">
+                            </div>
+                            <div class="w-100"  style="background-color: gray;min-height:100px;">
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div> -->
+            </div> -->
 
-        <div class="d-flex justify-content-start w-100 mt-70 align-middle cursor-pointer" onclick="location.href='<?=$returnUrl?>'">
-            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M15.98 26L34.5 26L34.5 22L15.98 22L15.98 16L8 24L15.98 32L15.98 26Z" fill="#17171B"/>
-            </svg>
-            <p class="fw-bold " style="margin-top:12px;">목록으로</p>
+            <div class="d-flex justify-content-start w-100 mt-70 align-middle cursor-pointer" onclick="location.href='<?=$returnUrl?>'">
+                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15.98 26L34.5 26L34.5 22L15.98 22L15.98 16L8 24L15.98 32L15.98 26Z" fill="#17171B"/>
+                </svg>
+                <p class="fw-bold " style="margin-top:12px;">목록으로</p>
+            </div>
+
         </div>
 
     </div>
-
 </div>
 
 <script>
@@ -166,6 +192,13 @@
     function onShareBtnClick(){
         navigator.clipboard.writeText('<?=$shareUrl?>');
         window.alert("링크 복사가 완료되었습니다.");
+    }
+
+    //changeGalleryDetailMainImg galleryDetailMainImg
+    function changeGalleryDetailMainImg(targetImgUrl){
+        if(targetImgUrl){
+            document.getElementById('galleryDetailMainImg').setAttribute("src", '/img/user/'+targetImgUrl);
+        }
     }
 
 </script>

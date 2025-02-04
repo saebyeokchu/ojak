@@ -31,42 +31,44 @@
 ?>
 
 <!-- New post -->
-<div class="bg-light  pt-150 pb-100" >
+<div class="d-flex justify-content-center    pt-150 pb-100 bg-light " >
+    <div class="d-flex flex-column px-5    w-100" style="max-width:1440px;" >
 
-    <div class="d-flex container flex-column justify-content-start">
-        <p class="fw-bold" style="font-size: 32px;">커뮤니티 게시물 등록</p>
-    </div>
-
-    <div class = "container">
-        <div class="pt-3 d-flex justify-content-start gap-3">
-            <span class="cursor-pointer" style="font-size:20px;" id="noticeCategory" onclick="changeCategory('1');">공지사항</span>
-            <span class="cursor-pointer" style="font-size:20px;" id="qnaCategory" onclick="changeCategory('3');">Q&A</a>
+        <div class="d-flex container flex-column justify-content-start">
+            <p class="fw-bold" style="font-size: 32px;">커뮤니티 게시물 등록</p>
         </div>
-        <div class="d-flex justify-content-between pt-3 pb-2 hide-item" >
-            <div class=" w-50">
-                <input type="text" class="form-control community-title" aria-describedby="communityTitleLG" placeholder="제목" value="<?= ( isset($post) && isset($post['title']) ) ? $post['title'] : '' ?>" />
+
+        <div class = "container">
+            <div class="pt-3 d-flex justify-content-start gap-3">
+                <span class="cursor-pointer" style="font-size:20px;" id="noticeCategory" onclick="changeCategory('1');">공지사항</span>
+                <span class="cursor-pointer" style="font-size:20px;" id="qnaCategory" onclick="changeCategory('3');">Q&A</a>
             </div>
-            <div class="d-flex flex-row gap-3 gap-x-3 w-25">
-                <select class="form-select w-50" id="lg-gubun-select" aria-label="Default select example">
-                    <option value="1" <?= $sub == 1 ? 'selected' : '' ?>>공지사항 </option>
-                    <option value="3" <?= $sub == 3 ? 'selected' : '' ?>>Q&A</option>
-                </select>
-                <button class="btn btn-dark" onclick="goBack(event)">취소</button>
-                <button class="btn btn-dark" onclick="savedata(event)">등록</button>
+            <div class="d-flex justify-content-between pt-3 pb-2 hide-item" >
+                <div class=" w-50">
+                    <input type="text" class="form-control community-title" aria-describedby="communityTitleLG" placeholder="제목" value="<?= ( isset($post) && isset($post['title']) ) ? $post['title'] : '' ?>" />
+                </div>
+                <div class="d-flex flex-row gap-3 gap-x-3 w-25">
+                    <select class="form-select w-50" id="lg-gubun-select" aria-label="Default select example">
+                        <option value="1" <?= $sub == 1 ? 'selected' : '' ?>>공지사항 </option>
+                        <option value="3" <?= $sub == 3 ? 'selected' : '' ?>>Q&A</option>
+                    </select>
+                    <button class="btn btn-dark" onclick="goBack(event)">취소</button>
+                    <button class="btn btn-dark" onclick="savedata(event)">등록</button>
+                </div>
             </div>
         </div>
-    </div>
 
 
-    <div class="container">
-        <input id="editorTitle" type="text" class="form-control community-title" aria-describedby="communityTitle" placeholder="제목"  value="<?= ( isset($post) && isset($post['title']) ) ? $post['title'] : '' ?>" />
-        <span class="text-secondary mt-2" style="font-size:12px;">최대 400자까지 입력하실 수 있습니다. ( <span id="editorCounter"><?= ( isset($post) && isset($post['content']) ) ? mb_strlen($post['content']) : 0  ?></span>자 / 200자 ) </span>
-        <textarea id="textInput" class="w-100 form-control" rows="15" ><?= ( isset($post) && isset($post['content']) ) ? $post['content'] : ''  ?></textarea>
-    </div>
+        <div class="container">
+            <input id="editorTitle" type="text" class="form-control community-title" aria-describedby="communityTitle" placeholder="제목"  value="<?= ( isset($post) && isset($post['title']) ) ? $post['title'] : '' ?>" />
+            <span class="text-secondary mt-2" style="font-size:12px;">최대 400자까지 입력하실 수 있습니다. ( <span id="editorCounter"><?= ( isset($post) && isset($post['content']) ) ? mb_strlen($post['content']) : 0  ?></span>자 / 200자 ) </span>
+            <textarea id="textInput" class="w-100 form-control" rows="15" ><?= ( isset($post) && isset($post['content']) ) ? $post['content'] : ''  ?></textarea>
+        </div>
 
-    <div class="d-flex flex-row gap-3 justify-content-center mt-3">
-        <button class="btn btn-dark" onclick="goBack(<?= isset($post) ? $post['id'] : 0 ?>,event)">취소</button>
-        <button class="btn btn-dark" onclick="savedata(event)">등록</button>
+        <div class="d-flex flex-row gap-3 justify-content-center mt-3">
+            <button class="btn btn-dark" onclick="goBack(<?= isset($post) ? $post['id'] : 0 ?>,event)">취소</button>
+            <button class="btn btn-dark" onclick="savedata(event)">등록</button>
+        </div>
     </div>
 </div>
 

@@ -21,8 +21,8 @@
     $returnUrl = "/community/list/2?pageIndex=".$pageIndex;
 ?>
 
-<div class="d-flex flex-column ms-5 me-5" style="margin-top:200px; margin-bottom:100px;">
-
+<div class="d-flex justify-content-center   " style="margin-top:100px;margin-bottom:100px;">
+    <div class="d-flex flex-column px-5    w-100" style="max-width:1440px;" >
     <!-- breadcrumb -->
     <nav class="text-black d-flex flex-row gap-3" >
         <div>
@@ -118,6 +118,7 @@
         </svg>
         <p class="fw-bold " style="margin-top:12px;">목록으로</p>
     </div>
+</div>
 </div>
 
 <?= view('/community/modal/eventModal', [ 'item' => $post ])?>
