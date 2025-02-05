@@ -147,23 +147,16 @@ class Gallery extends BaseController
     public function uploadRepresentItems()
     { 
         $file = new \App\Controllers\File();
-        $img_names = ['carousel1','carousel2','carousel3'];
         $upload_result = true;
+        $selectedCarouselNo = $this->request->getPost('selectedCarouselNo');
 
-        foreach($img_names as $in){
-            if(isset($_FILES[$in])){
-                $file_result = $file->uploadToSpecificFolder($_FILES[$in],$in);
-                $file_name = $file_result['file_name'];
-    
-                if($file_result['success']){
-                    $api = new \App\Controllers\Api();
-                    $result = $api -> updateSettingByName($in,$file_name);
-        
-                    if($result['status'] != 'success'){
-                        $upload_result = false;
-                        break;
-                    }
-                }
+        if(isset($_FILES['inputFile'])){
+            $file_result = $file->upload($_FILES['inputFile'],true);
+            $file_name = $file_result['file_name'];
+
+            if($file_result['success']){
+                $api = new \App\Controllers\Api();
+                $upload_result = $api -> updateSettingByName('showpiece'.$selectedCarouselNo,$file_name);
             }
         }
 

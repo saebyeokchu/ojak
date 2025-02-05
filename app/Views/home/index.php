@@ -1,5 +1,5 @@
 <!-- Carousel -->
-<?= view('/home/section/carousel') ?? '' ?>
+<?= view('/home/section/carousel', [ "data" => $contents ]) ?? '' ?>
 
 <!-- Introduction -->
 <?= view('/home/section/intro.html') ?? '' ?>

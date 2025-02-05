@@ -186,15 +186,17 @@
 </div>
 
 <div class="for-sm">
-    <div class="d-flex flex-column    "  style="margin-top:50px;">
+    <div class="d-flex flex-column "  style="margin-top:100px;">
         <!-- breadcrumb -->
-        <?= view('/component/breadcrumb',[
-            'breadsInput' => [ ['name' => '브랜드', 'url' => '/brand'] ]
-        ]) ?>
+        <div class="px-5">
+            <?= view('/component/breadcrumb',[
+                'breadsInput' => [ ['name' => '브랜드', 'url' => '/brand'] ]
+            ]) ?>
+        </div>
 
 
         <!-- section 1 -->
-        <div class="grid text-center mt-100 px-3" >
+        <div class="grid text-center mt-70 px-5" >
 
             <div class="d-flex flex-column justify-content-center text-center">
                 <div>

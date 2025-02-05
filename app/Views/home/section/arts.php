@@ -22,12 +22,12 @@
                     foreach($gallery as $g) {
                 ?>
                     <div class="col">
-                        <a href="/gallery/<?=$g->id?>?pageIndex=1">
+                        <a href="/gallery/<?=$g['id']?>?pageIndex=1">
                             <div class="image-container">
-                                <img src="/img/user/<?=$g->img_url?>" class="img-fluid cursor-pointer"  />
+                                <img src="/img/user/<?=$g['img_url']?>" class="cursor-pointer" width="300" height="350" style="object-fit:cover;"  />
                                 <div class="overlay">
-                                    <p style="font-size:24px;font-weight:700;"><?=$g->title?></h2>
-                                    <p style="font-size:16px;font-weight:600;"><?=$g->sub_title?></p>
+                                    <p style="font-size:24px;font-weight:700;"><?=$g['title']?></h2>
+                                    <p style="font-size:16px;font-weight:600;"><?=$g['sub_title']?></p>
                                 </div>
                             </div>
                         </a>
@@ -38,24 +38,24 @@
     </div>
 
     <div class="for-sm">
-        <div class=" d-flex justify-content-center w-100" >
-            <div class="px-5 row row-cols-1 row-cols-md-4  g-4">
-                <?php 
-                    foreach($gallery as $g) {
-                ?>
-                    <div class="col">
-                        <a href="/gallery/<?=$g->id?>?pageIndex=1">
-                            <div class="image-container">
-                                <img src="/img/user/<?=$g->img_url?>" class="img-fluid hover-saturate cursor-pointer" />
-                                <div class="overlay">
-                                    <p style="font-size:24px;font-weight:700;"><?=$g->title?></h2>
-                                    <p style="font-size:16px;font-weight:600;"><?=$g->sub_title?></p>
-                                </div>
+        <div class="   w-100 px-5" >
+            <?php 
+                foreach($gallery as $g) {
+            ?>
+                    <a href="/gallery/<?=$g['id']?>?pageIndex=1">
+                <div class="mt-3 border border-danger d-flex flex-column justify-content-center border border-danger">
+
+                        <div class="image-container">
+                            <img src="/img/user/<?=$g['img_url']?>" class="mx-auto d-block cursor-pointer" width="300" height="350"  style="object-fit:cover;"/>
+                            <div class="overlay">
+                                <p style="font-size:20px;font-weight:700;"><?=$g['title']?></h2>
+                                <p style="font-size:14px;font-weight:600;"><?=$g['sub_title']?></p>
                             </div>
-                        </a>
-                    </div>
-                <?php    }?>
-            </div>
+                        </div>
+                </div>
+
+                    </a>
+            <?php    }?>
         </div>
     </div>
 
@@ -80,9 +80,9 @@
         position: absolute;
         bottom: 0;
         left: 0;
-        width: 100%;
+        width: 300px;
         height: 130px; /* Initially hidden */
-        background: rgba(0, 0, 0, 0.6); /* Semi-transparent black */
+        background: rgba(0, 0, 0, 0.3); /* Semi-transparent black */
         color: white;
         padding: 20px;
         box-sizing: border-box;

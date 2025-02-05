@@ -51,9 +51,6 @@
                 <div class="cursor-pointer">
                     <a href="/my/represent-gallery" class="no-text-decoration text-dark hover-underline">슬라이드 작품 관리</a>
                 </div>
-                <div class="cursor-pointer">
-                    <a href="/my/display-gallery" class="no-text-decoration text-dark hover-underline">대표 작품 관리</a>
-                </div>
                 <!-- <div class="cursor-pointer">
                     <a href="/my/social" class="no-text-decoration text-dark hover-underline">소셜사이트 관리</a>
                 </div> -->

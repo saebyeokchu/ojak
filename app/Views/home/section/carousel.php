@@ -1,13 +1,36 @@
+<?php
+
+$item = [null,null,null];
+
+if(isset($data)){
+  foreach($data['showpieces'] as $d){
+    if($d['name'] == "showpiece1"){
+        $item[0] = $d;
+    }
+
+    if($d['name'] == "showpiece2"){
+        $item[1] = $d;
+    }
+
+    if($d['name'] == "showpiece3"){
+        $item[2] = $d;
+    }
+}
+
+}
+
+?>
+
 <div class="for-lg">
   <div class="owl-carousel main-carousel overflow-hidden bg-dark">
     <div class="item">
-      <img src="img/resource/home/carousel1.jpg" alt="Carousel Image 1" />
+      <img src="/img/user/<?=$item[0]['value']?>" alt="Carousel Image 1" />
     </div>
     <div class="item">
-      <img src="img/resource/home/carousel2.jpg" alt="Carousel Image 2" />
+      <img src="/img/user/<?=$item[1]['value']?>" alt="Carousel Image 2" />
     </div>
     <div class="item">
-      <img src="img/resource/home/carousel3.jpg" alt="Carousel Image 3" />
+      <img src="/img/user/<?=$item[2]['value']?>" alt="Carousel Image 3" />
     </div>
   </div>
 </div>
@@ -15,13 +38,13 @@
 <div class="for-sm">
   <div class="owl-carousel main-carousel overflow-hidden bg-dark" style="height: 400px;"> <!-- Adjust carousel height -->
     <div class="item">
-      <img src="img/resource/home/carousel1.jpg" alt="Carousel Image 1" class="w-100" style="object-fit: cover; height: 400px;" />
+      <img src="/img/user/<?=$item[0]['value']?>" alt="Carousel Image 1" class="w-100" style="object-fit: cover; height: 400px;" />
     </div>
     <div class="item">
-      <img src="img/resource/home/carousel2.jpg" alt="Carousel Image 2" class="w-100" style="object-fit: cover; height: 400px;" />
+      <img src="/img/user/<?=$item[1]['value']?>" alt="Carousel Image 2" class="w-100" style="object-fit: cover; height: 400px;" />
     </div>
     <div class="item">
-      <img src="img/resource/home/carousel3.jpg" alt="Carousel Image 3" class="w-100" style="object-fit: cover; height: 400px;" />
+      <img src="/img/user/<?=$item[2]['value']?>" alt="Carousel Image 3" class="w-100" style="object-fit: cover; height: 400px;" />
     </div>
   </div>
 </div>

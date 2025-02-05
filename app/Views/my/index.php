@@ -53,8 +53,6 @@
                 echo view('/my/info',array('data' => $data, 'isAdmin' => $isAdmin));
             }else if($sub == 'busniess'){
                 echo view('/my/busniess',array('data' => $data, 'isAdmin' => $isAdmin));
-            }else if($sub == 'display-gallery'){
-                echo view('/my/display-gallery',array('data' => $data)); 
             }else if($sub == 'represent-gallery'){
                 echo view('/my/represent-gallery',array('data' => $data)); 
             }else if($sub == 'notice'){

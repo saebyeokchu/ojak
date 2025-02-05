@@ -48,6 +48,30 @@ class Setting extends BaseController
         
     }
 
+    //category2
+    public function updateShowpiece(){
+        //있는걸로 업데이트할때
+        $selectedImgName = $this->request->getPost('selectedImgName');
+        $selectedCarouselNo = $this->request->getPost('selectedCarouselNo');
+
+        if($selectedCarouselNo && $selectedImgName){
+            $api = new \App\Controllers\Api();
+            $result = $api -> updateSettingByName('showpiece'.$selectedCarouselNo,$selectedImgName);
+
+            if($result){
+                return $this->response->setJSON([
+                    'status' => 'success',
+                    'message' => '성공적으로 반영되었습니다.',
+                ]);
+            } else {
+                return $this->response->setJSON([
+                    'status' => 'error',
+                    'message' => '반영에 실패하였습니다. 잠시 후 다시 시도하여 주세요.'
+                ]);
+            }
+        }
+    }
+
     //category4
     public function uploadDisplayGallery()
     {   

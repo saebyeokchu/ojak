@@ -9,10 +9,10 @@ class Home extends BaseController
         $api = new \App\Controllers\Api();
 
         //get show pieces
-        // $result = $api -> getRepresentGallery();
-        // if($result['status'] == 'success') {
-        //     $data['contents']['showpieces'] = $result['data'];
-        // }
+        $result = $api -> getRepresentGallery();
+        if($result['status'] == 'success') {
+            $data['contents']['showpieces'] = $result['data'];
+        }
 
         //get exhibit gallery
         $result = $api -> getExhibitGallery();

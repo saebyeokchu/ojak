@@ -55,6 +55,7 @@ $routes->post('/auth/checkAuthEmail', 'Auth::checkAuthEmail');
 
 // Setting
 $routes->post('/setting/uploadNotice', 'Setting::uploadNotice');
+$routes->post('/setting/updateShowpiece', 'Setting::updateShowpiece');
 $routes->post('/setting/uploadDisplayGallery', 'Setting::uploadDisplayGallery');
 $routes->post('/setting/deleteDisplayGallery', 'Setting::deleteDisplayGallery');
 $routes->post('/setting/updateBusniessInfo', 'Setting::updateBusniessInfo');

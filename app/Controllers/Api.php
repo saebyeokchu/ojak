@@ -392,6 +392,25 @@ class Api extends Controller
     }
 
     //Gallery
+    public function getEntireGallery() { 
+
+        $model = new \App\Models\GalleryModel();
+        //등록순으로 보여주기
+        $items = $model->orderBy('created_at','desc')->findAll(); 
+
+        if ($items) {
+            return [
+                'status' => 'success',
+                'items' => $items,
+            ];
+        } else {
+            return [
+                'status' => 'error',
+                'message' => 'No data',
+            ];
+        }
+    }
+
     public function getAllGallery($pageIndex) { 
         $numPerPage = 8;
         $pageIndex = $pageIndex - 1;
@@ -530,22 +549,22 @@ class Api extends Controller
     }
 
     public function getExhibitGallery() {
-        // $model = new \App\Models\GalleryModel();
-        // $items = $model-> orderBy('created_at', 'desc')->findAll(6,0); 
+        // $db      = \Config\Database::connect();
+        // $builder = $db->table('setting');
 
-        $db      = \Config\Database::connect();
-        $builder = $db->table('setting');
+        // $builder->select('*');
+        // $builder->where('category',4);
+        // $builder->join('gallery', 'setting.value = gallery.id');
+        // // $builder->orderBy('setting.created_at', 'desc'); //최신순
+        // $query = $builder->get();
 
-        $builder->select('*');
-        $builder->where('category',4);
-        $builder->join('gallery', 'setting.value = gallery.id');
-        // $builder->orderBy('setting.created_at', 'desc'); //최신순
-        $query = $builder->get();
+        $model = new \App\Models\GalleryModel();
+        $items = $model->orderBy('id','desc')->limit(4)->findAll(); 
 
-        if ($query) { 
+        if ($items) { 
             return [
                 'status' => 'success',
-                'items' => $query->getResult(),
+                'items' => $items,
             ];
         } else {
             return [

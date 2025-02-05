@@ -59,32 +59,39 @@ class My extends BaseController
                     $target_data = $result['posts'];
                 }//
             }else if($sub == 'represent-gallery'){
+                $resultAllGalleries = $api -> getEntireGallery();
+                if($resultAllGalleries['status'] == 'success') {
+                    $target_data["eg"] = $resultAllGalleries['items'];
+                }
+
                 $result = $api -> getRepresentGallery();
                 if($result['status'] == 'success') {
-                    $target_data = $result['data'];
+                    $target_data['rg'] = $result['data'];
                 }//
-            }else if($sub == 'display-gallery'){
-                $target_data = [
-                    "exhibits" => null,
-                    "allGallery" => null
-                ]; 
-
-                $resultExhibits = $api -> getExhibitGallery();
-                if($resultExhibits['status'] == 'success') {
-                    $target_data["exhibits"] = $resultExhibits['items'];
-                }
-
-                //saebyeok 여기 자기것만 가져오도록 수정
-                $resultAllGalleries = $api -> getAllGallery(1);
-                if($resultAllGalleries['status'] == 'success') {
-                    $target_data["allGallery"] = $resultAllGalleries['items'];
-                }
             }else if($sub == 'user-management'){
                 $result = $api -> getAllUser();
                 if($result['status'] == 'success') {
                     $target_data = $result['users'];
                 }//
             }
+
+            // else if($sub == 'display-gallery'){
+            //     $target_data = [
+            //         "exhibits" => null,
+            //         "allGallery" => null
+            //     ]; 
+
+            //     $resultExhibits = $api -> getExhibitGallery();
+            //     if($resultExhibits['status'] == 'success') {
+            //         $target_data["exhibits"] = $resultExhibits['items'];
+            //     }
+
+            //     //saebyeok 여기 자기것만 가져오도록 수정
+            //     $resultAllGalleries = $api -> getAllGallery(1);
+            //     if($resultAllGalleries['status'] == 'success') {
+            //         $target_data["allGallery"] = $resultAllGalleries['items'];
+            //     }
+            // }
     
             $data['contents']['target_data']       = $target_data;
         }

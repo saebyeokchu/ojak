@@ -19,7 +19,7 @@
 
 <div class="d-flex justify-content-center  mt-100 " >
     <div class="d-flex flex-column px-5 w-100" style="max-width:1440px;" >
-    `<!-- breadcrumb -->
+    <!-- breadcrumb -->
     <?= view('/component/breadcrumb',[
         'breadsInput' => [ 
             ['name' => '커뮤니티', 'url' => '/community/event?pageIndex=1'], 

@@ -22,7 +22,7 @@
                 <div class="p-3"  style="width:300px;height:250px;background-color:#FCFCFC;"> 
                     <p class="fw-bold" style="font-size: 20px; height:50px;font-family: 'MaruBuri', sans-serif;"><?=$notice['title']?></p>
                     <p style="height:110px; ">
-                        <?=$notice['content']?> 2
+                        <?=$notice['content']?>
                     </p>
                     <p><?=substr($notice['created_at'],0,10)?></p>
                 </div>
