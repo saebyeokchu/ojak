@@ -221,9 +221,9 @@
                         <div class="item">
                             <img src="/img/user/<?=$item->img_url?>" alt="display-mobile-1" width="300" height="350" style="object-fit: cover; "/>
                         </div>
-                        <?php if($item->img_url) { ?>
+                        <?php if($item->img_url2) { ?>
                             <div class="item">
-                                <img src="/img/user/<?=$item->img_url?>" alt="display-mobile-2" width="300" height="350"  style="object-fit: cover; " />
+                                <img src="/img/user/<?=$item->img_url2?>" alt="display-mobile-2" width="300" height="350"  style="object-fit: cover; " />
                             </div>
                         <?php }?>
                         <?php if($item->img_url3) { ?>
