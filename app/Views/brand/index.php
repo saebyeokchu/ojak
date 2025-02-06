@@ -305,8 +305,8 @@
     </div>
 </div>
 
-<div class="d-flex justify-content-center  mt-3 mx-5" >
-    <div class="d-flex flex-column w-100" style="max-width:1440px; margin-bottom:100px; " >
+<div class="d-flex justify-content-center  mt-3 px-5" >
+    <div class="d-flex flex-column w-100 " style="max-width:1440px; margin-bottom:100px; " >
     <!-- * 카카오맵 - 큰 화면 -->
     <!-- 1. 지도 노드 -->
         <div id="daumRoughmapContainer1731324282394" class="root_daum_roughmap root_daum_roughmap_landing w-100 h-auto"></div>
@@ -323,6 +323,12 @@
 <script charset="UTF-8">
     window.addEventListener('load', () => {
         document.body.classList.add('loaded');
+
+        if(window.innerWidth > 700){
+            document.getElementById('daumRoughmapContainer1731324282394').classList.add('px-5');
+        }else{
+            document.getElementById('daumRoughmapContainer1731324282394').classList.remove('px-5');
+        }
     });
 
     new daum.roughmap.Lander({
