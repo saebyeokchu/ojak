@@ -43,7 +43,7 @@
                 foreach($gallery as $g) {
             ?>
                     <a href="/gallery/<?=$g['id']?>?pageIndex=1">
-                <div class="mt-3 border border-danger d-flex flex-column justify-content-center border border-danger">
+                <div class="mt-3  d-flex flex-column justify-content-center ">
 
                         <div class="image-container">
                             <img src="/img/user/<?=$g['img_url']?>" class="mx-auto d-block cursor-pointer" width="300" height="350"  style="object-fit:cover;"/>
