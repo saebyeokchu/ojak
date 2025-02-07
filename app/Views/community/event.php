@@ -33,6 +33,10 @@
         <!-- content -->
         <?=view('/community/event/card', [ 'posts' => $posts, 'rowCount' => $rowCount ]);?>
 
+        <div class="for-sm">
+        <?=view('/community/_component/mobileAddBtn', [ 'gubun' => 2 ]);?>
+        </div>
+
         <!-- pagination -->
         <?php if(isset($posts) && count($posts) > 0) { 
             echo view('/community/_component/pagination', 

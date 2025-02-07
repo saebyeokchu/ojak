@@ -31,8 +31,12 @@
 
         <div  style="min-height: 500px;">
             <!-- content -->
-            <div class="mt-3" style="min-height: 400px;" >
+            <div class="mt-3"  >
                 <?=view('/community/qna/table', [ 'posts' => $posts ]);?>
+            </div>
+            
+            <div class="for-sm">
+            <?=view('/community/_component/mobileAddBtn', [ 'gubun' => 3 ]);?>
             </div>
 
             <!-- pagination -->

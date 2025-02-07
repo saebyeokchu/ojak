@@ -30,12 +30,17 @@
         <!-- menu -->
         <?=view('/community/_component/category', [ 'gubun' => 1 ]);?>
 
-    
+        <!-- content -->
         <div  style="min-height: 500px;">
             <!-- content -->
             <div class="mt-3" >
                 <?=view('/community/notice/table', [ 'posts' => $posts ]);?>
             </div>
+
+            <div class="for-sm">
+            <?=view('/community/_component/mobileAddBtn', [ 'gubun' => 1 ]);?>
+            </div>
+            
 
             <!-- pagination -->
             <?php if($rowCount > 0) { 
