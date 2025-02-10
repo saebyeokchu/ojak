@@ -17,8 +17,8 @@
     }
 ?>
 
-<div class="d-flex justify-content-center   mt-100" >
-    <div class="d-flex flex-column px-5    w-100" style="max-width:1440px;" >
+<div class="d-flex justify-content-center mt-100" >
+    <div class="d-flex flex-column px-5 w-100" style="max-width:1440px;" >
     
         <!-- breadcrumb -->
         <?= view('/component/breadcrumb',[

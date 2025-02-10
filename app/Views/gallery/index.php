@@ -53,7 +53,7 @@
 
 
             <!-- content -->
-            <div class="grid " id="galleryOuterWrapper" >
+            <div class="grid " id="galleryOuterWrapper" style="min-height: 500px;" >
                 <!-- <div class="d-flex justify-content-center">
                     <p class="fw-bold" style="font-size: 32px;">갤러리</p>
                 </div> -->

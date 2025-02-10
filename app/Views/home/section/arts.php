@@ -15,9 +15,9 @@
                     </div> -->
 
 <?php if(count($gallery) > 0){ ?>
-    <div class="for-lg">
+    <div class="for-lg " >
         <div class=" d-flex justify-content-center  " >
-            <div class="px-5 row row-cols-1 row-cols-md-4 w-100" style="max-width: 1440px;">
+            <div class=" row row-cols-1 row-cols-md-4 w-100 px-5" style="max-width: 1440px;" >
                 <?php 
                     foreach($gallery as $g) {
                 ?>

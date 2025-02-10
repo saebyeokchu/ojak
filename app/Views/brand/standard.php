@@ -1,4 +1,4 @@
-<div class="d-flex justify-content-center  mt-100" >
+<div class="d-flex justify-content-center mt-100" >
     <div class="d-flex flex-column px-5 w-100" style="max-width:1440px;" >
         <!-- breadcrumb -->
         <?= view('/component/breadcrumb',[
@@ -42,7 +42,7 @@
 
             <div class="row text-start mt-5 " style="margin-top: 20px;">
                 <div class="col-sm-6 row">
-                    <img src="/img/resource/brand/brand2.png" width="350"  />
+                    <img src="/img/resource/brand/brand2.png" style="width:650px" />
                 </div>
                 <div class="col-sm-6 d-flex flex-column" style="width:650px;"  >
                     <div style="font-size: 24px;font-family: 'NanumSquareNeo', sans-serif; font-weight: 800;">
@@ -79,10 +79,11 @@
     </div>
 </div>
 
-<div class="d-flex justify-content-center  " >
-    <div class="d-flex flex-column px-5 w-100"  >
+
+<div class="d-flex justify-content-center mt-100 " style="background-color:#FCFCFC;" >
+    <div class="d-flex flex-column px-5 w-100">
         <!-- section 2 -->
-        <div class="grid text-center mt-100 pb-5 " style="background-color:#FCFCFC;" >
+        <div class="grid text-center pb-5 "  >
             <div class="d-flex flex-column mt-5 justify-content-center">
                 <div>
                     <svg width="47" height="23" viewBox="0 0 47 23" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -124,8 +125,8 @@
     </div>
 </div>
 
-<div class="d-flex justify-content-center   " >
-    <div class="d-flex flex-column px-5 w-100"  >
+<div class="d-flex justify-content-center" >
+    <div class="d-flex flex-column px-5 w-100">
         <!-- section 3 -->
         <div class="grid " style="margin-top:70px;" >
             <div class="d-flex flex-column justify-content-center text-center">

@@ -3,14 +3,17 @@
     if(isset($_COOKIE['user_id'])){
         $userId = $_COOKIE['user_id'];
     }
+    $isLoggedIn = isset($_COOKIE["user_id"]);
 
     //underline setting
     $currentUrl = $_SERVER['REQUEST_URI'];
     $lgBrandUrl = "hover-underline";
+    $lgCommunityUrl = "hover-underline";
     $lgGalleryUrl = "hover-underline";
     $lgNoticeUrl = "hover-underline";
     $lgEventUrl = "hover-underline";
     $lgQnaUrl = "hover-underline";
+    $lgLoginUrl = "hover-underline"; 
     $lgMypageUrl  = "hover-underline";
 
     if(strpos($currentUrl, 'brand')){
@@ -19,15 +22,17 @@
     if(strpos($currentUrl, 'gallery')){
         $lgGalleryUrl="text-decoration-underline";
     }
-
     //community/list/3
-    if(strpos($currentUrl, 'community/list/1')){
+    if(strpos($currentUrl, 'community/notice')){
         $lgNoticeUrl="text-decoration-underline";
+        $lgCommunityUrl = "text-decoration-underline";
     }
-    if(strpos($currentUrl, 'community/list/2')){
+    if(strpos($currentUrl, 'community/event')){
+        $lgCommunityUrl="text-decoration-underline";
         $lgEventUrl="text-decoration-underline";
     }
-    if(strpos($currentUrl, 'community/list/3')){
+    if(strpos($currentUrl, 'community/qna')){
+        $lgCommunityUrl="text-decoration-underline";
         $lgQnaUrl="text-decoration-underline";
     }
 
@@ -36,23 +41,32 @@
     }
 ?>
 
-
-
     <!-- mobile header -webkit-fill-available;-->
-    <!-- view('/header/_component/mobile_header')  -->
+    <div class="for-sm">
+        <?= view('/component/_header/mobile', [
+            'lgMypageUrl' => $lgMypageUrl,
+            'lgBrandUrl' => $lgBrandUrl,
+            'lgGalleryUrl' => $lgGalleryUrl,
+            'lgCommunityUrl' => $lgCommunityUrl,
+        ]) ?>
+    </div>
 
 
-    <!-- Lg HEADER SECTION -->
-    <?= view('/header/_component/pc_header', [ 
-        "userId" => $userId ,
-        "lgMypageUrl" => $lgMypageUrl,
-        "lgBrandUrl" => $lgBrandUrl,
-        "lgGalleryUrl" => $lgGalleryUrl,
-        "lgNoticeUrl" => $lgNoticeUrl,
-        "lgEventUrl" => $lgEventUrl,
-        "lgQnaUrl" => $lgQnaUrl
-    ]) ?>
-</div>
+    <!-- LG HEADER SECTION -->
+    <div class="for-lg">
+        <?= view('/component/_header/standard', [
+            'lgMypageUrl' => $lgMypageUrl,
+            'lgBrandUrl' => $lgBrandUrl,
+            'lgGalleryUrl' => $lgGalleryUrl,
+            'lgCommunityUrl' => $lgCommunityUrl,
+            'lgNoticeUrl' => $lgNoticeUrl,
+            'lgEventUrl' => $lgEventUrl,
+            'lgQnaUrl' => $lgQnaUrl,
+            'lgLoginUrl' => $lgLoginUrl,
+            'lgMypageUrl' => $lgMypageUrl,
+            'isLoggedIn' => $isLoggedIn
+        ]) ?>
+    </div>
 
 
 
@@ -340,16 +354,18 @@
 
     }
 
+    
+
     // script.js
     document.addEventListener("DOMContentLoaded", () => {
         //set mobile menu link
-        const mobileNoticeMenu = document.getElementById("mobileNoticeMenu");
-        const mobileEventMenu = document.getElementById("mobileEventMenu");
-        const mobileQnaMenu = document.getElementById("mobileQnaMenu");
+        // const mobileNoticeMenu = document.getElementById("mobileNoticeMenu");
+        // const mobileEventMenu = document.getElementById("mobileEventMenu");
+        // const mobileQnaMenu = document.getElementById("mobileQnaMenu");
 
-        mobileNoticeMenu.href = getAllUrl().communityNotice;
-        mobileEventMenu.href = getAllUrl().communityEvent;
-        mobileQnaMenu.href = getAllUrl().communityQna;
+        // mobileNoticeMenu.href = getAllUrl().communityNotice;
+        // mobileEventMenu.href = getAllUrl().communityEvent;
+        // mobileQnaMenu.href = getAllUrl().communityQna;
 
         //set lg header link
         const lgCommunityNotice = document.getElementById("lgCommunityNotice");
@@ -384,72 +400,147 @@
         // align-items-start  pt-5 
         const innerWrapper = document.getElementById("header-inner-wrapper");
 
-        const href = window.location.href;
-        const isBlackHeaderPage = href.includes('brand') || href.includes('gallery') || href.includes('community')
+        // //initial setting
+        // if(isBlackHeaderPage){
+        //     makeBlackHeader(
+        //         lgHeader, 
+        //         menuIcon, 
+        //         scrollIconClass, 
+        //         headerLogo, 
+        //         headerScrollLogo, 
+        //         innerWrapper, 
+        //         headerLgBlakcLogo, 
+        //         headerLgWhiteLogo, 
+        //         headerLogoClass
+        //     );
+        // }
 
-        //initial setting
-        if(isBlackHeaderPage){
-            makeBlackHeader(
-                lgHeader, 
-                menuIcon, 
-                scrollIconClass, 
-                headerLogo, 
-                headerScrollLogo, 
-                innerWrapper, 
-                headerLgBlakcLogo, 
-                headerLgWhiteLogo, 
-                headerLogoClass
-            );
+        // //scroll menu setting
+        // if(href.includes("community/new") || href.includes("community/edit") || href.includes("auth/register-request-complete") || href.includes("contract") || href.includes("personalinfo")){
+        //     makeScrolledHedaer(
+        //                 lgHeader, 
+        //                 menuIcon, 
+        //                 scrollIconClass, 
+        //                 headerLogo, 
+        //                 headerScrollLogo, 
+        //                 innerWrapper,
+        //             );
+        // }else{
+        //     window.addEventListener("scroll", () => {
+
+        //         const scrollHeader = docuemnt.getElementById("scrollHeaderWrapper");
+        //         const blackLargetLogoHeader = docuemnt.getElementById("blackHeaderLgLogoWrapper");
+        //         const blackSmallLogoHeader = docuemnt.getElementById("blackHeaderLgLogoWrapper");
+        //         const whiteHeader = docuemnt.getElementById("whiteHeaderWrapper");
+
+        //         if (window.scrollY > 50) { 
+
+        //             makeScrolledHedaer(
+        //                 lgHeader, 
+        //                 menuIcon, 
+        //                 scrollIconClass, 
+        //                 headerLogo, 
+        //                 headerScrollLogo, 
+        //                 innerWrapper,
+        //             );
+        //         } else { 
+        //             if(isBlackHeaderPage){
+        //                 makeBlackHeader(
+        //                     lgHeader, 
+        //                     menuIcon, 
+        //                     scrollIconClass, 
+        //                     headerLogo, 
+        //                     headerScrollLogo, 
+        //                     innerWrapper, 
+        //                     headerLgBlakcLogo, 
+        //                     headerLgWhiteLogo, 
+        //                     headerLogoClass,
+        //                 );
+        //             }else{
+        //                 makeWhiteHeader(
+        //                     lgHeader, 
+        //                     menuIcon, 
+        //                     scrollIconClass, 
+        //                     headerLogo, 
+        //                     headerScrollLogo, 
+        //                     innerWrapper, 
+        //                     headerLgBlakcLogo, 
+        //                     headerLgWhiteLogo,
+        //                 );
+        //             }
+        //         }
+        // });
+        // }
+        
+       
+
+        makeDynamicHeader();
+
+        const href = window.location.href;
+        const isBlackLargeHeaderPage = href.includes('brand') ||  href.includes('community');
+        const isBlackSmallHeaderPage = href.includes('gallery');
+        const isScrollHeaderPage = href.includes("community/new") || href.includes("community/edit") || href.includes("auth/register-request-complete") || href.includes("contract") || href.includes("personalinfo");
+
+        const scrollHeader = docuemnt.getElementById("scrollHeaderWrapper");
+        const blackLargeLogoHeader = docuemnt.getElementById("blackHeaderLgLogoWrapper");
+        const blackSmallLogoHeader = docuemnt.getElementById("blackHeaderSmLogoWrapper");
+        const whiteHeader = docuemnt.getElementById("whiteHeaderWrapper");
+
+        if(isScrollHeaderPage){
+            blackLargeLogoHeader.style.visibility = "hidden";
+            blackSmallLogoHeader.style.visibility = "hidden";
+            whiteHeader.style.visibility = "hidden";
+
+            scrollHeader.style.visibility = "visible";
+        }else if(isBlackSmallHeaderPage){
+            blackLargeLogoHeader.style.visibility = "hidden";
+            whiteHeader.style.visibility = "hidden";
+            scrollHeader.style.visibility = "hidden";
+
+            blackSmallLogoHeader.style.visibility = "visible";
+        }else if(isBlackLargeHeaderPage){
+            blackSmallLogoHeader.style.visibility = "hidden";
+            whiteHeader.style.visibility = "hidden";
+            scrollHeader.style.visibility = "hidden";
+
+            blackLargeLogoHeader.style.visibility = "visible";
+        }else{
+            blackLargeLogoHeader.style.visibility = "hidden";
+            blackSmallLogoHeader.style.visibility = "hidden";
+            scrollHeader.style.visibility = "hidden";
+
+            whiteHeader.style.visibility = "visible";
         }
 
-        //scroll menu setting
-        if(href.includes("community/new") || href.includes("community/edit") || href.includes("auth/register-request-complete") || href.includes("contract") || href.includes("personalinfo")){
-            makeScrolledHedaer(
-                        lgHeader, 
-                        menuIcon, 
-                        scrollIconClass, 
-                        headerLogo, 
-                        headerScrollLogo, 
-                        innerWrapper,
-                    );
-        }else{
-            window.addEventListener("scroll", () => {
-                if (window.scrollY > 50) { 
-                    makeScrolledHedaer(
-                        lgHeader, 
-                        menuIcon, 
-                        scrollIconClass, 
-                        headerLogo, 
-                        headerScrollLogo, 
-                        innerWrapper,
-                    );
-                } else { 
-                    if(isBlackHeaderPage){
-                        makeBlackHeader(
-                            lgHeader, 
-                            menuIcon, 
-                            scrollIconClass, 
-                            headerLogo, 
-                            headerScrollLogo, 
-                            innerWrapper, 
-                            headerLgBlakcLogo, 
-                            headerLgWhiteLogo, 
-                            headerLogoClass,
-                        );
-                    }else{
-                        makeWhiteHeader(
-                            lgHeader, 
-                            menuIcon, 
-                            scrollIconClass, 
-                            headerLogo, 
-                            headerScrollLogo, 
-                            innerWrapper, 
-                            headerLgBlakcLogo, 
-                            headerLgWhiteLogo,
-                        );
-                    }
-                }
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 30) { 
+
+            }
         });
+
+        //gallery 만 로고 크기 줄이기
+        const logo1 = document.getElementById('clip0_320_463');
+            const logo2 = document.getElementById('clip0_320_464');
+            const lgHeaderMiddleLogo = document.getElementById('lgHeaderMiddleLogo');
+
+        if(href.includes('gallery')){
+            logo1.style.width = 68.92;
+            logo1.style.height = 117.45; 
+
+            logo2.style.width = 68.92;
+            logo2.style.height = 117.45;
+
+            lgHeaderMiddleLogo.style.width = 68.92;
+            lgHeaderMiddleLogo.style.height = 117.45;
+        }else{
+            logo1.style.width = 78.95;
+            logo1.style.height = 134.551;
+
+            logo2.style.width = 78.95;
+            logo2.style.height = 134.551;
+
+            lgHeaderMiddleLogo.style.width = 78.95;
+            lgHeaderMiddleLogo.style.height = 134.551;
         }
         
     });

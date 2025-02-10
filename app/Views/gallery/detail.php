@@ -292,7 +292,7 @@
 </div>
 
 <script>
-        window.addEventListener('load', () => {
+    window.addEventListener('load', () => {
         document.body.classList.add('loaded');
     });
     
