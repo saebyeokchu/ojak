@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>오작 - 전통 한지의 현대적 재해석</title>
-    <meta name="description" content="The small framework with powerful features">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="image/png" href="favicon.png">
     <meta name="description" content="오작(Ojak)은 전통과 현대적 감각을 결합한 창조적인 브랜드입니다. 다양한 공예품과 디자인을 만나보세요.">
@@ -11,11 +10,6 @@
     <meta name="author" content="Ojak">
     <meta name="robots" content="index, follow">
 
-    <meta name="description" content="오작(Ojak)은 전통과 현대적 감각을 결합한 창조적인 브랜드입니다. 다양한 공예품과 디자인을 만나보세요.">
-    <meta name="keywords" content="오작, Ojak, 전통 공예, 디자인, 현대 공예, 한지">
-    <meta name="author" content="Ojak">
-    <meta name="robots" content="index, follow">
-    
     <!-- Open Graph (SNS 공유용) -->
     <meta property="og:title" content="오작(Ojak) - 전통과 현대가 조화를 이루는 브랜드">
     <meta property="og:description" content="오작(Ojak)은 전통과 현대적 감각을 결합한 창조적인 브랜드입니다. 다양한 공예품과 디자인을 만나보세요.">
@@ -99,83 +93,83 @@
             document.body.classList.add('loaded');
 
             //get social info
-            axios.get('/api/getSocialInfo').then(function(response){
-                if(response['data']['status']=='success'){
-                    const data = response['data']['data'];
+            // axios.get('/api/getSocialInfo').then(function(response){
+            //     if(response['data']['status']=='success'){
+            //         const data = response['data']['data'];
 
-                    const headerNaverLogo = document.getElementById("headerNaverLogo");
-                    const headerInstaLogo = document.getElementById("headerInstaLogo");
-                    const headerYoutubeLogo = document.getElementById("headerYoutubeLogo");
+            //         const headerNaverLogo = document.getElementById("headerNaverLogo");
+            //         const headerInstaLogo = document.getElementById("headerInstaLogo");
+            //         const headerYoutubeLogo = document.getElementById("headerYoutubeLogo");
 
-                    const footerNaverLogo = document.getElementById("footerNaverLogo");
-                    const footerInstaLogo = document.getElementById("footerInstaLogo");
-                    const footerYoutubeLogo = document.getElementById("footerYoutubeLogo");
+            //         const footerNaverLogo = document.getElementById("footerNaverLogo");
+            //         const footerInstaLogo = document.getElementById("footerInstaLogo");
+            //         const footerYoutubeLogo = document.getElementById("footerYoutubeLogo");
 
-                    const footerNaverLogoLg = document.getElementById("footerNaverLogoLg");
-                    const footerInstaLogoLg = document.getElementById("footerInstaLogoLg");
-                    const footerYoutubeLogoLg = document.getElementById("footerYoutubeLogoLg");
+            //         const footerNaverLogoLg = document.getElementById("footerNaverLogoLg");
+            //         const footerInstaLogoLg = document.getElementById("footerInstaLogoLg");
+            //         const footerYoutubeLogoLg = document.getElementById("footerYoutubeLogoLg");
 
-                    //headerNaverLogo headerInstaLogo footerNaverLogo footerInstaLogo
-                    // data.forEach(e => {
-                    //     switch(e.name){
-                    //         case "네이버 블로그" : {
-                    //             footerNaverLogo.onclick = () => window.open(
-                    //                                                 e.value,
-                    //                                                 '_blank' 
-                    //                                             );
+            //         //headerNaverLogo headerInstaLogo footerNaverLogo footerInstaLogo
+            //         // data.forEach(e => {
+            //         //     switch(e.name){
+            //         //         case "네이버 블로그" : {
+            //         //             footerNaverLogo.onclick = () => window.open(
+            //         //                                                 e.value,
+            //         //                                                 '_blank' 
+            //         //                                             );
 
-                    //             footerNaverLogoLg.onclick = () => window.open(
-                    //                                                 e.value,
-                    //                                                 '_blank' 
-                    //                                             );
+            //         //             footerNaverLogoLg.onclick = () => window.open(
+            //         //                                                 e.value,
+            //         //                                                 '_blank' 
+            //         //                                             );
                                 
-                    //             //header
-                    //             headerNaverLogo.onclick = () => window.open(
-                    //                                                 e.value,
-                    //                                                 '_blank' 
-                    //                                             );
-                    //             break;
-                    //         }
-                    //         case "인스타그램" : {
-                    //             footerInstaLogo.onclick = () => window.open(
-                    //                                                 e.value,
-                    //                                                 '_blank' 
-                    //                                             );
+            //         //             //header
+            //         //             headerNaverLogo.onclick = () => window.open(
+            //         //                                                 e.value,
+            //         //                                                 '_blank' 
+            //         //                                             );
+            //         //             break;
+            //         //         }
+            //         //         case "인스타그램" : {
+            //         //             footerInstaLogo.onclick = () => window.open(
+            //         //                                                 e.value,
+            //         //                                                 '_blank' 
+            //         //                                             );
                                                                 
-                    //             footerInstaLogoLg.onclick = () => window.open(
-                    //                                                 e.value,
-                    //                                                 '_blank' 
-                    //                                             );
+            //         //             footerInstaLogoLg.onclick = () => window.open(
+            //         //                                                 e.value,
+            //         //                                                 '_blank' 
+            //         //                                             );
 
-                    //             headerInstaLogo.onclick = () => window.open(
-                    //                                                 e.value,
-                    //                                                 '_blank' 
-                    //                                             );
-                    //             break;
-                    //         }
-                    //         case "유튜브" : {
-                    //             footerYoutubeLogo.onclick = () => window.open(
-                    //                                                 e.value,
-                    //                                                 '_blank' 
-                    //                                             );
+            //         //             headerInstaLogo.onclick = () => window.open(
+            //         //                                                 e.value,
+            //         //                                                 '_blank' 
+            //         //                                             );
+            //         //             break;
+            //         //         }
+            //         //         case "유튜브" : {
+            //         //             footerYoutubeLogo.onclick = () => window.open(
+            //         //                                                 e.value,
+            //         //                                                 '_blank' 
+            //         //                                             );
                                 
-                    //             footerYoutubeLogoLg.onclick = () => window.open(
-                    //                                                 e.value,
-                    //                                                 '_blank' 
-                    //                                             );
+            //         //             footerYoutubeLogoLg.onclick = () => window.open(
+            //         //                                                 e.value,
+            //         //                                                 '_blank' 
+            //         //                                             );
 
-                    //             headerYoutubeLogo.onclick = () => window.open(
-                    //                                                 e.value,
-                    //                                                 '_blank' 
-                    //                                             );
-                    //             break;
-                    //         }
-                    //     }
-                    // });
-                }
-            }).catch(function(error){
-                console.log("error:", error);
-            });
+            //         //             headerYoutubeLogo.onclick = () => window.open(
+            //         //                                                 e.value,
+            //         //                                                 '_blank' 
+            //         //                                             );
+            //         //             break;
+            //         //         }
+            //         //     }
+            //         // });
+            //     }
+            // }).catch(function(error){
+            //     console.log("error:", error);
+            // });
                 
         });
 

@@ -16,7 +16,7 @@
     }
 
     //make share url
-    $shareUrl =  "https://".$_SERVER["HTTP_HOST"].$_SERVER["REQUEST_URI"];
+    $shareUrl =  "https://ojak.co.kr".$_SERVER["REQUEST_URI"];
     $returnUrl = "/gallery?pageIndex=".$pageIndex;
 
 ?>
