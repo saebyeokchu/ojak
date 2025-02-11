@@ -320,7 +320,7 @@ class Api extends Controller
 
         //['title', 'content', 'user_id', 'created_at'];
         $data = [
-            'name' => $name,
+            'user_name' => $name,
             'user_id' => $id,
             'user_pw' => sha1($pw)
         ];
