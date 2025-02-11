@@ -11,6 +11,11 @@
     <meta name="author" content="오작" />
     <meta name="naver-site-verification" content="55d14f2064a5c0020f085ad8d741f211bf313c48" />
 
+    <link itemprop="url" href="https://ojak.co.kr/">
+    <a itemprop="sameAs" href="https://blog.naver.com/ojak_kjs"></a>
+    <a itemprop="sameAs" href="https://www.instagram.com/ko_jeong_suk/"></a>
+    </span>
+
     <!-- Axios -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
