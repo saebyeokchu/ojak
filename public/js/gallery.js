@@ -20,8 +20,6 @@ function deleteGallery(id){
             }
         }
     }
-
-    window.alert("게시물을 삭제할 수 없습니다. 잠시 후 다시 시도하여 주세요.")
 }
 
 function updateEditModalContent(targetData){
