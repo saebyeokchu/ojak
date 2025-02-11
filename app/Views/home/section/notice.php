@@ -13,7 +13,7 @@
         <div class="col">
             <p style="font-size: 32px;font-family: 'MaruBuri', sans-serif;" > 오작의 소식을 <br/>알려드립니다.</p>
             <?php if(count($notices) > 0) {?>
-                <p style="font-size: 24px; margin-top: 50px;" ><a href="http://localhost/community/list/1?pageIndex=1 " class="text-dark">전체보기</a></p>
+                <p style="font-size: 24px; margin-top: 50px;" ><a href="/community/notice?pageIndex=1" class="text-dark">전체보기</a></p>
             <?php } ?>
         </div>
         <?php if(count($notices) > 0) {
