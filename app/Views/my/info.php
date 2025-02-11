@@ -232,6 +232,7 @@
 
         //step 1. update auth-code 
         await axios.post('/auth/checkAuthEmail', postData).then(async function(response){
+          console.log(response);
           if(response.data.status == 'success'){
             window.alert("인증에 성공하셨습니다");
             document.getElementById("authWrapper").classList.add("hide-item");
@@ -242,8 +243,11 @@
             if(document.getElementById('newAdminEmail')){
               document.getElementById('newAdminEmail').disabled = false;
             }
-            return;
+          }else{
+            window.alert("올바르지 않은 인증번호 입니다. 3분 후 다시 시도하여 주세요.");
           }
+
+          return;
         }).catch(function(error){
             console.log("error:", error);
             window.alert("올바르지 않은 인증번호 입니다. 잠시후 다시 시도하여 주세요");
