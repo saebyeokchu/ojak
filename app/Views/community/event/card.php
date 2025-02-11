@@ -23,7 +23,7 @@
                 <?php } } ?>
                         <div class="col mt-3"> 
                             <a href="<?=$detailUrl?><?=$post -> id?>">
-                                <img src="/img/user/<?=$post -> img_url?>" class="w-100 hover-saturate cursor-pointer" style="min-height: 380px;object-fit:cover;" />
+                                <img src="/img/user/<?=$post -> img_url?>" class="w-100  cursor-pointer" style="min-height: 380px;object-fit:cover;" />
                             </a>
                             <div style="font-size: 24px;" class="fw-bold mt-2">
                                 <?=$post -> title?> 2
