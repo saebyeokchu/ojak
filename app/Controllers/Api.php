@@ -296,6 +296,24 @@ class Api extends Controller
         }
     }
 
+    public function getUserByUserInputId($id){
+        $model = new \App\Models\UserModel();
+
+        $result = $model->where('user_id',$id)->findAll();
+
+        if($result) {
+            return [
+                'status' => 'success',
+                'user' => $result
+            ];
+        } else {
+            return [
+                'status' => 'error',
+                'message' => 'No data',
+            ];
+        }
+    }
+
     public function getUserByIdPw($id,$pw){
         $model = new \App\Models\UserModel();
         $result = $model->where('user_id', $id)->where('user_pw', $pw)->where('approved',1)->findAll();

@@ -82,7 +82,6 @@ class Auth extends BaseController
         $pw = $this->request->getPost('pw');
         $name = $this->request->getPost('name');
 
-        log_message('error',"name : ".$name);
 
         $api = new \App\Controllers\Api();
         $result = $api -> insertUser($id,$pw,$name);
@@ -170,7 +169,7 @@ class Auth extends BaseController
         $id = $this->request->getPost('id');
 
         $api = new \App\Controllers\Api();
-        $result = $api -> getUserByUserId($id);
+        $result = $api -> getUserByUserInputId($id);
 
         if($result['status'] == 'success'){
             //check pw
