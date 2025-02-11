@@ -150,7 +150,7 @@
     }
 
     document.addEventListener("DOMContentLoaded", () => {
-        makeDynamicUrl();
+        //makeDynamicUrl();
         makeDynamicHeader();
 
         window.addEventListener("scroll", () => {

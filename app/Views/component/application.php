@@ -6,9 +6,10 @@
     <meta name="description" content="The small framework with powerful features">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="image/png" href="favicon.png">
-    <meta name="description" content="Ojak은 전통 한지의 아름다움과 현대적 디자인을 결합한 공예품을 선보이며, 다양한 클래스와 맞춤 제작 서비스를 제공합니다." />
-    <meta name="keywords" content="Ojak, 한지, 전통 공예, 현대 디자인, 수공예, 맞춤 제작, 디자인 클래스" />
-    <meta name="author" content="Ojak" />
+    <meta name="description" content="오작은 전통 한지의 아름다움과 현대적 디자인을 결합한 공예품을 선보이며, 다양한 클래스와 맞춤 제작 서비스를 제공합니다." />
+    <meta name="keywords" content="오작, 한지, 전통 공예, 현대 디자인, 수공예, 맞춤 제작, 디자인 클래스" />
+    <meta name="author" content="오작" />
+    <meta name="naver-site-verification" content="55d14f2064a5c0020f085ad8d741f211bf313c48" />
 
     <!-- Axios -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
@@ -98,62 +99,62 @@
                     const footerYoutubeLogoLg = document.getElementById("footerYoutubeLogoLg");
 
                     //headerNaverLogo headerInstaLogo footerNaverLogo footerInstaLogo
-                    data.forEach(e => {
-                        switch(e.name){
-                            case "네이버 블로그" : {
-                                footerNaverLogo.onclick = () => window.open(
-                                                                    e.value,
-                                                                    '_blank' 
-                                                                );
+                    // data.forEach(e => {
+                    //     switch(e.name){
+                    //         case "네이버 블로그" : {
+                    //             footerNaverLogo.onclick = () => window.open(
+                    //                                                 e.value,
+                    //                                                 '_blank' 
+                    //                                             );
 
-                                footerNaverLogoLg.onclick = () => window.open(
-                                                                    e.value,
-                                                                    '_blank' 
-                                                                );
+                    //             footerNaverLogoLg.onclick = () => window.open(
+                    //                                                 e.value,
+                    //                                                 '_blank' 
+                    //                                             );
                                 
-                                //header
-                                headerNaverLogo.onclick = () => window.open(
-                                                                    e.value,
-                                                                    '_blank' 
-                                                                );
-                                break;
-                            }
-                            case "인스타그램" : {
-                                footerInstaLogo.onclick = () => window.open(
-                                                                    e.value,
-                                                                    '_blank' 
-                                                                );
+                    //             //header
+                    //             headerNaverLogo.onclick = () => window.open(
+                    //                                                 e.value,
+                    //                                                 '_blank' 
+                    //                                             );
+                    //             break;
+                    //         }
+                    //         case "인스타그램" : {
+                    //             footerInstaLogo.onclick = () => window.open(
+                    //                                                 e.value,
+                    //                                                 '_blank' 
+                    //                                             );
                                                                 
-                                footerInstaLogoLg.onclick = () => window.open(
-                                                                    e.value,
-                                                                    '_blank' 
-                                                                );
+                    //             footerInstaLogoLg.onclick = () => window.open(
+                    //                                                 e.value,
+                    //                                                 '_blank' 
+                    //                                             );
 
-                                headerInstaLogo.onclick = () => window.open(
-                                                                    e.value,
-                                                                    '_blank' 
-                                                                );
-                                break;
-                            }
-                            case "유튜브" : {
-                                footerYoutubeLogo.onclick = () => window.open(
-                                                                    e.value,
-                                                                    '_blank' 
-                                                                );
+                    //             headerInstaLogo.onclick = () => window.open(
+                    //                                                 e.value,
+                    //                                                 '_blank' 
+                    //                                             );
+                    //             break;
+                    //         }
+                    //         case "유튜브" : {
+                    //             footerYoutubeLogo.onclick = () => window.open(
+                    //                                                 e.value,
+                    //                                                 '_blank' 
+                    //                                             );
                                 
-                                footerYoutubeLogoLg.onclick = () => window.open(
-                                                                    e.value,
-                                                                    '_blank' 
-                                                                );
+                    //             footerYoutubeLogoLg.onclick = () => window.open(
+                    //                                                 e.value,
+                    //                                                 '_blank' 
+                    //                                             );
 
-                                headerYoutubeLogo.onclick = () => window.open(
-                                                                    e.value,
-                                                                    '_blank' 
-                                                                );
-                                break;
-                            }
-                        }
-                    });
+                    //             headerYoutubeLogo.onclick = () => window.open(
+                    //                                                 e.value,
+                    //                                                 '_blank' 
+                    //                                             );
+                    //             break;
+                    //         }
+                    //     }
+                    // });
                 }
             }).catch(function(error){
                 console.log("error:", error);

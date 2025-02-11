@@ -38,9 +38,9 @@
                 <div class="cursor-pointer">
                     <a href="/my/busniess" class="no-text-decoration text-dark hover-underline">사업자 정보 관리</a>
                 </div>
-                <div class="cursor-pointer">
+                <!-- <div class="cursor-pointer">
                     <a href="/my/social" class="no-text-decoration text-dark hover-underline">소셜 미디어 관리</a>
-                </div>
+                </div> -->
             <?php } ?>
         </div>
         <?php if($isAdmin) { ?>
