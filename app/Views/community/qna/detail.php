@@ -150,7 +150,8 @@
                 <div class="mt-4 d-flex flex-row justify-content-between">
                     <div>
                         <span class="fw-bold">오작 담당자</span>
-                        <span class="ojak-middle-gray ps-2"><?= $comment["created_at"]?></span>
+                        <br />
+                        <span class="ojak-middle-gray " style="font-size: 15px;"><?= $comment["created_at"]?></span>
                     </div>
                     <div class="dropdown pe-3">
                         <button class="btn btn-light" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -169,7 +170,7 @@
 
             <?php if($isAdmin) { ?>
                 <div class="pt-20">
-                    <textarea id="qnaAnswer" class="w-100 mb-2" rows="4" style="border:1px #B3B3B3 solid;" placeholder="질문에 대한 답변을 입력하세요."></textarea>
+                    <textarea id="qnaAnswer2" class="w-100 mb-2" rows="4" style="border:1px #B3B3B3 solid;" placeholder="질문에 대한 답변을 입력하세요."></textarea>
                     <div class="d-flex w-100 justify-content-end">
                         <span class="bs-button-sm" onclick="addComment(<?=$post['id']?>)">답변 입력하기</span>
                     </div>
@@ -235,17 +236,37 @@
     function addComment(postId){
         turnOnLoadingScreen();
 
-        const qnaAnswer = document.getElementById("qnaAnswer").value;
+        let qnaAnswer = document.getElementById("qnaAnswer");
+        let qnaAnswer2 = document.getElementById("qnaAnswer2");
 
-        if(!qnaAnswer){
+
+        if(qnaAnswer){
+            qnaAnswer = qnaAnswer.value;
+        }
+        
+        if(qnaAnswer2){
+            qnaAnswer2 = qnaAnswer2.value;
+        }
+
+
+        if(!qnaAnswer && !qnaAnswer2){
             window.alert("답변을 입력하세요");
+            turnOffLoadingScreen();
             return;
+        }
+
+        let comment = null;
+
+        if(qnaAnswer){
+            comment = qnaAnswer;
+        }else if(qnaAnswer2){
+            comment = qnaAnswer2;
         }
 
         try {
             var postData = new FormData();
             postData.append('postId',postId);
-            postData.append('comment',qnaAnswer);
+            postData.append('comment',comment);
 
             axios.post('/api/insertComment', postData).then(function(response){
                 console.log("success:", response);

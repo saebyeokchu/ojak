@@ -23,7 +23,7 @@
             </div>
 
             <div class="d-flex flex-column " style="margin-top:30px;" >
-                <img src="/img/resource/brand/brand1.png" class="img-fluid" />
+                <img src="/img/resource/brand/brand1.png"  width="284" style="object-fit: cover;"/>
                 <div class="d-flex flex-column text-start mt-3" >
                     <div style="font-size: 21px; font-family: 'NanumSquareNeo', sans-serif; font-weight: 800;">
                         오작, 한지의 이야기를 담다
@@ -43,7 +43,7 @@
 
             <div class="row text-start mt-5 " style="margin-top: 20px; ">
                 <div class="col-sm-6 row">
-                    <img src="/img/resource/brand/brand2.png" class="img-fluid"  />
+                    <img src="/img/resource/brand/brand2.png" width="284" style="object-fit: cover;" />
                 </div>
                 <div class="col-sm-6 d-flex flex-column" >
                     <div>

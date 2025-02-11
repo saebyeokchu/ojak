@@ -124,20 +124,20 @@
                     class="nav-link cursor-hover <?=$lgBrandUrl?> me-4" 
                     aria-current="page" 
                     href="/brand"
-                    style="padding-top: 1px;" >
+                    style="padding-top: 2px;" >
                     브랜드
                 </a>
                 <a 
                     id="lgHeaderGalleryText" 
-                    class="nav-link cursor-hover <?=$lgGalleryUrl?> me-4" 
+                    class="nav-link cursor-hover <?=$lgGalleryUrl?> me-4 " 
                     href="/gallery?pageIndex=1"
-                    style="padding-top: 1px;"
+                    style="padding-top: 2px;"
                 >갤러리</a>
                 <div 
                     class="position-relative" 
                     onmouseenter="showcommunitydiv('scrollCommunity');"  
                     onmouseleave="hidecommunitydiv('scrollCommunity');"
-                    style="padding-top: 1px;">
+                    style="padding-top: 2px;">
                     <a 
                         id="lgHeaderCommunityText" 
                         href="/community/notice?pageIndex=1" 
@@ -175,7 +175,7 @@
                     class="nav-link cursor-pointer  <?=$lgLoginUrl?> fs-6 me-4" 
                     data-bs-toggle="modal"
                     data-bs-target="#openModal" 
-                    style="padding-top: 1px;"
+                    style="padding-top: 2px;"
                 >로그인</a>
                 <!-- naver blog -->
                 <svg  class="cursor-pointer  me-4" width="29" height="30" viewBox="0 0 29 30"  xmlns="http://www.w3.org/2000/svg" 

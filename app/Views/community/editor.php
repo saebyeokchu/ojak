@@ -35,7 +35,8 @@
     <div class="d-flex flex-column px-5    w-100" style="max-width:1440px;" >
 
         <div class="d-flex container flex-column justify-content-start">
-            <p class="fw-bold" style="font-size: 32px;">커뮤니티 게시물 등록</p>
+            <p class="fw-bold for-lg" style="font-size: 32px;">커뮤니티 게시물 등록</p>
+            <p class="fw-bold for-sm" style="font-size: 26px;">커뮤니티 게시물 등록</p>
         </div>
 
         <div class = "container">
@@ -61,7 +62,7 @@
 
         <div class="container">
             <input id="editorTitle" type="text" class="form-control community-title" aria-describedby="communityTitle" placeholder="제목"  value="<?= ( isset($post) && isset($post['title']) ) ? $post['title'] : '' ?>" />
-            <span class="text-secondary mt-2" style="font-size:12px;">최대 400자까지 입력하실 수 있습니다. ( <span id="editorCounter"><?= ( isset($post) && isset($post['content']) ) ? mb_strlen($post['content']) : 0  ?></span>자 / 200자 ) </span>
+            <span class="text-secondary mt-2" style="font-size:10px;">최대 400자까지 입력하실 수 있습니다. ( <span id="editorCounter"><?= ( isset($post) && isset($post['content']) ) ? mb_strlen($post['content']) : 0  ?></span>자 / 200자 ) </span>
             <textarea id="textInput" class="w-100 form-control" rows="15" ><?= ( isset($post) && isset($post['content']) ) ? $post['content'] : ''  ?></textarea>
         </div>
 

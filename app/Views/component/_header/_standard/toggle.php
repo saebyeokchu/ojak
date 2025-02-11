@@ -48,9 +48,9 @@
             <div onmouseenter="showcommunitydiv('sm-header-community-submenu')"  onmouseleave="hidecommunitydiv('sm-header-community-submenu')">
                 <span   id="toggleCommunityText" class="mt-2 nav-link toggle-header-menu <?=$lgCommunityUrl?>" onclick="location.href='/community/notice?pageIndex=1'">커뮤니티</span>
                 <div id="sm-header-community-submenu" class="hide-y-gradually mt-2 d-flex flex-column" style="font-size: 13px;">
-                    <a class="nav-link cursor-hover <?=$lgNoticeUrl?> hover-underline-test-white" id="lgToggleCommunityNotice" >공지사항</a>
-                    <a class="nav-link cursor-hover <?=$lgEventUrl?> hover-underline-test-white mt-2" id="lgToggleCommunityEvent" >이벤트</a>
-                    <a class="nav-link cursor-hover <?=$lgQnaUrl?> hover-underline-test-white mt-2" id="lgToggleCommunityQna">Q&A</a>
+                    <a class="nav-link cursor-hover <?=$lgNoticeUrl?> hover-underline-test-white" href='/community/notice?pageIndex=1' >공지사항</a>
+                    <a class="nav-link cursor-hover <?=$lgEventUrl?> hover-underline-test-white mt-2" href='/community/event?pageIndex=1' >이벤트</a>
+                    <a class="nav-link cursor-hover <?=$lgQnaUrl?> hover-underline-test-white mt-2" href='/community/qna?pageIndex=1' >Q&A</a>
                 </div>
             </div>
         </div>

@@ -63,11 +63,19 @@
 <div class="for-sm" >
     <table class="table text-center" >
         <thead>
+            <?php if(count($posts) > 0 ) { ?>
             <tr>
                 <th>번호</th>
                 <th class="w-50">제목</th>
                 <th>조회</th>
             </tr>
+            <?php }else { ?>
+                <tr>
+                    <th>번호</th>
+                    <th >제목</th>
+                    <th>조회</th>
+                </tr>
+            <?php } ?>
         </thead>
         <tbody>
             </tr>
@@ -92,7 +100,7 @@
             <?php  } } else { ?>
                 <tr>
                     <td></td>
-                    <td>등록된 공지사항이 없습니다</td>
+                    <td colspan="3">등록된 Q&A가 없습니다</td>
                     <td></td>
                 </tr>
             <?php } ?>
