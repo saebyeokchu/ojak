@@ -82,7 +82,7 @@
                         <?php if($galleryCounter % 4 == 0) { ?> <div class='row row-cols-1 row-cols-md-4 pt-4 <?=$galleryCounter > 3 ?? 'mt-70' ?>'> <?php } ?>
                             <div class="col"> 
                                 <a href="gallery/<?=$item["id"]?>?pageIndex=<?=$pageIndex?>">
-                                    <img src="/img/user/<?=$item["img_url"]?>" class="w-100 hover-saturate cursor-pointer" style="height: 240px;object-fit:cover;" />
+                                    <img src="/img/user/<?=$item["img_url"]?>" class="w-100  cursor-pointer" style="height: 240px;object-fit:cover;" />
                                 </a>
                                 <div style="font-size: 22px;font-weight:700" class="mt-2">
                                     <?=$item["title"]?>
@@ -189,7 +189,7 @@
                         <?php if($galleryCounter % 4 == 0) { ?> <div class='g-4 row row-cols-1 row-cols-md-4 pt-4 <?=$galleryCounter > 3 ?? 'mt-70' ?>'> <?php } ?>
                             <div class="col"> 
                                 <a href="gallery/<?=$item["id"]?>?pageIndex=<?=$pageIndex?>">
-                                    <img src="/img/user/<?=$item["img_url"]?>" class="w-100 hover-saturate cursor-pointer" style="height: 240px;object-fit:cover;" />
+                                    <img src="/img/user/<?=$item["img_url"]?>" class="w-100  cursor-pointer" style="height: 240px;object-fit:cover;" />
                                 </a>
                                 <div style="font-size: 22px;font-weight:700" class="mt-2">
                                     <?=$item["title"]?>
