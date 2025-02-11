@@ -6,9 +6,21 @@
     <meta name="description" content="The small framework with powerful features">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="image/png" href="favicon.png">
-    <meta name="description" content="오작은 전통 한지의 아름다움과 현대적 디자인을 결합한 공예품을 선보이며, 다양한 클래스와 맞춤 제작 서비스를 제공합니다." />
-    <meta name="keywords" content="오작, 한지, 전통 공예, 현대 디자인, 수공예, 맞춤 제작, 디자인 클래스" />
-    <meta name="author" content="오작" />
+    <meta name="description" content="오작(Ojak)은 전통과 현대적 감각을 결합한 창조적인 브랜드입니다. 다양한 공예품과 디자인을 만나보세요.">
+    <meta name="keywords" content="오작, Ojak, 전통 공예, 디자인, 현대 공예, 한지">
+    <meta name="author" content="Ojak">
+    <meta name="robots" content="index, follow">
+
+    <meta name="description" content="오작(Ojak)은 전통과 현대적 감각을 결합한 창조적인 브랜드입니다. 다양한 공예품과 디자인을 만나보세요.">
+    <meta name="keywords" content="오작, Ojak, 전통 공예, 디자인, 현대 공예, 한지">
+    <meta name="author" content="Ojak">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph (SNS 공유용) -->
+    <meta property="og:title" content="오작(Ojak) - 전통과 현대가 조화를 이루는 브랜드">
+    <meta property="og:description" content="오작(Ojak)은 전통과 현대적 감각을 결합한 창조적인 브랜드입니다. 다양한 공예품과 디자인을 만나보세요.">
+    <meta property="og:url" content="https://ojak.co.kr">
+    
     <meta name="naver-site-verification" content="55d14f2064a5c0020f085ad8d741f211bf313c48" />
 
     <link itemprop="url" href="https://ojak.co.kr/">
