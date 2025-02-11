@@ -1,4 +1,5 @@
 function deleteGallery(id){
+    console.log("deleteGALLERY")
     if(id){
         if(window.confirm('작품을 삭제하시겠습니까?')){
             try {
@@ -16,7 +17,7 @@ function deleteGallery(id){
                 
             } catch (error) {
                 console.error('Error deleting data:', error);
-                window.alert("게시물을 삭제할 수 없습니다. 잠시 후 다시 시도하여 주세요.")
+                // window.alert("게시물을 삭제할 수 없습니다. 잠시 후 다시 시도하여 주세요.")
             }
         }
     }
