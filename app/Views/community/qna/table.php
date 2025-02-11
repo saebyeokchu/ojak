@@ -92,7 +92,7 @@
             <?php  } } else { ?>
                 <tr>
                     <td></td>
-                    <td colspan="3">등록된 Q&A가 <br />없습니다</td>
+                    <td >등록된 Q&A가 <br />없습니다</td>
                     <td></td>
                 </tr>
             <?php } ?>
