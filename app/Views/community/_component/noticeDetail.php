@@ -83,7 +83,7 @@
      window.addEventListener('load', () => {
         document.getElementById('backToListLink').onclick = () => location.href = getAllUrl().communityNotice;
      });
-    function deleteNotice(id){
+    async function deleteNotice(id){
         turnOnLoadingScreen();
 
         if(window.confirm("해당 공지사항을 삭제하시겠습니까?") && id){
@@ -92,7 +92,7 @@
                 var postData = new FormData();
                 postData.append('id',id);
 
-                axios.post('/api/deletePost', postData).then(function(response){
+                await axios.post('/api/deletePost', postData).then(function(response){
                     console.log("success:", response);
                     window.alert(response.data.message)
                     location.href = '<?=$deleteUrl?>';

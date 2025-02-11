@@ -15,7 +15,7 @@ async function deleteGallery(id, returnUrl){
                 if(returnUrl){
                     location.href = returnUrl;
                 }else{
-                    location.reload();
+                    //location.reload();
                 }
                 return;
             }).catch(function(error){
