@@ -15,7 +15,7 @@
       <button type="submit" class="btn btn-dark"  onclick="sendAuthCode(<?=$info['id']?>,'<?=$info['user_name']?>','<?=$info['user_id']?>')">이메일 인증하기</button>
     </div>
     
-    <div id="updateBtn"  class="hide-item">
+    <div id="updateBtn"  class="hide-item mt-3">
       <button type="submit" class="btn btn-dark"  onclick="updateUserInfo(<?=$info['id']?>,<?=$isAdmin?>)">수정하기</button>
     </div>
 
@@ -214,7 +214,6 @@
   }
 
   async function authEmail(id){
-    turnOnLoadingScreen();
     
     const authCodeInput = document.getElementById('authCodeInput').value;
 
@@ -227,6 +226,7 @@
         var postData = new FormData();
         postData.append('authCode',authCodeInput);
         postData.append('id',id);
+        turnOnLoadingScreen();
 
         //step 1. update auth-code 
         await axios.post('/auth/checkAuthEmail', postData).then(async function(response){
