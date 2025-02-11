@@ -3,7 +3,9 @@
 ?> 
 
 <div class="for-lg " >
+    <?php if($isAdmin) { ?>
     <p><small class="text-danger"> admin계정은 홈페이지를 관리할 수 있는 유일한 계정입니다. 변경시 유의하세요.</small></p>
+    <?php } ?>
 
     <div class="d-flex flex-column justify-content-start mt-70">
         <p ><span class="fw-bold" style="font-size: 32px;">개인 정보 관리</span><br /><span>이메일 인증 후 개인정보를 변경하실 수 있습니다.</span></p>
