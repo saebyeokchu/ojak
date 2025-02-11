@@ -9,9 +9,11 @@
 <div class="for-lg pt-100 " >
     <nav class="text-black d-flex flex-row gap-3 ps-2 " >
         <div >
-            <svg width="10" height="12" viewBox="0 0 10 12" fill="none" xmlns="http://www.w3.org/2000/svg" class="cursor-pointer" onclick="location.href='/'">
-                <path d="M5 0L0 4V12H3.125V7.33333H6.875V12H10V4L5 0Z" fill="#17171B"/>
-            </svg>
+            <a href="/">
+                <svg width="10" height="12" viewBox="0 0 10 12" fill="none" xmlns="http://www.w3.org/2000/svg" class="cursor-pointer" >
+                    <path d="M5 0L0 4V12H3.125V7.33333H6.875V12H10V4L5 0Z" fill="#17171B"/>
+                </svg>
+            </a>
         </div>
         <?php 
             if(count($breads) > 0 ) { 
@@ -33,9 +35,11 @@
 <div class="for-sm pt-30 ">
     <nav class="text-black d-flex flex-row gap-3 ps-2 " >
         <div >
-            <svg width="10" height="12" viewBox="0 0 10 12" fill="none" xmlns="http://www.w3.org/2000/svg" class="cursor-pointer" onclick="location.href='/'">
-                <path d="M5 0L0 4V12H3.125V7.33333H6.875V12H10V4L5 0Z" fill="#17171B"/>
-            </svg>
+            <a href="/">
+                <svg width="10" height="12" viewBox="0 0 10 12" fill="none" xmlns="http://www.w3.org/2000/svg" class="cursor-pointer" >
+                    <path d="M5 0L0 4V12H3.125V7.33333H6.875V12H10V4L5 0Z" fill="#17171B"/>
+                </svg>
+            </a>
         </div>
         <?php 
             if(count($breads) > 0 ) { 

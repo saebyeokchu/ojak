@@ -237,7 +237,9 @@
             document.getElementById("changePwDiv").classList.remove("hide-item");
             document.getElementById("updateBtn").classList.remove("hide-item");
             document.getElementById('newName').disabled = false;
-            document.getElementById('newAdminEmail').disabled = false;
+            if(document.getElementById('newAdminEmail')){
+              document.getElementById('newAdminEmail').disabled = false;
+            }
             return;
           }
         }).catch(function(error){

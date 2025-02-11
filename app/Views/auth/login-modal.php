@@ -315,7 +315,7 @@
             }
 
             var postData = new FormData();
-            postData.append('name', document.getElementById('register-name').value);
+            postData.append('name', name);
             postData.append('id', id);
             postData.append('pw', pw);
 
