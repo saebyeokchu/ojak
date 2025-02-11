@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" translate="no">
+<html lang="ko" translate="no">
 <head>
     <meta charset="UTF-8">
     <title>오작 - 전통 한지의 현대적 재해석</title>
@@ -20,7 +20,7 @@
     <link itemprop="url" href="https://ojak.co.kr/">
     <a itemprop="sameAs" href="https://blog.naver.com/ojak_kjs"></a>
     <a itemprop="sameAs" href="https://www.instagram.com/ko_jeong_suk/"></a>
-    </span>
+    <meta name="google" content="notranslate" />
 
     <!-- Axios -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
@@ -63,7 +63,7 @@
     <script src="/js/post.js"></script>
     <script src="/js/event.js"></script>
 </head>
-<body class="position-relative" style="font-family: 'Pretendard', sans-serif!important;" >
+<body class="position-relative notranslate" style="font-family: 'Pretendard', sans-serif!important;" >
     <div id="loading-screen" class="loading-screen hide-item">
         <div class="spinner-border text-light" role="status" aria-hidden="true"></div>
     </div>
