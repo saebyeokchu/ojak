@@ -15,16 +15,16 @@
                     </div> -->
 
 <?php if(count($gallery) > 0){ ?>
-    <div class="for-lg " >
-        <div class=" d-flex justify-content-center  " >
-            <div class=" row row-cols-1 row-cols-md-4 w-100 px-5" style="max-width: 1440px;" >
+    <div class="for-lg">
+        <div  class="d-flex justify-content-center  " >
+            <div  class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 px-5" style="width:100%; max-width: 1440px;" >
                 <?php 
                     foreach($gallery as $g) {
                 ?>
                     <div class="col">
                         <a href="/gallery/<?=$g['id']?>?pageIndex=1">
                             <div class="image-container">
-                                <img src="/img/user/<?=$g['img_url']?>" class="cursor-pointer" width="300" height="350" style="object-fit:cover;"  />
+                                <img src="/img/user/<?=$g['img_url']?>" class="cursor-pointer img-fluid" style="object-fit:cover; height:350px; width:100%;"  />
                                 <div class="overlay">
                                     <p style="font-size:24px;font-weight:700;"><?=$g['title']?></h2>
                                     <p style="font-size:16px;font-weight:600;"><?=$g['sub_title']?></p>
@@ -36,29 +36,27 @@
             </div>
         </div>
     </div>
-
     <div class="for-sm">
-        <div class="   w-100 px-5" >
-            <?php 
-                foreach($gallery as $g) {
-            ?>
-                    <a href="/gallery/<?=$g['id']?>?pageIndex=1">
-                <div class="mt-3  d-flex flex-column justify-content-center ">
-
-                        <div class="image-container">
-                            <img src="/img/user/<?=$g['img_url']?>" class="mx-auto d-block cursor-pointer" width="300" height="350"  style="object-fit:cover;"/>
-                            <div class="overlay">
-                                <p style="font-size:20px;font-weight:700;"><?=$g['title']?></h2>
-                                <p style="font-size:14px;font-weight:600;"><?=$g['sub_title']?></p>
+        <div  class="d-flex justify-content-center  " >
+            <div  class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 px-4" style="width:95%; max-width: 1440px;" >
+                <?php 
+                    foreach($gallery as $g) {
+                ?>
+                    <div class="col">
+                        <a href="/gallery/<?=$g['id']?>?pageIndex=1">
+                            <div class="image-container">
+                                <img src="/img/user/<?=$g['img_url']?>" class="cursor-pointer img-fluid" height="350" style="object-fit:cover; min-height:350px; width:auto;"  />
+                                <div class="overlay">
+                                    <p style="font-size:24px;font-weight:700;"><?=$g['title']?></h2>
+                                    <p style="font-size:16px;font-weight:600;"><?=$g['sub_title']?></p>
+                                </div>
                             </div>
-                        </div>
-                </div>
-
-                    </a>
-            <?php    }?>
+                        </a>
+                    </div>
+                <?php    }?>
+            </div>
         </div>
     </div>
-
 <?php }?>
 
 <div class="d-flex justify-content-center">
@@ -67,7 +65,8 @@
             작품 보러가기
         </span>
     </a>
-</div>
+</div> 
+
 
 <style>
     /* Container Styling */
@@ -80,7 +79,7 @@
         position: absolute;
         bottom: 0;
         left: 0;
-        width: 300px;
+        width: 100%;
         height: 130px; /* Initially hidden */
         background: rgba(0, 0, 0, 0.3); /* Semi-transparent black */
         color: white;
